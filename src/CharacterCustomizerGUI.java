@@ -3,34 +3,31 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
 
-public class CharacterCustomizerGUI extends JFrame {
+public class CharacterCustomizerGUI{
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+		public static void CharacterCustomizerGUI() {
+			JFrame frame = new JFrame();
+			frame.getContentPane().setLayout(null);
+			
+			JPanel panel = new JPanel();
+			frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+			frame.setSize (1000, 500);
+			
+			frame.getContentPane ().add (panel);
+			
+			JLabel characterCustomizerLabel = new JLabel("Character Customizer");
+			characterCustomizerLabel.setFont(new Font("Times New Roman", Font.BOLD, 30));
+			characterCustomizerLabel.setBounds(350, 11, 287, 35);
+			frame.getContentPane().add(characterCustomizerLabel);
+			frame.setVisible(true);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainGameGUI frame = new MainGameGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
-	public CharacterCustomizerGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
+		
+	public static void main(String[] args) {
+		CharacterCustomizerGUI();
 	}
 
 }
