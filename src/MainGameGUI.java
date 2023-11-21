@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 import java.awt.Font;
 
+
 public class MainGameGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -33,9 +34,11 @@ public class MainGameGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	
 	public MainGameGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1650, 1080);
+		setSize(1650, 1080);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setForeground(new Color(255, 255, 255));
