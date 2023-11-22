@@ -81,7 +81,7 @@ public class instructions extends JFrame {
 		JTextPane mainGameDisc = new JTextPane();
 		mainGameDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		mainGameDisc.setText("The goal of the game is to simulate the growth of an ancient civilization. We start the game off as the leader of a small village, there is a rival village that is growing at an alarming rate and they have hostile relations with our village. The village has agreed to conduct a final raid on the village and they have tasked you with prepping for the next 30 days to be ready for the attack. You must survive for the next 30 days and create a thriving village to win against the rival AI village. ");
-		mainGameDisc.setBounds(81, 70, 354, 177);
+		mainGameDisc.setBounds(81, 70, 354, 224);
 		panelMain.add(mainGameDisc);
 		
 		JPanel panelRep = new JPanel();
@@ -138,7 +138,7 @@ public class instructions extends JFrame {
 		JTextPane repDisc = new JTextPane();
 		repDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		repDisc.setText("The reputation system plays an important role in how the villagers think of you as a leader. Reputation is based on how many people don’t starve and have enough fuel for their homes every single day. Once you surpass 60 reputation points you will receive a boost for farms and mining/wood supplies. A reputation of less than 20 will result in a loss from your farms and mining/wood supplies since all the workers are starting to not trust you.");
-		repDisc.setBounds(86, 70, 354, 176);
+		repDisc.setBounds(86, 70, 354, 235);
 		panelRep.add(repDisc);
 		switchButton(consEventButton, panelConsEvents);
 		panelConsEvents.setLayout(null);
@@ -152,7 +152,7 @@ public class instructions extends JFrame {
 		JTextPane eventsDisc = new JTextPane();
 		eventsDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		eventsDisc.setText("Throughout the game, you will face a series of events that will randomly occur during the game, these events have a wide range of effects on your village that can be positive or negative. The enemy village will also have random events occurring which could be the cause of your rise or downfall.");
-		eventsDisc.setBounds(122, 84, 275, 145);
+		eventsDisc.setBounds(122, 84, 275, 221);
 		panelConsEvents.add(eventsDisc);
 		switchButton(treeTradeButton, panelSkills);
 		panelSkills.setLayout(null);
@@ -166,7 +166,7 @@ public class instructions extends JFrame {
 		JTextPane skillsDisc = new JTextPane();
 		skillsDisc.setText("As you progress, spend your time and precious resources researching and unlocking new upgrades that will help your civilization thrive. For instance, better crops, more efficient mines, superior soldiers, and trading benefits. You can also choose to trade in your resources for other things your village is in need of to support your people. Trade for food, resources, research points, or Villagers but at a cost!");
 		skillsDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		skillsDisc.setBounds(81, 86, 378, 144);
+		skillsDisc.setBounds(81, 86, 378, 219);
 		panelSkills.add(skillsDisc);
 		switchButton(winLossButton, panelWin);
 		panelWin.setLayout(null);
@@ -174,7 +174,7 @@ public class instructions extends JFrame {
 		JTextPane winLossDisc = new JTextPane();
 		winLossDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		winLossDisc.setText("At the end of the entire 30 days, the raid on the rival village will occur whether the player is ready for it or not. When the raid occurs, and your village has the higher combat power, they will come on top as the winner. If not you will be forgotten in history forever.");
-		winLossDisc.setBounds(129, 73, 267, 139);
+		winLossDisc.setBounds(129, 73, 267, 232);
 		panelWin.add(winLossDisc);
 		
 		JLabel winsLabel = new JLabel("Win/Loss");
@@ -194,7 +194,7 @@ public class instructions extends JFrame {
 		JTextPane connectDisc = new JTextPane();
 		connectDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		connectDisc.setText("Whenever a raid occurs, you must play a game of connect 4 with the enemy village to decide the winner. You will take turns dropping discs into the grid, starting in the middle or at the edge to stack their colored discs upwards, horizontally, or diagonally. Using strategy to outsmart the enemies.");
-		connectDisc.setBounds(121, 70, 286, 144);
+		connectDisc.setBounds(121, 70, 286, 235);
 		panelConnect.add(connectDisc);
 		switchButton(mainIdeaButton, panelMain);
 	}
