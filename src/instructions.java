@@ -18,15 +18,16 @@ public class instructions extends JFrame {
 
 	private JPanel contentPane;
 	private JLayeredPane layeredPane;
+	private static instructions frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createInstructionMenu(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					instructions frame = new instructions();
+					frame = new instructions();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -106,6 +107,12 @@ public class instructions extends JFrame {
 		JButton backToMainButton = new JButton("Back");
 		backToMainButton.setBounds(84, 0, 66, 29);
 		contentPane.add(backToMainButton);
+		backToMainButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainMenuGUI.createMainMenu(null);
+				frame.setVisible(false);
+			}
+		});
 		
 		JButton reputationButton = new JButton("Reputation");
 		reputationButton.setBounds(137, 26, 95, 29);

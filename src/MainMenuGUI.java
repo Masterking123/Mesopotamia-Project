@@ -62,6 +62,12 @@ public class MainMenuGUI extends JFrame {
 		JButton btnHelp = new JButton("Help");
 		btnHelp.setBounds(150, 169, 133, 38);
 		contentPane.add(btnHelp);
+		btnHelp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				instructions.createInstructionMenu(null);
+				frame.setVisible(false);
+			}
+		});
 		
 		JButton btnQuit = new JButton("Quit");
 		btnQuit.addActionListener(new ActionListener() {
