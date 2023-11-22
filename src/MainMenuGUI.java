@@ -15,15 +15,16 @@ public class MainMenuGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static MainMenuGUI frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createMainMenu(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainMenuGUI frame = new MainMenuGUI();
+					frame = new MainMenuGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,9 +49,15 @@ public class MainMenuGUI extends JFrame {
 		lblNewLabel_1.setBounds(82, 50, 289, 33);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("Start");
-		btnNewButton.setBounds(150, 121, 133, 38);
-		contentPane.add(btnNewButton);
+		JButton btnStart = new JButton("Start");
+		btnStart.setBounds(150, 121, 133, 38);
+		contentPane.add(btnStart);
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CharacterCustomizerGUI.CharacterCustomizerGUI();
+				frame.setVisible(false);
+			}
+		});
 		
 		JButton btnHelp = new JButton("Help");
 		btnHelp.setBounds(150, 169, 133, 38);
