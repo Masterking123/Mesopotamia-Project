@@ -49,7 +49,7 @@ public class MainGameGUI extends JFrame {
 		contentPane = new JPanel() {  
 			public void paintComponent(Graphics g) {  
           Image img = Toolkit.getDefaultToolkit().getImage(  
-          MainGameGUI.class.getResource("/images/gameBackgroundImage.jpg"));  
+          MainGameGUI.class.getResource("/images/gameBackgroundImage(2).jpg"));  
           g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
               }  
           };  
@@ -61,18 +61,29 @@ public class MainGameGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton addFarmerButton = new JButton("+");
+		addFarmerButton.setBackground(new Color(255, 255, 255));
 		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addFarmerButton.setBounds(121, 404, 59, 37);
+		addFarmerButton.setBounds(262, 421, 59, 37);
 		contentPane.add(addFarmerButton);
 		
 		JButton minusFarmerButton = new JButton("-");
 		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusFarmerButton.setBounds(234, 404, 64, 37);
+		minusFarmerButton.setBounds(341, 421, 64, 37);
 		contentPane.add(minusFarmerButton);
 		
-		JLabel lblNewLabel = new JLabel("Farmers");
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
-		lblNewLabel.setBounds(149, 350, 172, 23);
+		JLabel farmerLabel = new JLabel("Farmers");
+		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		farmerLabel.setBounds(274, 303, 172, 31);
+		contentPane.add(farmerLabel);
+		
+		JLabel lblNewLabel = new JLabel("Miners");
+		lblNewLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		lblNewLabel.setBounds(645, 414, 132, 44);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Military");
+		lblNewLabel_1.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		lblNewLabel_1.setBounds(927, 251, 144, 44);
+		contentPane.add(lblNewLabel_1);
 	}
 }
