@@ -21,7 +21,6 @@ public class MainGameGUI extends JFrame {
 	public double farmer; 
 	public double miner; 
 	public double research; 
-
 	/**
 	 * Launch the application.
 	 */
@@ -61,12 +60,13 @@ public class MainGameGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton addFarmerButton = new JButton("+");
-		addFarmerButton.setBackground(new Color(255, 255, 255));
+		addFarmerButton.setBackground(new Color(192, 192, 192));
 		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		addFarmerButton.setBounds(262, 421, 59, 37);
 		contentPane.add(addFarmerButton);
 		
 		JButton minusFarmerButton = new JButton("-");
+		minusFarmerButton.setBackground(new Color(192, 192, 192));
 		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		minusFarmerButton.setBounds(341, 421, 64, 37);
 		contentPane.add(minusFarmerButton);
@@ -85,5 +85,29 @@ public class MainGameGUI extends JFrame {
 		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		militaryLabel.setBounds(927, 251, 144, 44);
 		contentPane.add(militaryLabel);
+		
+		JButton addMinerButton = new JButton("+");
+		addMinerButton.setBackground(new Color(192, 192, 192));
+		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		addMinerButton.setBounds(614, 571, 59, 37);
+		contentPane.add(addMinerButton);
+		
+		JButton minusMinerButton = new JButton("-");
+		minusMinerButton.setBackground(new Color(192, 192, 192));
+		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		minusMinerButton.setBounds(683, 571, 64, 37);
+		contentPane.add(minusMinerButton);
+		
+		JButton addMilitaryButton = new JButton("+");
+		addMilitaryButton.setBackground(new Color(192, 192, 192));
+		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		addMilitaryButton.setBounds(913, 377, 59, 37);
+		contentPane.add(addMilitaryButton);
+		
+		JButton minusMilitaryButton = new JButton("-");
+		minusMilitaryButton.setBackground(new Color(192, 192, 192));
+		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		minusMilitaryButton.setBounds(990, 377, 64, 37);
+		contentPane.add(minusMilitaryButton);
 	}
 }
