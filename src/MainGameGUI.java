@@ -76,14 +76,14 @@ public class MainGameGUI extends JFrame {
 		farmerLabel.setBounds(274, 303, 172, 31);
 		contentPane.add(farmerLabel);
 		
-		JLabel lblNewLabel = new JLabel("Miners");
-		lblNewLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		lblNewLabel.setBounds(645, 414, 132, 44);
-		contentPane.add(lblNewLabel);
+		JLabel minerLabel = new JLabel("Miners");
+		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		minerLabel.setBounds(645, 414, 132, 44);
+		contentPane.add(minerLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Military");
-		lblNewLabel_1.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		lblNewLabel_1.setBounds(927, 251, 144, 44);
-		contentPane.add(lblNewLabel_1);
+		JLabel militaryLabel = new JLabel("Military");
+		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		militaryLabel.setBounds(927, 251, 144, 44);
+		contentPane.add(militaryLabel);
 	}
 }
