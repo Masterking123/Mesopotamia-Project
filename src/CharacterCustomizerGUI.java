@@ -5,13 +5,19 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class CharacterCustomizerGUI{
-	private static JTextField playerName;
-	private static JTextField rivalVillageName;
-	private static JTextField playerVillageName;
+	private static JTextField playerNameText;
+	private static JTextField rivalVillageNameText;
+	private static JTextField playerVillageNameText;
+	private static String playerName;
+	private static String playerVillageName;
+	private static String rivalVillageName;
 
 		public static void CharacterCustomizerGUI() {
 			JFrame frame = new JFrame();
@@ -43,31 +49,43 @@ public class CharacterCustomizerGUI{
 			playerVillageNameLabel.setBounds(698, 77, 230, 24);
 			frame.getContentPane().add(playerVillageNameLabel);
 			
-			playerName = new JTextField();
-			playerName.setFont(new Font("Times New Roman", Font.BOLD, 20));
-			playerName.setBounds(38, 124, 263, 35);
-			frame.getContentPane().add(playerName);
-			playerName.setColumns(10);
+			playerNameText = new JTextField();
+			playerNameText.setFont(new Font("Times New Roman", Font.BOLD, 20));
+			playerNameText.setBounds(38, 124, 263, 35);
+			frame.getContentPane().add(playerNameText);
+			playerNameText.setColumns(10);
 			
-			rivalVillageName = new JTextField();
-			rivalVillageName.setFont(new Font("Times New Roman", Font.BOLD, 20));
-			rivalVillageName.setColumns(10);
-			rivalVillageName.setBounds(359, 124, 263, 35);
-			frame.getContentPane().add(rivalVillageName);
+			rivalVillageNameText = new JTextField();
+			rivalVillageNameText.setFont(new Font("Times New Roman", Font.BOLD, 20));
+			rivalVillageNameText.setColumns(10);
+			rivalVillageNameText.setBounds(359, 124, 263, 35);
+			frame.getContentPane().add(rivalVillageNameText);
 			
-			playerVillageName = new JTextField();
-			playerVillageName.setFont(new Font("Tahoma", Font.BOLD, 20));
-			playerVillageName.setColumns(10);
-			playerVillageName.setBounds(679, 124, 263, 35);
-			frame.getContentPane().add(playerVillageName);
+			playerVillageNameText = new JTextField();
+			playerVillageNameText.setFont(new Font("Times New Roman", Font.BOLD, 20));
+			playerVillageNameText.setColumns(10);
+			playerVillageNameText.setBounds(679, 124, 263, 35);
+			frame.getContentPane().add(playerVillageNameText);
+			
+			
 			
 			JButton characterCustomizerSaveButton = new JButton("Save");
 			characterCustomizerSaveButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
 			characterCustomizerSaveButton.setBounds(430, 205, 127, 49);
 			frame.getContentPane().add(characterCustomizerSaveButton);
 			frame.setVisible(true);
-
 			
+			characterCustomizerSaveButton.addActionListener(new ActionListener() {
+			    public void actionPerformed(ActionEvent e) {
+			    	playerName = playerNameText.getText();
+			    	playerVillageName = rivalVillageNameText.getText();
+			    	rivalVillageName = playerVillageNameText.getText();
+			    	MainGameGUI.showMainGameGUI(null);
+					frame.setVisible(false);
+			    }
+			});
+			
+
 	}
 		
 	public static void main(String[] args) {
