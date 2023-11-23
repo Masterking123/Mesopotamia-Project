@@ -110,10 +110,10 @@ public class MainGameGUI extends JFrame {
 		minusMilitaryButton.setBounds(990, 377, 64, 37);
 		contentPane.add(minusMilitaryButton);
 		
-		JButton nextDayButton = new JButton("Next Day");
-		nextDayButton.setBackground(new Color(192, 192, 192));
-		nextDayButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		nextDayButton.setBounds(990, 571, 132, 37);
-		contentPane.add(nextDayButton);
+		JButton btnNewButton = new JButton("Next Day");
+		btnNewButton.setBackground(new Color(192, 192, 192));
+		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		btnNewButton.setBounds(990, 571, 132, 37);
+		contentPane.add(btnNewButton);
 	}
 }
