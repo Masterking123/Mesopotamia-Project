@@ -14,11 +14,11 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
-public class instructions extends JFrame {
+public class InstructionsPopover extends JFrame {
 
 	private JPanel contentPane;
 	private JLayeredPane layeredPane;
-	private static instructions frame;
+	private static InstructionsPopover frame;
 
 	/**
 	 * Launch the application.
@@ -27,7 +27,7 @@ public class instructions extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new instructions();
+					frame = new InstructionsPopover();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +54,7 @@ public class instructions extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public instructions() {
+	public InstructionsPopover() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
 		contentPane = new JPanel();

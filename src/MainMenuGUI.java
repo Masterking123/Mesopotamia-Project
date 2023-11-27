@@ -78,7 +78,7 @@ public class MainMenuGUI extends JFrame {
 		contentPane.add(btnHelp);
 		btnHelp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				instructions.createInstructionMenu(null);
+				InstructionsPopover.createInstructionMenu(null);
 				frame.setVisible(false);
 			}
 		});

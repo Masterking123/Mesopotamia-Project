@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
 
-public class research extends MainGameGUI {
+public class ResearchPopover extends MainGameGUI {
 
 	private JPanel contentPane;
 	private JLabel ptsLabel;
@@ -25,7 +25,7 @@ public class research extends MainGameGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					research frame = new research();
+					ResearchPopover frame = new ResearchPopover();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class research extends MainGameGUI {
 	/**
 	 * Create the frame.
 	 */
-	public research() {
+	public ResearchPopover() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 600);
 		contentPane = new JPanel();
