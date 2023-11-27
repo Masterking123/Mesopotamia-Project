@@ -74,7 +74,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(minusFarmerButton);
 		
 		JLabel farmerLabel = new JLabel("Farmers");
-		farmerLabel.setForeground(new Color(0, 0, 0));
+		farmerLabel.setForeground(new Color(255, 255, 255));
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		farmerLabel.setBounds(104, 262, 172, 31);
 		contentPane.add(farmerLabel);
@@ -126,6 +126,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel researchLabel = new JLabel("Research");
+		researchLabel.setForeground(new Color(255, 255, 255));
 		researchLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		researchLabel.setBounds(1092, 524, 153, 37);
 		contentPane.add(researchLabel);
