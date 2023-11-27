@@ -17,7 +17,7 @@ public class RandomEventPopover extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createNewRandomEventPopover(EventObject newRandomEvent) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -34,7 +34,7 @@ public class RandomEventPopover extends JFrame {
 	 * Create the frame.
 	 */
 	public RandomEventPopover() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
