@@ -11,6 +11,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class MainGameGUI extends JFrame {
@@ -113,6 +115,11 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(minusMilitaryButton);
 		
 		JButton btnNewButton = new JButton("Next Day");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RandomEventPopover.createNewRandomEventPopover(null);
+			}
+		});
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		btnNewButton.setBounds(1075, 694, 132, 37);
