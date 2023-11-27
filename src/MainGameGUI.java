@@ -48,7 +48,7 @@ public class MainGameGUI extends JFrame {
 		contentPane = new JPanel() {  
 			public void paintComponent(Graphics g) {  
           Image img = Toolkit.getDefaultToolkit().getImage(  
-          MainGameGUI.class.getResource("/images/gameBackgroundImage(2).jpg"));  
+          MainGameGUI.class.getResource("/images/gameBackground.gif"));  
           g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
               }  
           };  

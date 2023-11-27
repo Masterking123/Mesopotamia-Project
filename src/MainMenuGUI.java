@@ -1,6 +1,9 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,8 +42,19 @@ public class MainMenuGUI extends JFrame {
 	public MainMenuGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		contentPane = new JPanel() {  
+			public void paintComponent(Graphics g) {  
+          Image img = Toolkit.getDefaultToolkit().getImage(  
+          MainGameGUI.class.getResource("/images/bonzeagetest2.jpg"));  
+          g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
+              }  
+          };  
+		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setForeground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -77,12 +91,6 @@ public class MainMenuGUI extends JFrame {
 		});
 		btnQuit.setBounds(150, 215, 133, 38);
 		contentPane.add(btnQuit);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		Image img = new ImageIcon(this.getClass().getResource("bonzeagetest2.jpg")).getImage();
-		lblNewLabel.setIcon(new ImageIcon(img));
-		lblNewLabel.setBounds(10, 10, 416, 243);
-		contentPane.add(lblNewLabel);
 	}
 
 }
