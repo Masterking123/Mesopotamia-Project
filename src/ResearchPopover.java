@@ -17,6 +17,7 @@ public class ResearchPopover extends MainGameGUI {
 
 	private JPanel contentPane;
 	private JLabel ptsLabel;
+	private String boostName;
 
 	/**
 	 * Launch the application.
@@ -37,6 +38,23 @@ public class ResearchPopover extends MainGameGUI {
 	void popUp() {
 		JOptionPane.showMessageDialog(this, "Not enough Points");
 	}
+	
+//	void skillItem(JButton button, int price, JButton nextButton, String name) {	
+//		button.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if(research >= price) {
+//					research = research - price;
+//					button.setEnabled(false);
+//					nextButton.setEnabled(true);
+//					ptsLabel.setText("Points: " + research);
+//				}
+//				else {
+//					popUp();
+//				}
+//			}});
+//		
+//	}
+	
 	
 
 	/**
@@ -246,7 +264,6 @@ public class ResearchPopover extends MainGameGUI {
 					eSafetyButton.setEnabled(true);
 					ptsLabel.setText("Points: " + research);
 					//the boost
-					stoneToolsButton.setToolTipText("+10 resources per day");
 				}
 				else {
 					popUp();
@@ -415,5 +432,24 @@ public class ResearchPopover extends MainGameGUI {
 		sale3Button.setEnabled(false);
 		sale4Button.setEnabled(false);
 		
+		waterFilterButton.setToolTipText("10% more food");
+		sToolsButton.setToolTipText("+25 food per day");
+		sSeedsButton.setToolTipText("40% more food");
+		exFarmButton.setToolTipText("2x more food per person");
+		
+		stoneToolsButton.setToolTipText("+10 resources per day");
+		eSafetyButton.setToolTipText("25% more resources");
+		ironToolsButton.setToolTipText("75% more resources");
+		goldButton.setToolTipText("+400 resources");
+		
+		lArmButton.setToolTipText("+20 attack");
+		hArmourButton.setToolTipText("+45 attack");
+		blackButton.setToolTipText("60% more attack");
+		spyButton.setToolTipText("+200 attack");
+		
+		sale1Button.setToolTipText("10% off on all trades");
+		sale2Button.setToolTipText("20% off on all trades");
+		sale3Button.setToolTipText("30% off on all trades");
+		sale4Button.setToolTipText("40% off on all trades");
 	}
 }
