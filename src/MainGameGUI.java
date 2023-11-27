@@ -62,58 +62,77 @@ public class MainGameGUI extends JFrame {
 		JButton addFarmerButton = new JButton("+");
 		addFarmerButton.setBackground(new Color(192, 192, 192));
 		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addFarmerButton.setBounds(262, 421, 59, 37);
+		addFarmerButton.setBounds(252, 251, 59, 31);
 		contentPane.add(addFarmerButton);
 		
 		JButton minusFarmerButton = new JButton("-");
 		minusFarmerButton.setBackground(new Color(192, 192, 192));
 		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusFarmerButton.setBounds(341, 421, 64, 37);
+		minusFarmerButton.setBounds(321, 251, 59, 31);
 		contentPane.add(minusFarmerButton);
 		
 		JLabel farmerLabel = new JLabel("Farmers");
+		farmerLabel.setForeground(new Color(0, 0, 0));
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		farmerLabel.setBounds(274, 303, 172, 31);
+		farmerLabel.setBounds(104, 262, 172, 31);
 		contentPane.add(farmerLabel);
 		
 		JLabel minerLabel = new JLabel("Miners");
+		minerLabel.setForeground(new Color(255, 255, 255));
 		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		minerLabel.setBounds(645, 414, 132, 44);
+		minerLabel.setBounds(1092, 124, 132, 44);
 		contentPane.add(minerLabel);
 		
 		JLabel militaryLabel = new JLabel("Military");
 		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		militaryLabel.setBounds(927, 251, 144, 44);
+		militaryLabel.setBounds(614, 469, 144, 44);
 		contentPane.add(militaryLabel);
 		
 		JButton addMinerButton = new JButton("+");
 		addMinerButton.setBackground(new Color(192, 192, 192));
 		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addMinerButton.setBounds(614, 571, 59, 37);
+		addMinerButton.setBounds(601, 524, 59, 37);
 		contentPane.add(addMinerButton);
 		
 		JButton minusMinerButton = new JButton("-");
 		minusMinerButton.setBackground(new Color(192, 192, 192));
 		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusMinerButton.setBounds(683, 571, 64, 37);
+		minusMinerButton.setBounds(670, 524, 64, 37);
 		contentPane.add(minusMinerButton);
 		
 		JButton addMilitaryButton = new JButton("+");
 		addMilitaryButton.setBackground(new Color(192, 192, 192));
 		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addMilitaryButton.setBounds(913, 377, 59, 37);
+		addMilitaryButton.setBounds(1107, 179, 59, 37);
 		contentPane.add(addMilitaryButton);
 		
 		JButton minusMilitaryButton = new JButton("-");
 		minusMilitaryButton.setBackground(new Color(192, 192, 192));
 		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusMilitaryButton.setBounds(990, 377, 64, 37);
+		minusMilitaryButton.setBounds(1107, 227, 59, 37);
 		contentPane.add(minusMilitaryButton);
 		
 		JButton btnNewButton = new JButton("Next Day");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnNewButton.setBounds(990, 571, 132, 37);
+		btnNewButton.setBounds(1075, 694, 132, 37);
 		contentPane.add(btnNewButton);
+		
+		JLabel researchLabel = new JLabel("Research");
+		researchLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		researchLabel.setBounds(1092, 524, 153, 37);
+		contentPane.add(researchLabel);
+		
+		JButton addResearchButton = new JButton("+");
+		addResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		addResearchButton.setBackground(Color.LIGHT_GRAY);
+		addResearchButton.setBounds(1075, 552, 59, 37);
+		contentPane.add(addResearchButton);
+		
+		JButton minusResearchButton = new JButton("-");
+		minusResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		minusResearchButton.setBackground(Color.LIGHT_GRAY);
+		minusResearchButton.setBounds(1148, 552, 59, 37);
+		contentPane.add(minusResearchButton);
 	}
 }
