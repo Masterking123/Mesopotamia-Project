@@ -195,9 +195,10 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(statsOpenButton);
 		
 		JButton tradeOpenButton = new JButton("Trade");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, tradeOpenButton, -1, SpringLayout.NORTH, statsOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.WEST, tradeOpenButton, 30, SpringLayout.EAST, statsOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.EAST, tradeOpenButton, -14, SpringLayout.EAST, militaryLabel);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, tradeOpenButton, 2, SpringLayout.NORTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, tradeOpenButton, 0, SpringLayout.WEST, addMinerButton);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, tradeOpenButton, 46, SpringLayout.NORTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.EAST, tradeOpenButton, -31, SpringLayout.EAST, militaryLabel);
 		tradeOpenButton.setBackground(new Color(192, 192, 192));
 		tradeOpenButton.setForeground(new Color(0, 0, 0));
 		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
@@ -205,9 +206,9 @@ public class MainGameGUI extends JFrame {
 		
 		JButton btnNewButton = new JButton("Research");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 2, SpringLayout.NORTH, statsOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 38, SpringLayout.EAST, tradeOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -52, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -402, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 12, SpringLayout.EAST, tradeOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 0, SpringLayout.SOUTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -386, SpringLayout.EAST, contentPane);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
