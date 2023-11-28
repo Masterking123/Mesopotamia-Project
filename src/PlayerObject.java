@@ -13,6 +13,7 @@ public class PlayerObject {
 	public static double miningAndWood;
 	public static int percentMiningAndWoodBoost; 
 	public static int numberMiningAndWoodBoost;
+	public static int oneTimeMiningAndWoodBoost;
 	
 	public static double military;
 	public static int percentMilitaryBoost; 

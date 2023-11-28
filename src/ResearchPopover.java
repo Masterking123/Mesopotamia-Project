@@ -210,8 +210,7 @@ public class ResearchPopover extends MainGameGUI {
 					waterFilterButton.setEnabled(false);
 					sToolsButton.setEnabled(true);
 					ptsLabel.setText("Points: " + research);
-					//the boost
-					waterFilterButton.setToolTipText("10% more food");
+					PlayerObject.percentFoodBoost = 10;
 				}
 				else {
 					popUp();
@@ -223,8 +222,8 @@ public class ResearchPopover extends MainGameGUI {
 					research = research - 6;
 					sToolsButton.setEnabled(false);
 					sSeedsButton.setEnabled(true);
-					//ptsLabel.setText("Points: " + research);
-					//the boost
+					ptsLabel.setText("Points: " + research);
+					PlayerObject.numberFoodBoost = 25;
 				}
 				else {
 					popUp();
@@ -236,8 +235,8 @@ public class ResearchPopover extends MainGameGUI {
 					research = research - 6;
 					sSeedsButton.setEnabled(false);
 					exFarmButton.setEnabled(true);
-					//ptsLabel.setText("Points: " + research);
-					//the boost
+					ptsLabel.setText("Points: " + research);
+					PlayerObject.percentFoodBoost = 40;
 				}
 				else {
 					popUp();
@@ -248,8 +247,8 @@ public class ResearchPopover extends MainGameGUI {
 				if(research >= 12) {
 					research = research - 12;
 					exFarmButton.setEnabled(false);
-					//ptsLabel.setText("Points: " + research);
-					//the boost
+					ptsLabel.setText("Points: " + research);
+					PlayerObject.percentFoodBoost = 100;
 				}
 				else {
 					popUp();
@@ -263,7 +262,7 @@ public class ResearchPopover extends MainGameGUI {
 					stoneToolsButton.setEnabled(false);
 					eSafetyButton.setEnabled(true);
 					ptsLabel.setText("Points: " + research);
-					//the boost
+					PlayerObject.numberMiningAndWoodBoost = 10;
 				}
 				else {
 					popUp();
@@ -276,7 +275,7 @@ public class ResearchPopover extends MainGameGUI {
 					eSafetyButton.setEnabled(false);
 					ironToolsButton.setEnabled(true);
 					ptsLabel.setText("Points: " + research);
-					//the boost
+					PlayerObject.percentMiningAndWoodBoost = 25;
 				}
 				else {
 					popUp();
@@ -289,7 +288,7 @@ public class ResearchPopover extends MainGameGUI {
 					ironToolsButton.setEnabled(false);
 					goldButton.setEnabled(true);
 					ptsLabel.setText("Points: " + research);
-					//the boost
+					PlayerObject.percentMiningAndWoodBoost = 75;
 				}
 				else {
 					popUp();
@@ -301,7 +300,7 @@ public class ResearchPopover extends MainGameGUI {
 					research = research - 12;
 					goldButton.setEnabled(false);
 					ptsLabel.setText("Points: " + research);
-					//the boost
+					PlayerObject.oneTimeMiningAndWoodBoost = 400;
 				}
 				else {
 					popUp();
@@ -316,8 +315,7 @@ public class ResearchPopover extends MainGameGUI {
 							lArmButton.setEnabled(false);
 							hArmourButton.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
-							lArmButton.setToolTipText("+10 resources per day");
+							PlayerObject.numberMilitaryBoost = 20;
 						}
 						else {
 							popUp();
@@ -330,7 +328,7 @@ public class ResearchPopover extends MainGameGUI {
 							hArmourButton.setEnabled(false);
 							blackButton.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.numberMilitaryBoost = 45;
 						}
 						else {
 							popUp();
@@ -343,7 +341,7 @@ public class ResearchPopover extends MainGameGUI {
 							blackButton.setEnabled(false);
 							spyButton.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.percentMilitaryBoost = 60;
 						}
 						else {
 							popUp();
