@@ -39,7 +39,7 @@ public class ResearchPopover extends MainGameGUI {
 		JOptionPane.showMessageDialog(this, "Not enough Points");
 	}
 	
-//	void skillItem(JButton button, int price, JButton nextButton, String name) {	
+//	void skillItem(JButton button, int price, JButton nextButton, PlayerObject variable, int value) {	
 //		button.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				if(research >= price) {
@@ -47,6 +47,7 @@ public class ResearchPopover extends MainGameGUI {
 //					button.setEnabled(false);
 //					nextButton.setEnabled(true);
 //					ptsLabel.setText("Points: " + research);
+//					PlayerObject.variable = value;
 //				}
 //				else {
 //					popUp();
@@ -54,7 +55,7 @@ public class ResearchPopover extends MainGameGUI {
 //			}});
 //		
 //	}
-	
+//	
 	
 
 	/**
@@ -353,7 +354,7 @@ public class ResearchPopover extends MainGameGUI {
 							research = research - 12;
 							spyButton.setEnabled(false);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.numberMilitaryBoost = 200;
 						}
 						else {
 							popUp();
@@ -368,8 +369,7 @@ public class ResearchPopover extends MainGameGUI {
 							sale1Button.setEnabled(false);
 							sale2Button.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
-							sale1Button.setToolTipText("+10 resources per day");
+							PlayerObject.percentDiscountOnSales = 10;
 						}
 						else {
 							popUp();
@@ -382,7 +382,7 @@ public class ResearchPopover extends MainGameGUI {
 							sale2Button.setEnabled(false);
 							sale3Button.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.percentDiscountOnSales = 20;
 						}
 						else {
 							popUp();
@@ -395,7 +395,7 @@ public class ResearchPopover extends MainGameGUI {
 							sale3Button.setEnabled(false);
 							sale4Button.setEnabled(true);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.percentDiscountOnSales = 30;
 						}
 						else {
 							popUp();
@@ -407,7 +407,7 @@ public class ResearchPopover extends MainGameGUI {
 							research = research - 12;
 							sale4Button.setEnabled(false);
 							ptsLabel.setText("Points: " + research);
-							//the boost
+							PlayerObject.percentDiscountOnSales = 40;
 						}
 						else {
 							popUp();
