@@ -13,11 +13,11 @@ import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
 
-public class ResearchPopover extends MainGameGUI {
+public class ResearchPopover extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel ptsLabel;
-	private String boostName;
+	private double research = PlayerObject.research;
 
 	/**
 	 * Launch the application.
