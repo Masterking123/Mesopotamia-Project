@@ -1,5 +1,3 @@
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,29 +9,26 @@ import javax.swing.JTextPane;
 
 public class RandomEventPopover extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void createNewRandomEventPopover(EventObject newRandomEvent) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RandomEventPopover frame = new RandomEventPopover();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			RandomEventPopover frame = new RandomEventPopover();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	public RandomEventPopover() {
+		// This default close operation lets it when clicking the x button on the top right
+		// Only hides the popup instead of closing all JFrame
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -44,10 +39,12 @@ public class RandomEventPopover extends JFrame {
 		
 		JButton yesButton = new JButton("Yes");
 		yesButton.setBounds(95, 240, 89, 23);
+		yesButton.setVisible(false);
 		contentPane.add(yesButton);
 		
 		JButton noButton = new JButton("No");
 		noButton.setBounds(222, 240, 89, 23);
+		noButton.setVisible(false);
 		contentPane.add(noButton);
 		
 		JButton okButton = new JButton("Ok");
