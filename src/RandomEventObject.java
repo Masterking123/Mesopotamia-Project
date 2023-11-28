@@ -35,12 +35,16 @@ public class RandomEventObject {
 	public static HashMap<String, String> eventNameToDescription = new HashMap<String, String>();
 	public static HashMap<String, int[]> eventNameToEffect = new HashMap<String, int[]>();
 	
-	
+	public static int randomNumber(int startRange, int endRange) {
+		
+		return 0;
+	}
 	public static EventObject getRandomEvent(){
 		populateHashMaps();
 		
 		String randomEventName = generateRandomEvent();
 		String randomEventDescription = eventNameToDescription.get(randomEventName);
+		int[] percentLossOrGain = eventNameToEffect.get(randomEventName);
 		EventObject newRandomEvent = new EventObject(randomEventName, randomEventDescription, 1);
 		
 		return newRandomEvent;
@@ -94,8 +98,22 @@ public class RandomEventObject {
 		eventNameToDescription.put("Inspiration", "You assembled your town to give a speech to the people. The speech was successful at inspiring the town folk.");
 		
 		
+		
+		
 		// Format for percentages loss and gains
 		// [Military, Research, Farm, Mining/Wood, Reputation, Increase in population]
+		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, -20, 0, 0});
+		eventNameToEffect.put("Torando", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Drought", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Earthquake", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Neighbouring Village", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Struck Gold Mine", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Bountiful Harvest", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0});
+		
+		
 		
 	}
 }
