@@ -62,7 +62,7 @@ public class ResearchPopover extends JFrame {
 	 * Create the frame.
 	 */
 	public ResearchPopover() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 750, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -136,6 +136,7 @@ public class ResearchPopover extends JFrame {
 		JButton exitResButton = new JButton("Exit"); //exit button
 		exitResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
 			}
 		});
 		exitResButton.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
