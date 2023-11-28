@@ -36,8 +36,8 @@ public class RandomEventObject {
 	public static HashMap<String, int[]> eventNameToEffect = new HashMap<String, int[]>();
 	
 	public static int randomNumber(int startRange, int endRange) {
-		
-		return 0;
+	      int random_int = (int)Math.floor(Math.random() * (endRange - startRange + 1) + startRange);
+	      return random_int;
 	}
 	public static EventObject getRandomEvent(){
 		populateHashMaps();
@@ -100,10 +100,10 @@ public class RandomEventObject {
 		
 		
 		
-		// Format for percentages loss and gains
-		// [Military, Research, Farm, Mining/Wood, Reputation, Increase in population]
+		// Format for percentages loss and gains and number loss and gains
+		// [Military, Research, Farm, FarmLoss, Mining/Wood, Mining/Wood Loss, Reputation, Population]
 		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, -20, 0, 0});
-		eventNameToEffect.put("Torando", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Torando", new int[] {0, randomNumber(10, 50), 0, 0, 0, 0});
 		eventNameToEffect.put("Drought", new int[] {0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Earthquake", new int[] {0, 0, 0, 0, 0, 0});
@@ -111,7 +111,7 @@ public class RandomEventObject {
 		eventNameToEffect.put("Struck Gold Mine", new int[] {0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Bountiful Harvest", new int[] {0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0});
+		eventNameToEffect.put("Inspiration", new int[] {0, 0, 0, 0, 0, 0});
 		
 		
 		

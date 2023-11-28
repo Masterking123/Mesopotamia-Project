@@ -22,7 +22,7 @@ public class ResearchPopover extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createResearchPopover() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -136,7 +136,6 @@ public class ResearchPopover extends JFrame {
 		JButton exitResButton = new JButton("Exit"); //exit button
 		exitResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
 			}
 		});
 		exitResButton.setFont(new Font("Lucida Grande", Font.PLAIN, 16));

@@ -192,6 +192,11 @@ public class MainGameGUI extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, statsOpenButton, -94, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, statsOpenButton, -49, SpringLayout.SOUTH, contentPane);
 		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		statsOpenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		contentPane.add(statsOpenButton);
 		
 		JButton tradeOpenButton = new JButton("Trade");
@@ -204,14 +209,19 @@ public class MainGameGUI extends JFrame {
 		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
 		contentPane.add(tradeOpenButton);
 		
-		JButton btnNewButton = new JButton("Research");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 2, SpringLayout.NORTH, statsOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 12, SpringLayout.EAST, tradeOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 0, SpringLayout.SOUTH, statsOpenButton);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -386, SpringLayout.EAST, contentPane);
-		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
-		contentPane.add(btnNewButton);
+		JButton resarchOpenButton = new JButton("Research");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, resarchOpenButton, 2, SpringLayout.NORTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, resarchOpenButton, 12, SpringLayout.EAST, tradeOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, resarchOpenButton, 0, SpringLayout.SOUTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.EAST, resarchOpenButton, -386, SpringLayout.EAST, contentPane);
+		resarchOpenButton.setBackground(new Color(192, 192, 192));
+		resarchOpenButton.setForeground(new Color(0, 0, 0));
+		resarchOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		resarchOpenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ResearchPopover.createResearchPopover();
+			}
+		});
+		contentPane.add(resarchOpenButton);
 	}
 }
