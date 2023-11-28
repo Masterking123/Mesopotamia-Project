@@ -151,7 +151,7 @@ public class MainGameGUI extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, nextDayButton, 1207, SpringLayout.WEST, contentPane);
 		nextDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RandomEventPopover.createNewRandomEventPopover(null);
+				RandomEventPopover.createNewRandomEventPopover();
 			}
 		});
 		nextDayButton.setBackground(new Color(192, 192, 192));
