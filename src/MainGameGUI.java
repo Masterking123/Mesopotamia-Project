@@ -13,6 +13,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SpringLayout;
 
 
 public class MainGameGUI extends JFrame {
@@ -59,88 +60,157 @@ public class MainGameGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		SpringLayout sl_contentPane = new SpringLayout();
+		contentPane.setLayout(sl_contentPane);
 		
 		JButton addFarmerButton = new JButton("+");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, addFarmerButton, 251, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, addFarmerButton, 252, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, addFarmerButton, 282, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, addFarmerButton, 311, SpringLayout.WEST, contentPane);
 		addFarmerButton.setBackground(new Color(192, 192, 192));
 		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addFarmerButton.setBounds(252, 251, 59, 31);
 		contentPane.add(addFarmerButton);
 		
 		JButton minusFarmerButton = new JButton("-");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, minusFarmerButton, 251, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, minusFarmerButton, 321, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, minusFarmerButton, 282, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, minusFarmerButton, 380, SpringLayout.WEST, contentPane);
 		minusFarmerButton.setBackground(new Color(192, 192, 192));
 		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusFarmerButton.setBounds(321, 251, 59, 31);
 		contentPane.add(minusFarmerButton);
 		
 		JLabel farmerLabel = new JLabel("Farmers");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, farmerLabel, 262, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, farmerLabel, 104, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, farmerLabel, 293, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, farmerLabel, 276, SpringLayout.WEST, contentPane);
 		farmerLabel.setForeground(new Color(255, 255, 255));
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		farmerLabel.setBounds(104, 262, 172, 31);
 		contentPane.add(farmerLabel);
 		
 		JLabel minerLabel = new JLabel("Miners");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, minerLabel, 124, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, minerLabel, 1092, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, minerLabel, 168, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, minerLabel, 1224, SpringLayout.WEST, contentPane);
 		minerLabel.setForeground(new Color(255, 255, 255));
 		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		minerLabel.setBounds(1092, 124, 132, 44);
 		contentPane.add(minerLabel);
 		
 		JLabel militaryLabel = new JLabel("Military");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, militaryLabel, 469, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, militaryLabel, 614, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, militaryLabel, 513, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, militaryLabel, 758, SpringLayout.WEST, contentPane);
+		militaryLabel.setForeground(new Color(255, 255, 255));
 		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		militaryLabel.setBounds(614, 469, 144, 44);
 		contentPane.add(militaryLabel);
 		
 		JButton addMinerButton = new JButton("+");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, addMinerButton, 524, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, addMinerButton, 601, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, addMinerButton, 561, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, addMinerButton, 660, SpringLayout.WEST, contentPane);
 		addMinerButton.setBackground(new Color(192, 192, 192));
 		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addMinerButton.setBounds(601, 524, 59, 37);
 		contentPane.add(addMinerButton);
 		
 		JButton minusMinerButton = new JButton("-");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, minusMinerButton, 524, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, minusMinerButton, 670, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, minusMinerButton, 561, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, minusMinerButton, 734, SpringLayout.WEST, contentPane);
 		minusMinerButton.setBackground(new Color(192, 192, 192));
 		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusMinerButton.setBounds(670, 524, 64, 37);
 		contentPane.add(minusMinerButton);
 		
 		JButton addMilitaryButton = new JButton("+");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, addMilitaryButton, 179, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, addMilitaryButton, 1107, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, addMilitaryButton, 216, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, addMilitaryButton, 1166, SpringLayout.WEST, contentPane);
 		addMilitaryButton.setBackground(new Color(192, 192, 192));
 		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		addMilitaryButton.setBounds(1107, 179, 59, 37);
 		contentPane.add(addMilitaryButton);
 		
 		JButton minusMilitaryButton = new JButton("-");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, minusMilitaryButton, 227, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, minusMilitaryButton, 1107, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, minusMilitaryButton, 264, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, minusMilitaryButton, 1166, SpringLayout.WEST, contentPane);
 		minusMilitaryButton.setBackground(new Color(192, 192, 192));
 		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		minusMilitaryButton.setBounds(1107, 227, 59, 37);
 		contentPane.add(minusMilitaryButton);
 		
-		JButton btnNewButton = new JButton("Next Day");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton nextDayButton = new JButton("Next Day");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, nextDayButton, 694, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, nextDayButton, 1075, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, nextDayButton, 731, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, nextDayButton, 1207, SpringLayout.WEST, contentPane);
+		nextDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RandomEventPopover.createNewRandomEventPopover(null);
+				RandomEventPopover.createNewRandomEventPopover();
 			}
 		});
-		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		btnNewButton.setBounds(1075, 694, 132, 37);
-		contentPane.add(btnNewButton);
+		nextDayButton.setBackground(new Color(192, 192, 192));
+		nextDayButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		contentPane.add(nextDayButton);
 		
 		JLabel researchLabel = new JLabel("Research");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, researchLabel, 524, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, researchLabel, 1092, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, researchLabel, 561, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, researchLabel, 1245, SpringLayout.WEST, contentPane);
 		researchLabel.setForeground(new Color(255, 255, 255));
 		researchLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		researchLabel.setBounds(1092, 524, 153, 37);
 		contentPane.add(researchLabel);
 		
 		JButton addResearchButton = new JButton("+");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, addResearchButton, 552, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, addResearchButton, 1075, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, addResearchButton, 589, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, addResearchButton, 1134, SpringLayout.WEST, contentPane);
 		addResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		addResearchButton.setBackground(Color.LIGHT_GRAY);
-		addResearchButton.setBounds(1075, 552, 59, 37);
 		contentPane.add(addResearchButton);
 		
 		JButton minusResearchButton = new JButton("-");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, minusResearchButton, 552, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, minusResearchButton, 1148, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, minusResearchButton, 589, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, minusResearchButton, 1207, SpringLayout.WEST, contentPane);
 		minusResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		minusResearchButton.setBackground(Color.LIGHT_GRAY);
-		minusResearchButton.setBounds(1148, 552, 59, 37);
 		contentPane.add(minusResearchButton);
+		
+		JButton statsOpenButton = new JButton("Statistics");
+		sl_contentPane.putConstraint(SpringLayout.EAST, statsOpenButton, -779, SpringLayout.EAST, contentPane);
+		statsOpenButton.setBackground(new Color(192, 192, 192));
+		statsOpenButton.setForeground(new Color(0, 0, 0));
+		sl_contentPane.putConstraint(SpringLayout.NORTH, statsOpenButton, -94, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, statsOpenButton, -49, SpringLayout.SOUTH, contentPane);
+		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		contentPane.add(statsOpenButton);
+		
+		JButton tradeOpenButton = new JButton("Trade");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, tradeOpenButton, -1, SpringLayout.NORTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, tradeOpenButton, 30, SpringLayout.EAST, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.EAST, tradeOpenButton, -14, SpringLayout.EAST, militaryLabel);
+		tradeOpenButton.setBackground(new Color(192, 192, 192));
+		tradeOpenButton.setForeground(new Color(0, 0, 0));
+		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		contentPane.add(tradeOpenButton);
+		
+		JButton btnNewButton = new JButton("Research");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 2, SpringLayout.NORTH, statsOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 38, SpringLayout.EAST, tradeOpenButton);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -52, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -402, SpringLayout.EAST, contentPane);
+		btnNewButton.setBackground(new Color(192, 192, 192));
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		contentPane.add(btnNewButton);
 	}
 }
