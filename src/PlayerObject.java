@@ -19,6 +19,8 @@ public class PlayerObject {
 	public static int percentMilitaryBoost; 
 	public static int numberMilitaryBoost;
 	
+	public static int percentDiscountOnSales;
+	
 	public static int people;
 	public static int reputation;	
 }
