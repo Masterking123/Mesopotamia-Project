@@ -68,18 +68,20 @@ public class CharacterCustomizerGUI{
 			frame.getContentPane().add(playerVillageNameText);
 			
 			
-			
 			JButton characterCustomizerSaveButton = new JButton("Save");
 			characterCustomizerSaveButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
 			characterCustomizerSaveButton.setBounds(430, 205, 127, 49);
 			frame.getContentPane().add(characterCustomizerSaveButton);
 			frame.setVisible(true);
+
 			
 			characterCustomizerSaveButton.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			    	playerName = playerNameText.getText();
 			    	playerVillageName = rivalVillageNameText.getText();
 			    	rivalVillageName = playerVillageNameText.getText();
+			    	
+			    	System.out.println("Hi");
 			    	MainGameGUI.showMainGameGUI(null);
 					frame.setVisible(false);
 			    }
