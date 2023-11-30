@@ -27,4 +27,28 @@ public class PlayerObject {
 	
 	public static int people;
 	public static int reputation;
+	
+	public static void generateFood() {
+		food += ((people * 10) * (1 + (double) (percentFoodBoost / 100))) + numberFoodBoost;
+	}
+	
+	public static void generateMiningAndFood() {
+		miningAndWood += ((people * 10) * (1 + (double) (percentMiningAndWoodBoost / 100))) + numberMiningAndWoodBoost + oneTimeMiningAndWoodBoost;
+		oneTimeMiningAndWoodBoost = 0;
+		
+	}
+	
+	public static void generateMilitary() {
+		military = people * (1 + (double) (percentFoodBoost / 100)) + numberMilitaryBoost; 
+	}
+	
+	
+	public static void generateResearch() {
+		
+		
+	}
+
+	
+	
+	
 }

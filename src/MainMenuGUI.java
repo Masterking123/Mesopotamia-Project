@@ -63,7 +63,7 @@ public class MainMenuGUI extends JFrame {
 		lblNewLabel_1.setBounds(82, 50, 289, 33);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnStart = new JButton("Start");
+		JButton btnStart = new JButton("Start"); 
 		btnStart.setBounds(150, 121, 133, 38);
 		contentPane.add(btnStart);
 		btnStart.addActionListener(new ActionListener() {

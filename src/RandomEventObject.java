@@ -39,6 +39,8 @@ public class RandomEventObject {
 	      int random_int = (int)Math.floor(Math.random() * (endRange - startRange + 1) + startRange);
 	      return random_int;
 	}
+	
+	
 	public static EventObject getRandomEvent(){
 		populateHashMaps();
 		
@@ -98,22 +100,6 @@ public class RandomEventObject {
 		eventNameToDescription.put("Inspiration", "You assembled your town to give a speech to the people. The speech was successful at inspiring the town folk.");
 		
 		
-		
-		
-		// Format for percentages loss and gains and number loss and gains
-		// [Military, Research, Farm, FarmLoss, Mining/Wood, Mining/Wood Loss, Reputation, Population]
-		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, -20, 0, 0});
-		eventNameToEffect.put("Torando", new int[] {0, randomNumber(10, 50), 0, 0, 0, 0});
-		eventNameToEffect.put("Drought", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Earthquake", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Neighbouring Village", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Struck Gold Mine", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Bountiful Harvest", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Inspiration", new int[] {0, 0, 0, 0, 0, 0});
-		
-		
-		
 	}
+	
 }
