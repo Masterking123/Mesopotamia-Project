@@ -84,7 +84,6 @@ public class CharacterCustomizerGUI {
                 if (playerName.isEmpty() || playerVillageName.isEmpty() || rivalVillageName.isEmpty()) {
                     characterPopUp();
                 } else {
-                    // Do something with the entered data (e.g., move to the main game GUI)
                     MainGameGUI.showMainGameGUI(null);
                     frame.setVisible(false);
                 }
