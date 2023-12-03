@@ -212,6 +212,27 @@ public class InstructionsPopover extends JFrame {
 		repDisc.setEditable(false);
 		mainGameDisc.setEditable(false);
 		
+		connectDisc.setHighlighter(null);
+		winLossDisc.setHighlighter(null);
+		skillsDisc.setHighlighter(null);
+		eventsDisc.setHighlighter(null);
+		repDisc.setHighlighter(null);
+		mainGameDisc.setHighlighter(null);
+		
+		connectDisc.setCursor(null);
+		winLossDisc.setCursor(null);
+		skillsDisc.setCursor(null);
+		eventsDisc.setCursor(null);
+		repDisc.setCursor(null);
+		mainGameDisc.setCursor(null);
+		
+		connectDisc.setFocusable(false);
+		winLossDisc.setFocusable(false);
+		skillsDisc.setFocusable(false);
+		eventsDisc.setFocusable(false);
+		repDisc.setFocusable(false);
+		mainGameDisc.setFocusable(false);
+		
 		
 		
 	}

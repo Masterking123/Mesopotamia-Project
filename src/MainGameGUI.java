@@ -130,7 +130,10 @@ public class MainGameGUI extends JFrame {
 		nextDayButton.setBounds(scaledButtonnextDay[0], scaledButtonnextDay[1], scaledButtonnextDay[2], scaledButtonnextDay[3]);
 		nextDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RandomEventPopover.createNewRandomEventPopover();
+				if(Main.randomPercentOccurance(30)) {
+					EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
+					RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);
+				}
 			}
 		});
 		nextDayButton.setBackground(new Color(192, 192, 192));

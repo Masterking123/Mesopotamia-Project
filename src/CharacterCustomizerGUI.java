@@ -86,6 +86,9 @@ public class CharacterCustomizerGUI {
                 } else {
                     MainGameGUI.showMainGameGUI(null);
                     frame.setVisible(false);
+                    PlayerObject.playerName = playerNameText.getText();
+                    PlayerObject.playerVillageName = playerVillageNameText.getText();
+                    PlayerObject.rivalVillageName = rivalVillageNameText.getText();
                 }
             }
         });

@@ -105,7 +105,7 @@ public class StatsPopover extends JFrame {
 		resStatLabel.setBounds(6, 64, 157, 16);
 		statPanel.add(resStatLabel);
 		
-		JLabel popStatLabel = new JLabel("Population: " + PlayerObject.people);
+		JLabel popStatLabel = new JLabel("Population: " + PlayerObject.totalPeople);
 		popStatLabel.setBounds(6, 92, 157, 16);
 		statPanel.add(popStatLabel);
 		

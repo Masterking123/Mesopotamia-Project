@@ -10,11 +10,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RandomEventPopover extends JFrame {
+	public RandomEventPopover() {
+	}
 
 	private static JPanel contentPane;
 	private static RandomEventPopover frame;
 
-	public static void createNewRandomEventPopover() {
+	public static void createNewRandomEventPopover(String eventName, String eventDescription) {
 		
 		frame = new RandomEventPopover();
 		// This default close operation lets it when clicking the x button on the top right
@@ -28,12 +30,22 @@ public class RandomEventPopover extends JFrame {
 		frame.contentPane.setLayout(null);
 		
 		JButton yesButton = new JButton("Yes");
-		yesButton.setBounds(95, 240, 89, 23);
+		yesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+			}
+		});
+		yesButton.setBounds(95, 230, 89, 23);
 		yesButton.setVisible(false);
 		frame.contentPane.add(yesButton);
 		
 		JButton noButton = new JButton("No");
-		noButton.setBounds(222, 240, 89, 23);
+		noButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+			}
+		});
+		noButton.setBounds(222, 230, 89, 23);
 		noButton.setVisible(false);
 		frame.contentPane.add(noButton);
 		
@@ -46,16 +58,20 @@ public class RandomEventPopover extends JFrame {
 		okButton.setBounds(153, 167, 109, 34);
 		frame.contentPane.add(okButton);
 		
-		JLabel nameOfRandomEvent = new JLabel("Hurricane");
+		JLabel nameOfRandomEvent = new JLabel(eventName);
 		nameOfRandomEvent.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		nameOfRandomEvent.setHorizontalAlignment(SwingConstants.CENTER);
-		nameOfRandomEvent.setBounds(95, 0, 216, 41);
+		nameOfRandomEvent.setVerticalAlignment(SwingConstants.CENTER);
+		nameOfRandomEvent.setBounds(-50, 0, 500, 41);
 		frame.contentPane.add(nameOfRandomEvent);
 		
 		JTextPane descriptionTextPane = new JTextPane();
-		descriptionTextPane.setText("The Tornado has come across your land and has a variety of effects like killing some of your people and the storage house of food has been broken, resulting in some food being spoiled/ destroyed.");
+		descriptionTextPane.setText(eventDescription);
 		descriptionTextPane.setBounds(71, 52, 302, 69);
 		descriptionTextPane.setEditable(false);
+		descriptionTextPane.setHighlighter(null);
+		descriptionTextPane.setCursor(null);
+		descriptionTextPane.setFocusable(false);
 		frame.contentPane.add(descriptionTextPane);
 		frame.setVisible(true);
 	}
