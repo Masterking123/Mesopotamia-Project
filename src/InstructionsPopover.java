@@ -204,5 +204,15 @@ public class InstructionsPopover extends JFrame {
 		connectDisc.setBounds(121, 70, 286, 235);
 		panelConnect.add(connectDisc);
 		switchButton(mainIdeaButton, panelMain);
+		
+		connectDisc.setEditable(false);
+		winLossDisc.setEditable(false);
+		skillsDisc.setEditable(false);
+		eventsDisc.setEditable(false);
+		repDisc.setEditable(false);
+		mainGameDisc.setEditable(false);
+		
+		
+		
 	}
 }
