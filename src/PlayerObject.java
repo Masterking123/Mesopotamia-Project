@@ -64,7 +64,6 @@ public class PlayerObject {
 		totalPeople -= (int) Math.floor(totalPeople * ((double) (percentLoss / 100.0)));
 	}
 
-
 	
 
 	
