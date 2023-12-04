@@ -17,10 +17,13 @@ public class Quota {
 
     public static int people;
     public static int reputation;
+    
+    public static int foodRequiredPerPerson;
+    public static int woodRequiredPerPerson;
 
 
     public static void checkAndUpdateFoodResources() {
-        int foodRequiredPerPerson = 3 * people; 
+        foodRequiredPerPerson = 3 * people; 
         if (food >= foodRequiredPerPerson) {
    
             System.out.println("Everyone has enough food.");
@@ -44,12 +47,12 @@ public class Quota {
     }
     
     static void quotaPopUp() {
-        JOptionPane.showMessageDialog(null, "");
+        
     }
 
    
     public static void checkAndUpdateMiningAndWoodResources() {
-        int woodRequiredPerPerson = 2 * people; 
+        woodRequiredPerPerson = 2 * people; 
         if (miningAndWood >= woodRequiredPerPerson) {
             
             System.out.println("Everyone has enough wood.");
