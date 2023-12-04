@@ -15,64 +15,57 @@ public class Quota {
     public static int numberMiningAndWoodBoost;
     public static int oneTimeMiningAndWoodBoost;
 
-    public static int people;
     public static int reputation;
-    
+
     public static int foodRequiredPerPerson;
     public static int woodRequiredPerPerson;
-
+    public static int totalPeople;
+    public static int peopleLeftForFood;
+    public static int peopleLeftForWood;
 
     public static void checkAndUpdateFoodResources() {
-        foodRequiredPerPerson = 3 * people; 
+        foodRequiredPerPerson = 3 * totalPeople;
         if (food >= foodRequiredPerPerson) {
-   
             System.out.println("Everyone has enough food.");
         } 
         else {
-
             System.out.println("Not enough food for everyone!");
-            int peopleWithoutFood = (int) Math.ceil((foodRequiredPerPerson - food) / 3.0);
+            int totalPeopleWithoutFood = (int) Math.ceil((foodRequiredPerPerson - food) / 3.0);
 
-            for (int i = 0; i < peopleWithoutFood; i++) {
-                double chanceOfDeathOrLeaving = 0.25; 
+            for (int i = 0; i < totalPeopleWithoutFood; i++) {
+                double chanceOfDeathOrLeaving = 0.25;
                 Random random = new Random();
                 if (random.nextDouble() < chanceOfDeathOrLeaving) {
-
                     System.out.println("A person died/left due to lack of food.");
-                    people--;
+                    peopleLeftForFood++; // Increment the count of people who left
                     reputation--;
                 }
             }
         }
-    }
-    
-    static void quotaPopUp() {
-        
+        totalPeople = totalPeople - peopleLeftForFood;
     }
 
-   
     public static void checkAndUpdateMiningAndWoodResources() {
-        woodRequiredPerPerson = 2 * people; 
+        woodRequiredPerPerson = 2 * totalPeople;
         if (miningAndWood >= woodRequiredPerPerson) {
-            
             System.out.println("Everyone has enough wood.");
-        } else {
-           
+        } 
+        else {
             System.out.println("Not enough wood for everyone!");
-            int peopleWithoutWood = (int) Math.ceil((woodRequiredPerPerson - miningAndWood) / 2.0);
+            int totalPeopleWithoutWood = (int) Math.ceil((woodRequiredPerPerson - miningAndWood) / 2.0);
 
-           
-            for (int i = 0; i < peopleWithoutWood; i++) {
-                double chanceOfDeathOrLeaving = 0.20; 
+            for (int i = 0; i < totalPeopleWithoutWood; i++) {
+                double chanceOfDeathOrLeaving = 0.20;
                 Random random = new Random();
                 if (random.nextDouble() < chanceOfDeathOrLeaving) {
-                    
                     System.out.println("A person died/left due to lack of wood.");
-                    people--;
+                    peopleLeftForWood++; // Increment the count of people who left
                     reputation--;
                 }
             }
         }
+        totalPeople = totalPeople - peopleLeftForFood;
     }
 }
+
 

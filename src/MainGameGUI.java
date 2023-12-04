@@ -20,13 +20,13 @@ public class MainGameGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public double military; 
-	public double farmer; 
-	public double miner; 
-	public double research; 
+	public static int military = 0; 
+	public static int farmer = 0; 
+	public static int miner = 0; 
+	public static int research = 0; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
-	
+	                                                    
 	/**
 	 * Launch the application.
 	 */
@@ -65,7 +65,33 @@ public class MainGameGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel researchCount = new JLabel("" + research);
+		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		researchCount.setBounds(1245, 527, 48, 31);
+		contentPane.add(researchCount);
+		
+		JLabel minerCount = new JLabel("" + miner);
+		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		minerCount.setBounds(1134, 100, 48, 31);
+		contentPane.add(minerCount);
+		
+		JLabel militaryCount = new JLabel("" + military);
+		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		militaryCount.setBounds(589, 476, 48, 31);
+		contentPane.add(militaryCount);
+		
+		JLabel farmerCount = new JLabel("" + farmer);
+		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		farmerCount.setBounds(81, 262, 48, 31);
+		contentPane.add(farmerCount);
+		
 		addFarmerButton = new JButton("+");
+		addFarmerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				farmer = farmer + 1;
+				farmerCount.setText("" + farmer);
+			}
+		});
 		int [] scaledButtonaddFarmer = Main.scaledUIElements(257, 256, 59, 31, 1368, 912);
 		addFarmerButton.setBounds(scaledButtonaddFarmer[0], scaledButtonaddFarmer[1], scaledButtonaddFarmer[2], scaledButtonaddFarmer[3]);
 		addFarmerButton.setBackground(new Color(192, 192, 192));
@@ -73,6 +99,12 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(addFarmerButton);
 		
 		minusFarmerButton = new JButton("-");
+		minusFarmerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				farmer = farmer - 1;
+				farmerCount.setText("" + farmer);
+			}
+		});
 		int [] scaledButtonminusFarmer = Main.scaledUIElements(326, 256, 59, 31, 1368, 912);
 		minusFarmerButton.setBounds(scaledButtonminusFarmer[0], scaledButtonminusFarmer[1], scaledButtonminusFarmer[2], scaledButtonminusFarmer[3]);
 		minusFarmerButton.setBackground(new Color(192, 192, 192));
@@ -98,29 +130,53 @@ public class MainGameGUI extends JFrame {
 		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		contentPane.add(militaryLabel);
 		
-		JButton addMinerButton = new JButton("+");
-		addMinerButton.setBounds(606, 529, 59, 37);
-		addMinerButton.setBackground(new Color(192, 192, 192));
-		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		contentPane.add(addMinerButton);
-		
-		JButton minusMinerButton = new JButton("-");
-		minusMinerButton.setBounds(675, 529, 64, 37);
-		minusMinerButton.setBackground(new Color(192, 192, 192));
-		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
-		contentPane.add(minusMinerButton);
-		
 		JButton addMilitaryButton = new JButton("+");
-		addMilitaryButton.setBounds(1112, 184, 59, 37);
+		addMilitaryButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				military = military + 1;
+				militaryCount.setText("" + military);
+			}
+		});
+		addMilitaryButton.setBounds(606, 529, 59, 37);
 		addMilitaryButton.setBackground(new Color(192, 192, 192));
 		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		contentPane.add(addMilitaryButton);
 		
 		JButton minusMilitaryButton = new JButton("-");
-		minusMilitaryButton.setBounds(1112, 232, 59, 37);
+		minusMilitaryButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				military = military - 1;
+				militaryCount.setText("" + military);
+			}
+		});
+		minusMilitaryButton.setBounds(675, 529, 64, 37);
 		minusMilitaryButton.setBackground(new Color(192, 192, 192));
 		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		contentPane.add(minusMilitaryButton);
+		
+		JButton addMinerButton = new JButton("+");
+		addMinerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miner = miner + 1;
+				minerCount.setText("" + miner);
+			}
+		});
+		addMinerButton.setBounds(1112, 184, 59, 37);
+		addMinerButton.setBackground(new Color(192, 192, 192));
+		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		contentPane.add(addMinerButton);
+		
+		JButton minusMinerButton = new JButton("-");
+		minusMinerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miner = miner - 1;
+				minerCount.setText("" + miner);
+			}
+		});
+		minusMinerButton.setBounds(1112, 232, 59, 37);
+		minusMinerButton.setBackground(new Color(192, 192, 192));
+		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		contentPane.add(minusMinerButton);
 		
 		JButton nextDayButton = new JButton("Next Day");
 		nextDayButton.setBounds(1080, 699, 132, 37);
@@ -143,12 +199,24 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(researchLabel);
 		
 		JButton addResearchButton = new JButton("+");
+		addResearchButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				research = research + 1;
+				researchCount.setText("" + research);
+			}
+		});
 		addResearchButton.setBounds(1080, 557, 59, 37);
 		addResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		addResearchButton.setBackground(Color.LIGHT_GRAY);
 		contentPane.add(addResearchButton);
 		
 		JButton minusResearchButton = new JButton("-");
+		minusResearchButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				research = research - 1;
+				researchCount.setText("" + research);
+			}
+		});
 		minusResearchButton.setBounds(1153, 557, 59, 37);
 		minusResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
 		minusResearchButton.setBackground(Color.LIGHT_GRAY);
@@ -161,7 +229,7 @@ public class MainGameGUI extends JFrame {
 		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
 		statsOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 			}
 		});
 		contentPane.add(statsOpenButton);
@@ -184,5 +252,6 @@ public class MainGameGUI extends JFrame {
 			}
 		});
 		contentPane.add(resarchOpenButton);
+		
 	}
 }
