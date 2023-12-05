@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,7 +19,7 @@ import javax.swing.JTextArea;
 public class QuotaPopOver extends JFrame {
 
     private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
+    private static JPanel contentPane;
     private static Quota quota;
 
     public static void main(String[] args) {
@@ -23,10 +27,9 @@ public class QuotaPopOver extends JFrame {
             public void run() {
                 try {
                     QuotaPopOver frame = new QuotaPopOver();
-                    frame.setVisible(true);
-                    
-                    // Initializing Quota object
+                    frame.setVisible(false);
                     quota = new Quota();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -34,8 +37,15 @@ public class QuotaPopOver extends JFrame {
         });
     }
 
-    public QuotaPopOver() {
+    public static void QuotaPopOver() {
     	JFrame frame = new JFrame("Quota Status");
+    	contentPane = new JPanel() {  
+    		public void paintComponent(Graphics g) {  
+          Image img = Toolkit.getDefaultToolkit().getImage(  
+          QuotaPopOver.class.getResource("/images/scroll.png"));  
+          g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
+              }  
+          };  
         JTextArea textArea = new JTextArea();
         textArea.setText(PlayerObject.playerName + " ! Your village, " + PlayerObject.playerVillageName + " Needs:\n" +
         	"- Food needed: " + Quota.foodRequiredPerPerson + "\n" +
@@ -48,7 +58,7 @@ public class QuotaPopOver extends JFrame {
             "- Total amount of people: " + PlayerObject.totalPeople + "\n");
 
         frame.add(textArea);
-        frame.setSize(400, 300);
+        frame.setSize(300, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }

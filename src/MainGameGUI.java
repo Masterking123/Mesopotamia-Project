@@ -184,6 +184,8 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(Main.randomPercentOccurance(30)) {
 					EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
+					Quota.checkAndUpdateFoodResources();
+					Quota.checkAndUpdateMiningAndWoodResources();
 					RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);
 				}
 			}

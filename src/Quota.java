@@ -6,7 +6,7 @@ public class Quota {
     public static String playerVillageName;
     public static String rivalVillageName;
 
-    public static double food;
+    public static double food = 0;
     public static int percentFoodBoost;
     public static int numberFoodBoost;
 
@@ -19,7 +19,7 @@ public class Quota {
 
     public static int foodRequiredPerPerson;
     public static int woodRequiredPerPerson;
-    public static int totalPeople;
+    public static int totalPeople = 10; 
     public static int peopleLeftForFood;
     public static int peopleLeftForWood;
 
@@ -30,6 +30,8 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough food for everyone!");
+            QuotaPopOver.QuotaPopOver();
+            
             int totalPeopleWithoutFood = (int) Math.ceil((foodRequiredPerPerson - food) / 3.0);
 
             for (int i = 0; i < totalPeopleWithoutFood; i++) {
@@ -52,6 +54,7 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough wood for everyone!");
+            QuotaPopOver.QuotaPopOver();
             int totalPeopleWithoutWood = (int) Math.ceil((woodRequiredPerPerson - miningAndWood) / 2.0);
 
             for (int i = 0; i < totalPeopleWithoutWood; i++) {
