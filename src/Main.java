@@ -29,5 +29,4 @@ public class Main {
 		
 		return new int[] {scaledX, scaledY, scaledHeight, scaledWidth};
 	}
-	
 }
