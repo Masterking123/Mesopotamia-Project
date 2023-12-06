@@ -29,4 +29,12 @@ public class Main {
 		
 		return new int[] {scaledX, scaledY, scaledHeight, scaledWidth};
 	}
+<<<<<<< HEAD
+=======
+	
+	public static int scaledFontSize(int fontSize, int theirScreenWidth, int theirScreenHeight) {
+		return fontSize * (theirScreenWidth / ASPECT_WIDTH);
+	}
+	
+>>>>>>> 35cfc5ae59b76c5f55e56de80cb5adda63b11324
 }
