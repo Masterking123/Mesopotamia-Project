@@ -242,9 +242,10 @@ public class MainGameGUI extends JFrame {
 		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
 		statsOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				StatsPopover.main(null);
 			}
 		});
+		
 		contentPane.add(statsOpenButton);
 		
 		JButton tradeOpenButton = new JButton("Trade");
