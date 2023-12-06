@@ -6,7 +6,7 @@ public class Quota {
     public static String playerVillageName;
     public static String rivalVillageName;
 
-    public static double food = 0;
+    public static double food;
     public static int percentFoodBoost;
     public static int numberFoodBoost;
 
@@ -19,7 +19,7 @@ public class Quota {
 
     public static int foodRequiredPerPerson;
     public static int woodRequiredPerPerson;
-    public static int totalPeople = 10; 
+    public static int totalPeople; 
     public static int peopleLeftForFood;
     public static int peopleLeftForWood;
 
