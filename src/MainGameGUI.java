@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SpringLayout;
+import javax.swing.JTextPane;
 
 
 public class MainGameGUI extends JFrame {
@@ -24,6 +25,7 @@ public class MainGameGUI extends JFrame {
 	public static int farmer = 0; 
 	public static int miner = 0; 
 	public static int research = 0; 
+	public static int dayCounter = 1; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
 	                                                    
@@ -77,6 +79,17 @@ public class MainGameGUI extends JFrame {
 		minerCount.setBounds(minerCountLabel[0], minerCountLabel[1], minerCountLabel[2], minerCountLabel[3]);
 		contentPane.add(minerCount);
 		
+		JLabel dayCountLabel = new JLabel("Days:");
+		dayCountLabel.setForeground(new Color(255, 255, 255));
+		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		dayCountLabel.setBounds(589, 170, 132, 29);
+		contentPane.add(dayCountLabel);
+		
+		JLabel dayCounterLabel = new JLabel("1");
+		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		dayCounterLabel.setBounds(686, 164, 48, 31);
+		contentPane.add(dayCounterLabel);
+		
 		JLabel militaryCount = new JLabel("" + military);
 		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
 		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
@@ -105,7 +118,9 @@ public class MainGameGUI extends JFrame {
 		minusFarmerButton = new JButton("-");
 		minusFarmerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				farmer = farmer - 1;
+				if (farmer > 0) {
+					farmer = farmer - 1;
+				}
 				farmerCount.setText("" + farmer);
 			}
 		});
@@ -150,7 +165,9 @@ public class MainGameGUI extends JFrame {
 		JButton minusMilitaryButton = new JButton("-");
 		minusMilitaryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				military = military - 1;
+				if (military > 0) {
+					military = military - 1;
+				}
 				militaryCount.setText("" + military);
 			}
 		});
@@ -176,7 +193,9 @@ public class MainGameGUI extends JFrame {
 		JButton minusMinerButton = new JButton("-");
 		minusMinerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miner = miner - 1;
+				if (miner > 0) {
+					miner = miner - 1;
+				}
 				minerCount.setText("" + miner);
 			}
 		});
@@ -191,11 +210,16 @@ public class MainGameGUI extends JFrame {
 		nextDayButton.setBounds(scaledButtonnextDay[0], scaledButtonnextDay[1], scaledButtonnextDay[2], scaledButtonnextDay[3]);
 		nextDayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dayCounter = dayCounter + 1; 
+				dayCounterLabel.setText("" + dayCounter);
 				if(Main.randomPercentOccurance(30)) {
 					EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
 					Quota.checkAndUpdateFoodResources();
 					Quota.checkAndUpdateMiningAndWoodResources();
 					RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);
+				if (dayCounter == 31) {
+					
+				}
 				}
 			}
 		});
@@ -226,7 +250,9 @@ public class MainGameGUI extends JFrame {
 		JButton minusResearchButton = new JButton("-");
 		minusResearchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				research = research - 1;
+				if (research > 0) {
+					research = research - 1;
+				}
 				researchCount.setText("" + research);
 			}
 		});
@@ -270,6 +296,7 @@ public class MainGameGUI extends JFrame {
 			}
 		});
 		contentPane.add(resarchOpenButton);
+		
 		
 	}
 }
