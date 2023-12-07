@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.util.Random;
 
-public class MilitarytablleGUI extends JFrame {
+public class MilitarytableGUI extends JFrame {
 	public static int peopleInMilitary;
 	public static double food;
 	public static double miningAndWood;
@@ -30,7 +30,7 @@ public class MilitarytablleGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MilitarytablleGUI frame = new MilitarytablleGUI();
+					MilitarytableGUI frame = new MilitarytableGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class MilitarytablleGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MilitarytablleGUI() {
+	public MilitarytableGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 878, 553);
 		contentPane = new JPanel();
