@@ -139,7 +139,8 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel minerLabel = new JLabel("Miners");
 		int [] scaledlabelMiner = Main.scaledUIElements(1097, 129, 132, 44, 1368, 912);
-		minerLabel.setBounds(scaledlabelMiner[0], scaledlabelMiner[1], scaledlabelMiner[2], scaledlabelMiner[3]);		minerLabel.setForeground(new Color(255, 255, 255));
+		minerLabel.setBounds(scaledlabelMiner[0], scaledlabelMiner[1], scaledlabelMiner[2], scaledlabelMiner[3]);		
+		minerLabel.setForeground(new Color(255, 255, 255));
 		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
 		contentPane.add(minerLabel);
 		
