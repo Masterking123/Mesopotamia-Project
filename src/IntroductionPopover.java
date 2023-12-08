@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,7 +29,7 @@ public class IntroductionPopover extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createNewIntroductionPopover(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -46,7 +48,12 @@ public class IntroductionPopover extends JFrame {
 	public IntroductionPopover() {
 		
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+			}
+			
+		});
 		setBounds(100, 100, 700, 500);
 		contentPane = new JPanel() {  
 			public void paintComponent(Graphics g) {  
@@ -72,6 +79,7 @@ public class IntroductionPopover extends JFrame {
 		continueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		continueBtn.setFont(new Font("Times New Roman", Font.BOLD, 30));

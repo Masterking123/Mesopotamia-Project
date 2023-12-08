@@ -85,10 +85,12 @@ public class CharacterCustomizerGUI {
                     characterPopUp();
                 } else {
                     MainGameGUI.showMainGameGUI(null);
+                    IntroductionPopover.createNewIntroductionPopover(null);
                     frame.setVisible(false);
                     PlayerObject.playerName = playerNameText.getText();
                     PlayerObject.playerVillageName = playerVillageNameText.getText();
                     PlayerObject.rivalVillageName = rivalVillageNameText.getText();
+                    MainGameGUI.frame.setEnabled(false);
                 }
             }
         });

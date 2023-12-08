@@ -40,6 +40,7 @@ public class RandomEventPopover extends JFrame {
 		yesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		yesButton.setBounds(95, 230, 89, 23);
