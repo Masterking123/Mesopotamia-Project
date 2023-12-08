@@ -160,11 +160,11 @@ public class StatsPopover extends JFrame {
 		ratePanel.add(salesBoostLabel);
 		warningLabel.setVisible(false);
 		
-		if(PlayerObject.food < 50) {
+		if(PlayerObject.food <= Quota.foodRequiredPerPerson) {
 			warningLabel.setVisible(true);
 			warningLabel.setText("You are low on food");
 		}
-		else if(PlayerObject.miningAndWood < 100) {
+		else if(PlayerObject.miningAndWood <= Quota.woodRequiredPerPerson) {
 			warningLabel.setVisible(true);
 			warningLabel.setText("You are low on resources");
 		}
