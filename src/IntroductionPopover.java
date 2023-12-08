@@ -39,8 +39,7 @@ public class IntroductionPopover extends JFrame {
 			}
 		});
 	}
-	public void switchButton(JButton buttonName, JPanel panel) {
-	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -72,6 +71,7 @@ public class IntroductionPopover extends JFrame {
 		JButton continueBtn = new JButton("Continue");
 		continueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 			}
 		});
 		continueBtn.setFont(new Font("Times New Roman", Font.BOLD, 30));
