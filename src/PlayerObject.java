@@ -63,9 +63,11 @@ public class PlayerObject {
 	public static void percentLossOnPeople(int percentLoss) {
 		totalPeople -= (int) Math.floor(totalPeople * ((double) (percentLoss / 100.0)));
 	}
-
 	
-
+	public static double calculateVillagePower() {
+		double villagePower = military * 2.0 + (food - (totalPeople * 3.0)) + reputation / 2.0 + (miningAndWood * 1.25);
+		return villagePower;
+	}
 	
 	
 	

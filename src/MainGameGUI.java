@@ -32,11 +32,13 @@ public class MainGameGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	public static MainGameGUI frame;
+	
 	public static void showMainGameGUI(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainGameGUI frame = new MainGameGUI();
+					frame = new MainGameGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -212,17 +214,13 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dayCounter = dayCounter + 1; 
 				dayCounterLabel.setText("" + dayCounter);
-				if(Main.randomPercentOccurance(30)) {
-					EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
-					Quota.checkAndUpdateFoodResources();
-					Quota.checkAndUpdateMiningAndWoodResources();
-					RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);
+				NextDayButton.nextDayButtonActivated();
 				if (dayCounter == 31) {
 					
 				}
 				}
 			}
-		});
+		);
 		nextDayButton.setBackground(new Color(192, 192, 192));
 		nextDayButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
 		contentPane.add(nextDayButton);
@@ -271,6 +269,7 @@ public class MainGameGUI extends JFrame {
 		statsOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StatsPopover.main(null);
+				frame.setEnabled(false);
 			}
 		});
 		

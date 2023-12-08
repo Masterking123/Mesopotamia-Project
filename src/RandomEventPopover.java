@@ -7,6 +7,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class RandomEventPopover extends JFrame {
@@ -21,7 +23,12 @@ public class RandomEventPopover extends JFrame {
 		frame = new RandomEventPopover();
 		// This default close operation lets it when clicking the x button on the top right
 		// Only hides the popup instead of closing all JFrame
-		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+			}
+			
+		});
 		frame.setBounds(100, 100, 450, 300);
 		frame.contentPane = new JPanel();
 		frame.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
