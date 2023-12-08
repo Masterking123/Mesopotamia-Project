@@ -64,9 +64,9 @@ public class IntroductionPopover extends JFrame {
 		
 		JLabel titleLabel = new JLabel("MESOPOTAMIA: DAWN OF CIVILIZATION");
 		titleLabel.setForeground(new Color(255, 255, 255));
-		int [] scaleTitleLabel = Main.scaledUIElements(86, 11, 515, 30, 1440, 900);
+		int [] scaleTitleLabel = Main.scaledUIElements(83, 11, 515, 30, 1440, 900);
 		titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		titleLabel.setBounds(86, 11, 515, 30);
+		titleLabel.setBounds(scaleTitleLabel[0], scaleTitleLabel[1], scaleTitleLabel[2], scaleTitleLabel[3]);
 		contentPane.add(titleLabel);
 		
 		JButton continueBtn = new JButton("Continue");
