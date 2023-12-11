@@ -36,16 +36,8 @@ public class MainGameGUI extends JFrame {
 	public static MainGameGUI frame;
 	
 	public static void showMainGameGUI(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					frame = new MainGameGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		frame = new MainGameGUI();
+		frame.setVisible(true);
 	}
 
 	/**
