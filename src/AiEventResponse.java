@@ -55,7 +55,7 @@ public class AiEventResponse {
 	}
 	
 	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) {
-		movePeopleNum = (int) Math.round(AitotalPeople * peopleAmount);
+		movePeopleNum = (int) Math.round(takeAway * peopleAmount);
 		if(takeAway - movePeopleNum < 0 ) {
 			addMore =+ takeAway;
 			takeAway =- takeAway;
@@ -92,6 +92,9 @@ public class AiEventResponse {
 		}
 		else if (generatedRandomEvent.nameOfEvent.equals("Neighbouring Village")) {
 			//fill out when other values done
+			AitotalPeople =+ 5;
+			AIfarmerNum = +5;
+			Aireputation =-2;
 		}
 		else if (generatedRandomEvent.nameOfEvent.equals("Struck Gold Mine")) {
 			AIAllocatePeople( 0.2, AIminerNum, AImilitaryNum );
