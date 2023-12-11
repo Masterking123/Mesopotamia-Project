@@ -26,6 +26,7 @@ public class MainGameGUI extends JFrame {
 	public static int miner = 0; 
 	public static int research = 0; 
 	public static int dayCounter = 1; 
+	public static int peopleCount = 10; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
 	                                                    
@@ -69,6 +70,20 @@ public class MainGameGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel unalloPeopleLabel = new JLabel("Unallocated People:");
+		unalloPeopleLabel.setForeground(new Color(255, 255, 255));
+		unalloPeopleLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int [] scaledpeopleLabel= Main.scaledUIElements(458, 161, 357, 44, 1368, 912);
+		unalloPeopleLabel.setBounds(scaledpeopleLabel[0], scaledpeopleLabel[1], scaledpeopleLabel[2], scaledpeopleLabel[3]);
+		contentPane.add(unalloPeopleLabel);
+		
+		JLabel unalloPeopleCounter = new JLabel("" + peopleCount);
+		unalloPeopleCounter.setForeground(new Color(0, 0, 0));
+		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		int [] scaledpeopleCounter= Main.scaledUIElements(760, 156, 64, 44, 1368, 912);
+		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
+		contentPane.add(unalloPeopleCounter);
+		
 		JLabel researchCount = new JLabel("" + research);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
 		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
@@ -84,12 +99,15 @@ public class MainGameGUI extends JFrame {
 		JLabel dayCountLabel = new JLabel("Days:");
 		dayCountLabel.setForeground(new Color(255, 255, 255));
 		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
-		dayCountLabel.setBounds(589, 170, 132, 29);
+		int [] dayCountLabel1= Main.scaledUIElements(607, 337, 132, 29, 1368, 912);
+		dayCountLabel.setBounds(dayCountLabel1[0], dayCountLabel1[1], dayCountLabel1[2], dayCountLabel1[3]);
+		dayCountLabel.setBounds(607, 337, 132, 29);
 		contentPane.add(dayCountLabel);
 		
 		JLabel dayCounterLabel = new JLabel("1");
 		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
-		dayCounterLabel.setBounds(686, 164, 48, 31);
+		int [] dayCounterLabel1= Main.scaledUIElements(694, 331, 48, 31, 1368, 912);
+		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
 		contentPane.add(dayCounterLabel);
 		
 		JLabel militaryCount = new JLabel("" + military);
@@ -107,8 +125,12 @@ public class MainGameGUI extends JFrame {
 		addFarmerButton = new JButton("+");
 		addFarmerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				farmer = farmer + 1;
-				farmerCount.setText("" + farmer);
+				if (peopleCount > 0) {
+					farmer = farmer + 1;
+					farmerCount.setText("" + farmer);
+					peopleCount = peopleCount - 1; 
+					unalloPeopleCounter.setText("" + peopleCount);
+				}
 			}
 		});
 		int [] scaledButtonaddFarmer = Main.scaledUIElements(257, 256, 59, 31, 1368, 912);
@@ -122,8 +144,10 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (farmer > 0) {
 					farmer = farmer - 1;
+					peopleCount = peopleCount + 1; 
 				}
 				farmerCount.setText("" + farmer);
+				unalloPeopleCounter.setText("" + peopleCount);
 			}
 		});
 		int [] scaledButtonminusFarmer = Main.scaledUIElements(326, 256, 59, 31, 1368, 912);
@@ -155,8 +179,12 @@ public class MainGameGUI extends JFrame {
 		JButton addMilitaryButton = new JButton("+");
 		addMilitaryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				military = military + 1;
-				militaryCount.setText("" + military);
+				if (peopleCount > 0) {
+					peopleCount = peopleCount - 1; 
+					military = military + 1;
+					militaryCount.setText("" + military);
+					unalloPeopleCounter.setText("" + peopleCount);
+				}
 			}
 		});
 		int [] scaledButtonaddMilitary = Main.scaledUIElements(606, 529, 59, 37, 1368, 912);
@@ -170,8 +198,11 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (military > 0) {
 					military = military - 1;
+					peopleCount = peopleCount + 1; 
+
 				}
 				militaryCount.setText("" + military);
+				unalloPeopleCounter.setText("" + peopleCount);
 			}
 		});
 		int [] scaledButtonminusMilitary = Main.scaledUIElements(675, 529, 64, 37, 1368, 912);
@@ -183,8 +214,12 @@ public class MainGameGUI extends JFrame {
 		JButton addMinerButton = new JButton("+");
 		addMinerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miner = miner + 1;
-				minerCount.setText("" + miner);
+				if (peopleCount > 0) {
+					peopleCount = peopleCount - 1; 
+					miner = miner + 1;
+					minerCount.setText("" + miner);
+					unalloPeopleCounter.setText("" + peopleCount);	
+				}
 			}
 		});
 		int [] scaledButtonaddMiner = Main.scaledUIElements(1112, 184, 59, 37, 1368, 912);
@@ -198,8 +233,10 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (miner > 0) {
 					miner = miner - 1;
+					peopleCount = peopleCount + 1; 
 				}
 				minerCount.setText("" + miner);
+				unalloPeopleCounter.setText("" + peopleCount);
 			}
 		});
 		int [] scaledButtonminusMiner = Main.scaledUIElements(1112, 232, 59, 37, 1368, 912);
@@ -236,8 +273,12 @@ public class MainGameGUI extends JFrame {
 		JButton addResearchButton = new JButton("+");
 		addResearchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				research = research + 1;
-				researchCount.setText("" + research);
+				if (peopleCount > 0) {
+					peopleCount = peopleCount - 1; 
+					research = research + 1;
+					researchCount.setText("" + research);
+					unalloPeopleCounter.setText("" + peopleCount);
+				}
 			}
 		});
 		int [] scaledButtonaddResearch= Main.scaledUIElements(1080, 557, 59, 37, 1368, 912);
@@ -251,8 +292,10 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (research > 0) {
 					research = research - 1;
+					peopleCount = peopleCount + 1; 
 				}
 				researchCount.setText("" + research);
+				unalloPeopleCounter.setText("" + peopleCount);
 			}
 		});
 		int [] scaledButtonminusResearch= Main.scaledUIElements(1153, 557, 59, 37, 1368, 912);
