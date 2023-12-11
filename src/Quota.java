@@ -30,8 +30,6 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough food for everyone!");
-            QuotaPopOver.QuotaPopOver();
-            
             int totalPeopleWithoutFood = (int) Math.ceil((foodRequiredPerPerson - food) / 3.0);
 
             for (int i = 0; i < totalPeopleWithoutFood; i++) {
@@ -54,7 +52,6 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough wood for everyone!");
-            QuotaPopOver.QuotaPopOver();
             int totalPeopleWithoutWood = (int) Math.ceil((woodRequiredPerPerson - miningAndWood) / 2.0);
 
             for (int i = 0; i < totalPeopleWithoutWood; i++) {

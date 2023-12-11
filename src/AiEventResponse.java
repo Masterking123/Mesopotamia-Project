@@ -34,6 +34,26 @@ public class AiEventResponse {
 	
 	private static int movePeopleNum = 0;
 	
+	public static void generateFoodAI() {
+		Aifood += ((AipeopleInFood * 10) * (1 + (double) (AipercentFoodBoost / 100.0))) + AinumberFoodBoost;
+	}
+	
+	public static void generateMiningAndFoodAI() {
+		AiminingAndWood += ((AipeopleInMiningAndWood * 10) * (1 + (double) (AipercentMiningAndWoodBoost / 100.0))) + AinumberMiningAndWoodBoost + AioneTimeMiningAndWoodBoost;
+		AioneTimeMiningAndWoodBoost = 0;
+		
+	}
+	
+	public static void generateMilitaryAI() {
+		Aimilitary = AipeopleInMilitary * (1 + (double) (AipercentFoodBoost / 100.0)) + AinumberMilitaryBoost; 
+	}
+	
+	
+	public static void generateResearchAI() {
+		Airesearch += AipeopleInResearch * (1 + (double) (AipercentResearchBoost / 100.0)) + AinumberResearchBoost;
+		
+	}
+	
 	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) {
 		movePeopleNum = (int) Math.round(AitotalPeople * peopleAmount);
 		if(takeAway - movePeopleNum < 0 ) {
