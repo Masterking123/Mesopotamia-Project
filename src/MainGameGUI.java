@@ -64,52 +64,59 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel unalloPeopleLabel = new JLabel("Unallocated People:");
 		unalloPeopleLabel.setForeground(new Color(255, 255, 255));
-		unalloPeopleLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledPeopleLabelFont = Main.scaledFontSize(30, 1368, 912);
+		unalloPeopleLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledPeopleLabelFont));
 		int [] scaledpeopleLabel= Main.scaledUIElements(458, 161, 357, 44, 1368, 912);
 		unalloPeopleLabel.setBounds(scaledpeopleLabel[0], scaledpeopleLabel[1], scaledpeopleLabel[2], scaledpeopleLabel[3]);
 		contentPane.add(unalloPeopleLabel);
 		
 		JLabel unalloPeopleCounter = new JLabel("" + peopleCount);
 		unalloPeopleCounter.setForeground(new Color(0, 0, 0));
-		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, 30));
+		int scaledunPeopleCounterFont = Main.scaledFontSize(30, 1368, 912);
+		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, scaledunPeopleCounterFont));
 		int [] scaledpeopleCounter= Main.scaledUIElements(760, 156, 64, 44, 1368, 912);
 		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
 		contentPane.add(unalloPeopleCounter);
 		
 		JLabel researchCount = new JLabel("" + research);
-		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
+		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledResearchCountFont));
 		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
 		researchCount.setBounds(researchCountLabel[0], researchCountLabel[1], researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
 		JLabel minerCount = new JLabel("" + miner);
-		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
+		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinerCountFont));
 		int [] minerCountLabel= Main.scaledUIElements(1134, 100, 48, 31, 1368, 912);
 		minerCount.setBounds(minerCountLabel[0], minerCountLabel[1], minerCountLabel[2], minerCountLabel[3]);
 		contentPane.add(minerCount);
 		
 		JLabel dayCountLabel = new JLabel("Days:");
 		dayCountLabel.setForeground(new Color(255, 255, 255));
-		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledDayCountLabelFont = Main.scaledFontSize(30, 1368, 912);
+		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledDayCountLabelFont));
 		int [] dayCountLabel1= Main.scaledUIElements(607, 337, 132, 29, 1368, 912);
 		dayCountLabel.setBounds(dayCountLabel1[0], dayCountLabel1[1], dayCountLabel1[2], dayCountLabel1[3]);
-		dayCountLabel.setBounds(607, 337, 132, 29);
 		contentPane.add(dayCountLabel);
 		
 		JLabel dayCounterLabel = new JLabel("1");
-		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		int scaledDayCounterFont = Main.scaledFontSize(25, 1368, 912);
+		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, scaledDayCounterFont));
 		int [] dayCounterLabel1= Main.scaledUIElements(694, 331, 48, 31, 1368, 912);
 		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
 		contentPane.add(dayCounterLabel);
 		
 		JLabel militaryCount = new JLabel("" + military);
-		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
+		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMilitaryCountFont));
 		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
 		militaryCount.setBounds(militaryCountLabel[0], militaryCountLabel[1], militaryCountLabel[2], militaryCountLabel[3]);
 		contentPane.add(militaryCount);
 		
 		JLabel farmerCount = new JLabel("" + farmer);
-		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
+		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
+		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledfarmerCountFont));
 		int [] farmerCountLabel= Main.scaledUIElements(81, 262, 48, 31, 1368, 912);
 		farmerCount.setBounds(farmerCountLabel[0], farmerCountLabel[1], farmerCountLabel[2], farmerCountLabel[3]);
 		contentPane.add(farmerCount);
@@ -128,7 +135,8 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonaddFarmer = Main.scaledUIElements(257, 256, 59, 31, 1368, 912);
 		addFarmerButton.setBounds(scaledButtonaddFarmer[0], scaledButtonaddFarmer[1], scaledButtonaddFarmer[2], scaledButtonaddFarmer[3]);
 		addFarmerButton.setBackground(new Color(192, 192, 192));
-		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledAddFarmerFont = Main.scaledFontSize(40, 1368, 912);
+		addFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledAddFarmerFont));
 		contentPane.add(addFarmerButton);
 		
 		minusFarmerButton = new JButton("-");
@@ -145,27 +153,31 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonminusFarmer = Main.scaledUIElements(326, 256, 59, 31, 1368, 912);
 		minusFarmerButton.setBounds(scaledButtonminusFarmer[0], scaledButtonminusFarmer[1], scaledButtonminusFarmer[2], scaledButtonminusFarmer[3]);
 		minusFarmerButton.setBackground(new Color(192, 192, 192));
-		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledMinusFarmerFont = Main.scaledFontSize(40, 1368, 912);
+		minusFarmerButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinusFarmerFont));
 		contentPane.add(minusFarmerButton);
 		
 		JLabel farmerLabel = new JLabel("Farmers");
 		int [] scaledlabelFarmer = Main.scaledUIElements(109, 267, 172, 31, 1368, 912);
 		farmerLabel.setBounds(scaledlabelFarmer[0], scaledlabelFarmer[1], scaledlabelFarmer[2], scaledlabelFarmer[3]);
 		farmerLabel.setForeground(new Color(255, 255, 255));
-		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledFarmerLabelFont = Main.scaledFontSize(30, 1368, 912);
+		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledFarmerLabelFont));
 		contentPane.add(farmerLabel);
 		
 		JLabel minerLabel = new JLabel("Miners");
 		int [] scaledlabelMiner = Main.scaledUIElements(1097, 129, 132, 44, 1368, 912);
 		minerLabel.setBounds(scaledlabelMiner[0], scaledlabelMiner[1], scaledlabelMiner[2], scaledlabelMiner[3]);		
 		minerLabel.setForeground(new Color(255, 255, 255));
-		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledMinerFont = Main.scaledFontSize(30, 1368, 912);
+		minerLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledMinerFont));
 		contentPane.add(minerLabel);
 		
 		JLabel militaryLabel = new JLabel("Military");
 		int [] scaledlabelMilitary = Main.scaledUIElements(619, 474, 144, 44, 1368, 912);
 		militaryLabel.setBounds(scaledlabelMilitary[0], scaledlabelMilitary[1], scaledlabelMilitary[2], scaledlabelMilitary[3]);		militaryLabel.setForeground(new Color(255, 255, 255));
-		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledMilitaryLabelFont = Main.scaledFontSize(30, 1368, 912);
+		militaryLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledMilitaryLabelFont));
 		contentPane.add(militaryLabel);
 		
 		JButton addMilitaryButton = new JButton("+");
@@ -182,7 +194,8 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonaddMilitary = Main.scaledUIElements(606, 529, 59, 37, 1368, 912);
 		addMilitaryButton.setBounds(scaledButtonaddMilitary[0], scaledButtonaddMilitary[1], scaledButtonaddMilitary[2], scaledButtonaddMilitary[3]);	
 		addMilitaryButton.setBackground(new Color(192, 192, 192));
-		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledAddMilitaryFont = Main.scaledFontSize(40, 1368, 912);
+		addMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledAddMilitaryFont));
 		contentPane.add(addMilitaryButton);
 		
 		JButton minusMilitaryButton = new JButton("-");
@@ -200,7 +213,8 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonminusMilitary = Main.scaledUIElements(675, 529, 64, 37, 1368, 912);
 		minusMilitaryButton.setBounds(scaledButtonminusMilitary[0], scaledButtonminusMilitary[1], scaledButtonminusMilitary[2], scaledButtonminusMilitary[3]);
 		minusMilitaryButton.setBackground(new Color(192, 192, 192));
-		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledMinusMilitaryFont = Main.scaledFontSize(40, 1368, 912);
+		minusMilitaryButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinusMilitaryFont));
 		contentPane.add(minusMilitaryButton);
 		
 		JButton addMinerButton = new JButton("+");
@@ -217,7 +231,8 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonaddMiner = Main.scaledUIElements(1112, 184, 59, 37, 1368, 912);
 		addMinerButton.setBounds(scaledButtonaddMiner[0], scaledButtonaddMiner[1], scaledButtonaddMiner[2], scaledButtonaddMiner[3]);
 		addMinerButton.setBackground(new Color(192, 192, 192));
-		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledAddMinerFont = Main.scaledFontSize(40, 1368, 912);
+		addMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledAddMinerFont));
 		contentPane.add(addMinerButton);
 		
 		JButton minusMinerButton = new JButton("-");
@@ -234,7 +249,8 @@ public class MainGameGUI extends JFrame {
 		int [] scaledButtonminusMiner = Main.scaledUIElements(1112, 232, 59, 37, 1368, 912);
 		minusMinerButton.setBounds(scaledButtonminusMiner[0], scaledButtonminusMiner[1], scaledButtonminusMiner[2], scaledButtonminusMiner[3]);
 		minusMinerButton.setBackground(new Color(192, 192, 192));
-		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledMinusMinerFont = Main.scaledFontSize(40, 1368, 912);
+		minusMinerButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinusMinerFont));
 		contentPane.add(minusMinerButton);
 		
 		JButton nextDayButton = new JButton("Next Day");
@@ -252,14 +268,16 @@ public class MainGameGUI extends JFrame {
 			}
 		);
 		nextDayButton.setBackground(new Color(192, 192, 192));
-		nextDayButton.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		int scalednextDayFont = Main.scaledFontSize(20, 1368, 912);
+		nextDayButton.setFont(new Font("Trebuchet MS", Font.BOLD, scalednextDayFont));
 		contentPane.add(nextDayButton);
 		
 		JLabel researchLabel = new JLabel("Research");
 		int [] scaledResearchLabel= Main.scaledUIElements(1097, 529, 153, 37, 1368, 912);
 		researchLabel.setBounds(scaledResearchLabel[0], scaledResearchLabel[1], scaledResearchLabel[2], scaledResearchLabel[3]);
 		researchLabel.setForeground(new Color(255, 255, 255));
-		researchLabel.setFont(new Font("Sitka Text", Font.BOLD, 30));
+		int scaledResearchLabelFont = Main.scaledFontSize(30, 1368, 912);
+		researchLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledResearchLabelFont));
 		contentPane.add(researchLabel);
 		
 		JButton addResearchButton = new JButton("+");
@@ -275,7 +293,8 @@ public class MainGameGUI extends JFrame {
 		});
 		int [] scaledButtonaddResearch= Main.scaledUIElements(1080, 557, 59, 37, 1368, 912);
 		addResearchButton.setBounds(scaledButtonaddResearch[0], scaledButtonaddResearch[1], scaledButtonaddResearch[2], scaledButtonaddResearch[3]);
-		addResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledaddResearchFont = Main.scaledFontSize(40, 1368, 912);
+		addResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledaddResearchFont));
 		addResearchButton.setBackground(Color.LIGHT_GRAY);
 		contentPane.add(addResearchButton);
 		
@@ -292,7 +311,8 @@ public class MainGameGUI extends JFrame {
 		});
 		int [] scaledButtonminusResearch= Main.scaledUIElements(1153, 557, 59, 37, 1368, 912);
 		minusResearchButton.setBounds(scaledButtonminusResearch[0], scaledButtonminusResearch[1], scaledButtonminusResearch[2], scaledButtonminusResearch[3]);
-		minusResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, 40));
+		int scaledminusResearchFont = Main.scaledFontSize(40, 1368, 912);
+		minusResearchButton.setFont(new Font("Trebuchet MS", Font.BOLD, scaledminusResearchFont));
 		minusResearchButton.setBackground(Color.LIGHT_GRAY);
 		contentPane.add(minusResearchButton);
 		
@@ -301,7 +321,8 @@ public class MainGameGUI extends JFrame {
 		statsOpenButton.setBounds(scaledButtonstats[0], scaledButtonstats[1], scaledButtonstats[2], scaledButtonstats[3]);
 		statsOpenButton.setBackground(new Color(192, 192, 192));
 		statsOpenButton.setForeground(new Color(0, 0, 0));
-		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		int scaledopenStatsFont = Main.scaledFontSize(30, 1368, 912);
+		statsOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledopenStatsFont));
 		statsOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				StatsPopover.main(null);
@@ -316,7 +337,8 @@ public class MainGameGUI extends JFrame {
 		tradeOpenButton.setBounds(scaledButtontrade[0], scaledButtontrade[1], scaledButtontrade[2], scaledButtontrade[3]);
 		tradeOpenButton.setBackground(new Color(192, 192, 192));
 		tradeOpenButton.setForeground(new Color(0, 0, 0));
-		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		int scaledopenTradeFont = Main.scaledFontSize(30, 1368, 912);
+		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledopenTradeFont));
 		contentPane.add(tradeOpenButton);
 		
 		JButton resarchOpenButton = new JButton("Research");
@@ -324,7 +346,8 @@ public class MainGameGUI extends JFrame {
 		resarchOpenButton.setBounds(scaledButtonresearch[0], scaledButtonresearch[1], scaledButtonresearch[2], scaledButtonresearch[3]);
 		resarchOpenButton.setBackground(new Color(192, 192, 192));
 		resarchOpenButton.setForeground(new Color(0, 0, 0));
-		resarchOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, 30));
+		int scaledopenResearchFont = Main.scaledFontSize(30, 1368, 912);
+		resarchOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledopenResearchFont));
 		resarchOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ResearchPopover.createResearchPopover();
