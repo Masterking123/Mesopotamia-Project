@@ -96,8 +96,6 @@ public class IntroductionPopover extends JFrame {
 
 		introText.setOpaque(false);
 		contentPane.add(introText);
-	
-		continueBtn.setEnabled(false);
 		introText.setEnabled(false);
 		titleLabel.setEnabled(false);
 		
