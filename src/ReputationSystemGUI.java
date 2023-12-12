@@ -76,7 +76,7 @@ public class ReputationSystemGUI extends JFrame {
 		
 		JTextArea reputationtextarea = new JTextArea();
 		reputationtextarea.setEditable(false);
-		reputationtextarea.setBounds(167, 248, 423, 111);
+		reputationtextarea.setBounds(171, 248, 423, 111);
 		contentPane.add(reputationtextarea);
 		
 		JLabel lblNewLabel_2 = new JLabel("Viligar review");
@@ -133,7 +133,6 @@ public class ReputationSystemGUI extends JFrame {
 	{
 		if( reputation <= 20)
 		{
-			// negative effect on village for eevrrything
 			percentFoodBoost = percentFoodBoost - 5;
 			 percentMiningAndWoodBoost =  percentMiningAndWoodBoost - 5; 
 			 percentMilitaryBoost = percentMilitaryBoost - 5; 
