@@ -367,7 +367,7 @@ public class MainGameGUI extends JFrame {
 		int scaledFindFont = Main.scaledFontSize(30, 1368, 912);
 		militaryFindButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledFindFont));
 		militaryFindButton.setBackground(Color.LIGHT_GRAY);
-		int [] scaledButtonFind = Main.scaledUIElements(257, 794, 182, 45, 1368, 912);
+		int [] scaledButtonFind = Main.scaledUIElements(193, 794, 246, 45, 1368, 912);
 		militaryFindButton.setBounds(scaledButtonFind[0], scaledButtonFind[1], scaledButtonFind[2], scaledButtonFind[3]);
 		contentPane.add(militaryFindButton);
 		
