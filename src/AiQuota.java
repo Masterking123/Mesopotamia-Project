@@ -6,12 +6,12 @@ public class AiQuota {
 	public static double AifoodNeeded;
 	public static int AipercentFoodBoost;
 	public static int AinumberFoodBoost;
-	public static int AifoodRequiredPerPerson;
+	public static int AifoodRequiredPerPerson = 3;
 	
 	public static int AipeopleInMiningAndWood;
 	public static double AiminingAndWood;
 	public static double AiMiningAndWoodNeeded;
-	public static int AiMiningAndWoodNeededRequiredPerPerson;
+	public static int AiMiningAndWoodNeededRequiredPerPerson = 2;
 	public static int AipercentMiningAndWoodBoost; 
 	public static int AinumberMiningAndWoodBoost;
 	public static int AioneTimeMiningAndWoodBoost;
@@ -72,7 +72,6 @@ public class AiQuota {
 	            }
 	        }
 
-	        // Allocate the rest of the people randomly
 	        Random random = new Random();
 	        int remainingPeople = AitotalPeople - AipeopleInFood;
 	        while (remainingPeople > 0) {
@@ -107,7 +106,7 @@ public class AiQuota {
 	}
 
 public static void meetAiQuotaMiningAndWood() {
-    if (Aifood >= AifoodRequiredPerPerson * AitotalPeople) {
+    if (AiminingAndWood >= AiMiningAndWoodNeededRequiredPerPerson * AitotalPeople) {
         System.out.println("Everyone has enough wood (AI).");
     } else {
         System.out.println("Not enough wood for everyone (AI)!");
@@ -120,9 +119,9 @@ public static void meetAiQuotaMiningAndWood() {
 
         // Allocate people so they have enough food
         while (AiminingAndWood < AiMiningAndWoodNeeded) {
-            if (AipeopleInFood < AitotalPeople) {
-                AipeopleInFood++;
-                AiminingAndWood += AifoodRequiredPerPerson;
+            if (AipeopleInMiningAndWood < AitotalPeople) {
+            	AipeopleInMiningAndWood++;
+                AiminingAndWood += AiMiningAndWoodNeededRequiredPerPerson;
             } else {
                 break;
             }
@@ -130,14 +129,14 @@ public static void meetAiQuotaMiningAndWood() {
 
         // Allocate the rest of the people randomly
         Random random = new Random();
-        int remainingPeople = AitotalPeople - AipeopleInFood;
+        int remainingPeople = AitotalPeople - AipeopleInMiningAndWood;
         while (remainingPeople > 0) {
             int randomAllocation = random.nextInt(3); // Random allocation between 0 and 2
 
             switch (randomAllocation) {
                 case 0:
-                    if (AipeopleInMiningAndWood < AitotalPeople) {
-                        AipeopleInMiningAndWood++;
+                    if (AipeopleInFood < AitotalPeople) {
+                    	AipeopleInFood++;
                     }
                     break;
                 case 1:
