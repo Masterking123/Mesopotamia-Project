@@ -82,7 +82,7 @@ public class MainGameGUI extends JFrame {
 		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledResearchCountFont));
 		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
-		researchCount.setBounds(researchCountLabel[0], researchCountLabel[1], researchCountLabel[2], researchCountLabel[3]);
+		researchCount.setBounds(1134, 496, researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
 		JLabel minerCount = new JLabel("" + miner);
@@ -97,7 +97,7 @@ public class MainGameGUI extends JFrame {
 		int scaledDayCountLabelFont = Main.scaledFontSize(30, 1368, 912);
 		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledDayCountLabelFont));
 		int [] dayCountLabel1= Main.scaledUIElements(607, 337, 132, 29, 1368, 912);
-		dayCountLabel.setBounds(dayCountLabel1[0], dayCountLabel1[1], dayCountLabel1[2], dayCountLabel1[3]);
+		dayCountLabel.setBounds(610, 335, dayCountLabel1[2], dayCountLabel1[3]);
 		contentPane.add(dayCountLabel);
 		
 		JLabel dayCounterLabel = new JLabel("1");
@@ -118,7 +118,7 @@ public class MainGameGUI extends JFrame {
 		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
 		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledfarmerCountFont));
 		int [] farmerCountLabel= Main.scaledUIElements(81, 262, 48, 31, 1368, 912);
-		farmerCount.setBounds(farmerCountLabel[0], farmerCountLabel[1], farmerCountLabel[2], farmerCountLabel[3]);
+		farmerCount.setBounds(114, 256, farmerCountLabel[2], farmerCountLabel[3]);
 		contentPane.add(farmerCount);
 		
 		addFarmerButton = new JButton("+");
@@ -159,7 +159,7 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel farmerLabel = new JLabel("Farmers");
 		int [] scaledlabelFarmer = Main.scaledUIElements(109, 267, 172, 31, 1368, 912);
-		farmerLabel.setBounds(scaledlabelFarmer[0], scaledlabelFarmer[1], scaledlabelFarmer[2], scaledlabelFarmer[3]);
+		farmerLabel.setBounds(144, 259, scaledlabelFarmer[2], scaledlabelFarmer[3]);
 		farmerLabel.setForeground(new Color(255, 255, 255));
 		int scaledFarmerLabelFont = Main.scaledFontSize(30, 1368, 912);
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledFarmerLabelFont));
