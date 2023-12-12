@@ -2,6 +2,10 @@
 public class PlayerObject {
 	
 	// Percentage is stored as a whole number, convert to decimal when calculating
+	
+	public static String activeEvents[];
+	public static String daysForActiveEvents[];
+	
 	public static String playerName;
 	public static String playerVillageName;
 	public static String rivalVillageName;
@@ -33,22 +37,30 @@ public class PlayerObject {
 	public static int reputation;
 	
 	public static void generateFood() {
-		food += ((peopleInFood * 10) * (1 + (double) (percentFoodBoost / 100.0))) + numberFoodBoost;
+		if(peopleInFood != 0) {
+			food += ((peopleInFood * 10) * (1 + (double) (percentFoodBoost / 100.0))) + numberFoodBoost;
+		}
 	}
 	
-	public static void generateMiningAndFood() {
-		miningAndWood += ((peopleInMiningAndWood * 10) * (1 + (double) (percentMiningAndWoodBoost / 100.0))) + numberMiningAndWoodBoost + oneTimeMiningAndWoodBoost;
-		oneTimeMiningAndWoodBoost = 0;
+	public static void generateMiningAndWood() {
+		if(peopleInMiningAndWood != 0) {
+			miningAndWood += ((peopleInMiningAndWood * 10) * (1 + (double) (percentMiningAndWoodBoost / 100.0))) + numberMiningAndWoodBoost + oneTimeMiningAndWoodBoost;
+			oneTimeMiningAndWoodBoost = 0;
+		}
 		
 	}
 	
 	public static void generateMilitary() {
-		military = peopleInMilitary * (1 + (double) (percentFoodBoost / 100.0)) + numberMilitaryBoost; 
+		if(peopleInMilitary != 0) {
+			military = peopleInMilitary * (1 + (double) (percentFoodBoost / 100.0)) + numberMilitaryBoost; 
+		}
 	}
 	
 	
 	public static void generateResearch() {
-		research += peopleInResearch * (1 + (double) (percentResearchBoost / 100.0)) + numberResearchBoost;
+		if(peopleInResearch != 0) {
+			research += peopleInResearch * (1 + (double) (percentResearchBoost / 100.0)) + numberResearchBoost;
+		}
 		
 	}
 	

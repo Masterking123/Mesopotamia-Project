@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,7 +36,7 @@ public class TradingPopover extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createTradingPopover(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -51,7 +53,12 @@ public class TradingPopover extends JFrame {
 	 * Create the frame.
 	 */
 	public TradingPopover() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+			}
+			
+		});
 		setBounds(100, 100, 791, 511);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,6 +70,12 @@ public class TradingPopover extends JFrame {
 		setContentPane(contentPane);
 		JButton backtradebutton = new JButton("Go Back");
 		backtradebutton.setBounds(23, 414, 85, 21);
+		backtradebutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
+			}
+		});
 		contentPane.add(backtradebutton);
 		
 		JButton Tradebutton = new JButton("Trade");

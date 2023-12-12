@@ -73,6 +73,14 @@ public class RandomEventObject {
 		return "";
 	}
 	
+	public static void applyRandomEventEffect(String eventName, Boolean applicationToPlayer) {
+		if(applicationToPlayer == true) {
+			if(eventName == "Heat Wave") {
+				
+			}
+		}
+	}
+	
 	
 	public static void populateHashMaps() {
 		
@@ -100,11 +108,11 @@ public class RandomEventObject {
 		eventNameToDescription.put("Inspiration", "You assembled your town to give a speech to the people. The speech was successful at inspiring the town folk.");
 		
 		// Format for percentages loss and gains and number loss and gains
-		// [Military, Research, Farm Production, Farm Value, Mining/Wood Production, Mining/Wood Value, Reputation, Population Percent Loss]
-		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, 0, -20, 0, 0, 0});
-		eventNameToEffect.put("Torando", new int[] {0, 0, 0, (-1 * randomNumber(10, 50)), 0, 0, 0, -1});
-		eventNameToEffect.put("Drought", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
+		// [Military, Research, Farm Production, Farm Value, Mining/Wood Production, Mining/Wood Value, Reputation, Population Percent, DaysOfEvents]
+		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, 0, -20, 0, 0, 0, 2});
+		eventNameToEffect.put("Torando", new int[] {0, 0, 0, (-1 * randomNumber(10, 50)), 0, 0, 0, -1, 2});
+		eventNameToEffect.put("Drought", new int[] {0, 0, -15, 0, -20, 0, 0, 2});
+		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, -30, 0, 0, 0, 0});
 		eventNameToEffect.put("Earthquake", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Neighbouring Village", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
 		eventNameToEffect.put("Struck Gold Mine", new int[] {0, 0, 0, 0, 0, 0, 0, 0});

@@ -26,6 +26,7 @@ public class RandomEventPopover extends JFrame {
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.requestFocus();
 			}
 			
 		});
@@ -51,6 +52,7 @@ public class RandomEventPopover extends JFrame {
 		noButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		noButton.setBounds(222, 230, 89, 23);
@@ -61,6 +63,7 @@ public class RandomEventPopover extends JFrame {
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		okButton.setBounds(153, 167, 109, 34);

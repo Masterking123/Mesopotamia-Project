@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
@@ -18,6 +20,7 @@ public class ResearchPopover extends JFrame {
 	private JPanel contentPane;
 	private JLabel ptsLabel;
 	private double research = PlayerObject.research;
+	private static ResearchPopover frame;
 
 	/**
 	 * Launch the application.
@@ -26,7 +29,7 @@ public class ResearchPopover extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResearchPopover frame = new ResearchPopover();
+					frame = new ResearchPopover();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -62,7 +65,12 @@ public class ResearchPopover extends JFrame {
 	 * Create the frame.
 	 */
 	public ResearchPopover() {
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+			}
+			
+		});
 		setBounds(100, 100, 750, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -136,7 +144,8 @@ public class ResearchPopover extends JFrame {
 		JButton exitResButton = new JButton("Exit"); //exit button
 		exitResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				frame.setVisible(false);
+				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		exitResButton.setFont(new Font("Lucida Grande", Font.PLAIN, 16));

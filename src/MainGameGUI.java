@@ -339,6 +339,12 @@ public class MainGameGUI extends JFrame {
 		tradeOpenButton.setForeground(new Color(0, 0, 0));
 		int scaledopenTradeFont = Main.scaledFontSize(30, 1368, 912);
 		tradeOpenButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledopenTradeFont));
+		tradeOpenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TradingPopover.createTradingPopover(null);
+				frame.setEnabled(false);
+			}
+		});
 		contentPane.add(tradeOpenButton);
 		
 		JButton resarchOpenButton = new JButton("Research");
@@ -351,6 +357,7 @@ public class MainGameGUI extends JFrame {
 		resarchOpenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ResearchPopover.createResearchPopover();
+				frame.setEnabled(false);
 			}
 		});
 		contentPane.add(resarchOpenButton);
