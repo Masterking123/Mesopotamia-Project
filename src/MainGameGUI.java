@@ -66,7 +66,7 @@ public class MainGameGUI extends JFrame {
 		unalloPeopleLabel.setForeground(new Color(255, 255, 255));
 		int scaledPeopleLabelFont = Main.scaledFontSize(30, 1368, 912);
 		unalloPeopleLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledPeopleLabelFont));
-		int [] scaledpeopleLabel= Main.scaledUIElements(458, 161, 357, 44, 1368, 912);
+		int [] scaledpeopleLabel= Main.scaledUIElements(529, 160, 357, 44, 1368, 912);
 		unalloPeopleLabel.setBounds(scaledpeopleLabel[0], scaledpeopleLabel[1], scaledpeopleLabel[2], scaledpeopleLabel[3]);
 		contentPane.add(unalloPeopleLabel);
 		
@@ -361,6 +361,15 @@ public class MainGameGUI extends JFrame {
 			}
 		});
 		contentPane.add(resarchOpenButton);
+		
+		JButton militaryFindButton = new JButton("Military Search");
+		militaryFindButton.setForeground(Color.BLACK);
+		int scaledFindFont = Main.scaledFontSize(30, 1368, 912);
+		militaryFindButton.setFont(new Font("Sitka Text", Font.PLAIN, scaledFindFont));
+		militaryFindButton.setBackground(Color.LIGHT_GRAY);
+		int [] scaledButtonFind = Main.scaledUIElements(257, 794, 182, 45, 1368, 912);
+		militaryFindButton.setBounds(scaledButtonFind[0], scaledButtonFind[1], scaledButtonFind[2], scaledButtonFind[3]);
+		contentPane.add(militaryFindButton);
 		
 		
 	}
