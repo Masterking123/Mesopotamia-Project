@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class ReputationSystemGUI extends JFrame {
 
@@ -20,7 +21,7 @@ public class ReputationSystemGUI extends JFrame {
 	public static int percentMilitaryBoost; 
 	public static int percentResearchBoost;
 
-	
+	static int counter = 0;
 	
 	/**
 	 * Launch the application.
@@ -75,7 +76,7 @@ public class ReputationSystemGUI extends JFrame {
 		
 		JTextArea reputationtextarea = new JTextArea();
 		reputationtextarea.setEditable(false);
-		reputationtextarea.setBounds(184, 248, 400, 111);
+		reputationtextarea.setBounds(167, 248, 423, 111);
 		contentPane.add(reputationtextarea);
 		
 		JLabel lblNewLabel_2 = new JLabel("Viligar review");
@@ -90,11 +91,28 @@ public class ReputationSystemGUI extends JFrame {
 		btnNewButton_1.setBounds(316, 369, 125, 21);
 		contentPane.add(btnNewButton_1);
 		
+		textArea.append("Reputation: " + reputation);
+		textArea_1.append("Boost: " + counter + "%");
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				reputationtextarea.append("You are a really good leader you make sure the village has enough resources" + "\n" + "Really enjoying this!");
+				if(reputation >= 50)
+				{
+					reputationtextarea.append("You are a really good leader you make sure the village has enough resources" + "\n" + "Really enjoying this!");
+				}
+				if(reputation >= 30 && reputation <= 50)
+				{
+					reputationtextarea.append("You are a good leader you make sure the village has enough resources" + "\n" + ", I like working here!");
+				}
+				if(reputation <= 20)
+				{
+					reputationtextarea.append("You are a not good leader you dont make sure the village has enough resources" + "\n" + " I dont like working here");
+
+				}
 			}
 		});
+		
+		
 
 		
 	}
@@ -107,7 +125,7 @@ public class ReputationSystemGUI extends JFrame {
 			 percentMiningAndWoodBoost =  percentMiningAndWoodBoost + 5; 
 			 percentMilitaryBoost = percentMilitaryBoost + 5; 
 			 percentResearchBoost = percentResearchBoost + 5;
-			
+			counter = counter + 5;
 		}
 	}
 	
@@ -120,6 +138,7 @@ public class ReputationSystemGUI extends JFrame {
 			 percentMiningAndWoodBoost =  percentMiningAndWoodBoost - 5; 
 			 percentMilitaryBoost = percentMilitaryBoost - 5; 
 			 percentResearchBoost = percentResearchBoost - 5;
+			 counter = counter - 5;
 		}
 	}
 }
