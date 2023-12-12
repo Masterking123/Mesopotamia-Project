@@ -31,6 +31,6 @@ public class Main {
 	}
 	
 	public static int scaledFontSize(int fontSize, int theirScreenWidth, int theirScreenHeight) {
-		return (int)((fontSize * theirScreenWidth / ASPECT_WIDTH) / 1.5);
+		return (int)((fontSize * theirScreenWidth / ASPECT_WIDTH) / 1.4);
 	}
 }

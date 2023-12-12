@@ -369,6 +369,13 @@ public class MainGameGUI extends JFrame {
 		militaryFindButton.setBackground(Color.LIGHT_GRAY);
 		int [] scaledButtonFind = Main.scaledUIElements(193, 794, 246, 45, 1368, 912);
 		militaryFindButton.setBounds(scaledButtonFind[0], scaledButtonFind[1], scaledButtonFind[2], scaledButtonFind[3]);
+		militaryFindButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MilitarytableGUI.createMilitaryFindTable(null);
+			}
+		}
+		);
+		
 		contentPane.add(militaryFindButton);
 		
 		

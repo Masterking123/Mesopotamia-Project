@@ -26,7 +26,7 @@ public class MilitarytableGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createMilitaryFindTable(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

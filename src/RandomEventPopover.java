@@ -41,6 +41,8 @@ public class RandomEventPopover extends JFrame {
 		yesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
@@ -52,6 +54,8 @@ public class RandomEventPopover extends JFrame {
 		noButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
@@ -63,11 +67,13 @@ public class RandomEventPopover extends JFrame {
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
 		okButton.setBounds(153, 167, 109, 34);
-		frame.contentPane.add(okButton);
+		frame.contentPane.add(okButton);	 
 		
 		JLabel nameOfRandomEvent = new JLabel(eventName);
 		nameOfRandomEvent.setFont(new Font("Tahoma", Font.PLAIN, 30));

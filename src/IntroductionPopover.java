@@ -79,6 +79,8 @@ public class IntroductionPopover extends JFrame {
 		continueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
