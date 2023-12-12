@@ -10,6 +10,8 @@ public class AiQuota {
 	
 	public static int AipeopleInMiningAndWood;
 	public static double AiminingAndWood;
+	public static double AiMiningAndWoodNeeded;
+	public static int AiMiningAndWoodNeededRequiredPerPerson;
 	public static int AipercentMiningAndWoodBoost; 
 	public static int AinumberMiningAndWoodBoost;
 	public static int AioneTimeMiningAndWoodBoost;
@@ -47,7 +49,7 @@ public class AiQuota {
 		AitotalPeople = AipeopleInFood + AipeopleInMiningAndWood + AipeopleInMilitary + AipeopleInResearch + AiPeople;
 	}
 	
-	public static void meetQuotaAI() {
+	public static void meetAiQuotaFood() {
 	    if (Aifood >= AifoodRequiredPerPerson * AitotalPeople) {
 	        System.out.println("Everyone has enough food (AI).");
 	    } else {
@@ -103,4 +105,61 @@ public class AiQuota {
 	        System.out.println("Research Allocation: " + AipeopleInResearch);
 	    }
 	}
+
+public static void meetAiQuotaMiningAndWood() {
+    if (Aifood >= AifoodRequiredPerPerson * AitotalPeople) {
+        System.out.println("Everyone has enough wood (AI).");
+    } else {
+        System.out.println("Not enough wood for everyone (AI)!");
+        AipeopleInFood = 0;
+        AipeopleInMiningAndWood = 0;
+        AipeopleInMilitary = 0;
+        AipeopleInResearch = 0;
+
+        AiMiningAndWoodNeeded = AitotalPeople * AiMiningAndWoodNeededRequiredPerPerson;
+
+        // Allocate people so they have enough food
+        while (AiminingAndWood < AiMiningAndWoodNeeded) {
+            if (AipeopleInFood < AitotalPeople) {
+                AipeopleInFood++;
+                AiminingAndWood += AifoodRequiredPerPerson;
+            } else {
+                break;
+            }
+        }
+
+        // Allocate the rest of the people randomly
+        Random random = new Random();
+        int remainingPeople = AitotalPeople - AipeopleInFood;
+        while (remainingPeople > 0) {
+            int randomAllocation = random.nextInt(3); // Random allocation between 0 and 2
+
+            switch (randomAllocation) {
+                case 0:
+                    if (AipeopleInMiningAndWood < AitotalPeople) {
+                        AipeopleInMiningAndWood++;
+                    }
+                    break;
+                case 1:
+                    if (AipeopleInMilitary < AitotalPeople) {
+                        AipeopleInMilitary++;
+                    }
+                    break;
+                case 2:
+                    if (AipeopleInResearch < AitotalPeople) {
+                        AipeopleInResearch++;
+                    }
+                    break;
+            }
+            remainingPeople--;
+        }
+
+        // Display the allocations
+        System.out.println("Food Allocation: " + AipeopleInFood);
+        System.out.println("Mining/Wood Allocation: " + AipeopleInMiningAndWood);
+        System.out.println("Military Allocation: " + AipeopleInMilitary);
+        System.out.println("Research Allocation: " + AipeopleInResearch);
+    }
 }
+}
+
