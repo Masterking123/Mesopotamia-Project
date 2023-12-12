@@ -35,6 +35,7 @@ public class PlayerObject {
 	
 	public static int totalPeople;
 	public static int reputation;
+	public static int foodRequiredPerPerson;
 	
 	public static void generateFood() {
 		if(peopleInFood != 0) {
