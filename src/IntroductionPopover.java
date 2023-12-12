@@ -83,7 +83,7 @@ public class IntroductionPopover extends JFrame {
 			}
 		});
 		int scaledContinueButtonFontSize = Main.scaledFontSize(30, 1440, 900);
-		continueBtn.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		continueBtn.setFont(new Font("Times New Roman", Font.BOLD, scaledContinueButtonFontSize));
 		int[] scaledContinueButton = Main.scaledUIElements(264, 395, 160, 43, 1440, 900);
 		continueBtn.setBounds(scaledContinueButton[0], scaledContinueButton[1], scaledContinueButton[2], scaledContinueButton[3]);
 		contentPane.add(continueBtn);

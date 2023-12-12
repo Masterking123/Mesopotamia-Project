@@ -21,12 +21,10 @@ class Tuple {
 class EventObject{
 	public String description = "";
 	public String nameOfEvent = "";
-	public int percentageEffect;
 	
-	EventObject(String randomNameOfEvent, String randomDescription, int eventEffect){
+	EventObject(String randomNameOfEvent, String randomDescription){
 		nameOfEvent = randomNameOfEvent;
 		description = randomDescription;
-		percentageEffect = eventEffect;
 	}
 }
 
@@ -46,8 +44,7 @@ public class RandomEventObject {
 		
 		String randomEventName = generateRandomEvent();
 		String randomEventDescription = eventNameToDescription.get(randomEventName);
-		int[] percentLossOrGain = eventNameToEffect.get(randomEventName);
-		EventObject newRandomEvent = new EventObject(randomEventName, randomEventDescription, 1);
+		EventObject newRandomEvent = new EventObject(randomEventName, randomEventDescription);
 		
 		return newRandomEvent;
 		
