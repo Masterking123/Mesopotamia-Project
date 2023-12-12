@@ -82,6 +82,7 @@ public class IntroductionPopover extends JFrame {
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
+		int scaledContinueButtonFontSize = Main.scaledFontSize(30, 1440, 900);
 		continueBtn.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		int[] scaledContinueButton = Main.scaledUIElements(264, 395, 160, 43, 1440, 900);
 		continueBtn.setBounds(scaledContinueButton[0], scaledContinueButton[1], scaledContinueButton[2], scaledContinueButton[3]);
