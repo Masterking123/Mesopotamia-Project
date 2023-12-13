@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -43,7 +45,12 @@ public class MilitarytableGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public MilitarytableGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+			}
+			
+		});
 		setBounds(100, 100, 878, 553);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -94,6 +101,14 @@ public class MilitarytableGUI extends JFrame {
 		
 		JButton goback = new JButton("Back");
 		goback.setBounds(383, 485, 85, 21);
+		goback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
+				MainGameGUI.frame.setEnabled(true);
+			}
+		});
 		contentPane.add(goback);
 		
 		JTextArea textAreaforfinsihedtable = new JTextArea();

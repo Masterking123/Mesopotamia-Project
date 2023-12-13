@@ -372,6 +372,7 @@ public class MainGameGUI extends JFrame {
 		militaryFindButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MilitarytableGUI.createMilitaryFindTable(null);
+				frame.setEnabled(false);
 			}
 		}
 		);

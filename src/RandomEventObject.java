@@ -1,14 +1,12 @@
-// DO WE NEED GETTERS AND SETTERS
-// DO WE NEED HEADER COMMENTS
-// DO WE NEED TO COMMENT ALL OUR CODE
-// HOW SHOULD WE FORMAT THE OUTPUT FOR THE PERCENTAGES
 
-
+// Import statement for the hash map
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Random; 
 
+// Hash maps can use custom classes as data types
 class Tuple {
+	// Usage of a tuple class to create a data type to hold a range 
 	public int startRange;    
     public int endRange;
     
@@ -81,7 +79,9 @@ public class RandomEventObject {
 	
 	public static void populateHashMaps() {
 		
-		// These values have been converted to a range for dice rolls
+		// You can input data into the hash map in key value pairs
+		// nameOfHashMap.put(key, value);
+		
 		percentageToEventName.put(new Tuple(1, 15), "Heat Wave"); // 15%
 		percentageToEventName.put(new Tuple(16, 20), "Tornado"); // 5%
 		percentageToEventName.put(new Tuple(21, 25), "Drought"); // 5% 
