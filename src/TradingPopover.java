@@ -23,8 +23,6 @@ public class TradingPopover extends JFrame {
 	public static double research;
 	public static int totalPeople;
 */
-	int counterVillager = 0;
-	int counterreasrerch = 0;
 	double countertosave1 = PlayerObject.food;
 	double countertosave = PlayerObject.miningAndWood;
 	double countertosave2 = PlayerObject.research;
@@ -77,10 +75,10 @@ public class TradingPopover extends JFrame {
 			}
 		});
 		contentPane.add(backtradebutton);
-		
+		/*
 		JButton Tradebutton = new JButton("Trade");
 		Tradebutton.setBounds(682, 414, 85, 21);
-		contentPane.add(Tradebutton);
+		contentPane.add(Tradebutton);*/
 		
 		JLabel lblNewLabel = new JLabel("Food trade");
 		lblNewLabel.setBounds(224, 80, 64, 13);
@@ -127,9 +125,9 @@ public class TradingPopover extends JFrame {
 		Reasechpointstextarea.setBounds(575, 99, 129, 64);
 		contentPane.add(Reasechpointstextarea);
 		
-		JButton villageradd = new JButton("+");
-		villageradd.setBounds(44, 176, 49, 21);
-		contentPane.add(villageradd);
+		JButton villagerAdd = new JButton("+");
+		villagerAdd.setBounds(44, 176, 49, 21);
+		contentPane.add(villagerAdd);
 		
 		JButton villagerSubtract = new JButton("-");
 		villagerSubtract.setBounds(90, 176, 49, 21);
@@ -151,13 +149,13 @@ public class TradingPopover extends JFrame {
 		resourcesSubtract.setBounds(439, 176, 49, 21);
 		contentPane.add(resourcesSubtract);
 		
-		JButton Reaserchadd = new JButton("+");
-		Reaserchadd.setBounds(595, 173, 51, 21);
-		contentPane.add(Reaserchadd);
+		JButton researchAdd = new JButton("+");
+		researchAdd.setBounds(595, 173, 51, 21);
+		contentPane.add(researchAdd);
 		
-		JButton Reaserchsubtract = new JButton("-");
-		Reaserchsubtract.setBounds(644, 173, 49, 21);
-		contentPane.add(Reaserchsubtract);
+		JButton researchSubtract = new JButton("-");
+		researchSubtract.setBounds(644, 173, 49, 21);
+		contentPane.add(researchSubtract);
 		
 		JTextArea Testareamaintrade = new JTextArea();
 		Testareamaintrade.setEditable(false);
@@ -170,7 +168,7 @@ public class TradingPopover extends JFrame {
 		
 		
 		// Village marketing textbox
-		villigarmarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Total People: " + PlayerObject.totalPeople + "\n");
+		villigarmarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
 		villigarmarketing_textbox.append("1 villager = 2 food");
 		
 		// food tradingtextbox
@@ -187,16 +185,16 @@ public class TradingPopover extends JFrame {
 		
 		 villagerSubtract.setEnabled(false);
 		 foodSubtract.setEnabled(false);
-		 Reaserchsubtract.setEnabled(false);
+		 researchSubtract.setEnabled(false);
 		 resourcesSubtract.setEnabled(false);
 		
-		villageradd.addActionListener(new ActionListener() {
+		villagerAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			if (PlayerObject.food >= 2 )
 			{
 				PlayerObject.food = PlayerObject.food - 2;
-				counterVillager++;
-				Testareamaintrade.append("You traded 2 food. The current people in the village is " + counterVillager +"\n");
+				PlayerObject.totalPeople++;
+				Testareamaintrade.append("You traded 2 food. The current people in the village is " + PlayerObject.totalPeople +"\n");
 				 villagerSubtract.setEnabled(true);
 				 
 			}
@@ -204,7 +202,7 @@ public class TradingPopover extends JFrame {
 			else
 			{
 				Testareamaintrade.append("You have no more food to trade" + "\n");
-				villageradd.setEnabled(false);
+				villagerAdd.setEnabled(false);
 			}
 			
 			}
@@ -216,12 +214,12 @@ public class TradingPopover extends JFrame {
 		 {
 			 
 			 PlayerObject.food = PlayerObject.food + 2;
-			 counterVillager--;
-			 Testareamaintrade.append("You traded 2 food. The current unallocated people in the village is " + counterVillager + "\n");
-			 villageradd.setEnabled(true);
+			 PlayerObject.totalPeople--;
+			 Testareamaintrade.append("You traded 2 food. The current unallocated people in the village is " + PlayerObject.totalPeople + "\n");
+			 villagerAdd.setEnabled(true);
 		 }
 		 
-		if (counterVillager <= 0) {
+		if (PlayerObject.totalPeople <= 0) {
 			 Testareamaintrade.append("You have no more food to trade" + "\n");
 			 villagerSubtract.setEnabled(false);
 		 }
@@ -256,7 +254,7 @@ public class TradingPopover extends JFrame {
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					Testareamaintrade.append("you retracted 5 wood for" + PlayerObject.food + " food" + "\n");
 					foodAdd.setEnabled(true);
-					villageradd.setEnabled(true);
+					villagerAdd.setEnabled(true);
 				}
 				
 				else
@@ -274,13 +272,13 @@ public class TradingPopover extends JFrame {
 				{
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					PlayerObject.food = PlayerObject.food - 5;
-					Testareamaintrade.append("you submitted 5 wood for" + PlayerObject.food + " food" + "\n");
+					Testareamaintrade.append("You traded 5 wood" + "\n" + "Food: " + PlayerObject.food + "\n");
 					resourcesSubtract.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more resources to trade" + "\n");
 					resourcesAdd.setEnabled(false);
 				}
 			}
@@ -293,54 +291,53 @@ public class TradingPopover extends JFrame {
 				{
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
 					PlayerObject.food =PlayerObject.food + 5;
-					Testareamaintrade.append("you retracted 5 food for" + PlayerObject.miningAndWood + " resources" + "\n");
+					Testareamaintrade.append("You traded 5 food" + "\n" + "Food: " + PlayerObject.miningAndWood + "\n");
 					foodAdd.setEnabled(true);
 					resourcesAdd.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more resources to trade" + "\n");
 					resourcesAdd.setEnabled(false);
 				}
 			}
 		});
 		
-		Reaserchadd.addActionListener(new ActionListener() {
+		researchAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.food >= 5 )
 				{
 					PlayerObject.research = PlayerObject.research + 1;
-					counterreasrerch = counterreasrerch + 1;
 					PlayerObject.food = PlayerObject.food - 5;
-					Testareamaintrade.append("you submitted 5 food for" + counterreasrerch + " reaserch" + "\n");
-					Reaserchsubtract.setEnabled(true);
+					Testareamaintrade.append("you traded 5 food" + "\n" + " Research points: " + PlayerObject.research+ "\n");
+					researchSubtract.setEnabled(true);
 				}
 				
 				else
 				{
 					Testareamaintrade.append("you have no more resources to trade" + "\n");
-					Reaserchadd.setEnabled(false);
+					researchAdd.setEnabled(false);
 				}
 			}
 		});
 		
 		
-		Reaserchsubtract.addActionListener(new ActionListener() {
+		researchSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.research != countertosave2 )
 				{
 					PlayerObject.research = PlayerObject.research - 1;
 					PlayerObject.food = PlayerObject.food + 5;
-					Testareamaintrade.append("you retracted 1 reaserch point for" + PlayerObject.food + " food" + "\n");
-					Reaserchsubtract.setEnabled(true);
-					Reaserchadd.setEnabled(true);
+					Testareamaintrade.append("you traded 1 reaserch point" + "\n" + "Food: " + PlayerObject.food +  "\n");
+					researchSubtract.setEnabled(true);
+					researchAdd.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more reaserch points to trade" + "\n");
-					Reaserchsubtract.setEnabled(false);
+					Testareamaintrade.append("you have no more research points to trade" + "\n");
+					researchSubtract.setEnabled(false);
 				}
 			}
 		});
