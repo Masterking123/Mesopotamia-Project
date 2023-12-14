@@ -23,7 +23,7 @@ public class TradingPopover extends JFrame {
 	public static double research;
 	public static int totalPeople;
 */
-	int countervilliger = 0;
+	int counterVillager = 0;
 	int counterreasrerch = 0;
 	double countertosave1 = PlayerObject.food;
 	double countertosave = PlayerObject.miningAndWood;
@@ -86,7 +86,7 @@ public class TradingPopover extends JFrame {
 		lblNewLabel.setBounds(224, 80, 64, 13);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Villigar marketing");
+		JLabel lblNewLabel_1 = new JLabel("Villager marketing");
 		lblNewLabel_1.setBounds(44, 76, 108, 21);
 		contentPane.add(lblNewLabel_1);
 		
@@ -95,7 +95,7 @@ public class TradingPopover extends JFrame {
 		lblNewLabel_2.setBounds(325, 10, 153, 48);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Recorse trade");
+		JLabel lblNewLabel_3 = new JLabel("Resource trade");
 		lblNewLabel_3.setBounds(391, 80, 96, 13);
 		contentPane.add(lblNewLabel_3);
 		
@@ -127,29 +127,29 @@ public class TradingPopover extends JFrame {
 		Reasechpointstextarea.setBounds(575, 99, 129, 64);
 		contentPane.add(Reasechpointstextarea);
 		
-		JButton Villiigeradd = new JButton("+");
-		Villiigeradd.setBounds(44, 176, 49, 21);
-		contentPane.add(Villiigeradd);
+		JButton villageradd = new JButton("+");
+		villageradd.setBounds(44, 176, 49, 21);
+		contentPane.add(villageradd);
 		
-		JButton Villigersubtract = new JButton("-");
-		Villigersubtract.setBounds(90, 176, 49, 21);
-		contentPane.add(Villigersubtract);
+		JButton villagerSubtract = new JButton("-");
+		villagerSubtract.setBounds(90, 176, 49, 21);
+		contentPane.add(villagerSubtract);
 		
-		JButton Foodadd = new JButton("+");
-		Foodadd.setBounds(201, 176, 51, 21);
-		contentPane.add(Foodadd);
+		JButton foodAdd = new JButton("+");
+		foodAdd.setBounds(201, 176, 51, 21);
+		contentPane.add(foodAdd);
 		
-		JButton Foodsubract = new JButton("-");
-		Foodsubract.setBounds(249, 176, 49, 21);
-		contentPane.add(Foodsubract);
+		JButton foodSubtract = new JButton("-");
+		foodSubtract.setBounds(249, 176, 49, 21);
+		contentPane.add(foodSubtract);
 		
-		JButton Recouseadd = new JButton("+");
-		Recouseadd.setBounds(391, 176, 49, 21);
-		contentPane.add(Recouseadd);
+		JButton resourcesAdd = new JButton("+");
+		resourcesAdd.setBounds(391, 176, 49, 21);
+		contentPane.add(resourcesAdd);
 		
-		JButton Recourcesubtract = new JButton("-");
-		Recourcesubtract.setBounds(439, 176, 49, 21);
-		contentPane.add(Recourcesubtract);
+		JButton resourcesSubtract = new JButton("-");
+		resourcesSubtract.setBounds(439, 176, 49, 21);
+		contentPane.add(resourcesSubtract);
 		
 		JButton Reaserchadd = new JButton("+");
 		Reaserchadd.setBounds(595, 173, 51, 21);
@@ -170,138 +170,138 @@ public class TradingPopover extends JFrame {
 		
 		
 		// Village marketing textbox
-		villigarmarketing_textbox.append("you have " + PlayerObject.food + " food" + "\n");
-		villigarmarketing_textbox.append("to recive 1 villigar, " + "\n" + "give 2 food");
+		villigarmarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Total People: " + PlayerObject.totalPeople + "\n");
+		villigarmarketing_textbox.append("1 villager = 2 food");
 		
 		// food tradingtextbox
-		Foodtextarea.append("you have " + PlayerObject.miningAndWood + " recources" + "\n");
-		Foodtextarea.append("to recive 5 food, " + "\n" + "give 5 recourses");
+		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
+		Foodtextarea.append("5 food = 5 resources");
 		
 		// recourse tradingtextbox fix this.
-		Recoursetextarea.append("you have " + PlayerObject.food + " food" + "\n");
-		Recoursetextarea.append("to recive 5 reacourses" + "\n" +  "give 5 food");
+		Recoursetextarea.append("Food:" + PlayerObject.food + "\n" + "Resources: " + PlayerObject.miningAndWood + "\n");
+		Recoursetextarea.append("5 resources = 5 food" + "\n");
 		
 		// researchpoints textbox
-		Reasechpointstextarea.append("you have " + PlayerObject.research + " reaserch points" + "\n");
-		Reasechpointstextarea.append("to recive 1 reaserch point " + "\n" + "give 5 food");
+		Reasechpointstextarea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
+		Reasechpointstextarea.append("1 research point = 5 food");
 		
-		 Villigersubtract.setEnabled(false);
-		 Foodsubract.setEnabled(false);
+		 villagerSubtract.setEnabled(false);
+		 foodSubtract.setEnabled(false);
 		 Reaserchsubtract.setEnabled(false);
-		 Recourcesubtract.setEnabled(false);
+		 resourcesSubtract.setEnabled(false);
 		
-		Villiigeradd.addActionListener(new ActionListener() {
+		villageradd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			if (PlayerObject.food >= 2 )
 			{
 				PlayerObject.food = PlayerObject.food - 2;
-				countervilliger++;
-				Testareamaintrade.append("you subbmitted 2 food for" + countervilliger + " villigers" + "\n");
-				 Villigersubtract.setEnabled(true);
+				counterVillager++;
+				Testareamaintrade.append("You traded 2 food. The current people in the village is " + counterVillager +"\n");
+				 villagerSubtract.setEnabled(true);
 				 
 			}
 			
 			else
 			{
-				Testareamaintrade.append("you have no more food to trade" + "\n");
-				Villiigeradd.setEnabled(false);
+				Testareamaintrade.append("You have no more food to trade" + "\n");
+				villageradd.setEnabled(false);
 			}
 			
 			}
 		});
 		
-		Villigersubtract.addActionListener(new ActionListener() {
+		villagerSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		 if(PlayerObject.food != countertosave1)
 		 {
 			 
 			 PlayerObject.food = PlayerObject.food + 2;
-			 countervilliger--;
-			 Testareamaintrade.append("you retracted 2 food for" + countervilliger + " villigers" + "\n");
-			 Villiigeradd.setEnabled(true);
+			 counterVillager--;
+			 Testareamaintrade.append("You traded 2 food. The current unallocated people in the village is " + counterVillager + "\n");
+			 villageradd.setEnabled(true);
 		 }
 		 
-		if (countervilliger <= 0) {
-			 Testareamaintrade.append("you have no more food to retract" + "\n");
-			 Villigersubtract.setEnabled(false);
+		if (counterVillager <= 0) {
+			 Testareamaintrade.append("You have no more food to trade" + "\n");
+			 villagerSubtract.setEnabled(false);
 		 }
 			}
 		});
 		
 		
-		Foodadd.addActionListener(new ActionListener() {
+		foodAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.miningAndWood >= 5 )
 				{
 					PlayerObject.food = PlayerObject.food + 5;
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
-					Testareamaintrade.append("you subbmitted 5 wood for" + PlayerObject.food + " food" + "\n");
-					Foodsubract.setEnabled(true);
+					Testareamaintrade.append("You traded 5 wood." + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n" );
+					foodSubtract.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more recourses to trade" + "\n");
-				Foodadd.setEnabled(false);
+					Testareamaintrade.append("you have no more resources to trade" + "\n");
+				foodAdd.setEnabled(false);
 				}
 			}
 		});
 		
 		
-		Foodsubract.addActionListener(new ActionListener() {
+		foodSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.miningAndWood != countertosave )
 				{
 					PlayerObject.food = PlayerObject.food - 5;
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					Testareamaintrade.append("you retracted 5 wood for" + PlayerObject.food + " food" + "\n");
-					Foodadd.setEnabled(true);
-					Villiigeradd.setEnabled(true);
+					foodAdd.setEnabled(true);
+					villageradd.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more recourses to trade" + "\n");
-					Foodsubract.setEnabled(false);
+					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					foodSubtract.setEnabled(false);
 				}
 			}
 		});
 		
 		
-		Recouseadd.addActionListener(new ActionListener() {
+		resourcesAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.food >= 5 )
 				{
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					PlayerObject.food = PlayerObject.food - 5;
 					Testareamaintrade.append("you submitted 5 wood for" + PlayerObject.food + " food" + "\n");
-					Recourcesubtract.setEnabled(true);
+					resourcesSubtract.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more recourses to trade" + "\n");
-					Recouseadd.setEnabled(false);
+					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					resourcesAdd.setEnabled(false);
 				}
 			}
 		});
 		
 		
-		Recourcesubtract.addActionListener(new ActionListener() {
+		resourcesSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.food != countertosave1 )
 				{
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
 					PlayerObject.food =PlayerObject.food + 5;
-					Testareamaintrade.append("you retracted 5 food for" + PlayerObject.miningAndWood + " recourses" + "\n");
-					Foodadd.setEnabled(true);
-					Recouseadd.setEnabled(true);
+					Testareamaintrade.append("you retracted 5 food for" + PlayerObject.miningAndWood + " resources" + "\n");
+					foodAdd.setEnabled(true);
+					resourcesAdd.setEnabled(true);
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more recourses to trade" + "\n");
-					Recouseadd.setEnabled(false);
+					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					resourcesAdd.setEnabled(false);
 				}
 			}
 		});
@@ -319,7 +319,7 @@ public class TradingPopover extends JFrame {
 				
 				else
 				{
-					Testareamaintrade.append("you have no more recourses to trade" + "\n");
+					Testareamaintrade.append("you have no more resources to trade" + "\n");
 					Reaserchadd.setEnabled(false);
 				}
 			}
