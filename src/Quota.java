@@ -49,19 +49,19 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough wood for everyone!");
-            int totalPeopleWithoutWood = (int) Math.ceil((woodRequiredPerPerson - miningAndWood) / 2.0);
+            int totalPeopleWithoutWood = (int) Math.ceil((PlayerObject.woodRequiredPerPerson - PlayerObject.miningAndWood) / 2.0);
 
             for (int i = 0; i < totalPeopleWithoutWood; i++) {
                 double chanceOfDeathOrLeaving = 0.20;
                 Random random = new Random();
                 if (random.nextDouble() < chanceOfDeathOrLeaving) {
                     System.out.println("A person died/left due to lack of wood.");
-                    peopleLeftForWood++; // Increment the count of people who left
-                    reputation--;
+                    peopleLeftForWood++; 
+                    PlayerObject.reputation--;
                 }
             }
         }
-        totalPeople = totalPeople - peopleLeftForFood;
+        PlayerObject.totalPeople = PlayerObject.totalPeople - peopleLeftForWood;
     }
 }
 

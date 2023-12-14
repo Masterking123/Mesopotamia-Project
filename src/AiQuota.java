@@ -1,96 +1,66 @@
 import java.util.Random;
 
 public class AiQuota {
-	public static int AipeopleInFood;
-	public static double Aifood;
 	public static double AifoodNeeded;
-	public static int AipercentFoodBoost;
-	public static int AinumberFoodBoost;
 	public static int AifoodRequiredPerPerson = 3;
 	
-	public static int AipeopleInMiningAndWood;
-	public static double AiminingAndWood;
 	public static double AiMiningAndWoodNeeded;
-	public static int AiMiningAndWoodNeededRequiredPerPerson = 2;
-	public static int AipercentMiningAndWoodBoost; 
-	public static int AinumberMiningAndWoodBoost;
-	public static int AioneTimeMiningAndWoodBoost;
-	
-	public static int AipeopleInMilitary;
-	public static double Aimilitary;
-	public static int AipercentMilitaryBoost; 
-	public static int AinumberMilitaryBoost;
-	
-	public static int AipeopleInResearch;
-	public static double Airesearch;
-	public static int AipercentResearchBoost;
-	public static int AinumberResearchBoost;
-	
-	public static int AipercentDiscountOnSales;
-	
-	public static int AitotalPeople;
-	public static int AiPeople = 10;
-	public static int Aireputation;
-	
-	public static int AImilitaryNum = 0; 
-	public static int AIfarmerNum = 0; 
-	public static int AIminerNum = 0; 
-	public static int AIresearchNum = 0; 
+	public static int AiMiningAndWoodNeededRequiredPerPerson = 2; 
 	
 	private static int movePeopleNum = 0;
 
 	public static void aiFirstDayAllocation()
 	{
-		AipeopleInFood = 3;
-		AipeopleInMiningAndWood = 3;
-		AipeopleInMilitary = 3;
-		AipeopleInResearch = 1;
-		AiPeople = 0;
-		AitotalPeople = AipeopleInFood + AipeopleInMiningAndWood + AipeopleInMilitary + AipeopleInResearch + AiPeople;
+		AiEventResponse.AipeopleInFood = 3;
+		AiEventResponse.AipeopleInMiningAndWood = 3;
+		AiEventResponse.AipeopleInMilitary = 3;
+		AiEventResponse.AipeopleInResearch = 1;
+		AiEventResponse.AitotalPeople = 0;
+		AiEventResponse.AitotalPeople = AiEventResponse.AipeopleInFood + AiEventResponse.AipeopleInMiningAndWood + AiEventResponse.AipeopleInMilitary + AiEventResponse.AipeopleInResearch + AiEventResponse.AitotalPeople;
 	}
 	
 	public static void meetAiQuotaFood() {
-	    if (Aifood >= AifoodRequiredPerPerson * AitotalPeople) {
+	    if (AiEventResponse.Aifood >= AifoodRequiredPerPerson * AiEventResponse.AitotalPeople) {
 	        System.out.println("Everyone has enough food (AI).");
 	    } else {
 	        System.out.println("Not enough food for everyone (AI)!");
 	        // Unallocate all people from their current roles
-	        AipeopleInFood = 0;
-	        AipeopleInMiningAndWood = 0;
-	        AipeopleInMilitary = 0;
-	        AipeopleInResearch = 0;
+	        AiEventResponse.AipeopleInFood = 0;
+	        AiEventResponse.AipeopleInMiningAndWood = 0;
+	        AiEventResponse.AipeopleInMilitary = 0;
+	        AiEventResponse.AipeopleInResearch = 0;
 
-	        AifoodNeeded = AitotalPeople * AifoodRequiredPerPerson;
+	        AifoodNeeded = AiEventResponse.AitotalPeople * AifoodRequiredPerPerson;
 
 	        // Allocate people so they have enough food
-	        while (Aifood < AifoodNeeded) {
-	            if (AipeopleInFood < AitotalPeople) {
-	                AipeopleInFood++;
-	                Aifood += AifoodRequiredPerPerson;
+	        while (AiEventResponse.Aifood < AifoodNeeded) {
+	            if (AiEventResponse.AipeopleInFood < AiEventResponse.AitotalPeople) {
+	            	AiEventResponse.AipeopleInFood++;
+	            	AiEventResponse.Aifood += AifoodRequiredPerPerson;
 	            } else {
 	                break;
 	            }
 	        }
 
 	        Random random = new Random();
-	        int remainingPeople = AitotalPeople - AipeopleInFood;
+	        int remainingPeople = AiEventResponse.AitotalPeople - AiEventResponse.AipeopleInFood;
 	        while (remainingPeople > 0) {
 	            int randomAllocation = random.nextInt(3); // Random allocation between 0 and 2
 
 	            switch (randomAllocation) {
 	                case 0:
-	                    if (AipeopleInMiningAndWood < AitotalPeople) {
-	                        AipeopleInMiningAndWood++;
+	                    if (AiEventResponse.AipeopleInMiningAndWood < AiEventResponse.AitotalPeople) {
+	                    	AiEventResponse.AipeopleInMiningAndWood++;
 	                    }
 	                    break;
 	                case 1:
-	                    if (AipeopleInMilitary < AitotalPeople) {
-	                        AipeopleInMilitary++;
+	                    if (AiEventResponse.AipeopleInMilitary < AiEventResponse.AitotalPeople) {
+	                    	AiEventResponse.AipeopleInMilitary++;
 	                    }
 	                    break;
 	                case 2:
-	                    if (AipeopleInResearch < AitotalPeople) {
-	                        AipeopleInResearch++;
+	                    if (AiEventResponse.AipeopleInResearch < AiEventResponse.AitotalPeople) {
+	                    	AiEventResponse.AipeopleInResearch++;
 	                    }
 	                    break;
 	            }
@@ -98,30 +68,30 @@ public class AiQuota {
 	        }
 
 	        // Display the allocations
-	        System.out.println("Food Allocation: " + AipeopleInFood);
-	        System.out.println("Mining/Wood Allocation: " + AipeopleInMiningAndWood);
-	        System.out.println("Military Allocation: " + AipeopleInMilitary);
-	        System.out.println("Research Allocation: " + AipeopleInResearch);
+	        System.out.println("Food Allocation: " + AiEventResponse.AipeopleInFood);
+	        System.out.println("Mining/Wood Allocation: " + AiEventResponse.AipeopleInMiningAndWood);
+	        System.out.println("Military Allocation: " + AiEventResponse.AipeopleInMilitary);
+	        System.out.println("Research Allocation: " + AiEventResponse.AipeopleInResearch);
 	    }
 	}
 
 public static void meetAiQuotaMiningAndWood() {
-    if (AiminingAndWood >= AiMiningAndWoodNeededRequiredPerPerson * AitotalPeople) {
+    if (AiEventResponse.AiminingAndWood >= AiMiningAndWoodNeededRequiredPerPerson * AiEventResponse.AitotalPeople) {
         System.out.println("Everyone has enough wood (AI).");
     } else {
         System.out.println("Not enough wood for everyone (AI)!");
-        AipeopleInFood = 0;
-        AipeopleInMiningAndWood = 0;
-        AipeopleInMilitary = 0;
-        AipeopleInResearch = 0;
+        AiEventResponse.AipeopleInFood = 0;
+        AiEventResponse.AipeopleInMiningAndWood = 0;
+        AiEventResponse.AipeopleInMilitary = 0;
+        AiEventResponse.AipeopleInResearch = 0;
 
-        AiMiningAndWoodNeeded = AitotalPeople * AiMiningAndWoodNeededRequiredPerPerson;
+        AiMiningAndWoodNeeded = AiEventResponse.AitotalPeople * AiMiningAndWoodNeededRequiredPerPerson;
 
         // Allocate people so they have enough food
-        while (AiminingAndWood < AiMiningAndWoodNeeded) {
-            if (AipeopleInMiningAndWood < AitotalPeople) {
-            	AipeopleInMiningAndWood++;
-                AiminingAndWood += AiMiningAndWoodNeededRequiredPerPerson;
+        while (AiEventResponse.AiminingAndWood < AiMiningAndWoodNeeded) {
+            if (AiEventResponse.AipeopleInMiningAndWood < AiEventResponse.AitotalPeople) {
+            	AiEventResponse.AipeopleInMiningAndWood++;
+            	AiEventResponse.AiminingAndWood += AiMiningAndWoodNeededRequiredPerPerson;
             } else {
                 break;
             }
@@ -129,24 +99,24 @@ public static void meetAiQuotaMiningAndWood() {
 
         // Allocate the rest of the people randomly
         Random random = new Random();
-        int remainingPeople = AitotalPeople - AipeopleInMiningAndWood;
+        int remainingPeople = AiEventResponse.AitotalPeople - AiEventResponse.AipeopleInMiningAndWood;
         while (remainingPeople > 0) {
             int randomAllocation = random.nextInt(3); // Random allocation between 0 and 2
 
             switch (randomAllocation) {
                 case 0:
-                    if (AipeopleInFood < AitotalPeople) {
-                    	AipeopleInFood++;
+                    if (AiEventResponse.AipeopleInFood < AiEventResponse.AitotalPeople) {
+                    	AiEventResponse.AipeopleInFood++;
                     }
                     break;
                 case 1:
-                    if (AipeopleInMilitary < AitotalPeople) {
-                        AipeopleInMilitary++;
+                    if (AiEventResponse.AipeopleInMilitary < AiEventResponse.AitotalPeople) {
+                    	AiEventResponse.AipeopleInMilitary++;
                     }
                     break;
                 case 2:
-                    if (AipeopleInResearch < AitotalPeople) {
-                        AipeopleInResearch++;
+                    if (AiEventResponse.AipeopleInResearch < AiEventResponse.AitotalPeople) {
+                    	AiEventResponse.AipeopleInResearch++;
                     }
                     break;
             }
@@ -154,10 +124,10 @@ public static void meetAiQuotaMiningAndWood() {
         }
 
         // Display the allocations
-        System.out.println("Food Allocation: " + AipeopleInFood);
-        System.out.println("Mining/Wood Allocation: " + AipeopleInMiningAndWood);
-        System.out.println("Military Allocation: " + AipeopleInMilitary);
-        System.out.println("Research Allocation: " + AipeopleInResearch);
+        System.out.println("Food Allocation: " + AiEventResponse.AipeopleInFood);
+        System.out.println("Mining/Wood Allocation: " + AiEventResponse.AipeopleInMiningAndWood);
+        System.out.println("Military Allocation: " + AiEventResponse.AipeopleInMilitary);
+        System.out.println("Research Allocation: " + AiEventResponse.AipeopleInResearch);
     }
 }
 }

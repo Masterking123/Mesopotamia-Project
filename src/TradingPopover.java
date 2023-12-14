@@ -16,18 +16,18 @@ import javax.swing.border.EmptyBorder;
 
 public class TradingPopover extends JFrame {
 
-	
+	/*
 	public static double miningAndWood;
 	public static double food;
 	public static double military;
 	public static double research;
 	public static int totalPeople;
-
+*/
 	int countervilliger = 0;
 	int counterreasrerch = 0;
-	double countertosave1 = food;
-	double countertosave = miningAndWood;
-	double countertosave2 = research;
+	double countertosave1 = PlayerObject.food;
+	double countertosave = PlayerObject.miningAndWood;
+	double countertosave2 = PlayerObject.research;
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -170,19 +170,19 @@ public class TradingPopover extends JFrame {
 		
 		
 		// Village marketing textbox
-		villigarmarketing_textbox.append("you have " + food + " food" + "\n");
+		villigarmarketing_textbox.append("you have " + PlayerObject.food + " food" + "\n");
 		villigarmarketing_textbox.append("to recive 1 villigar, " + "\n" + "give 2 food");
 		
 		// food tradingtextbox
-		Foodtextarea.append("you have " + miningAndWood + " recources" + "\n");
+		Foodtextarea.append("you have " + PlayerObject.miningAndWood + " recources" + "\n");
 		Foodtextarea.append("to recive 5 food, " + "\n" + "give 5 recourses");
 		
 		// recourse tradingtextbox fix this.
-		Recoursetextarea.append("you have " + food + " food" + "\n");
+		Recoursetextarea.append("you have " + PlayerObject.food + " food" + "\n");
 		Recoursetextarea.append("to recive 5 reacourses" + "\n" +  "give 5 food");
 		
 		// researchpoints textbox
-		Reasechpointstextarea.append("you have " + research + " reaserch points" + "\n");
+		Reasechpointstextarea.append("you have " + PlayerObject.research + " reaserch points" + "\n");
 		Reasechpointstextarea.append("to recive 1 reaserch point " + "\n" + "give 5 food");
 		
 		 Villigersubtract.setEnabled(false);
@@ -192,9 +192,9 @@ public class TradingPopover extends JFrame {
 		
 		Villiigeradd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (food >= 2 )
+			if (PlayerObject.food >= 2 )
 			{
-				food = food - 2;
+				PlayerObject.food = PlayerObject.food - 2;
 				countervilliger++;
 				Testareamaintrade.append("you subbmitted 2 food for" + countervilliger + " villigers" + "\n");
 				 Villigersubtract.setEnabled(true);
@@ -212,10 +212,10 @@ public class TradingPopover extends JFrame {
 		
 		Villigersubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		 if(food != countertosave1)
+		 if(PlayerObject.food != countertosave1)
 		 {
 			 
-			 food = food + 2;
+			 PlayerObject.food = PlayerObject.food + 2;
 			 countervilliger--;
 			 Testareamaintrade.append("you retracted 2 food for" + countervilliger + " villigers" + "\n");
 			 Villiigeradd.setEnabled(true);
@@ -231,11 +231,11 @@ public class TradingPopover extends JFrame {
 		
 		Foodadd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (miningAndWood >= 5 )
+				if (PlayerObject.miningAndWood >= 5 )
 				{
-					food = food + 5;
-					miningAndWood = miningAndWood - 5;
-					Testareamaintrade.append("you subbmitted 5 wood for" + food + " food" + "\n");
+					PlayerObject.food = PlayerObject.food + 5;
+					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
+					Testareamaintrade.append("you subbmitted 5 wood for" + PlayerObject.food + " food" + "\n");
 					Foodsubract.setEnabled(true);
 				}
 				
@@ -250,11 +250,11 @@ public class TradingPopover extends JFrame {
 		
 		Foodsubract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (miningAndWood != countertosave )
+				if (PlayerObject.miningAndWood != countertosave )
 				{
-					food = food - 5;
-					miningAndWood = miningAndWood + 5;
-					Testareamaintrade.append("you retracted 5 wood for" + food + " food" + "\n");
+					PlayerObject.food = PlayerObject.food - 5;
+					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
+					Testareamaintrade.append("you retracted 5 wood for" + PlayerObject.food + " food" + "\n");
 					Foodadd.setEnabled(true);
 					Villiigeradd.setEnabled(true);
 				}
@@ -270,11 +270,11 @@ public class TradingPopover extends JFrame {
 		
 		Recouseadd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (food >= 5 )
+				if (PlayerObject.food >= 5 )
 				{
-					miningAndWood = miningAndWood + 5;
-					food = food - 5;
-					Testareamaintrade.append("you submitted 5 wood for" + food + " food" + "\n");
+					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
+					PlayerObject.food = PlayerObject.food - 5;
+					Testareamaintrade.append("you submitted 5 wood for" + PlayerObject.food + " food" + "\n");
 					Recourcesubtract.setEnabled(true);
 				}
 				
@@ -289,11 +289,11 @@ public class TradingPopover extends JFrame {
 		
 		Recourcesubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (food != countertosave1 )
+				if (PlayerObject.food != countertosave1 )
 				{
-					miningAndWood = miningAndWood - 5;
-					food = food + 5;
-					Testareamaintrade.append("you retracted 5 food for" + miningAndWood + " recourses" + "\n");
+					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
+					PlayerObject.food =PlayerObject.food + 5;
+					Testareamaintrade.append("you retracted 5 food for" + PlayerObject.miningAndWood + " recourses" + "\n");
 					Foodadd.setEnabled(true);
 					Recouseadd.setEnabled(true);
 				}
@@ -308,11 +308,11 @@ public class TradingPopover extends JFrame {
 		
 		Reaserchadd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (food >= 5 )
+				if (PlayerObject.food >= 5 )
 				{
-					research = research + 1;
+					PlayerObject.research = PlayerObject.research + 1;
 					counterreasrerch = counterreasrerch + 1;
-					food = food - 5;
+					PlayerObject.food = PlayerObject.food - 5;
 					Testareamaintrade.append("you submitted 5 food for" + counterreasrerch + " reaserch" + "\n");
 					Reaserchsubtract.setEnabled(true);
 				}
@@ -328,11 +328,11 @@ public class TradingPopover extends JFrame {
 		
 		Reaserchsubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (research != countertosave2 )
+				if (PlayerObject.research != countertosave2 )
 				{
-					research = research - 1;
-					food = food + 5;
-					Testareamaintrade.append("you retracted 1 reaserch point for" + food + " food" + "\n");
+					PlayerObject.research = PlayerObject.research - 1;
+					PlayerObject.food = PlayerObject.food + 5;
+					Testareamaintrade.append("you retracted 1 reaserch point for" + PlayerObject.food + " food" + "\n");
 					Reaserchsubtract.setEnabled(true);
 					Reaserchadd.setEnabled(true);
 				}
