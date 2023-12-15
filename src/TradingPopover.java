@@ -23,6 +23,25 @@ public class TradingPopover extends JFrame {
 	public static double research;
 	public static int totalPeople;
 */
+	
+	public static JButton backtradebutton;
+	public static JLabel lblNewLabel;
+	public static JLabel lblNewLabel_1;
+	public static JLabel lblNewLabel_2;
+	public static JLabel lblNewLabel_3;
+	public static JLabel lblNewLabel_4;
+	public static JTextArea villagerMarketing_textbox;
+	public static JTextArea Foodtextarea;
+	public static JTextArea resourceTextArea;
+	public static JTextArea researchPointsTextArea;
+	public static JButton villagerAdd;
+	public static JButton foodAdd;
+	public static JButton resourcesAdd;
+	public static JButton researchAdd;
+	public static JTextArea Testareamaintrade;
+	public static JLabel Tradingtextbox;
+
+	
 	double countertosave1 = PlayerObject.food;
 	double countertosave = PlayerObject.miningAndWood;
 	double countertosave2 = PlayerObject.research;
@@ -46,6 +65,8 @@ public class TradingPopover extends JFrame {
 			}
 		});
 	}
+	
+	
 
 	/**
 	 * Create the frame.
@@ -66,7 +87,7 @@ public class TradingPopover extends JFrame {
 		
 
 		setContentPane(contentPane);
-		JButton backtradebutton = new JButton("Go Back");
+		backtradebutton = new JButton("Go Back");
 		backtradebutton.setBounds(23, 414, 85, 21);
 		backtradebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,113 +101,113 @@ public class TradingPopover extends JFrame {
 		Tradebutton.setBounds(682, 414, 85, 21);
 		contentPane.add(Tradebutton);*/
 		
-		JLabel lblNewLabel = new JLabel("Food trade");
+		lblNewLabel = new JLabel("Food trade");
 		lblNewLabel.setBounds(224, 80, 64, 13);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Villager marketing");
+		lblNewLabel_1 = new JLabel("Villager marketing");
 		lblNewLabel_1.setBounds(44, 76, 108, 21);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Trading screen");
+		lblNewLabel_2 = new JLabel("Trading screen");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_2.setBounds(325, 10, 153, 48);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Resource trade");
+		lblNewLabel_3 = new JLabel("Resource trade");
 		lblNewLabel_3.setBounds(391, 80, 96, 13);
 		contentPane.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("Reaserch points");
+	
+		lblNewLabel_4 = new JLabel("Research points");
 		lblNewLabel_4.setBounds(593, 80, 100, 13);
 		contentPane.add(lblNewLabel_4);
 		
-		JTextArea villigarmarketing_textbox = new JTextArea();
-		villigarmarketing_textbox.setFont(new Font("Arial", Font.PLAIN, 11));
-		villigarmarketing_textbox.setEditable(false);
-		villigarmarketing_textbox.setBounds(23, 96, 129, 67);
-		contentPane.add(villigarmarketing_textbox);
+		villagerMarketing_textbox = new JTextArea();
+		villagerMarketing_textbox.setFont(new Font("Arial", Font.PLAIN, 11));
+		villagerMarketing_textbox.setEditable(false);
+		villagerMarketing_textbox.setBounds(23, 96, 129, 67);
+		contentPane.add(villagerMarketing_textbox);
 		
-		JTextArea Foodtextarea = new JTextArea();
+		Foodtextarea = new JTextArea();
 		Foodtextarea.setFont(new Font("Arial", Font.PLAIN, 11));
 		Foodtextarea.setEditable(false);
 		Foodtextarea.setBounds(191, 96, 129, 67);
 		contentPane.add(Foodtextarea);
 		
-		JTextArea Recoursetextarea = new JTextArea();
-		Recoursetextarea.setFont(new Font("Arial", Font.PLAIN, 11));
-		Recoursetextarea.setEditable(false);
-		Recoursetextarea.setBounds(375, 96, 129, 67);
-		contentPane.add(Recoursetextarea);
+		resourceTextArea = new JTextArea();
+		resourceTextArea.setFont(new Font("Arial", Font.PLAIN, 11));
+		resourceTextArea.setEditable(false);
+		resourceTextArea.setBounds(375, 96, 129, 67);
+		contentPane.add(resourceTextArea);
 		
-		JTextArea Reasechpointstextarea = new JTextArea();
-		Reasechpointstextarea.setFont(new Font("Arial", Font.PLAIN, 11));
-		Reasechpointstextarea.setEditable(false);
-		Reasechpointstextarea.setBounds(575, 99, 129, 64);
-		contentPane.add(Reasechpointstextarea);
+		researchPointsTextArea = new JTextArea();
+		researchPointsTextArea.setFont(new Font("Arial", Font.PLAIN, 11));
+		researchPointsTextArea.setEditable(false);
+		researchPointsTextArea.setBounds(575, 99, 129, 64);
+		contentPane.add(researchPointsTextArea);
 		
-		JButton villagerAdd = new JButton("+");
+		villagerAdd = new JButton("TRADE");
 		villagerAdd.setBounds(44, 176, 49, 21);
 		contentPane.add(villagerAdd);
 		
-		JButton villagerSubtract = new JButton("-");
+		/*JButton villagerSubtract = new JButton("-");
 		villagerSubtract.setBounds(90, 176, 49, 21);
-		contentPane.add(villagerSubtract);
+		contentPane.add(villagerSubtract);*/
 		
-		JButton foodAdd = new JButton("+");
+		foodAdd = new JButton("TRADE");
 		foodAdd.setBounds(201, 176, 51, 21);
 		contentPane.add(foodAdd);
 		
-		JButton foodSubtract = new JButton("-");
+		/*JButton foodSubtract = new JButton("-");
 		foodSubtract.setBounds(249, 176, 49, 21);
-		contentPane.add(foodSubtract);
+		contentPane.add(foodSubtract);*/
 		
-		JButton resourcesAdd = new JButton("+");
+		resourcesAdd = new JButton("TRADE");
 		resourcesAdd.setBounds(391, 176, 49, 21);
 		contentPane.add(resourcesAdd);
 		
-		JButton resourcesSubtract = new JButton("-");
+		/*JButton resourcesSubtract = new JButton("-");
 		resourcesSubtract.setBounds(439, 176, 49, 21);
-		contentPane.add(resourcesSubtract);
+		contentPane.add(resourcesSubtract);*/
 		
-		JButton researchAdd = new JButton("+");
+		researchAdd = new JButton("TRADE");
 		researchAdd.setBounds(595, 173, 51, 21);
 		contentPane.add(researchAdd);
 		
-		JButton researchSubtract = new JButton("-");
+		/*JButton researchSubtract = new JButton("-");
 		researchSubtract.setBounds(644, 173, 49, 21);
-		contentPane.add(researchSubtract);
+		contentPane.add(researchSubtract);*/
 		
-		JTextArea Testareamaintrade = new JTextArea();
+		Testareamaintrade = new JTextArea();
 		Testareamaintrade.setEditable(false);
 		Testareamaintrade.setBounds(172, 230, 423, 190);
 		contentPane.add(Testareamaintrade);
 		
-		JLabel Tradingtextbox = new JLabel("Trading text box");
+		Tradingtextbox = new JLabel("Trading text box");
 		Tradingtextbox.setBounds(326, 207, 152, 13);
 		contentPane.add(Tradingtextbox);
 		
 		
 		// Village marketing textbox
-		villigarmarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villigarmarketing_textbox.append("1 villager = 2 food");
+		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
+		villagerMarketing_textbox.append("1 villager = 2 food");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
 		Foodtextarea.append("5 food = 5 resources");
 		
 		// recourse tradingtextbox fix this.
-		Recoursetextarea.append("Food:" + PlayerObject.food + "\n" + "Resources: " + PlayerObject.miningAndWood + "\n");
-		Recoursetextarea.append("5 resources = 5 food" + "\n");
+		resourceTextArea.append("Food:" + PlayerObject.food + "\n" + "Resources: " + PlayerObject.miningAndWood + "\n");
+		resourceTextArea.append("5 resources = 5 food" + "\n");
 		
 		// researchpoints textbox
-		Reasechpointstextarea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
-		Reasechpointstextarea.append("1 research point = 5 food");
+		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
+		researchPointsTextArea.append("1 research point = 5 food");
 		
-		 villagerSubtract.setEnabled(false);
+		/* villagerSubtract.setEnabled(false);
 		 foodSubtract.setEnabled(false);
 		 researchSubtract.setEnabled(false);
-		 resourcesSubtract.setEnabled(false);
+		 resourcesSubtract.setEnabled(false);*/
 		
 		villagerAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -194,8 +215,9 @@ public class TradingPopover extends JFrame {
 			{
 				PlayerObject.food = PlayerObject.food - 2;
 				PlayerObject.totalPeople++;
-				Testareamaintrade.append("You traded 2 food. The current people in the village is " + PlayerObject.totalPeople +"\n");
-				 villagerSubtract.setEnabled(true);
+				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.totalPeople +"\n");
+				updateTradeInformation();
+
 				 
 			}
 			
@@ -207,7 +229,7 @@ public class TradingPopover extends JFrame {
 			
 			}
 		});
-		
+	/*	
 		villagerSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		 if(PlayerObject.food != countertosave1)
@@ -224,7 +246,7 @@ public class TradingPopover extends JFrame {
 			 villagerSubtract.setEnabled(false);
 		 }
 			}
-		});
+		});*/
 		
 		
 		foodAdd.addActionListener(new ActionListener() {
@@ -234,7 +256,8 @@ public class TradingPopover extends JFrame {
 					PlayerObject.food = PlayerObject.food + 5;
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
 					Testareamaintrade.append("You traded 5 wood." + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n" );
-					foodSubtract.setEnabled(true);
+					//foodSubtract.setEnabled(true);
+					updateTradeInformation();
 				}
 				
 				else
@@ -246,7 +269,7 @@ public class TradingPopover extends JFrame {
 		});
 		
 		
-		foodSubtract.addActionListener(new ActionListener() {
+		/*foodSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.miningAndWood != countertosave )
 				{
@@ -263,7 +286,7 @@ public class TradingPopover extends JFrame {
 					foodSubtract.setEnabled(false);
 				}
 			}
-		});
+		});*/
 		
 		
 		resourcesAdd.addActionListener(new ActionListener() {
@@ -273,7 +296,8 @@ public class TradingPopover extends JFrame {
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					PlayerObject.food = PlayerObject.food - 5;
 					Testareamaintrade.append("You traded 5 wood" + "\n" + "Food: " + PlayerObject.food + "\n");
-					resourcesSubtract.setEnabled(true);
+					//resourcesSubtract.setEnabled(true);
+					updateTradeInformation();
 				}
 				
 				else
@@ -284,7 +308,7 @@ public class TradingPopover extends JFrame {
 			}
 		});
 		
-		
+		/*
 		resourcesSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.food != countertosave1 )
@@ -302,7 +326,7 @@ public class TradingPopover extends JFrame {
 					resourcesAdd.setEnabled(false);
 				}
 			}
-		});
+		});*/
 		
 		researchAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -310,19 +334,20 @@ public class TradingPopover extends JFrame {
 				{
 					PlayerObject.research = PlayerObject.research + 1;
 					PlayerObject.food = PlayerObject.food - 5;
-					Testareamaintrade.append("you traded 5 food" + "\n" + " Research points: " + PlayerObject.research+ "\n");
-					researchSubtract.setEnabled(true);
+					Testareamaintrade.append("You traded 5 food" + "\n" + " Research points: " + PlayerObject.research+ "\n");
+					//researchSubtract.setEnabled(true);
+					updateTradeInformation();
 				}
 				
 				else
 				{
-					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more resources to trade" + "\n");
 					researchAdd.setEnabled(false);
 				}
 			}
 		});
 		
-		
+		/*
 		researchSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (PlayerObject.research != countertosave2 )
@@ -340,7 +365,32 @@ public class TradingPopover extends JFrame {
 					researchSubtract.setEnabled(false);
 				}
 			}
-		});
+		});*/
 	}
+	
+	public void updateTradeInformation() {
+	    // Clear text areas
+	    villagerMarketing_textbox.setText("");
+	    Foodtextarea.setText("");
+	    resourceTextArea.setText("");
+	    researchPointsTextArea.setText("");
+	    
+	    // Update villager marketing text area
+	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
+	    villagerMarketing_textbox.append("1 villager = 2 food" + "\n");
+	    
+	    // Update food trading text area
+	    Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
+	    Foodtextarea.append("5 food = 5 resources" + "\n");
+	    
+	    // Update resource trading text area
+	    resourceTextArea.append("Food:" + PlayerObject.food + "\n" + "Resources: " + PlayerObject.miningAndWood + "\n");
+	    resourceTextArea.append("5 resources = 5 food" + "\n");
+	    
+	    // Update research points text area
+	    researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
+	    researchPointsTextArea.append("1 research point = 5 food" + "\n");
+	}
+
 
 }
