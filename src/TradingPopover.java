@@ -213,7 +213,7 @@ public class TradingPopover extends JFrame {
 				
 				else
 				{
-					Testareamaintrade.append("you have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more resources to trade" + "\n");
 				foodAdd.setEnabled(false);
 				}
 			}

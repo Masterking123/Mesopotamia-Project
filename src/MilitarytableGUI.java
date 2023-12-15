@@ -92,9 +92,9 @@ public class MilitarytableGUI extends JFrame {
 		buttonforfood.setBounds(283, 256, 85, 21);
 		contentPane.add(buttonforfood);
 		
-		JButton buttonforrecourses = new JButton("Start");
-		buttonforrecourses.setBounds(467, 256, 85, 21);
-		contentPane.add(buttonforrecourses);
+		JButton buttonforresources = new JButton("Start");
+		buttonforresources.setBounds(467, 256, 85, 21);
+		contentPane.add(buttonforresources);
 		
 		JButton stealaicampbutton = new JButton("Start");
 		stealaicampbutton.setBounds(662, 256, 85, 21);
@@ -136,17 +136,17 @@ public class MilitarytableGUI extends JFrame {
 			buttonforfood.setEnabled(false);
 		}
 		
-		recoursetextarea.append("This is to search for recourses " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
+		recoursetextarea.append("This is to search for resources " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
-			buttonforrecourses.setEnabled(true);
+			buttonforresources.setEnabled(true);
 		}
 		else
 		{
-			buttonforrecourses.setEnabled(false);
+			buttonforresources.setEnabled(false);
 		}
 		
-		aicamptstealtextarea.append("This is to search for recourses " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
+		aicamptstealtextarea.append("This is to search for resources " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
 			stealaicampbutton.setEnabled(true);
@@ -199,7 +199,7 @@ public class MilitarytableGUI extends JFrame {
 			}
 		});
 		
-		buttonforrecourses.addActionListener(new ActionListener() {
+		buttonforresources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				for (int i = 0; i < 10; i++) {
@@ -213,7 +213,7 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
-				textAreaforfinsihedtable.append("You got " + counter3 + " recourses for your village.");
+				textAreaforfinsihedtable.append("You got " + counter3 + " resources for your village.");
 				PlayerObject.miningAndWood = counter3 + PlayerObject.miningAndWood;
 				counter3 = 0;
 				System.out.println(PlayerObject.miningAndWood);
@@ -234,7 +234,7 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
-				textAreaforfinsihedtable.append("You got " + counter4 + " recourses for your village.");
+				textAreaforfinsihedtable.append("You got " + counter4 + " resources for your village.");
 				PlayerObject.miningAndWood = counter4 + PlayerObject.miningAndWood;
 				counter4 = 0;
 				System.out.println(PlayerObject.miningAndWood);
