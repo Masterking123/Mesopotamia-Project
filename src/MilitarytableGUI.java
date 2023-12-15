@@ -116,7 +116,7 @@ public class MilitarytableGUI extends JFrame {
 		textAreaforfinsihedtable.setBounds(85, 297, 649, 178);
 		contentPane.add(textAreaforfinsihedtable);
 		
-		testareaforpeople.append("This is to search for people " + "\n" + "for your village, to start you need" + "\n" + "20 people and you have " + PlayerObject.peopleInMilitary+ " \n" + " in your village");
+		testareaforpeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary+  " in your village");
 		if( PlayerObject.peopleInMilitary >= 20)
 		{
 			Buttonforpeople.setEnabled(true);
@@ -126,7 +126,7 @@ public class MilitarytableGUI extends JFrame {
 			Buttonforpeople.setEnabled(false);
 		}
 		
-		textareaforfood.append("This is to search for food " + "\n" + "for your village, to start you need" + "\n"+ "15 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
+		textareaforfood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " +  "your village");
 		if(PlayerObject.peopleInMilitary >= 14 )
 		{
 			buttonforfood.setEnabled(true);
@@ -136,7 +136,7 @@ public class MilitarytableGUI extends JFrame {
 			buttonforfood.setEnabled(false);
 		}
 		
-		recoursetextarea.append("This is to search for resources " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
+		recoursetextarea.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
 			buttonforresources.setEnabled(true);
@@ -146,7 +146,7 @@ public class MilitarytableGUI extends JFrame {
 			buttonforresources.setEnabled(false);
 		}
 		
-		aicamptstealtextarea.append("This is to search for resources " + "\n" + "for your village, to start you need" + "\n"+ "10 people and you have " + PlayerObject.peopleInMilitary + " in " + "\n" + "your village");
+		aicamptstealtextarea.append("This is to search for resources " + "\n" + "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
 			stealaicampbutton.setEnabled(true);

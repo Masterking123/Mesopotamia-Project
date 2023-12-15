@@ -16,8 +16,9 @@ public class NextDayButton {
 		
 		
 		
+		
 		// Random Event Occurring
-		if(Main.randomPercentOccurance(30)) {
+		if (Main.randomPercentOccurance(30)) {
 			MainGameGUI.frame.setEnabled(false);
 			EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
 			RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);

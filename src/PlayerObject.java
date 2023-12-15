@@ -11,12 +11,12 @@ public class PlayerObject {
 	public static String rivalVillageName;
 	
 	public static int peopleInFood;
-	public static double food;
+	public static double food = 0;
 	public static int percentFoodBoost;
 	public static int numberFoodBoost;
 	
 	public static int peopleInMiningAndWood;
-	public static double miningAndWood;
+	public static double miningAndWood = 0;
 	public static int percentMiningAndWoodBoost; 
 	public static int numberMiningAndWoodBoost;
 	public static int oneTimeMiningAndWoodBoost;
@@ -27,14 +27,14 @@ public class PlayerObject {
 	public static int numberMilitaryBoost;
 	
 	public static int peopleInResearch;
-	public static double research;
+	public static double research =0;
 	public static int percentResearchBoost;
 	public static int numberResearchBoost;
 	
 	public static int percentDiscountOnSales;
 	
-	public static int totalPeople;
-	public static int reputation;
+	public static int totalPeople = 10;
+	public static int reputation = 50;
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
 	
