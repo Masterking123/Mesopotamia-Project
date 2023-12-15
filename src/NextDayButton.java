@@ -22,6 +22,7 @@ public class NextDayButton {
 			MainGameGUI.frame.setEnabled(false);
 			EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
 			RandomEventPopover.createNewRandomEventPopover(generatedRandomEvent.nameOfEvent, generatedRandomEvent.description);
+			AiEventResponse.generateAiEventResponse();
 		}
 		
 		// Check if Quotas have been met
