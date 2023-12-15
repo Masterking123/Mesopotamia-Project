@@ -135,20 +135,20 @@ public class TradingPopover extends JFrame {
 		contentPane.add(researchPointsTextArea);
 		
 		villagerAdd = new JButton("TRADE");
-		villagerAdd.setBounds(44, 176, 49, 21);
+		villagerAdd.setBounds(44, 200, 49, 21);
 		contentPane.add(villagerAdd);
 		
 		foodAdd = new JButton("TRADE");
-		foodAdd.setBounds(201, 176, 51, 21);
+		foodAdd.setBounds(201, 200, 51, 21);
 		contentPane.add(foodAdd);
 		
 		
 		resourcesAdd = new JButton("TRADE");
-		resourcesAdd.setBounds(391, 176, 49, 21);
+		resourcesAdd.setBounds(391, 200, 49, 21);
 		contentPane.add(resourcesAdd);
 
 		researchAdd = new JButton("TRADE");
-		researchAdd.setBounds(595, 173, 51, 21);
+		researchAdd.setBounds(595, 200, 51, 21);
 		contentPane.add(researchAdd);
 		
 		
