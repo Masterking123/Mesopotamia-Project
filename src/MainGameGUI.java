@@ -121,6 +121,8 @@ public class MainGameGUI extends JFrame {
 		farmerCount.setBounds(114, 256, farmerCountLabel[2], farmerCountLabel[3]);
 		contentPane.add(farmerCount);
 		
+		
+		
 		addFarmerButton = new JButton("+");
 		addFarmerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
