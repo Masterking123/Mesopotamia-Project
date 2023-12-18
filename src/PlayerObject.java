@@ -27,7 +27,7 @@ public class PlayerObject {
 	public static int numberMilitaryBoost;
 	
 	public static int peopleInResearch;
-	public static double research = 10;
+	public static double research = 50;
 	public static int percentResearchBoost;
 	public static int numberResearchBoost;
 	
@@ -38,7 +38,7 @@ public class PlayerObject {
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
 	
-	static String[] researchApplied = new String[4];
+	static String[] researchApplied = new String[16];
 	
 	public static void generateFood() {
 		if(peopleInFood != 0) {
