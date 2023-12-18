@@ -14,7 +14,7 @@ public class NextDayButton {
 		PlayerObject.generateMiningAndWood();
 		PlayerObject.generateResearch();
 		
-		
+		rivalVillageAi.aiPeopleTrade();
 		
 		
 		// Random Event Occurring
