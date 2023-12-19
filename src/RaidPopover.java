@@ -63,16 +63,16 @@ public class RaidPopover extends JFrame {
 		raidTitleLabel.setBounds(170, 11, 146, 41);
 		contentPane.add(raidTitleLabel);
 		
-		JTextArea txtrTheRivalVillage = new JTextArea();
-		txtrTheRivalVillage.setBackground(new Color(192, 192, 192));
-		txtrTheRivalVillage.setLineWrap(true);
-		txtrTheRivalVillage.setWrapStyleWord(true);
-		txtrTheRivalVillage.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
-		txtrTheRivalVillage.setEditable(false);
-		txtrTheRivalVillage.setRows(5);
-		txtrTheRivalVillage.setText("The Rival Village has decided to raid your village. Now you must play a game of connect 4 to determine who wins the raid. If the rival village wins, then they will steal your resources!");
-		txtrTheRivalVillage.setBounds(47, 63, 347, 117);
-		contentPane.add(txtrTheRivalVillage);
+		JTextArea infoTextArea = new JTextArea();
+		infoTextArea.setBackground(new Color(192, 192, 192));
+		infoTextArea.setLineWrap(true);
+		infoTextArea.setWrapStyleWord(true);
+		infoTextArea.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		infoTextArea.setEditable(false);
+		infoTextArea.setRows(5);
+		infoTextArea.setText("The Rival Village has decided to raid your village. Now you must play a game of connect 4 to determine who wins the raid. If the rival village wins, then they will steal your resources!");
+		infoTextArea.setBounds(47, 63, 347, 117);
+		contentPane.add(infoTextArea);
 		
 		JButton contButton = new JButton("Continue");
 		contButton.addActionListener(new ActionListener() {

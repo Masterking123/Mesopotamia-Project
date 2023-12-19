@@ -30,11 +30,6 @@ public class MainGameGUI extends JFrame {
 	public static int peopleCount = 10; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
-	public static int raidDayCount = 0; 
-	public static boolean raid = false;     
-    static Random random = new Random();
-    public static double minProbabilityOfRaid = 0;
-    public static double maxProbabilityOfRaid = 0;
 	
 	/**
 	 * Launch the application.
@@ -269,11 +264,10 @@ public class MainGameGUI extends JFrame {
 				dayCounter = dayCounter + 1; 
 				dayCounterLabel.setText("" + dayCounter);
 				NextDayButton.nextDayButtonActivated();
-				raidChance();
-				if (raidDayCount > 0) {
-					raidDayCount = raidDayCount - 1;					
-				}
-				if (raid == true) {
+				Raid.raidChance();
+				if (Raid.raidDayCount > 0) {
+					Raid.raidDayCount = Raid.raidDayCount - 1;					
+				} if (Raid.raid == true) {
 					RaidPopover.main(null);
 					frame.setEnabled(false);
 				}
@@ -394,37 +388,7 @@ public class MainGameGUI extends JFrame {
 		
 		
 	}
-	public static boolean raidChance () {
-		raid = false; 
-		if (raidDayCount == 0) {
-	        double raidChance = random.nextDouble();
-			if(PlayerObject.food > 35) {
-				minProbabilityOfRaid = 0.0;
-				maxProbabilityOfRaid = 0.50;
-				if (raidChance >= minProbabilityOfRaid && raidChance <= maxProbabilityOfRaid) {
-					raid = true; 
-					raidDayCount = 3; 
-				}
-			}else if (PlayerObject.food > 25) {
-				minProbabilityOfRaid = 0.30;
-				maxProbabilityOfRaid = 0.40;
-				if (raidChance >= minProbabilityOfRaid && raidChance <= maxProbabilityOfRaid) {
-					raid = true;
-					raidDayCount = 3; 
-				}
-			} else {
-				minProbabilityOfRaid = 0.10;
-				maxProbabilityOfRaid = 0.15;
-				if (raidChance >= minProbabilityOfRaid && raidChance <= maxProbabilityOfRaid) {
-					raid = true;
-					raidDayCount = 3; 
-				}
-			}
-		}
-		System.out.println(raid);
-		return raid;
-		
-	}
+	
 	}
 
 
