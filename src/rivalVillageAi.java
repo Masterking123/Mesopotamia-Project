@@ -26,5 +26,15 @@ public class rivalVillageAi {
             }
         }
     }
+    
+    public static void aiPeopleAllocation() {
+        Random random = new Random();// importing the random number generator 
+        int randomNumber = random.nextInt(2) + 1; // Generate a random number between 1 and 2
+        if (randomNumber == 1) {
+        	AiEventResponse.AipeopleInFood += 1;
+        	AiEventResponse.AipeopleInMiningAndWood += 1;
+        }
+    }
+
 
 }
