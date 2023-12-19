@@ -14,7 +14,7 @@ public class NextDayButton {
 		PlayerObject.generateResearch();
 		
 		rivalVillageAi.aiPeopleTrade();
-		
+		rivalVillageAi.aiPeopleAllocation();
 		
 		// Random Event Occurring
 		if (Main.randomPercentOccurance(30)) {
@@ -24,13 +24,13 @@ public class NextDayButton {
 			AiEventResponse.generateAiEventResponse();
 		}
 		
-//		// Check if Quotas have been met
-//		Quota.checkAndUpdateFoodResources();
-//		Quota.checkAndUpdateMiningAndWoodResources();
-//		
-//		System.out.println(PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
-//		
-//		// AI values calculated and applied
+		// Check if Quotas have been met
+		Quota.checkAndUpdateFoodResources();
+		Quota.checkAndUpdateMiningAndWoodResources();
+		
+		System.out.println(PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
+		
+		// AI values calculated and applied
 		
 	}
 }
