@@ -24,6 +24,7 @@ public class NextDayButton {
 			AiEventResponse.generateAiEventResponse();
 		}
 		
+		
 //		// Check if Quotas have been met
 //		Quota.checkAndUpdateFoodResources();
 //		Quota.checkAndUpdateMiningAndWoodResources();

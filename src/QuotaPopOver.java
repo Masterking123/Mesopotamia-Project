@@ -7,7 +7,8 @@ public class QuotaPopOver extends JFrame {
     private static final long serialVersionUID = 1L;
     private static JPanel contentPane;
     private static Quota quota;
-
+	public static String playerVillageName;
+	
     public QuotaPopOver() {
         initialize();
     }
@@ -17,8 +18,8 @@ public class QuotaPopOver extends JFrame {
         JTextArea textArea = new JTextArea();
         textArea.setFont(new Font("Times New Roman", Font.BOLD, 30));
         textArea.setText(PlayerObject.playerName + " ! Your village, " + PlayerObject.playerVillageName + " Needs:\n" +
-                "- Food needed: " + Quota.foodRequiredPerPerson + "\n" +
-                "- Food: " + PlayerObject.food + "\n" +
+                "- Your Village power " + PlayerObject.calculateVillagePower() + "\n" +
+                "- Rival Village power: " + AiEventResponse.calculateVillagePowerAi() + "\n" +
                 "- People left for food: " + Quota.peopleLeftForFood + "\n" +
                 "- Reputation: " + PlayerObject.reputation + "\n" +
                 "- Wood needed: " + Quota.woodRequiredPerPerson + "\n" +
