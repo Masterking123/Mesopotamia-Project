@@ -1,7 +1,6 @@
 
 public class NextDayButton {
 	public static void nextDayButtonActivated() {
-		
 		// Update values of the people in each area
 		PlayerObject.peopleInFood = MainGameGUI.farmer;
 		PlayerObject.peopleInMilitary = MainGameGUI.military;
@@ -25,13 +24,13 @@ public class NextDayButton {
 			AiEventResponse.generateAiEventResponse();
 		}
 		
-		// Check if Quotas have been met
-		Quota.checkAndUpdateFoodResources();
-		Quota.checkAndUpdateMiningAndWoodResources();
-		
-		System.out.println(PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
-		
-		// AI values calculated and applied
+//		// Check if Quotas have been met
+//		Quota.checkAndUpdateFoodResources();
+//		Quota.checkAndUpdateMiningAndWoodResources();
+//		
+//		System.out.println(PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
+//		
+//		// AI values calculated and applied
 		
 	}
 }
