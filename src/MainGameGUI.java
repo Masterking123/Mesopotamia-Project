@@ -265,12 +265,14 @@ public class MainGameGUI extends JFrame {
 				dayCounterLabel.setText("" + dayCounter);
 				NextDayButton.nextDayButtonActivated();
 				Raid.raidChance();
+				Raid.stealResources(); 
 				if (Raid.raidDayCount > 0) {
 					Raid.raidDayCount = Raid.raidDayCount - 1;					
 				} if (Raid.raid == true) {
 					RaidPopover.main(null);
 					frame.setEnabled(false);
 				}
+
 				}
 			}
 		);
