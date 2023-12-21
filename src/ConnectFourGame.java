@@ -26,7 +26,7 @@ public class ConnectFourGame extends JFrame {
         pane.add(repaintButton);
         
 
-        JButton dropButton = new JButton("New button");
+        JButton dropButton = new JButton("DROP");
         dropButton.setBounds(0, 40, 89, 23);
        
         dropButton.addActionListener(new ActionListener() {
@@ -43,7 +43,7 @@ public class ConnectFourGame extends JFrame {
         arrayOfButtons[0] = dropButton;
         pane.add(dropButton);
         
-        JButton dropButton2 = new JButton("New button");
+        JButton dropButton2 = new JButton("DROP");
         dropButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
@@ -59,8 +59,94 @@ public class ConnectFourGame extends JFrame {
         arrayOfButtons[0] = dropButton2;
         pane.add(dropButton2);
         
+        JButton dropButton3 = new JButton("DROP");
+        dropButton3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
+					dropButton3.setEnabled(false);
+				}
+				else {
+					dropInColumn(3, 1);
+					repaint();
+				}
+			}
+		});
+        dropButton3.setBounds(200, 40, 89, 23);
+        arrayOfButtons[0] = dropButton3;
+        pane.add(dropButton3);
         
+        JButton dropButton4 = new JButton("DROP");
+        dropButton4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
+					dropButton4.setEnabled(false);
+				}
+				else {
+					dropInColumn(4, 1);
+					repaint();
+				}
+			}
+		});
+        dropButton4.setBounds(300, 40, 89, 23);
+        arrayOfButtons[0] = dropButton4;
+        pane.add(dropButton4);
+        setContentPane(pane);
+        setVisible(true);
+        setResizable(false);
         
+        JButton dropButton5 = new JButton("DROP");
+        dropButton5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
+					dropButton5.setEnabled(false);
+				}
+				else {
+					dropInColumn(5, 1);
+					repaint();
+				}
+			}
+		});
+        dropButton5.setBounds(400, 40, 89, 23);
+        arrayOfButtons[0] = dropButton5;
+        pane.add(dropButton5);
+        setContentPane(pane);
+        setVisible(true);
+        setResizable(false);
+        
+        JButton dropButton6 = new JButton("DROP");
+        dropButton6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
+					dropButton6.setEnabled(false);
+				}
+				else {
+					dropInColumn(6, 1);
+					repaint();
+				}
+			}
+		});
+        dropButton6.setBounds(500, 40, 89, 23);
+        arrayOfButtons[0] = dropButton6;
+        pane.add(dropButton6);
+        setContentPane(pane);
+        setVisible(true);
+        setResizable(false);
+        
+        JButton dropButton7 = new JButton("DROP");
+        dropButton7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
+					dropButton7.setEnabled(false);
+				}
+				else {
+					dropInColumn(7, 1);
+					repaint();
+				}
+			}
+		});
+        dropButton7.setBounds(600, 40, 89, 23);
+        arrayOfButtons[0] = dropButton7;
+        pane.add(dropButton7);
         setContentPane(pane);
         setVisible(true);
         setResizable(false);
