@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Raid {
@@ -8,20 +11,23 @@ public class Raid {
     public static double maxProbabilityOfRaid = 0;
     public static double minSteal = 10; 
     public static double maxSteal = 15;    
+    public static boolean win = true; 
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
     
     
     public static boolean raidChance () {
 		raid = false; 
 		if (raidDayCount == 0) {
 	        double raidChance = random.nextDouble();
-			if(PlayerObject.food > 35) {
+			if(PlayerObject.food > 35 || PlayerObject.miningAndWood > 45) {
 				minProbabilityOfRaid = 0.0;
 				maxProbabilityOfRaid = 0.50;
 				if (raidChance >= minProbabilityOfRaid && raidChance <= maxProbabilityOfRaid) {
 					raid = true; 
 					raidDayCount = 3; 
 				}
-			}else if (PlayerObject.food > 25) {
+			}else if (PlayerObject.food > 25 || PlayerObject.miningAndWood > 25) {
 				minProbabilityOfRaid = 0.30;
 				maxProbabilityOfRaid = 0.40;
 				if (raidChance >= minProbabilityOfRaid && raidChance <= maxProbabilityOfRaid) {
@@ -48,8 +54,8 @@ public class Raid {
         double percentageToSteal = minSteal + (maxSteal - minSteal) * random.nextDouble();
 
     	if (PlayerObject.food > PlayerObject.miningAndWood) { //when food is highest resource 
-            double amountToSteal = PlayerObject.food * (percentageToSteal / 100);
-            double remainingResources = PlayerObject.food - amountToSteal;
+            int amountToSteal = (int) (PlayerObject.food * (percentageToSteal / 100));
+            int remainingResources = (int) (PlayerObject.food - amountToSteal);
             PlayerObject.food = remainingResources; 
             
             //Just here to testing 
@@ -57,9 +63,9 @@ public class Raid {
             System.out.println("Percentage to Steal: " + percentageToSteal + "%");
             System.out.println("Amount Stolen: " + amountToSteal);
             System.out.println("Remaining Resources: " + remainingResources);
-    	}else {
-    		double amountToSteal = PlayerObject.miningAndWood * (percentageToSteal / 100);
-            double remainingResources = PlayerObject.miningAndWood - amountToSteal;
+    	}else if (PlayerObject.miningAndWood > PlayerObject.food){
+    		int amountToSteal = (int) (PlayerObject.miningAndWood * (percentageToSteal / 100));
+            int remainingResources = (int) (PlayerObject.miningAndWood - amountToSteal);
             PlayerObject.miningAndWood = remainingResources; 
             
             //Just here to testing 
@@ -69,9 +75,18 @@ public class Raid {
             System.out.println("Remaining Resources: " + remainingResources);
     		
     	}
+    	/*BigDecimal salary = new BigDecimal(PlayerObject.food);
+        BigDecimal salary2 = salary.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal salary3 = new BigDecimal(PlayerObject.food).setScale(2, RoundingMode.HALF_UP);
+        double salary4 = salary3.doubleValue();
+        PlayerObject.food = salary4; 
+        
+        BigDecimal salary5 = new BigDecimal(PlayerObject.miningAndWood);
+        BigDecimal salary6 = salary5.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal salary7 = new BigDecimal(PlayerObject.miningAndWood).setScale(2, RoundingMode.HALF_UP);
+        double salary8 = salary7.doubleValue();
+        PlayerObject.miningAndWood = salary8; */
     	
     }
     
 }
-    
-
