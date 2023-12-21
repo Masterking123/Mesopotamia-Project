@@ -7,7 +7,7 @@ public class rivalVillageAi {
         int randomNumber = random.nextInt(2) + 1; // Generate a random number between 1 and 2
 
         if (randomNumber == 1) {
-            while (PlayerObject.food >= 0 || PlayerObject.miningAndWood >= 0) {
+            if (PlayerObject.food >= 0 || PlayerObject.miningAndWood >= 0) {
                 // If the condition is met, deduct 2 food and add 1 to the number of people
             	if (PlayerObject.food >= 2)
             	{

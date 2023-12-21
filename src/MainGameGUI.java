@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import javax.swing.SpringLayout;
 import javax.swing.JTextPane;
@@ -29,7 +30,7 @@ public class MainGameGUI extends JFrame {
 	public static int peopleCount = 10; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
-	                                                    
+	
 	/**
 	 * Launch the application.
 	 */
@@ -263,9 +264,14 @@ public class MainGameGUI extends JFrame {
 				dayCounter = dayCounter + 1; 
 				dayCounterLabel.setText("" + dayCounter);
 				NextDayButton.nextDayButtonActivated();
-				if (dayCounter == 31) {
-					
+				Raid.raidChance();
+				if (Raid.raidDayCount > 0) {
+					Raid.raidDayCount = Raid.raidDayCount - 1;					
+				} if (Raid.raid == true) {
+					RaidPopover.main(null);
+					frame.setEnabled(false);
 				}
+
 				}
 			}
 		);
@@ -383,4 +389,7 @@ public class MainGameGUI extends JFrame {
 		
 		
 	}
-}
+	
+	}
+
+

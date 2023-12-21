@@ -1,7 +1,6 @@
 
 public class NextDayButton {
 	public static void nextDayButtonActivated() {
-		
 		// Update values of the people in each area
 		PlayerObject.peopleInFood = MainGameGUI.farmer;
 		PlayerObject.peopleInMilitary = MainGameGUI.military;
@@ -15,7 +14,7 @@ public class NextDayButton {
 		PlayerObject.generateResearch();
 		
 		rivalVillageAi.aiPeopleTrade();
-		
+		rivalVillageAi.aiPeopleAllocation();
 		
 		// Random Event Occurring
 		if (Main.randomPercentOccurance(30)) {

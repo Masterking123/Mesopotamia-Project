@@ -85,6 +85,8 @@ public class TradingPopover extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 			}
 		});
 		contentPane.add(backtradebutton);
