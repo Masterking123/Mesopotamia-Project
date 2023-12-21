@@ -173,6 +173,7 @@ public class MilitarytableGUI extends JFrame {
 				PlayerObject.totalPeople = counter1 + PlayerObject.totalPeople;
 				counter1 = 0;
 				System.out.println(PlayerObject.totalPeople);
+				
 		    }
 				
 			}
