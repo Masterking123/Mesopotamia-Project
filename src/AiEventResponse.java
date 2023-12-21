@@ -34,6 +34,15 @@ public class AiEventResponse {
 	
 	private static int movePeopleNum = 0;
 	
+	public static void lastDayAllocation() {
+		int lastDayPeoplePerPlace = AitotalPeople/4;
+		AImilitaryNum = lastDayPeoplePerPlace;
+		AIfarmerNum = lastDayPeoplePerPlace;
+		AIminerNum = lastDayPeoplePerPlace;
+		AIresearchNum = lastDayPeoplePerPlace;
+		
+	}
+	
 	public static void generateFoodAI() {
 		Aifood += ((AipeopleInFood * 10) * (1 + (double) (AipercentFoodBoost / 100.0))) + AinumberFoodBoost;
 	}

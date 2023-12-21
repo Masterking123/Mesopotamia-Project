@@ -38,7 +38,7 @@ public class InstructionsPopover extends JFrame {
 	
 	
 	public void switchTabs(JPanel panel) { //method for switching tabs in display
-		layeredPane.removeAll();
+		layeredPane.removeAll(); 
 		layeredPane.add(panel);
 		layeredPane.repaint();
 		layeredPane.revalidate();
@@ -133,7 +133,6 @@ public class InstructionsPopover extends JFrame {
 		JButton connect4Button = new JButton("Connect 4");
 		connect4Button.setBounds(317, 26, 95, 29);
 		contentPane.add(connect4Button);
-		switchButton(reputationButton, panelRep);
 		panelRep.setLayout(null);
 		
 		JLabel repLabel = new JLabel("Reputation");
@@ -147,7 +146,6 @@ public class InstructionsPopover extends JFrame {
 		repDisc.setText("The reputation system plays an important role in how the villagers think of you as a leader. Reputation is based on how many people don’t starve and have enough fuel for their homes every single day. Once you surpass 60 reputation points you will receive a boost for farms and mining/wood supplies. A reputation of less than 20 will result in a loss from your farms and mining/wood supplies since all the workers are starting to not trust you.");
 		repDisc.setBounds(86, 70, 354, 235);
 		panelRep.add(repDisc);
-		switchButton(consEventButton, panelConsEvents);
 		panelConsEvents.setLayout(null);
 		
 		JLabel eventsLabel = new JLabel("Events");
@@ -161,7 +159,6 @@ public class InstructionsPopover extends JFrame {
 		eventsDisc.setText("Throughout the game, you will face a series of events that will randomly occur during the game, these events have a wide range of effects on your village that can be positive or negative. The enemy village will also have random events occurring which could be the cause of your rise or downfall.");
 		eventsDisc.setBounds(122, 84, 275, 221);
 		panelConsEvents.add(eventsDisc);
-		switchButton(treeTradeButton, panelSkills);
 		panelSkills.setLayout(null);
 		
 		JLabel skillsLabel = new JLabel("Research/Trading");
@@ -175,7 +172,6 @@ public class InstructionsPopover extends JFrame {
 		skillsDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		skillsDisc.setBounds(81, 86, 378, 219);
 		panelSkills.add(skillsDisc);
-		switchButton(winLossButton, panelWin);
 		panelWin.setLayout(null);
 		
 		JTextPane winLossDisc = new JTextPane();
@@ -189,7 +185,6 @@ public class InstructionsPopover extends JFrame {
 		winsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 28));
 		winsLabel.setBounds(141, 6, 243, 34);
 		panelWin.add(winsLabel);
-		switchButton(connect4Button, panelConnect);
 		panelConnect.setLayout(null);
 		
 		JLabel connectLabel = new JLabel("Connect 4");
@@ -203,7 +198,13 @@ public class InstructionsPopover extends JFrame {
 		connectDisc.setText("Whenever a raid occurs, you must play a game of connect 4 with the enemy village to decide the winner. You will take turns dropping discs into the grid, starting in the middle or at the edge to stack their colored discs upwards, horizontally, or diagonally. Using strategy to outsmart the enemies.");
 		connectDisc.setBounds(121, 70, 286, 235);
 		panelConnect.add(connectDisc);
+		
 		switchButton(mainIdeaButton, panelMain);
+		switchButton(connect4Button, panelConnect);
+		switchButton(winLossButton, panelWin);
+		switchButton(treeTradeButton, panelSkills);
+		switchButton(consEventButton, panelConsEvents);
+		switchButton(reputationButton, panelRep);
 		
 		connectDisc.setEditable(false);
 		winLossDisc.setEditable(false);

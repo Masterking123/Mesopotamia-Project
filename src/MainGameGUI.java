@@ -271,6 +271,9 @@ public class MainGameGUI extends JFrame {
 					RaidPopover.main(null);
 					frame.setEnabled(false);
 				}
+				if (dayCounter == 30) {
+					AiEventResponse.lastDayAllocation();
+				}
 
 				}
 			}
