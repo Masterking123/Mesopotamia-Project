@@ -9,6 +9,7 @@ public class ConnectFourGame extends JFrame {
 	public static final int ASPECT_WIDTH = 700;
 	public static final int ASPECT_HEIGHT = 700;
 	public static JButton[] arrayOfButtons = new JButton[7];
+	public static int currentPlayer = 1; // 1 for player 1 (red), 2 for player 2 (blue)
 
     public ConnectFourGame() {
     	JPanel pane = new JPanel();
@@ -31,13 +32,28 @@ public class ConnectFourGame extends JFrame {
        
         dropButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[0][0] == 1 || gameBoard[0][0] == 2) {
-					dropButton.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[0][0] == 1 || gameBoard[0][0] == 2) {
+						dropButton.setEnabled(false);
+					}
+					else {
+						dropInColumn(1, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(1, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[0][0] == 1 || gameBoard[0][0] == 2) {
+						dropButton.setEnabled(false);
+					}
+					else {
+						dropInColumn(1, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
+				
 			}
 		});
         arrayOfButtons[0] = dropButton;
@@ -46,12 +62,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton2 = new JButton("DROP");
         dropButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
-					dropButton2.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
+						dropButton2.setEnabled(false);
+					}
+					else {
+						dropInColumn(2, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(2, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
+						dropButton2.setEnabled(false);
+					}
+					else {
+						dropInColumn(2, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
@@ -62,12 +92,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton3 = new JButton("DROP");
         dropButton3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
-					dropButton3.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
+						dropButton3.setEnabled(false);
+					}
+					else {
+						dropInColumn(3, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(3, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
+						dropButton.setEnabled(false);
+					}
+					else {
+						dropInColumn(3, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
@@ -78,12 +122,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton4 = new JButton("DROP");
         dropButton4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
-					dropButton4.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
+						dropButton4.setEnabled(false);
+					}
+					else {
+						dropInColumn(4, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(4, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
+						dropButton4.setEnabled(false);
+					}
+					else {
+						dropInColumn(4, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
@@ -97,12 +155,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton5 = new JButton("DROP");
         dropButton5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
-					dropButton5.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
+						dropButton5.setEnabled(false);
+					}
+					else {
+						dropInColumn(5, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(5, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
+						dropButton5.setEnabled(false);
+					}
+					else {
+						dropInColumn(5, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
@@ -116,12 +188,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton6 = new JButton("DROP");
         dropButton6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
-					dropButton6.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
+						dropButton6.setEnabled(false);
+					}
+					else {
+						dropInColumn(6, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(6, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
+						dropButton6.setEnabled(false);
+					}
+					else {
+						dropInColumn(6, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
@@ -135,12 +221,26 @@ public class ConnectFourGame extends JFrame {
         JButton dropButton7 = new JButton("DROP");
         dropButton7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
-					dropButton7.setEnabled(false);
+				if (currentPlayer == 1) {
+					if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
+						dropButton7.setEnabled(false);
+					}
+					else {
+						dropInColumn(7, 1);
+						repaint();
+					}
+					currentPlayer = 2;
 				}
-				else {
-					dropInColumn(7, 1);
-					repaint();
+				
+				else if (currentPlayer == 2) {
+					if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
+						dropButton7.setEnabled(false);
+					}
+					else {
+						dropInColumn(7, 2);
+						repaint();
+					}
+					currentPlayer = 1;
 				}
 			}
 		});
