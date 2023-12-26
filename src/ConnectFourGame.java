@@ -1,20 +1,37 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
 
+// Special button class that stores a JButton along with an index to know which button is which
+class ConnectFourButton extends JButton{
+    public int index;
+    ConnectFourButton()
+    {
+    	super();
+    }
+    ConnectFourButton(int index){
+    	super();
+    	this.index = index;
+    	
+    }
+}
+
+
+
 public class ConnectFourGame extends JFrame {
-	public static int[][] gameBoard = new int[7][6];
+	public static int[][] gameBoard = new int[6][7]; // gameBoard[row][cols]
 	public static final int ASPECT_WIDTH = 700;
 	public static final int ASPECT_HEIGHT = 700;
-	public static JButton[] arrayOfButtons = new JButton[7];
+	public static ConnectFourButton[] arrayOfButtons = new ConnectFourButton[7];
 	public static int currentPlayer = 1; // 1 for player 1 (red), 2 for player 2 (blue)
+	private static int indexForButtons;
 
     public ConnectFourGame() {
     	JPanel pane = new JPanel();
         setSize(ASPECT_WIDTH, ASPECT_HEIGHT);
-        JButton[] arrayOfButtons = new JButton[7];
         pane.setLayout(null);
         
         JButton repaintButton = new JButton("Repaint");	
@@ -26,284 +43,161 @@ public class ConnectFourGame extends JFrame {
 		});
         pane.add(repaintButton);
         
+        ConnectFourButton dropButtonOne = new ConnectFourButton(0);
+        arrayOfButtons[0] = dropButtonOne;
+        
+        ConnectFourButton dropButtonTwo = new ConnectFourButton(1);
+        arrayOfButtons[1] = dropButtonTwo;
+        
+        ConnectFourButton dropButtonThree = new ConnectFourButton(2);
+        arrayOfButtons[2] = dropButtonThree;
+        
+        ConnectFourButton dropButtonFour = new ConnectFourButton(3);
+        arrayOfButtons[3] = dropButtonFour;
+        
+        ConnectFourButton dropButtonFive = new ConnectFourButton(4);
+        arrayOfButtons[4] = dropButtonFive;
+        
+        ConnectFourButton dropButtonSix = new ConnectFourButton(5);
+        arrayOfButtons[5] = dropButtonSix;
 
-        JButton dropButton = new JButton("DROP");
-        dropButton.setBounds(0, 40, 89, 23);
-       
-        dropButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[0][0] == 1 || gameBoard[0][0] == 2) {
-						dropButton.setEnabled(false);
-					}
-					else {
-						dropInColumn(1, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[0][0] == 1 || gameBoard[0][0] == 2) {
-						dropButton.setEnabled(false);
-					}
-					else {
-						dropInColumn(1, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-				
-			}
-		});
-        arrayOfButtons[0] = dropButton;
-        pane.add(dropButton);
-        
-        JButton dropButton2 = new JButton("DROP");
-        dropButton2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
-						dropButton2.setEnabled(false);
-					}
-					else {
-						dropInColumn(2, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[1][0] == 1 || gameBoard[1][0] == 2) {
-						dropButton2.setEnabled(false);
-					}
-					else {
-						dropInColumn(2, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton2.setBounds(100, 40, 89, 23);
-        arrayOfButtons[0] = dropButton2;
-        pane.add(dropButton2);
-        
-        JButton dropButton3 = new JButton("DROP");
-        dropButton3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
-						dropButton3.setEnabled(false);
-					}
-					else {
-						dropInColumn(3, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[2][0] == 1 || gameBoard[2][0] == 2) {
-						dropButton.setEnabled(false);
-					}
-					else {
-						dropInColumn(3, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton3.setBounds(200, 40, 89, 23);
-        arrayOfButtons[0] = dropButton3;
-        pane.add(dropButton3);
-        
-        JButton dropButton4 = new JButton("DROP");
-        dropButton4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
-						dropButton4.setEnabled(false);
-					}
-					else {
-						dropInColumn(4, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[3][0] == 1 || gameBoard[3][0] == 2) {
-						dropButton4.setEnabled(false);
-					}
-					else {
-						dropInColumn(4, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton4.setBounds(300, 40, 89, 23);
-        arrayOfButtons[0] = dropButton4;
-        pane.add(dropButton4);
+        ConnectFourButton dropButtonSeven = new ConnectFourButton(6);
+        arrayOfButtons[6] = dropButtonSeven;
+
+        for(int i = 0; i < 7; i++) {
+        	ConnectFourButton currentButton = arrayOfButtons[i];
+        	
+        	currentButton.addActionListener(new ActionListener() {
+        		public void actionPerformed(ActionEvent e) {
+        			if(currentPlayer == 1) {
+        				int checkWinThingy = dropInColumn(currentButton.index, 1);
+    					repaint();
+    					if(checkWin(checkWinThingy, currentButton.index, 1)) {
+    						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
+    						System.exit(0);
+    					}
+    					if(gameBoard[0][currentButton.index] != 0) {
+    						currentButton.setEnabled(false);
+    					}
+        				
+        			}
+        			AIResponse();
+        		}
+        	});
+        	currentButton.setText("DROP");
+        	currentButton.setBounds((100 * i), 40, 89, 23);
+        	pane.add(currentButton);
+        }
         setContentPane(pane);
         setVisible(true);
-        setResizable(false);
+      	setResizable(false);
         
-        JButton dropButton5 = new JButton("DROP");
-        dropButton5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
-						dropButton5.setEnabled(false);
-					}
-					else {
-						dropInColumn(5, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[4][0] == 1 || gameBoard[4][0] == 2) {
-						dropButton5.setEnabled(false);
-					}
-					else {
-						dropInColumn(5, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton5.setBounds(400, 40, 89, 23);
-        arrayOfButtons[0] = dropButton5;
-        pane.add(dropButton5);
-        setContentPane(pane);
-        setVisible(true);
-        setResizable(false);
-        
-        JButton dropButton6 = new JButton("DROP");
-        dropButton6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
-						dropButton6.setEnabled(false);
-					}
-					else {
-						dropInColumn(6, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[5][0] == 1 || gameBoard[5][0] == 2) {
-						dropButton6.setEnabled(false);
-					}
-					else {
-						dropInColumn(6, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton6.setBounds(500, 40, 89, 23);
-        arrayOfButtons[0] = dropButton6;
-        pane.add(dropButton6);
-        setContentPane(pane);
-        setVisible(true);
-        setResizable(false);
-        
-        JButton dropButton7 = new JButton("DROP");
-        dropButton7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (currentPlayer == 1) {
-					if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
-						dropButton7.setEnabled(false);
-					}
-					else {
-						dropInColumn(7, 1);
-						repaint();
-					}
-					currentPlayer = 2;
-				}
-				
-				else if (currentPlayer == 2) {
-					if(gameBoard[6][0] == 1 || gameBoard[6][0] == 2) {
-						dropButton7.setEnabled(false);
-					}
-					else {
-						dropInColumn(7, 2);
-						repaint();
-					}
-					currentPlayer = 1;
-				}
-			}
-		});
-        dropButton7.setBounds(600, 40, 89, 23);
-        arrayOfButtons[0] = dropButton7;
-        pane.add(dropButton7);
-        setContentPane(pane);
-        setVisible(true);
-        setResizable(false);
     }
 
     // draw grid
     @Override
     public void paint(Graphics g) {
-//    	for(int i = 0; i < 6; i++) {
-//    		System.out.println((gameBoard[0][i] == 1) + " " + (gameBoard[0][i] == 2));
-//    		if(gameBoard[0][i] == 1 || gameBoard[0][i] == 2) {
-//    			arrayOfButtons[i+1].setEnabled(false);
-//    		}
-//    	}
-    	
-    	int xIndex = 0;
-    	int yIndex = 0;
+    	int colsIndex = 0;
+    	int rowsIndex = 0;
     	super.paint(g);
     	int AdjustedHeight = ASPECT_HEIGHT - 100;
         for (int x = 0; x <= ASPECT_WIDTH; x += (ASPECT_WIDTH/7)) {
         	for (int y = 0; y <= AdjustedHeight; y += (AdjustedHeight/6)) {
         		g.setColor(Color.black);
         		g.drawRect(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
-        		if(xIndex < 7 && yIndex < 6 && gameBoard[xIndex][yIndex] == 1) {
+        		if(rowsIndex < 6 && colsIndex < 7 && gameBoard[rowsIndex][colsIndex] == 1) {
         			g.setColor(Color.red);
             		g.fillOval(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
         		}
-        		else if(xIndex < 7 && yIndex < 6 && gameBoard[xIndex][yIndex] == 2) {
+        		else if(rowsIndex < 6 && colsIndex < 7 && gameBoard[rowsIndex][colsIndex] == 2) {
         			g.setColor(Color.blue);
             		g.fillOval(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
         		}
-        		yIndex++;
+        		rowsIndex++;
         	}
-        	xIndex++;
-        	yIndex = 0;
+        	colsIndex++;
+        	rowsIndex = 0;
         }
     }
     
     // turnOrder would be 1 if its the player and 2 if its the AI
-    public static void dropInColumn(int columnNumber, int turnOrder) {
-    	int x = columnNumber - 1; // To account for the array being 0 index
-    	for(int i = 0; i < 6; i++) {
-    		int y = i;
-    		
-    		if(gameBoard[x][y] == 1 || gameBoard[x][y] == 2) {
-    			gameBoard[x][y-1] = turnOrder;
-    			return;
+    // This drop function is 0-indexed
+    public static int dropInColumn(int columnNumber, int turnOrder) {
+    	for(int rowNumber = 0; rowNumber < 6; rowNumber++) {
+    		if((rowNumber-1) >= 0 && gameBoard[rowNumber][columnNumber] == 1 || gameBoard[rowNumber][columnNumber] == 2) {
+    			gameBoard[rowNumber-1][columnNumber] = turnOrder;
+    			return rowNumber-1;
     		}
-    		else if(gameBoard[x][y] == 0 && y == 5) {
-    			gameBoard[x][y] = turnOrder;
-    			return;
+    		else if(gameBoard[rowNumber][columnNumber] == 0 && rowNumber == 5) {
+    			gameBoard[rowNumber][columnNumber] = turnOrder;
+    			return rowNumber;
     		}
+    	}
+		return 0;
+    }
+    
+    
+    public static void AIResponse() {
+    	int AIMove = ConnectFourGameAI.connectFourAIResponse(gameBoard);
+    	int index = dropInColumn(AIMove, 2);
+		if(checkWin(index, AIMove, 2)) {
+			JOptionPane.showMessageDialog(null, "WINNER: AI");
+			System.exit(0);
+		}
+		if(gameBoard[0][AIMove] != 0) {
+    		arrayOfButtons[AIMove].setEnabled(false);
     	}
     }
 
     public static void main(String args[]) {
     	ConnectFourGame application = new ConnectFourGame();
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    // Debug Print Board Option
+    public static void printGameBoard() {
+    	for(int i = 0; i < 10; i++) {
+    		System.out.println();
+    	}
+    	for(int i = 0; i < 6; i++) {
+    		String row = "";
+    		for(int j = 0; j < 7; j++) {
+    			row += Integer.toString(gameBoard[i][j]) + " ";
+    		}
+    		System.out.println(row);
+    		row = "";
+    	}
+    }
+  
+    // KNOWN BUG: a row of AI TILES on the bottom row doesnt register as a win
+    public static boolean checkWin(int startPosRow, int startPosCols, int turnOrder) {
+    	int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
+    	
+    	System.out.println("StartPos: " + startPosRow + " " + startPosCols);
+    	for(int currDir = 0; currDir < dirs.length; currDir++) {
+    		int rowNumber = startPosRow;
+    		int colNumber = startPosCols;
+    		int numberOfValidDiscs = 1; // Will be equal to one to account for the current position being valid for the connect 4
+
+    		
+    		for(int i = 0; i < 4; i++) {
+    			rowNumber += dirs[currDir][0];
+    			colNumber += dirs[currDir][1];
+    			if(0 <= rowNumber && rowNumber < 6 && 0 <= colNumber && colNumber < 7) {
+    				if(gameBoard[rowNumber][colNumber] == turnOrder) {
+    					System.out.print("(" + rowNumber + " " + colNumber + ")" + " ");
+    					numberOfValidDiscs += 1;
+    					if(numberOfValidDiscs == 4) {
+    						return true;
+    					}
+    				}
+    				else {
+    					break;
+    				}
+    			}
+    		}
+    	}
+    	System.out.println("");
+    	return false;
     }
 }

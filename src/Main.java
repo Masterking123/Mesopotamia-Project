@@ -11,7 +11,7 @@ public class Main {
 	
 	
 	// Global method to allow anyone to when creating a percent random chance, just plug in the percent value 
-	// And it will see if that event will actually happen given that random percent value
+	// And it will see if that event will actually happen given that random percent value (randomPercent is an int, so 30 is 30%)
 	public static boolean randomPercentOccurance(int randomPercent) {
 		Random rand = new Random();
 		int randomInt = rand.nextInt(100) + 1;
@@ -20,6 +20,14 @@ public class Main {
 		}
 		return false;
 	}
+	
+	public static int randomNumberInRange(int startRange, int endRange) {
+		Random newRandomObject = new Random();
+		int randomInt = newRandomObject.nextInt(endRange - startRange) + startRange;
+		return randomInt;
+	}
+	
+	
 	
 	public static int[] scaledUIElements(int x, int y, int height, int width, int theirScreenWidth, int theirScreenHeight) {
 		int scaledX = ASPECT_WIDTH * x / theirScreenWidth;
