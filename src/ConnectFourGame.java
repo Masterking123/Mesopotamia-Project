@@ -173,7 +173,7 @@ public class ConnectFourGame extends JFrame {
     public static boolean checkWin(int startPosRow, int startPosCols, int turnOrder) {
     	int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
     	
-    	System.out.println("StartPos: " + startPosRow + " " + startPosCols);
+//    	System.out.println("StartPos: " + startPosRow + " " + startPosCols);
     	for(int currDir = 0; currDir < dirs.length; currDir++) {
     		int rowNumber = startPosRow;
     		int colNumber = startPosCols;
@@ -185,7 +185,7 @@ public class ConnectFourGame extends JFrame {
     			colNumber += dirs[currDir][1];
     			if(0 <= rowNumber && rowNumber < 6 && 0 <= colNumber && colNumber < 7) {
     				if(gameBoard[rowNumber][colNumber] == turnOrder) {
-    					System.out.print("(" + rowNumber + " " + colNumber + ")" + " ");
+//    					System.out.print("(" + rowNumber + " " + colNumber + ")" + " ");
     					numberOfValidDiscs += 1;
     					if(numberOfValidDiscs == 4) {
     						return true;
@@ -197,7 +197,7 @@ public class ConnectFourGame extends JFrame {
     			}
     		}
     	}
-    	System.out.println("");
+//    	System.out.println("");
     	return false;
     }
 }
