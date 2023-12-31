@@ -21,6 +21,7 @@ public class Main {
 		return false;
 	}
 	
+	// StartRange is inclusive and endRange is exclusive;
 	public static int randomNumberInRange(int startRange, int endRange) {
 		Random newRandomObject = new Random();
 		int randomInt = newRandomObject.nextInt(endRange - startRange) + startRange;

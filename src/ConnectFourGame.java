@@ -34,14 +34,9 @@ public class ConnectFourGame extends JFrame {
         setSize(ASPECT_WIDTH, ASPECT_HEIGHT);
         pane.setLayout(null);
         
-        JButton repaintButton = new JButton("Repaint");	
-        repaintButton.setBounds(0, 0, 686, 23);
-        repaintButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				repaint();
-			}
-		});
-        pane.add(repaintButton);
+        JLabel titleText = new JLabel("CONNECT FOUR RAID");
+        titleText.setBounds(0, 0, 686, 23);
+        pane.add(titleText);
         
         ConnectFourButton dropButtonOne = new ConnectFourButton(0);
         arrayOfButtons[0] = dropButtonOne;
@@ -138,8 +133,11 @@ public class ConnectFourGame extends JFrame {
     
     
     public static void AIResponse() {
+    	int resultMovedArray[][][] = ConnectFourGameAI.generatePossibleMoves(gameBoard);
+    	
     	int AIMove = ConnectFourGameAI.connectFourAIResponse(gameBoard);
     	int index = dropInColumn(AIMove, 2);
+    	
 		if(checkWin(index, AIMove, 2)) {
 			JOptionPane.showMessageDialog(null, "WINNER: AI");
 			System.exit(0);
@@ -148,36 +146,35 @@ public class ConnectFourGame extends JFrame {
     		arrayOfButtons[AIMove].setEnabled(false);
     	}
     }
-
+    
     public static void main(String args[]) {
     	ConnectFourGame application = new ConnectFourGame();
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     // Debug Print Board Option
-    public static void printGameBoard() {
+    public static void printGameBoard(int[][] currentGameBoard) {
     	for(int i = 0; i < 10; i++) {
     		System.out.println();
     	}
     	for(int i = 0; i < 6; i++) {
     		String row = "";
     		for(int j = 0; j < 7; j++) {
-    			row += Integer.toString(gameBoard[i][j]) + " ";
+    			row += Integer.toString(currentGameBoard[i][j]) + " ";
     		}
     		System.out.println(row);
     		row = "";
     	}
     }
   
-    // KNOWN BUG: a row of AI TILES on the bottom row doesnt register as a win
     public static boolean checkWin(int startPosRow, int startPosCols, int turnOrder) {
     	int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
     	
-//    	System.out.println("StartPos: " + startPosRow + " " + startPosCols);
     	for(int currDir = 0; currDir < dirs.length; currDir++) {
     		int rowNumber = startPosRow;
     		int colNumber = startPosCols;
-    		int numberOfValidDiscs = 1; // Will be equal to one to account for the current position being valid for the connect 4
+    		int numOfDirectionalValidDiscs = 0;
+    		int numOfFlippedValidDiscs = 0;
 
     		
     		for(int i = 0; i < 4; i++) {
@@ -185,19 +182,35 @@ public class ConnectFourGame extends JFrame {
     			colNumber += dirs[currDir][1];
     			if(0 <= rowNumber && rowNumber < 6 && 0 <= colNumber && colNumber < 7) {
     				if(gameBoard[rowNumber][colNumber] == turnOrder) {
-//    					System.out.print("(" + rowNumber + " " + colNumber + ")" + " ");
-    					numberOfValidDiscs += 1;
-    					if(numberOfValidDiscs == 4) {
-    						return true;
-    					}
+    					numOfDirectionalValidDiscs += 1;
     				}
     				else {
     					break;
     				}
     			}
     		}
+    		
+    		rowNumber = startPosRow;
+    		colNumber = startPosCols;
+    		
+    		for(int i = 0; i < 4; i++) {
+    			rowNumber += dirs[currDir][0] * -1;
+    			colNumber += dirs[currDir][1] * -1;
+    			if(0 <= rowNumber && rowNumber < 6 && 0 <= colNumber && colNumber < 7) {
+    				if(gameBoard[rowNumber][colNumber] == turnOrder) {
+    					numOfFlippedValidDiscs += 1;
+    				}
+    				else {
+    					break;
+    				}
+    			}
+    		}
+    		
+    		if((numOfDirectionalValidDiscs + numOfFlippedValidDiscs) >= 3) {
+        		return true;
+        	}
+    		
     	}
-//    	System.out.println("");
     	return false;
     }
 }
