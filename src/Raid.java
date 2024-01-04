@@ -54,22 +54,28 @@ public class Raid {
         double percentageToSteal = minSteal + (maxSteal - minSteal) * random.nextDouble();
 
     	if (PlayerObject.food > PlayerObject.miningAndWood) { //when food is highest resource 
-            int amountToSteal = (int) (PlayerObject.food * (percentageToSteal / 100));
+    		System.out.println("Total Resources: " + PlayerObject.food);
+    		int amountToSteal = (int) (PlayerObject.food * (percentageToSteal / 100));
             int remainingResources = (int) (PlayerObject.food - amountToSteal);
             PlayerObject.food = remainingResources; 
             
+            RaidStolenPopup.typeOfResourceStolen = "food";
+            RaidStolenPopup.amountOfResourceStolen = amountToSteal;
+            
             //Just here to testing 
-            System.out.println("Total Resources: " + PlayerObject.food);
             System.out.println("Percentage to Steal: " + percentageToSteal + "%");
             System.out.println("Amount Stolen: " + amountToSteal);
             System.out.println("Remaining Resources: " + remainingResources);
     	}else if (PlayerObject.miningAndWood > PlayerObject.food){
+    		System.out.println("Total Resources: " + PlayerObject.miningAndWood);
     		int amountToSteal = (int) (PlayerObject.miningAndWood * (percentageToSteal / 100));
             int remainingResources = (int) (PlayerObject.miningAndWood - amountToSteal);
             PlayerObject.miningAndWood = remainingResources; 
             
+            RaidStolenPopup.typeOfResourceStolen = "mining/wood";
+            RaidStolenPopup.amountOfResourceStolen = amountToSteal;
+            
             //Just here to testing 
-            System.out.println("Total Resources: " + PlayerObject.miningAndWood);
             System.out.println("Percentage to Steal: " + percentageToSteal + "%");
             System.out.println("Amount Stolen: " + amountToSteal);
             System.out.println("Remaining Resources: " + remainingResources);

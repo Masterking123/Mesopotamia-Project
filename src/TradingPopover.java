@@ -268,6 +268,11 @@ public class TradingPopover extends JFrame {
 				}
 			}
 		});
+		villagerMarketing_textbox.setHighlighter(null);
+		disableAllFunctionalityForTextArea(villagerMarketing_textbox);
+		disableAllFunctionalityForTextArea(Foodtextarea);
+		disableAllFunctionalityForTextArea(resourceTextArea);
+		disableAllFunctionalityForTextArea(researchPointsTextArea);
 		
 	}
 	
@@ -293,6 +298,13 @@ public class TradingPopover extends JFrame {
 	    // Update research points text area
 	    researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
 	    researchPointsTextArea.append("1 research point = 5 food" + "\n");
+	}
+	
+	public void disableAllFunctionalityForTextArea(JTextArea currTextArea) {
+		currTextArea.setEditable(false);
+		currTextArea.setHighlighter(null);
+		currTextArea.setCursor(null);
+		currTextArea.setFocusable(false);
 	}
 
 

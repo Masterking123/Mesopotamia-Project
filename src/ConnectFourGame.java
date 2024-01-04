@@ -92,9 +92,8 @@ public class ConnectFourGame extends JFrame {
         				
         				// FOR RAID STEALING RESOURCES
         				if(ConnectFourGame.currentGameOutcome == "AI") {
-        					System.out.println("Food before raid" + PlayerObject.food);
         					Raid.stealResources();
-        					System.out.println("Food after raid" + PlayerObject.food);
+        					RaidStolenPopup.createRaidStolenPopup(null);
         				}
         				
         				MainGameGUI.frame.setAlwaysOnTop(true);

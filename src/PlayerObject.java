@@ -86,6 +86,11 @@ public class PlayerObject {
 		return villagePower;
 	}
 	
+	// When a event such as quota loses people, use this method 
+	public static void deallocationOfPeople() {
+		
+	}
+	
 	
 	
 }
