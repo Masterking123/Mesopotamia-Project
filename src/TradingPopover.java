@@ -9,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 
@@ -157,6 +159,12 @@ public class TradingPopover extends JFrame {
 		Testareamaintrade = new JTextArea();
 		Testareamaintrade.setEditable(false);
 		Testareamaintrade.setBounds(172, 230, 423, 190);
+		
+		JScrollPane scrollPane = new JScrollPane(Testareamaintrade);
+		scrollPane.setBounds(10,60,780,500);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		
 		contentPane.add(Testareamaintrade);
 		
 		Tradingtextbox = new JLabel("Trading Messages");
@@ -187,7 +195,9 @@ public class TradingPopover extends JFrame {
 			{
 				PlayerObject.food = PlayerObject.food - 2;
 				PlayerObject.totalPeople++;
-				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.totalPeople +"\n");
+				PlayerObject.unallocatedPeople++;
+				MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
+				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.unallocatedPeople +"\n");
 				updateTradeInformation();
 
 				 

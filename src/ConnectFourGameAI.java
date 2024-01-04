@@ -37,7 +37,7 @@ public class ConnectFourGameAI {
 			scoreOfMovesInPositions[i] = currentMoveScore;
 			
 			// Debug
-			System.out.println("Board " + (i+1) + " " + scoreOfMovesInPositions[i]);
+//			System.out.println("Board " + (i+1) + " " + scoreOfMovesInPositions[i]);
 		}
 		
 		
@@ -54,7 +54,7 @@ public class ConnectFourGameAI {
 					numberOfMaxScore++;
 				}
 			}
-			System.out.println(maximumScoreInArray);
+//			System.out.println(maximumScoreInArray);
 			
 			ArrayList<Integer> indexsOfMax = new ArrayList<Integer>();
 			int numberOfSlots = 0;
@@ -251,7 +251,6 @@ public class ConnectFourGameAI {
 						movementInRow = rowOfMove + dirs[currDir][0] * -1;
 						movementInCol = colOfMove + dirs[currDir][1] * -1;
 						if(0 <= movementInRow && movementInRow < 6 && 0 <= movementInCol && movementInCol < 7 && currentGameBoard[movementInRow][movementInCol] == 0) {
-							System.out.println("Connect 3 FOUND");
 							scoreOfCurrentGameBoard += AIPlanToScore.get("Connect 3");
 							
 						}

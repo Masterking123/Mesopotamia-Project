@@ -1,12 +1,6 @@
 
 public class NextDayButton {
 	public static void nextDayButtonActivated() {
-		// Update values of the people in each area
-		PlayerObject.peopleInFood = MainGameGUI.farmer;
-		PlayerObject.peopleInMilitary = MainGameGUI.military;
-		PlayerObject.peopleInMiningAndWood = MainGameGUI.miner;
-		PlayerObject.peopleInResearch = MainGameGUI.research;
-		
 		// Generate values for the player
 		PlayerObject.generateFood();
 		PlayerObject.generateMilitary();

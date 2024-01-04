@@ -22,9 +22,12 @@ class ConnectFourButton extends JButton{
 
 
 public class ConnectFourGame extends JFrame {
+	public static String currentGameOutcome; // Outcome of the game 
 	public static int[][] gameBoard = new int[6][7]; // gameBoard[row][cols]
-	public static final int ASPECT_WIDTH = 700;
-	public static final int ASPECT_HEIGHT = 700;
+	
+	// Screen Size of the board
+	private static final int ASPECT_WIDTH = 700;
+	private static final int ASPECT_HEIGHT = 700;
 	public static ConnectFourButton[] arrayOfButtons = new ConnectFourButton[7];
 	public static int currentPlayer = 1; // 1 for player 1 (red), 2 for player 2 (blue)
 	private static int indexForButtons;
@@ -34,8 +37,9 @@ public class ConnectFourGame extends JFrame {
         setSize(ASPECT_WIDTH, ASPECT_HEIGHT);
         pane.setLayout(null);
         
-        JLabel titleText = new JLabel("CONNECT FOUR RAID");
-        titleText.setBounds(0, 0, 686, 23);
+        JLabel titleText = new JLabel("CONNECT FOUR RAID", SwingConstants.CENTER);
+        titleText.setBounds(0, 0, 655, 40);
+        titleText.setFont(new Font("Arial", Font.BOLD, 23));
         pane.add(titleText);
         
         ConnectFourButton dropButtonOne = new ConnectFourButton(0);
@@ -69,14 +73,43 @@ public class ConnectFourGame extends JFrame {
     					repaint();
     					if(checkWin(checkWinThingy, currentButton.index, 1)) {
     						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
-    						System.exit(0);
+    						currentGameOutcome = "PLAYER";
+    						setVisible(false);
+    						MainGameGUI.frame.setAlwaysOnTop(true);
+            				MainGameGUI.frame.setAlwaysOnTop(false);
+            				MainGameGUI.frame.setEnabled(true);
     					}
     					if(gameBoard[0][currentButton.index] != 0) {
     						currentButton.setEnabled(false);
     					}
         				
         			}
-        			AIResponse();
+        			int[] indexs = AIResponse();
+        			if(checkWin(indexs[1], indexs[0], 2)) {
+        				JOptionPane.showMessageDialog(null, "WINNER: AI");
+        				currentGameOutcome = "AI";
+        				setVisible(false);
+        				
+        				// FOR RAID STEALING RESOURCES
+        				if(ConnectFourGame.currentGameOutcome == "AI") {
+        					System.out.println("Food before raid" + PlayerObject.food);
+        					Raid.stealResources();
+        					System.out.println("Food after raid" + PlayerObject.food);
+        				}
+        				
+        				MainGameGUI.frame.setAlwaysOnTop(true);
+        				MainGameGUI.frame.setAlwaysOnTop(false);
+        				MainGameGUI.frame.setEnabled(true);
+        			}
+        			
+        			if(isDraw(gameBoard) == true) {
+        				JOptionPane.showMessageDialog(null, "ITS A DRAW");
+        				currentGameOutcome = "Draw";
+        				setVisible(false);
+        				MainGameGUI.frame.setAlwaysOnTop(true);
+        				MainGameGUI.frame.setAlwaysOnTop(false);
+        				MainGameGUI.frame.setEnabled(true);
+        			}
         		}
         	});
         	currentButton.setText("DROP");
@@ -132,24 +165,28 @@ public class ConnectFourGame extends JFrame {
     }
     
     
-    public static void AIResponse() {
+    public static int[] AIResponse() {
     	int resultMovedArray[][][] = ConnectFourGameAI.generatePossibleMoves(gameBoard);
     	
     	int AIMove = ConnectFourGameAI.connectFourAIResponse(gameBoard);
     	int index = dropInColumn(AIMove, 2);
     	
-		if(checkWin(index, AIMove, 2)) {
-			JOptionPane.showMessageDialog(null, "WINNER: AI");
-			System.exit(0);
-		}
 		if(gameBoard[0][AIMove] != 0) {
     		arrayOfButtons[AIMove].setEnabled(false);
     	}
+		int result[] = new int[2];
+		result[0] = AIMove;
+		result[1] = index;
+		
+		return result;
     }
     
-    public static void main(String args[]) {
+    //
+    public static void CreateConnectFour(String args[]) {
+    	currentGameOutcome = "";
     	ConnectFourGame application = new ConnectFourGame();
-        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        application.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        gameBoard = new int[6][7];
     }
     
     // Debug Print Board Option
@@ -165,6 +202,17 @@ public class ConnectFourGame extends JFrame {
     		System.out.println(row);
     		row = "";
     	}
+    }
+    
+    public static boolean isDraw(int[][] currentGameBoard) {
+    	boolean isDraw = true;
+    	for(int i = 0; i < 7; i++) {
+    		if(currentGameBoard[0][i] == 0) {
+    			isDraw = false;
+    			break;
+    		}
+    	}
+    	return isDraw;
     }
   
     public static boolean checkWin(int startPosRow, int startPosCols, int turnOrder) {

@@ -28,7 +28,7 @@ public class QuotaPopOver extends JFrame {
 
         frame.getContentPane().add(textArea);
         frame.setSize(600, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Use appropriate close operation
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // Use appropriate close operation
         frame.setVisible(true);
     }
 

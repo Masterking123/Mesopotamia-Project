@@ -34,6 +34,7 @@ public class PlayerObject {
 	public static int percentDiscountOnSales;
 	
 	public static int totalPeople = 10;
+	public static int unallocatedPeople = 10;
 	public static int reputation = 50;
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
