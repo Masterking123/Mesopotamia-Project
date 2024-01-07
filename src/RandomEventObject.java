@@ -26,6 +26,16 @@ class EventObject{
 	}
 }
 
+class ActiveEvent {
+	public String nameOfEvent = "";
+	public int daysActive;
+	
+	ActiveEvent(String randomNameOfEvent, int newDaysActive){
+		nameOfEvent = randomNameOfEvent;
+		daysActive = newDaysActive;
+	}
+}
+
 public class RandomEventObject {
 	// Initialize the HashMap with 2 types of data the HashMap will store, this will be the key value pair
 	public static HashMap<Range, String> percentageToEventName = new HashMap<Range, String>();
@@ -37,12 +47,17 @@ public class RandomEventObject {
 	}
 	
 	
-	public static EventObject getRandomEvent(){
+	public static EventObject getRandomEvent(boolean forPlayer){
 		populateHashMaps(); // Populate the HashMap with all the entries
 		
 		String randomEventName = generateRandomEvent(); // Generate a random event
+		
 		// Search for the randomEventName in the HashMap and gets its associated value in the key value pair
 		String randomEventDescription = eventNameToDescription.get(randomEventName); 
+		
+		// Apply the random event to the player
+		
+		applyRandomEventEffect(randomEventName, forPlayer);
 		
 		// Make a new object to return it for other parts of the code to use
 		EventObject newRandomEvent = new EventObject(randomEventName, randomEventDescription);
@@ -81,11 +96,169 @@ public class RandomEventObject {
 	
 	public static void applyRandomEventEffect(String eventName, Boolean applicationToPlayer) {
 		if(applicationToPlayer == true) {
-			if(eventName == "Heat Wave") {
-				
+			switch (eventName) {
+				case "Heat Wave":
+					PlayerObject.percentFoodBoost -= 15;
+					PlayerObject.percentMiningAndWoodBoost -= 15;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
+					break;
+				case "Tornado":
+					// Picks a number from 10 - 50 since the range in exclusive to the final number and decreases that much food
+					PlayerObject.percentLossOnFood(Main.randomNumberInRange(10, (50 + 1)));
+					if(Main.randomPercentOccurance(30)) {
+						PlayerObject.percentLossOnPeople(1);
+					}
+					PlayerObject.percentFoodBoost -= 10;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));				
+					break;
+				case "Drought":
+					PlayerObject.percentFoodBoost -= 20;
+					PlayerObject.reputation -= 1;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
+					break;
+				case "Wildfire":
+					PlayerObject.percentMiningAndWoodBoost -= 30;
+					if(Main.randomPercentOccurance(30)) {
+						// End range is exclusive in the function, need to add 1
+						PlayerObject.percentLossOnMiningAndWood(Main.randomNumberInRange(5, (11 + 1)));
+					}
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 1));
+					break;
+				case "Earthquake":
+					// This separates the food loss and the mining loss since they end on different amount of days
+					PlayerObject.percentFoodBoost -= 20;
+					PlayerObject.percentMiningAndWoodBoost -= 30;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName + " Food", 2));
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName + " Mining/Wood", 3));
+					break;
+				case "Neighbouring Village":
+					// TO DO
+					break;
+				case "Struck Gold Mine":
+					System.out.println("Struck a GOLD MINE");
+					PlayerObject.percentMiningAndWoodBoost += 20;
+					PlayerObject.reputation += 2;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 3));
+					break;
+				case "Bountiful Harvest":
+					PlayerObject.percentFoodBoost += 20;
+					PlayerObject.reputation += 1;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 3));
+					break;
+				case "Scientific breakthrough":
+					PlayerObject.percentResearchBoost = 100; // This is to double the percentage research boost, so its 1 to 2
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
+					break;
+				case "Inspiration":
+					// TO DO
+					break;
+			}
+		}
+		else {
+			switch (eventName) {
+			case "Heat Wave":
+				AiEventResponse.AipercentFoodBoost -= 15;
+				AiEventResponse.AipercentMiningAndWoodBoost -= 15;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));
+				break;
+			case "Tornado":
+				// Picks a number from 10 - 50 since the range in exclusive to the final number and decreases that much food
+				AiEventResponse.percentLossOnFood(Main.randomNumberInRange(10, (50 + 1)));
+				if(Main.randomPercentOccurance(30)) {
+					AiEventResponse.percentLossOnPeople(1);
+				}
+				AiEventResponse.AipercentFoodBoost -= 10;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));				
+				break;
+			case "Drought":
+				AiEventResponse.AipercentFoodBoost -= 20;
+				AiEventResponse.Aireputation -= 1;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));
+				break;
+			case "Wildfire":
+				AiEventResponse.AipercentMiningAndWoodBoost -= 30;
+				if(Main.randomPercentOccurance(30)) {
+					// End range is exclusive in the function, need to add 1
+					AiEventResponse.percentLossOnMiningAndWood(Main.randomNumberInRange(5, (11 + 1)));
+				}
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 1));
+				break;
+			case "Earthquake":
+				// This separates the food loss and the mining loss since they end on different amount of days
+				AiEventResponse.AipercentFoodBoost -= 20;
+				AiEventResponse.AipercentMiningAndWoodBoost -= 30;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName + " Food", 2));
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName + " Mining/Wood", 3));
+				break;
+			case "Neighbouring Village":
+				// TO DO
+				break;
+			case "Struck Gold Mine":
+				System.out.println("Struck a GOLD MINE");
+				AiEventResponse.AipercentMiningAndWoodBoost += 20;
+				AiEventResponse.Aireputation += 2;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 3));
+				break;
+			case "Bountiful Harvest":
+				AiEventResponse.AipercentFoodBoost += 20;
+				AiEventResponse.Aireputation += 1;
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 3));
+				break;
+			case "Scientific breakthrough":
+				AiEventResponse.AipercentResearchBoost = 100; // This is to double the percentage research boost, so its 1 to 2
+				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));
+				break;
+			case "Inspiration":
+				// TO DO
+				break;
+		}
+		}
+		
+	}
+	
+	public static void unapplyRandomEventEffect(String eventName, Boolean applicationToPlayer) {
+		System.out.println("THIS IS BEING CALLED FOR " + eventName);
+		if(applicationToPlayer == true) {
+			switch (eventName) {
+				case "Heat Wave":
+					PlayerObject.percentFoodBoost += 15;
+					PlayerObject.percentMiningAndWoodBoost += 15;
+					break;
+				case "Tornado":
+					PlayerObject.percentFoodBoost += 10;				
+					break;
+				case "Drought":
+					PlayerObject.percentFoodBoost += 20;
+					break;
+				case "Wildfire":
+					PlayerObject.percentMiningAndWoodBoost += 30;
+					break;
+				case "Earthquake Food":
+					PlayerObject.percentFoodBoost += 20;
+					break;
+				case "Earthquake Mining/Wood":
+					PlayerObject.percentMiningAndWoodBoost += 30;
+					break;
+				case "Neighbouring Village":
+					// TO DO
+					break;
+				case "Struck Gold Mine":
+					PlayerObject.miningAndWood -= 20;
+					break;
+				case "Bountiful Harvest":
+					PlayerObject.percentFoodBoost -= 20;
+					break;
+				case "Scientific breakthrough":
+					PlayerObject.percentResearchBoost = 0;
+				case "Inspiration":
+					// TO DO
+					break;
+
 			}
 		}
 	}
+	
+	
 	
 	
 	public static void populateHashMaps() {
@@ -115,18 +288,7 @@ public class RandomEventObject {
 		eventNameToDescription.put("Scientific breakthrough", "Your research team has made a breakthrough in their experimentation and can efficiently create brand new results");
 		eventNameToDescription.put("Inspiration", "You assembled your town to give a speech to the people. The speech was successful at inspiring the town folk.");
 		
-		// Format for percentages loss and gains and number loss and gains
-		// [Military, Research, Farm Production, Farm Value, Mining/Wood Production, Mining/Wood Value, Reputation, Population Percent, DaysOfEvents]
-//		eventNameToEffect.put("Heat Wave", new int[]{0, 0, -15, 0, -20, 0, 0, 0, 2});
-//		eventNameToEffect.put("Torando", new int[] {0, 0, 0, (-1 * randomNumber(10, 50)), 0, 0, 0, -1, 2});
-//		eventNameToEffect.put("Drought", new int[] {0, 0, -15, 0, -20, 0, 0, 2});
-//		eventNameToEffect.put("Wildfire", new int[] {0, 0, 0, -30, 0, 0, 0, 0});
-//		eventNameToEffect.put("Earthquake", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-//		eventNameToEffect.put("Neighbouring Village", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-//		eventNameToEffect.put("Struck Gold Mine", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-//		eventNameToEffect.put("Bountiful Harvest", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-//		eventNameToEffect.put("Scientific breakthrough", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
-//		eventNameToEffect.put("Inspiration", new int[] {0, 0, 0, 0, 0, 0, 0, 0});
+
 	}
 	
 }

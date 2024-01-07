@@ -1,10 +1,9 @@
+import java.util.ArrayList; // import the ArrayList class
 
 public class PlayerObject {
 	
 	// Percentage is stored as a whole number, convert to decimal when calculating
-	
-	public static String activeEvents[];
-	public static String daysForActiveEvents[];
+	public static ArrayList<ActiveEvent> activeEvents = new ArrayList<ActiveEvent>();
 	
 	public static String playerName;
 	public static String playerVillageName;
@@ -42,6 +41,9 @@ public class PlayerObject {
 	static String[] researchApplied = new String[16];
 	
 	public static void generateFood() {
+		if((1 + (double) (percentFoodBoost / 100.0)) < 0) {
+			return;
+		}
 		if(peopleInFood != 0) {
 			food += ((peopleInFood * 10) * (1 + (double) (percentFoodBoost / 100.0))) + numberFoodBoost;
 		}
