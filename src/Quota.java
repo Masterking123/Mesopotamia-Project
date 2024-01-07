@@ -7,10 +7,47 @@ public class Quota {
     public static int peopleLeftForWood;
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
-	public static Boolean showPopUp = false;
+    public static Boolean showPopUp = false;
 	public static Boolean showPopUp2 = false;
 
+	public static void updatePeople() {
+	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);
+	    // Reset counters after updating totalPeople
+	    peopleLeftForFood = 0;
+	    peopleLeftForWood = 0;
+	}
+	
+	public static void showingPopUp()
+	{
+		 if (showPopUp == true || showPopUp2 == true)
+	        {
+	        	QuotaPopOver.showPopUp(null);
+	        	showPopUp = false; 
+	        	showPopUp2 = false; 
+	        }
+		 else if (showPopUp == true || showPopUp2 == false)
+	        {
+	        	QuotaPopOver.showPopUp(null);
+	        	showPopUp = false; 
+	        	showPopUp2 = false; 
+	        }
+		 else if (showPopUp == false || showPopUp2 == true)
+	        {
+	        	QuotaPopOver.showPopUp(null);
+	        	showPopUp = false; 
+	        	showPopUp2 = false; 
+	        }
+		 
+		 else if (showPopUp == false || showPopUp2 == false)
+	        {
+	        	showPopUp = false; 
+	        	showPopUp2 = false; 
+	        }
+	}
+
     public static void checkAndUpdateFoodResources() {
+    	showPopUp = false; 
+    	showPopUp2 = false; 
         PlayerObject.foodRequiredPerPerson = 3 * PlayerObject.totalPeople;
         System.out.println("foodRequiredPerPerson " + PlayerObject.foodRequiredPerPerson);
         System.out.println("food " + PlayerObject.food);
@@ -34,18 +71,14 @@ public class Quota {
                 }
             }
         }
-        PlayerObject.totalPeople = PlayerObject.totalPeople - peopleLeftForFood;
-        if (showPopUp == true || showPopUp2 == true)
-        {
-        	QuotaPopOver.showPopUp(null);
-        	showPopUp = false; 
-        	showPopUp2 = false; 
-        }
+       
         
     }
 
     public static void checkAndUpdateMiningAndWoodResources() {
     	PlayerObject.woodRequiredPerPerson = 2 * PlayerObject.totalPeople;
+    	showPopUp = false; 
+    	showPopUp2 = false; 
         if (PlayerObject.miningAndWood >= PlayerObject.woodRequiredPerPerson) {
             System.out.println("Everyone has enough wood.");
             PlayerObject.reputation = PlayerObject.reputation + PlayerObject.totalPeople;
@@ -63,13 +96,6 @@ public class Quota {
                     PlayerObject.reputation--;
                 }
             }
-        }
-        PlayerObject.totalPeople = PlayerObject.totalPeople - peopleLeftForWood;
-        if (showPopUp == true || showPopUp2 == true)
-        {
-        	QuotaPopOver.showPopUp(null);
-        	showPopUp = false; 
-        	showPopUp2 = false; 
         }
         
     }

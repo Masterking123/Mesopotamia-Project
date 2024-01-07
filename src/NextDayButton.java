@@ -21,6 +21,9 @@ public class NextDayButton {
 		// Check if Quotas have been met
 		Quota.checkAndUpdateFoodResources();
 		Quota.checkAndUpdateMiningAndWoodResources();
+		Quota.updatePeople();
+		Quota.showingPopUp();
+
 		
 		System.out.println(PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		
