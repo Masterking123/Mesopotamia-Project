@@ -16,6 +16,7 @@ import java.awt.BorderLayout;
 	    private void initialize() {
 	        JFrame frame = new JFrame("Quota Status");
 	        JTextArea textArea = new JTextArea();
+	        textArea.setEditable(false);
 	        textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	        textArea.setText(PlayerObject.playerName + "! Your village, " + PlayerObject.playerVillageName + " had not meet the quota!\n" +
 	        		"Your consequences are the following: \n" +
