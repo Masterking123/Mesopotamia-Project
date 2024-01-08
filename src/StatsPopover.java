@@ -82,7 +82,7 @@ public class StatsPopover extends JFrame {
 		JLabel statsLabel = new JLabel("Stats");
 		statsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		statsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		statsLabel.setBounds(151, 6, 132, 22);
+		statsLabel.setBounds(0, 6, 132, 22);
 		statPanel.add(statsLabel);
 		
 		JPanel ratePanel = new JPanel();
@@ -95,7 +95,7 @@ public class StatsPopover extends JFrame {
 		ratesLabel.setBounds(150, 6, 132, 22);
 		ratePanel.add(ratesLabel);
 		
-		JButton statButton = new JButton("Stats");
+		JButton statButton = new JButton("Stats/Quota");
 		statButton.setBounds(101, 6, 117, 29);
 		contentPane.add(statButton);
 		
@@ -182,19 +182,25 @@ public class StatsPopover extends JFrame {
 		foodPpersonLabel.setVisible(false);
 		
 			foodPpersonLabel.setVisible(true);
-			foodPpersonLabel.setText("Food needed per person: " + PlayerObject.foodRequiredPerPerson);
+			foodPpersonLabel.setText("Food needed: 0");
 			
-			JLabel resPpersonLabel = new JLabel("Resources needed per person: " + PlayerObject.woodRequiredPerPerson);
+			JLabel resPpersonLabel = new JLabel("Resources needed: 0");
 			resPpersonLabel.setBounds(175, 74, 257, 16);
 			statPanel.add(resPpersonLabel);
 			
-			JLabel foodLessLabel = new JLabel("Hungry People: " + Quota.totalPeopleWithoutFood);
+			JLabel foodLessLabel = new JLabel("Food Missing: " + Quota.totalPeopleWithoutFood);
 			foodLessLabel.setBounds(175, 102, 257, 16);
 			statPanel.add(foodLessLabel);
 			
 			JLabel resLessLabel = new JLabel("Resources Missing: " + Quota.totalPeopleWithoutWood);
 			resLessLabel.setBounds(175, 130, 257, 16);
 			statPanel.add(resLessLabel);
+			
+			JLabel quotaLabel = new JLabel("Quota");
+			quotaLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			quotaLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+			quotaLabel.setBounds(175, 6, 132, 22);
+			statPanel.add(quotaLabel);
 
 	}
 }
