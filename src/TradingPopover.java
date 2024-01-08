@@ -175,7 +175,7 @@ public class TradingPopover extends JFrame {
 		
 		// Village marketing textbox
 		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villagerMarketing_textbox.append((2-(2*percentDiscount2)) + " food = 1 villager");
+		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -192,9 +192,9 @@ public class TradingPopover extends JFrame {
 		
 		villagerAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (PlayerObject.food >= (2 - (2*(PlayerObject.percentDiscountOnSales/100))) )
+			if (PlayerObject.food >= (2 - percentDiscount2))
 			{
-				PlayerObject.food = PlayerObject.food - (2 - (2*(PlayerObject.percentDiscountOnSales/100)));
+				PlayerObject.food = PlayerObject.food - (2 - percentDiscount2);
 				PlayerObject.totalPeople++;
 				PlayerObject.unallocatedPeople++;
 				MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
