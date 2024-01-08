@@ -91,6 +91,7 @@ public class MainMenuGUI extends JFrame {
 		});
 		btnQuit.setBounds(150, 215, 133, 38);
 		contentPane.add(btnQuit);
+		setResizable(false);
 	}
 
 }

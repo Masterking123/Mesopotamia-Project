@@ -67,8 +67,6 @@ public class RandomEventPopover extends JFrame {
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				MainGameGUI.frame.setAlwaysOnTop(true);
-				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
@@ -89,6 +87,12 @@ public class RandomEventPopover extends JFrame {
 		descriptionTextPane.setHighlighter(null);
 		descriptionTextPane.setCursor(null);
 		descriptionTextPane.setFocusable(false);
+		
+		if(eventName == "Neighbouring Village") {
+			okButton.setVisible(true);
+			noButton.setVisible(true);
+		}
+		
 		frame.contentPane.add(descriptionTextPane);
 		frame.setVisible(true);
 	}

@@ -173,6 +173,8 @@ public class MilitarytableGUI extends JFrame {
 				PlayerObject.totalPeople = counter1 + PlayerObject.totalPeople;
 				counter1 = 0;
 				System.out.println(PlayerObject.totalPeople);
+				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIfarmerNum  ); //allocate AI people
+				
 		    }
 				
 			}
@@ -196,6 +198,7 @@ public class MilitarytableGUI extends JFrame {
 				PlayerObject.food = counter2 + PlayerObject.food;
 				counter2 = 0;
 				System.out.println(PlayerObject.food);
+				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIresearchNum ); //allocate AI people
 			}
 		});
 		
@@ -217,6 +220,7 @@ public class MilitarytableGUI extends JFrame {
 				PlayerObject.miningAndWood = counter3 + PlayerObject.miningAndWood;
 				counter3 = 0;
 				System.out.println(PlayerObject.miningAndWood);
+				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIminerNum ); //allocate AI people
 			}
 		});
 		
@@ -238,6 +242,7 @@ public class MilitarytableGUI extends JFrame {
 				PlayerObject.miningAndWood = counter4 + PlayerObject.miningAndWood;
 				counter4 = 0;
 				System.out.println(PlayerObject.miningAndWood);
+				AiEventResponse.AIAllocatePeople( 0.3, AiEventResponse.AIfarmerNum, AiEventResponse.AImilitaryNum); //allocate AI people
 			}
 		});
 		

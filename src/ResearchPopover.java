@@ -19,7 +19,6 @@ public class ResearchPopover extends JFrame {
 
 	public JPanel contentPane;
 	private static JLabel ptsLabel;
-	private static double research = PlayerObject.research;
 	public static ResearchPopover frame;
 	public static JButton waterFilterButton;
 	public static JButton sToolsButton;
@@ -78,7 +77,7 @@ public class ResearchPopover extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ptsLabel = new JLabel("Points: " + research);
+		ptsLabel = new JLabel("Points: " + PlayerObject.research);
 		ptsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		ptsLabel.setBounds(16, 16, 204, 28);
 		contentPane.add(ptsLabel);
@@ -146,6 +145,8 @@ public class ResearchPopover extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 			}
 		});
 		exitResButton.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
@@ -192,7 +193,7 @@ public class ResearchPopover extends JFrame {
 		spyButton.setBounds(418, 364, 117, 45);
 		contentPane.add(spyButton);
 		
-		sale1Button = new JButton("Makret Sale 1");
+		sale1Button = new JButton("Market Sale 1");
 		sale1Button.setBounds(579, 153, 117, 45);
 		contentPane.add(sale1Button);
 		
@@ -239,11 +240,11 @@ public class ResearchPopover extends JFrame {
 		//------------------Farming section------------------//
 		waterFilterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 3) {
-					research = research -3;
+				if(PlayerObject.research >= 3) {
+					PlayerObject.research = PlayerObject.research -3;
 					waterFilterButton.setEnabled(false);
 					sToolsButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.percentFoodBoost = 10;
 					PlayerObject.researchApplied[0] = "waterFilter";
 				}
@@ -253,11 +254,11 @@ public class ResearchPopover extends JFrame {
 			}});
 		sToolsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 6) {
-					research = research - 6;
+				if(PlayerObject.research >= 6) {
+					PlayerObject.research = PlayerObject.research - 6;
 					sToolsButton.setEnabled(false);
 					sSeedsButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.numberFoodBoost = 25;
 					PlayerObject.researchApplied[1] = "sTools";
 				}
@@ -267,11 +268,11 @@ public class ResearchPopover extends JFrame {
 			}});
 		sSeedsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 6) {
-					research = research - 6;
+				if(PlayerObject.research >= 6) {
+					PlayerObject.research = PlayerObject.research - 6;
 					sSeedsButton.setEnabled(false);
 					exFarmButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.percentFoodBoost = 40;
 					PlayerObject.researchApplied[2] = "sSeeds";
 				}
@@ -281,10 +282,10 @@ public class ResearchPopover extends JFrame {
 			}});
 		exFarmButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 12) {
-					research = research - 12;
+				if(PlayerObject.research >= 12) {
+					PlayerObject.research = PlayerObject.research - 12;
 					exFarmButton.setEnabled(false);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.percentFoodBoost = 100;
 					PlayerObject.researchApplied[3] = "exFarm";
 				}
@@ -295,11 +296,11 @@ public class ResearchPopover extends JFrame {
 		//------------------Mining section------------------//
 		stoneToolsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 3) {
-					research = research -3;
+				if(PlayerObject.research >= 3) {
+					PlayerObject.research = PlayerObject.research -3;
 					stoneToolsButton.setEnabled(false);
 					eSafetyButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.numberMiningAndWoodBoost = 10;
 					PlayerObject.researchApplied[4] = "stoneTools";
 				}
@@ -309,11 +310,11 @@ public class ResearchPopover extends JFrame {
 			}});
 		eSafetyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 6) {
-					research = research - 6;
+				if(PlayerObject.research >= 6) {
+					PlayerObject.research = PlayerObject.research - 6;
 					eSafetyButton.setEnabled(false);
 					ironToolsButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.percentMiningAndWoodBoost = 25;
 					PlayerObject.researchApplied[5] = "eSafety";
 				}
@@ -323,11 +324,11 @@ public class ResearchPopover extends JFrame {
 			}});
 		ironToolsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 6) {
-					research = research - 6;
+				if(PlayerObject.research >= 6) {
+					PlayerObject.research = PlayerObject.research - 6;
 					ironToolsButton.setEnabled(false);
 					goldButton.setEnabled(true);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.percentMiningAndWoodBoost = 75;
 					PlayerObject.researchApplied[6] = "ironTools";
 				}
@@ -337,10 +338,10 @@ public class ResearchPopover extends JFrame {
 			}});
 		goldButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(research >= 12) {
-					research = research - 12;
+				if(PlayerObject.research >= 12) {
+					PlayerObject.research = PlayerObject.research - 12;
 					goldButton.setEnabled(false);
-					ptsLabel.setText("Points: " + research);
+					ptsLabel.setText("Points: " + PlayerObject.research);
 					PlayerObject.oneTimeMiningAndWoodBoost = 400;
 					PlayerObject.researchApplied[7] = "gold";
 				}
@@ -352,11 +353,11 @@ public class ResearchPopover extends JFrame {
 		//-----------------Military section------------------//
 		lArmButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 3) {
-							research = research -3;
+						if(PlayerObject.research >= 3) {
+							PlayerObject.research = PlayerObject.research -3;
 							lArmButton.setEnabled(false);
 							hArmourButton.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.numberMilitaryBoost = 20;
 							PlayerObject.researchApplied[8] = "lArm";
 						}
@@ -366,11 +367,11 @@ public class ResearchPopover extends JFrame {
 					}});
 		hArmourButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 6) {
-							research = research - 6;
+						if(PlayerObject.research >= 6) {
+							PlayerObject.research = PlayerObject.research - 6;
 							hArmourButton.setEnabled(false);
 							blackButton.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.numberMilitaryBoost = 45;
 							PlayerObject.researchApplied[9] = "hArm";
 						}
@@ -380,11 +381,11 @@ public class ResearchPopover extends JFrame {
 					}});
 		blackButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 6) {
-							research = research - 6;
+						if(PlayerObject.research >= 6) {
+							PlayerObject.research = PlayerObject.research - 6;
 							blackButton.setEnabled(false);
 							spyButton.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.percentMilitaryBoost = 60;
 							PlayerObject.researchApplied[10] = "black";
 						}
@@ -394,10 +395,10 @@ public class ResearchPopover extends JFrame {
 					}});
 		spyButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 12) {
-							research = research - 12;
+						if(PlayerObject.research >= 12) {
+							PlayerObject.research = PlayerObject.research - 12;
 							spyButton.setEnabled(false);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.numberMilitaryBoost = 200;
 							PlayerObject.researchApplied[11] = "spy";
 						}
@@ -409,11 +410,11 @@ public class ResearchPopover extends JFrame {
 		//-----------------Sales section------------------//
 		sale1Button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 3) {
-							research = research -3;
+						if(PlayerObject.research >= 3) {
+							PlayerObject.research = PlayerObject.research -3;
 							sale1Button.setEnabled(false);
 							sale2Button.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.percentDiscountOnSales = 10;
 							PlayerObject.researchApplied[12] = "sale1";
 						}
@@ -423,11 +424,11 @@ public class ResearchPopover extends JFrame {
 					}});
 		sale2Button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 6) {
-							research = research - 6;
+						if(PlayerObject.research >= 6) {
+							PlayerObject.research = PlayerObject.research - 6;
 							sale2Button.setEnabled(false);
 							sale3Button.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.percentDiscountOnSales = 20;
 							PlayerObject.researchApplied[13] = "sale2";
 						}
@@ -437,11 +438,11 @@ public class ResearchPopover extends JFrame {
 					}});
 		sale3Button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 6) {
-							research = research - 6;
+						if(PlayerObject.research >= 6) {
+							PlayerObject.research = PlayerObject.research - 6;
 							sale3Button.setEnabled(false);
 							sale4Button.setEnabled(true);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.percentDiscountOnSales = 30;
 							PlayerObject.researchApplied[14] = "sale3";
 						}
@@ -451,10 +452,10 @@ public class ResearchPopover extends JFrame {
 					}});
 		sale4Button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(research >= 12) {
-							research = research - 12;
+						if(PlayerObject.research >= 12) {
+							PlayerObject.research = PlayerObject.research - 12;
 							sale4Button.setEnabled(false);
-							ptsLabel.setText("Points: " + research);
+							ptsLabel.setText("Points: " + PlayerObject.research);
 							PlayerObject.percentDiscountOnSales = 40;
 							PlayerObject.researchApplied[15] = "sale4";
 						}

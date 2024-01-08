@@ -9,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 
@@ -37,6 +39,7 @@ public class TradingPopover extends JFrame {
 	double countertosave1 = PlayerObject.food;
 	double countertosave = PlayerObject.miningAndWood;
 	double countertosave2 = PlayerObject.research;
+	double percentDiscount2 = (float)((PlayerObject.percentDiscountOnSales*2)/100);
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -85,6 +88,8 @@ public class TradingPopover extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 			}
 		});
 		contentPane.add(backtradebutton);
@@ -155,6 +160,12 @@ public class TradingPopover extends JFrame {
 		Testareamaintrade = new JTextArea();
 		Testareamaintrade.setEditable(false);
 		Testareamaintrade.setBounds(172, 230, 423, 190);
+		
+		JScrollPane scrollPane = new JScrollPane(Testareamaintrade);
+		scrollPane.setBounds(10,60,780,500);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		
 		contentPane.add(Testareamaintrade);
 		
 		Tradingtextbox = new JLabel("Trading Messages");
@@ -164,7 +175,7 @@ public class TradingPopover extends JFrame {
 		
 		// Village marketing textbox
 		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villagerMarketing_textbox.append("1 villager = 2 food");
+		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -181,14 +192,17 @@ public class TradingPopover extends JFrame {
 		
 		villagerAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (PlayerObject.food >= 2 )
+			if (PlayerObject.food >= (2 - percentDiscount2))
 			{
-				PlayerObject.food = PlayerObject.food - 2;
+				PlayerObject.food = PlayerObject.food - (2 - percentDiscount2);
 				PlayerObject.totalPeople++;
-				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.totalPeople +"\n");
+				PlayerObject.unallocatedPeople++;
+				MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
+				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.unallocatedPeople +"\n");
 				updateTradeInformation();
 
-				 
+				System.out.println((2*percentDiscount2));
+				System.out.println(percentDiscount2);
 			}
 			
 			else
@@ -256,6 +270,11 @@ public class TradingPopover extends JFrame {
 				}
 			}
 		});
+		villagerMarketing_textbox.setHighlighter(null);
+		disableAllFunctionalityForTextArea(villagerMarketing_textbox);
+		disableAllFunctionalityForTextArea(Foodtextarea);
+		disableAllFunctionalityForTextArea(resourceTextArea);
+		disableAllFunctionalityForTextArea(researchPointsTextArea);
 		
 	}
 	
@@ -281,6 +300,13 @@ public class TradingPopover extends JFrame {
 	    // Update research points text area
 	    researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
 	    researchPointsTextArea.append("1 research point = 5 food" + "\n");
+	}
+	
+	public void disableAllFunctionalityForTextArea(JTextArea currTextArea) {
+		currTextArea.setEditable(false);
+		currTextArea.setHighlighter(null);
+		currTextArea.setCursor(null);
+		currTextArea.setFocusable(false);
 	}
 
 

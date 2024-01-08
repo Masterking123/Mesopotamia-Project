@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import javax.swing.SpringLayout;
 import javax.swing.JTextPane;
@@ -21,15 +22,11 @@ public class MainGameGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public static int military = 0; 
-	public static int farmer = 0; 
-	public static int miner = 0; 
-	public static int research = 0; 
 	public static int dayCounter = 1; 
-	public static int peopleCount = 10; 
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
-	                                                    
+	public static JLabel unalloPeopleCounter;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -70,7 +67,7 @@ public class MainGameGUI extends JFrame {
 		unalloPeopleLabel.setBounds(scaledpeopleLabel[0], scaledpeopleLabel[1], scaledpeopleLabel[2], scaledpeopleLabel[3]);
 		contentPane.add(unalloPeopleLabel);
 		
-		JLabel unalloPeopleCounter = new JLabel("" + peopleCount);
+		unalloPeopleCounter = new JLabel("" + PlayerObject.unallocatedPeople);
 		unalloPeopleCounter.setForeground(new Color(0, 0, 0));
 		int scaledunPeopleCounterFont = Main.scaledFontSize(30, 1368, 912);
 		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, scaledunPeopleCounterFont));
@@ -78,14 +75,14 @@ public class MainGameGUI extends JFrame {
 		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
 		contentPane.add(unalloPeopleCounter);
 		
-		JLabel researchCount = new JLabel("" + research);
+		JLabel researchCount = new JLabel("" + PlayerObject.peopleInResearch);
 		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledResearchCountFont));
 		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
 		researchCount.setBounds(1134, 496, researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
-		JLabel minerCount = new JLabel("" + miner);
+		JLabel minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
 		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
 		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinerCountFont));
 		int [] minerCountLabel= Main.scaledUIElements(1134, 100, 48, 31, 1368, 912);
@@ -107,14 +104,14 @@ public class MainGameGUI extends JFrame {
 		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
 		contentPane.add(dayCounterLabel);
 		
-		JLabel militaryCount = new JLabel("" + military);
+		JLabel militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
 		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
 		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMilitaryCountFont));
 		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
 		militaryCount.setBounds(militaryCountLabel[0], militaryCountLabel[1], militaryCountLabel[2], militaryCountLabel[3]);
 		contentPane.add(militaryCount);
 		
-		JLabel farmerCount = new JLabel("" + farmer);
+		JLabel farmerCount = new JLabel("" + PlayerObject.peopleInFood);
 		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
 		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledfarmerCountFont));
 		int [] farmerCountLabel= Main.scaledUIElements(81, 262, 48, 31, 1368, 912);
@@ -126,11 +123,11 @@ public class MainGameGUI extends JFrame {
 		addFarmerButton = new JButton("+");
 		addFarmerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (peopleCount > 0) {
-					farmer = farmer + 1;
-					farmerCount.setText("" + farmer);
-					peopleCount = peopleCount - 1; 
-					unalloPeopleCounter.setText("" + peopleCount);
+				if (PlayerObject.unallocatedPeople > 0) {
+					PlayerObject.peopleInFood++;
+					farmerCount.setText("" + PlayerObject.peopleInFood);
+					PlayerObject.unallocatedPeople--;
+					unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 				}
 			}
 		});
@@ -144,12 +141,12 @@ public class MainGameGUI extends JFrame {
 		minusFarmerButton = new JButton("-");
 		minusFarmerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (farmer > 0) {
-					farmer = farmer - 1;
-					peopleCount = peopleCount + 1; 
+				if (PlayerObject.peopleInFood > 0) {
+					PlayerObject.peopleInFood--;
+					PlayerObject.unallocatedPeople++; 
 				}
-				farmerCount.setText("" + farmer);
-				unalloPeopleCounter.setText("" + peopleCount);
+				farmerCount.setText("" + PlayerObject.peopleInFood);
+				unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 			}
 		});
 		int [] scaledButtonminusFarmer = Main.scaledUIElements(326, 256, 59, 31, 1368, 912);
@@ -185,11 +182,11 @@ public class MainGameGUI extends JFrame {
 		JButton addMilitaryButton = new JButton("+");
 		addMilitaryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (peopleCount > 0) {
-					peopleCount = peopleCount - 1; 
-					military = military + 1;
-					militaryCount.setText("" + military);
-					unalloPeopleCounter.setText("" + peopleCount);
+				if (PlayerObject.unallocatedPeople > 0) {
+					PlayerObject.unallocatedPeople--;
+					PlayerObject.peopleInMilitary++;
+					militaryCount.setText("" + PlayerObject.peopleInMilitary);
+					unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 				}
 			}
 		});
@@ -203,13 +200,13 @@ public class MainGameGUI extends JFrame {
 		JButton minusMilitaryButton = new JButton("-");
 		minusMilitaryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (military > 0) {
-					military = military - 1;
-					peopleCount = peopleCount + 1; 
+				if (PlayerObject.peopleInMilitary > 0) {
+					PlayerObject.peopleInMilitary--;
+					PlayerObject.unallocatedPeople++;
 
 				}
-				militaryCount.setText("" + military);
-				unalloPeopleCounter.setText("" + peopleCount);
+				militaryCount.setText("" + PlayerObject.peopleInMilitary);
+				unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 			}
 		});
 		int [] scaledButtonminusMilitary = Main.scaledUIElements(675, 529, 64, 37, 1368, 912);
@@ -222,11 +219,11 @@ public class MainGameGUI extends JFrame {
 		JButton addMinerButton = new JButton("+");
 		addMinerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (peopleCount > 0) {
-					peopleCount = peopleCount - 1; 
-					miner = miner + 1;
-					minerCount.setText("" + miner);
-					unalloPeopleCounter.setText("" + peopleCount);	
+				if (PlayerObject.unallocatedPeople > 0) {
+					PlayerObject.unallocatedPeople--;
+					PlayerObject.peopleInMiningAndWood++;
+					minerCount.setText("" + PlayerObject.peopleInMiningAndWood);
+					unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);	
 				}
 			}
 		});
@@ -240,12 +237,12 @@ public class MainGameGUI extends JFrame {
 		JButton minusMinerButton = new JButton("-");
 		minusMinerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (miner > 0) {
-					miner = miner - 1;
-					peopleCount = peopleCount + 1; 
+				if (PlayerObject.peopleInMiningAndWood > 0) {
+					PlayerObject.peopleInMiningAndWood--;
+					PlayerObject.unallocatedPeople++;
 				}
-				minerCount.setText("" + miner);
-				unalloPeopleCounter.setText("" + peopleCount);
+				minerCount.setText("" + PlayerObject.peopleInMiningAndWood);
+				unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 			}
 		});
 		int [] scaledButtonminusMiner = Main.scaledUIElements(1112, 232, 59, 37, 1368, 912);
@@ -263,9 +260,17 @@ public class MainGameGUI extends JFrame {
 				dayCounter = dayCounter + 1; 
 				dayCounterLabel.setText("" + dayCounter);
 				NextDayButton.nextDayButtonActivated();
-				if (dayCounter == 31) {
-					
+				Raid.raidChance();
+				if (Raid.raidDayCount > 0) {
+					Raid.raidDayCount = Raid.raidDayCount - 1;					
+				} if (Raid.raid == true) {
+					RaidPopover.main(null);
+					frame.setEnabled(false);
 				}
+				if (dayCounter == 30) {
+					AiEventResponse.lastDayAllocation();
+				}
+
 				}
 			}
 		);
@@ -285,11 +290,12 @@ public class MainGameGUI extends JFrame {
 		JButton addResearchButton = new JButton("+");
 		addResearchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (peopleCount > 0) {
-					peopleCount = peopleCount - 1; 
-					research = research + 1;
-					researchCount.setText("" + research);
-					unalloPeopleCounter.setText("" + peopleCount);
+				if (PlayerObject.unallocatedPeople > 0) {
+					PlayerObject.unallocatedPeople--; 
+					PlayerObject.peopleInResearch++;
+					
+					researchCount.setText("" + PlayerObject.peopleInResearch);
+					unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 				}
 			}
 		});
@@ -303,12 +309,12 @@ public class MainGameGUI extends JFrame {
 		JButton minusResearchButton = new JButton("-");
 		minusResearchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (research > 0) {
-					research = research - 1;
-					peopleCount = peopleCount + 1; 
+				if (PlayerObject.peopleInResearch > 0) {
+					PlayerObject.peopleInResearch--;
+					PlayerObject.unallocatedPeople++;
 				}
-				researchCount.setText("" + research);
-				unalloPeopleCounter.setText("" + peopleCount);
+				researchCount.setText("" + PlayerObject.peopleInResearch);
+				unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 			}
 		});
 		int [] scaledButtonminusResearch= Main.scaledUIElements(1153, 557, 59, 37, 1368, 912);
@@ -383,4 +389,7 @@ public class MainGameGUI extends JFrame {
 		
 		
 	}
-}
+	
+	}
+
+

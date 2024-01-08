@@ -1,10 +1,9 @@
+import java.util.ArrayList; // import the ArrayList class
 
 public class PlayerObject {
 	
 	// Percentage is stored as a whole number, convert to decimal when calculating
-	
-	public static String activeEvents[];
-	public static String daysForActiveEvents[];
+	public static ArrayList<ActiveEvent> activeEvents = new ArrayList<ActiveEvent>();
 	
 	public static String playerName;
 	public static String playerVillageName;
@@ -34,6 +33,7 @@ public class PlayerObject {
 	public static int percentDiscountOnSales;
 	
 	public static int totalPeople = 10;
+	public static int unallocatedPeople = 10;
 	public static int reputation = 50;
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
@@ -41,6 +41,9 @@ public class PlayerObject {
 	static String[] researchApplied = new String[16];
 	
 	public static void generateFood() {
+		if((1 + (double) (percentFoodBoost / 100.0)) < 0) {
+			return;
+		}
 		if(peopleInFood != 0) {
 			food += ((peopleInFood * 10) * (1 + (double) (percentFoodBoost / 100.0))) + numberFoodBoost;
 		}
@@ -83,6 +86,11 @@ public class PlayerObject {
 	public static double calculateVillagePower() {
 		double villagePower = military * 2.0 + (food - (totalPeople * 3.0)) + reputation / 2.0 + (miningAndWood * 1.25);
 		return villagePower;
+	}
+	
+	// When a event such as quota loses people, use this method 
+	public static void deallocationOfPeople() {
+		
 	}
 	
 	

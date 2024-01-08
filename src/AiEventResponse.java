@@ -1,5 +1,8 @@
+import java.util.ArrayList;
 
 public class AiEventResponse {
+	
+	public static ArrayList<ActiveEvent> AIactiveEvents = new ArrayList<ActiveEvent>(); 
 	
 	public static int AipeopleInFood;
 	public static double Aifood = 0;
@@ -34,11 +37,20 @@ public class AiEventResponse {
 	
 	private static int movePeopleNum = 0;
 	
+	public static void lastDayAllocation() {
+		int lastDayPeoplePerPlace = AitotalPeople/4;
+		AImilitaryNum = lastDayPeoplePerPlace;
+		AIfarmerNum = lastDayPeoplePerPlace;
+		AIminerNum = lastDayPeoplePerPlace;
+		AIresearchNum = lastDayPeoplePerPlace;
+		
+	}
+	
 	public static void generateFoodAI() {
 		Aifood += ((AipeopleInFood * 10) * (1 + (double) (AipercentFoodBoost / 100.0))) + AinumberFoodBoost;
 	}
 	
-	public static void generateMiningAndFoodAI() {
+	public static void generateMiningAndWoodAI() {
 		AiminingAndWood += ((AipeopleInMiningAndWood * 10) * (1 + (double) (AipercentMiningAndWoodBoost / 100.0))) + AinumberMiningAndWoodBoost + AioneTimeMiningAndWoodBoost;
 		AioneTimeMiningAndWoodBoost = 0;
 		
@@ -52,6 +64,19 @@ public class AiEventResponse {
 	public static void generateResearchAI() {
 		Airesearch += AipeopleInResearch * (1 + (double) (AipercentResearchBoost / 100.0)) + AinumberResearchBoost;
 		
+	}
+	
+	public static void percentLossOnFood(int percentLoss) {
+		Aifood -= Aifood * ((double) (percentLoss / 100.0));
+	}
+	
+	
+	public static void percentLossOnMiningAndWood(int percentLoss) {
+		AiminingAndWood -= AiminingAndWood * ((double) (percentLoss / 100.0));
+	}
+
+	public static void percentLossOnPeople(int percentLoss) {
+		AitotalPeople -= (int) Math.floor(AitotalPeople * ((double) (percentLoss / 100.0)));
 	}
 	
 	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) {
@@ -68,7 +93,7 @@ public class AiEventResponse {
 	
 
 	public static void generateAiEventResponse() {
-		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent();
+		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent(false);
 		// This event impacts the boosts and drawbacks
 		//add a event for new people
 		if(generatedRandomEvent.nameOfEvent.equals("Heat Wave")) {
