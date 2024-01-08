@@ -22,7 +22,7 @@ public class Quota {
         else {
             System.out.println("Not enough food for everyone!");
             showPopUp = true;           
-            int totalPeopleWithoutFood = (int) Math.ceil((PlayerObject.foodRequiredPerPerson - PlayerObject.food) / 3.0);
+            int totalPeopleWithoutFood = (int) Math.ceil((PlayerObject.foodRequiredPerPerson - (PlayerObject.food) * 3.0));
 
             for (int i = 0; i < totalPeopleWithoutFood; i++) {
                 double chanceOfDeathOrLeaving = 0.25;
