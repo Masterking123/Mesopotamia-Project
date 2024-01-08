@@ -129,9 +129,9 @@ public class StatsPopover extends JFrame {
 		comStatLabel.setBounds(6, 176, 157, 16);
 		statPanel.add(comStatLabel);
 		
-		JLabel warningLabel = new JLabel("Warning");
-		warningLabel.setBounds(175, 70, 257, 49);
-		statPanel.add(warningLabel);
+		JLabel foodPpersonLabel = new JLabel("Warning");
+		foodPpersonLabel.setBounds(175, 40, 257, 33);
+		statPanel.add(foodPpersonLabel);
 		switchButton(ratesButton, ratePanel);
 		
 		JLabel boostSubLabel = new JLabel("Boosts");
@@ -164,33 +164,37 @@ public class StatsPopover extends JFrame {
 		ratesSubLabel.setBounds(301, 25, 61, 16);
 		ratePanel.add(ratesSubLabel);
 		
-		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost);
+		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost + "/day");
 		foodRateLabel.setBounds(275, 55, 157, 16);
 		ratePanel.add(foodRateLabel);
 		
-		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost);
+		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost + "/day");
 		resRateLabel.setBounds(275, 83, 157, 16);
 		ratePanel.add(resRateLabel);
 		
-		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost);
+		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost + "/day");
 		res2RateLabel.setBounds(275, 111, 157, 16);
 		ratePanel.add(res2RateLabel);
 		
-		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost);
+		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost + "/day");
 		comRateLabel.setBounds(275, 139, 157, 16);
 		ratePanel.add(comRateLabel);
-		warningLabel.setVisible(false);
+		foodPpersonLabel.setVisible(false);
 		
-		if(PlayerObject.food <= Quota.foodRequiredPerPerson) {
-			warningLabel.setVisible(true);
-			warningLabel.setText("You are low on food");
-		}
-		else if(PlayerObject.miningAndWood <= Quota.woodRequiredPerPerson) {
-			warningLabel.setVisible(true);
-			warningLabel.setText("You are low on resources");
-		}
-		else {
-			warningLabel.setVisible(false);
-		}
+			foodPpersonLabel.setVisible(true);
+			foodPpersonLabel.setText("Food needed per person: " + PlayerObject.foodRequiredPerPerson);
+			
+			JLabel resPpersonLabel = new JLabel("Resources needed per person: " + PlayerObject.woodRequiredPerPerson);
+			resPpersonLabel.setBounds(175, 74, 257, 16);
+			statPanel.add(resPpersonLabel);
+			
+			JLabel foodLessLabel = new JLabel("Hungry People: " + Quota.totalPeopleWithoutFood);
+			foodLessLabel.setBounds(175, 102, 257, 16);
+			statPanel.add(foodLessLabel);
+			
+			JLabel resLessLabel = new JLabel("Resources Missing: " + Quota.totalPeopleWithoutWood);
+			resLessLabel.setBounds(175, 130, 257, 16);
+			statPanel.add(resLessLabel);
+
 	}
 }
