@@ -182,9 +182,9 @@ public class StatsPopover extends JFrame {
 		foodPpersonLabel.setVisible(false);
 		
 			foodPpersonLabel.setVisible(true);
-			foodPpersonLabel.setText("Food needed: 0");
+			foodPpersonLabel.setText("Food needed a day: " + PlayerObject.foodRequiredPerPerson);
 			
-			JLabel resPpersonLabel = new JLabel("Resources needed: 0");
+			JLabel resPpersonLabel = new JLabel("Resources needed a day: " + PlayerObject.woodRequiredPerPerson);
 			resPpersonLabel.setBounds(175, 74, 257, 16);
 			statPanel.add(resPpersonLabel);
 			
