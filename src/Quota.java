@@ -17,6 +17,10 @@ public class Quota {
 	    // Reset counters after updating totalPeople
 	}
 	
+	public static void peopleDeallocation()
+	{
+		
+	}
 	public static void showingPopUp()
 	{
 		 if (showPopUp == true || showPopUp2 == true)
