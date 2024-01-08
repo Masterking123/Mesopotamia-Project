@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 
 public class WInLossGUI extends JFrame {
@@ -45,18 +46,27 @@ public class WInLossGUI extends JFrame {
 	  public static void winlossgui() {
 		  compare();
 		  
-	        JFrame frame = new JFrame("Quota Status");
+	        JFrame frmWinlossStatus = new JFrame("Quota Status");
+	        frmWinlossStatus.setTitle("Win/Loss Status");
+	        frmWinlossStatus.getContentPane().setLayout(null);
 	        JTextArea textArea = new JTextArea();
+	        textArea.setEditable(false);
+	        textArea.setBounds(28, 29, 605, 300);
 	        textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	        textArea.setText(" Your village name, " + PlayerObject.playerVillageName + "\n" +
 	                "- Your Village power " + PlayerObject.calculateVillagePower() + "\n" +
 	                "- Rival Village power: " + AiEventResponse.calculateVillagePowerAi() + "\n" +
 	                "- Winner of raid: " + winner);
 	        
-	        frame.getContentPane().add(textArea);
-	        frame.setSize(600, 300);
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Use appropriate close operation
-	        frame.setVisible(true);
+	        frmWinlossStatus.getContentPane().add(textArea);
+	        
+	        JLabel lblNewLabel = new JLabel("Win/Loss Status");
+	        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+	        lblNewLabel.setBounds(248, 10, 199, 23);
+	        frmWinlossStatus.getContentPane().add(lblNewLabel);
+	        frmWinlossStatus.setSize(669, 366);
+	        frmWinlossStatus.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Use appropriate close operation
+	        frmWinlossStatus.setVisible(true);
 	    }
 	  
 	  
@@ -79,6 +89,4 @@ public class WInLossGUI extends JFrame {
 		    }
 		    return winner;
 		    }
-	  
-
 }
