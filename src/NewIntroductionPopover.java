@@ -63,21 +63,17 @@ public class NewIntroductionPopover extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel titleText = new JLabel("MESOPOTAMIA: DAWN OF CIVILIZATION", SwingConstants.CENTER);
-		
-		// Check if multiplying 1.4 here is good for other screens
-		int scaledFontSize = (int) (Main.scaledFontSize(25, 1280, 800) * 1.4);
-		int[] scaledTitleBounds = Main.scaledUIElements(10, 11, 666, 63, 1280, 800);
+
 		titleText.setForeground(new Color(255, 255, 255));
-		titleText.setFont(new Font("Times New Roman", Font.BOLD, scaledFontSize));
-		titleText.setBounds(scaledTitleBounds[0], scaledTitleBounds[1], scaledTitleBounds[2], scaledTitleBounds[3]);
+		titleText.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		titleText.setBounds(10, 11, 666, 63);
 		contentPane.add(titleText);
 		
 		String myString = "Hello " + PlayerObject.playerName + ", welcome to your village called " + PlayerObject.playerVillageName + ", your goal is to be the leader of this small village. You have noticed that there is a rival village that is growing at an alarming rate and they have hostile relations with your village. The village has agreed to conduct a final raid on the village and they have tasked you with prepping for the next 30 days to be ready for the attack. Your mission is to survive the 30 days and create a village to win against the " + PlayerObject.rivalVillageName + " village";
 		JLabel descriptionText = new JLabel("");
 		descriptionText.setForeground(new Color(255,255,255));
-		descriptionText.setFont(new Font("Times New Roman", Font.PLAIN, scaledFontSize));
-		int[] scaledDescriptionBounds = Main.scaledUIElements(48, 70, 605, 315, 1280, 800);
-		descriptionText.setBounds(scaledDescriptionBounds[0], scaledDescriptionBounds[1], scaledDescriptionBounds[2], scaledDescriptionBounds[3]);
+		descriptionText.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		descriptionText.setBounds(48, 70, 605, 315);
 		descriptionText.setOpaque(true);
 		descriptionText.setBackground(new Color(0,0,0, 127));
 		descriptionText.setText("<html>" + myString + "</html>");
@@ -92,10 +88,8 @@ public class NewIntroductionPopover extends JFrame {
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});
-		int scaledContinueFontSize = (int) (Main.scaledFontSize(20, 1280, 800) * 1.4);
-		continueButton.setFont(new Font("Times New Roman", Font.BOLD, scaledContinueFontSize));
-		int[] scaledContinueBounds = Main.scaledUIElements(283, 413, 113, 39, 1280, 800);
-		continueButton.setBounds(scaledContinueBounds[0], scaledContinueBounds[1], scaledContinueBounds[2], scaledContinueBounds[3]);
+		continueButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		continueButton.setBounds(283, 413, 113, 39);
 		contentPane.add(continueButton);
 	}
 }
