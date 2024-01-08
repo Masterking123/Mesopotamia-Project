@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class rivalVillageAi {
+public class RivalVillageAI {
 
     public static void aiPeopleTrade() {
         Random random = new Random();// importing the random number generator 

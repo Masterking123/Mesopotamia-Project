@@ -18,8 +18,8 @@ public class NextDayButton {
 		AiEventResponse.generateResearchAI();;
 		
 		// Ai Village conducts Trades
-//		rivalVillageAi.aiPeopleTrade();
-//		rivalVillageAi.aiPeopleAllocation();
+		RivalVillageAI.aiPeopleTrade();
+		RivalVillageAI.aiPeopleAllocation();
 		
 		
 		
