@@ -76,6 +76,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(unalloPeopleCounter);
 		
 		JLabel researchCount = new JLabel("" + PlayerObject.peopleInResearch);
+		researchCount.setForeground(new Color(255, 255, 255));
 		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledResearchCountFont));
 		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
@@ -83,6 +84,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(researchCount);
 		
 		JLabel minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
+		minerCount.setForeground(new Color(255, 255, 255));
 		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
 		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinerCountFont));
 		int [] minerCountLabel= Main.scaledUIElements(1134, 100, 48, 31, 1368, 912);
@@ -98,6 +100,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(dayCountLabel);
 		
 		JLabel dayCounterLabel = new JLabel("1");
+		dayCounterLabel.setForeground(new Color(255, 255, 255));
 		int scaledDayCounterFont = Main.scaledFontSize(25, 1368, 912);
 		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, scaledDayCounterFont));
 		int [] dayCounterLabel1= Main.scaledUIElements(694, 331, 48, 31, 1368, 912);
@@ -105,6 +108,7 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(dayCounterLabel);
 		
 		JLabel militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
+		militaryCount.setForeground(new Color(255, 255, 255));
 		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
 		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMilitaryCountFont));
 		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
@@ -112,6 +116,8 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(militaryCount);
 		
 		JLabel farmerCount = new JLabel("" + PlayerObject.peopleInFood);
+		farmerCount.setForeground(new Color(255, 255, 255));
+		farmerCount.setBackground(new Color(255, 255, 255));
 		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
 		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledfarmerCountFont));
 		int [] farmerCountLabel= Main.scaledUIElements(81, 262, 48, 31, 1368, 912);
@@ -389,7 +395,6 @@ public class MainGameGUI extends JFrame {
 		
 		
 	}
-	
 	}
 
 
