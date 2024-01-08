@@ -13,10 +13,8 @@ public class Quota {
 	public static int totalPeopleWithoutWood;
 
 	public static void updatePeople() {
-	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);
-	    
+	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);    
 	    // Reset counters after updating totalPeople
-
 	}
 	
 	public static void showingPopUp()
