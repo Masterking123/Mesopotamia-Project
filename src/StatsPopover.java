@@ -158,6 +158,27 @@ public class StatsPopover extends JFrame {
 		JLabel salesBoostLabel = new JLabel("Sales: " + PlayerObject.percentDiscountOnSales + "%");
 		salesBoostLabel.setBounds(6, 167, 157, 16);
 		ratePanel.add(salesBoostLabel);
+		
+		JLabel ratesSubLabel = new JLabel("Rates");
+		ratesSubLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+		ratesSubLabel.setBounds(301, 25, 61, 16);
+		ratePanel.add(ratesSubLabel);
+		
+		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost);
+		foodRateLabel.setBounds(275, 55, 157, 16);
+		ratePanel.add(foodRateLabel);
+		
+		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost);
+		resRateLabel.setBounds(275, 83, 157, 16);
+		ratePanel.add(resRateLabel);
+		
+		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost);
+		res2RateLabel.setBounds(275, 111, 157, 16);
+		ratePanel.add(res2RateLabel);
+		
+		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost);
+		comRateLabel.setBounds(275, 139, 157, 16);
+		ratePanel.add(comRateLabel);
 		warningLabel.setVisible(false);
 		
 		if(PlayerObject.food <= Quota.foodRequiredPerPerson) {

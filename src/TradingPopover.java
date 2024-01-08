@@ -39,6 +39,7 @@ public class TradingPopover extends JFrame {
 	double countertosave1 = PlayerObject.food;
 	double countertosave = PlayerObject.miningAndWood;
 	double countertosave2 = PlayerObject.research;
+	double percentDiscount2 = (float)((PlayerObject.percentDiscountOnSales*2)/100);
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -174,7 +175,7 @@ public class TradingPopover extends JFrame {
 		
 		// Village marketing textbox
 		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villagerMarketing_textbox.append("2 food = 1 villager");
+		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -191,16 +192,17 @@ public class TradingPopover extends JFrame {
 		
 		villagerAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (PlayerObject.food >= 2 )
+			if (PlayerObject.food >= (2 - percentDiscount2))
 			{
-				PlayerObject.food = PlayerObject.food - 2;
+				PlayerObject.food = PlayerObject.food - (2 - percentDiscount2);
 				PlayerObject.totalPeople++;
 				PlayerObject.unallocatedPeople++;
 				MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 				Testareamaintrade.append("You traded 2 food. The Unallocated people in the village is " + PlayerObject.unallocatedPeople +"\n");
 				updateTradeInformation();
 
-				 
+				System.out.println((2*percentDiscount2));
+				System.out.println(percentDiscount2);
 			}
 			
 			else
