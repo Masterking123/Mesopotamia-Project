@@ -79,7 +79,7 @@ public class NextDayButton {
 		Quota.checkAndUpdateFoodResources();
 		Quota.checkAndUpdateMiningAndWoodResources();
 		Quota.showingPopUp();
-		//Quota.updatePeople();
+		Quota.updatePeople();
 		
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);

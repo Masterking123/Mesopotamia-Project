@@ -14,6 +14,7 @@ public class Quota {
 
 	public static void updatePeople() {
 	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);
+	    
 	    // Reset counters after updating totalPeople
 
 	}
@@ -49,6 +50,7 @@ public class Quota {
     public static void checkAndUpdateFoodResources() {
     	showPopUp = false; 
     	showPopUp2 = false; 
+    	System.out.println("The amount of ppl " + PlayerObject.totalPeople);
         PlayerObject.foodRequiredPerPerson = 3 * PlayerObject.totalPeople;
         System.out.println("foodRequiredPerPerson " + PlayerObject.foodRequiredPerPerson);
         System.out.println("food " + PlayerObject.food);
@@ -72,8 +74,6 @@ public class Quota {
                 }
             }
         }
-       
-        
     }
 
     public static void checkAndUpdateMiningAndWoodResources() {
