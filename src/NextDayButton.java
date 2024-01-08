@@ -18,8 +18,8 @@ public class NextDayButton {
 		AiEventResponse.generateResearchAI();;
 		
 		// Ai Village conducts Trades
-		rivalVillageAi.aiPeopleTrade();
-		rivalVillageAi.aiPeopleAllocation();
+//		rivalVillageAi.aiPeopleTrade();
+//		rivalVillageAi.aiPeopleAllocation();
 		
 		
 		
@@ -76,16 +76,15 @@ public class NextDayButton {
 		}
 		
 		// Check if Quotas have been met
-		Quota.checkAndUpdateFoodResources();
-		Quota.checkAndUpdateMiningAndWoodResources();
-		Quota.updatePeople();
-		Quota.showingPopUp();
+//		Quota.checkAndUpdateFoodResources();
+//		Quota.checkAndUpdateMiningAndWoodResources();
+//		Quota.updatePeople();
+//		Quota.showingPopUp();
 
 		
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		
-		// AI values calculated and applied
 		
 	}
 }

@@ -99,7 +99,7 @@ public class RandomEventObject {
 			switch (eventName) {
 				case "Heat Wave":
 					PlayerObject.percentFoodBoost -= 15;
-					PlayerObject.percentMiningAndWoodBoost -= 15;
+					PlayerObject.percentMiningAndWoodBoost -= 20;
 					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
 					break;
 				case "Tornado":
@@ -158,7 +158,7 @@ public class RandomEventObject {
 			switch (eventName) {
 			case "Heat Wave":
 				AiEventResponse.AipercentFoodBoost -= 15;
-				AiEventResponse.AipercentMiningAndWoodBoost -= 15;
+				AiEventResponse.AipercentMiningAndWoodBoost -= 20;
 				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));
 				break;
 			case "Tornado":
@@ -191,7 +191,7 @@ public class RandomEventObject {
 				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName + " Mining/Wood", 3));
 				break;
 			case "Neighbouring Village":
-				// TO DO
+				AiEventResponse.Aireputation -= 2;
 				break;
 			case "Struck Gold Mine":
 				System.out.println("Struck a GOLD MINE");
@@ -222,7 +222,7 @@ public class RandomEventObject {
 			switch (eventName) {
 				case "Heat Wave":
 					PlayerObject.percentFoodBoost += 15;
-					PlayerObject.percentMiningAndWoodBoost += 15;
+					PlayerObject.percentMiningAndWoodBoost += 20;
 					break;
 				case "Tornado":
 					PlayerObject.percentFoodBoost += 10;				
@@ -240,7 +240,6 @@ public class RandomEventObject {
 					PlayerObject.percentMiningAndWoodBoost += 30;
 					break;
 				case "Neighbouring Village":
-					// TO DO
 					break;
 				case "Struck Gold Mine":
 					PlayerObject.miningAndWood -= 20;
@@ -253,6 +252,42 @@ public class RandomEventObject {
 				case "Inspiration":
 					// TO DO
 					break;
+
+			}
+		}
+		else{
+			switch (eventName) {
+				case "Heat Wave":
+					AiEventResponse.AipercentFoodBoost += 15;
+					AiEventResponse.AipercentMiningAndWoodBoost += 20;
+					break;
+				case "Tornado":
+					AiEventResponse.AipercentFoodBoost += 10;				
+					break;
+				case "Drought":
+					AiEventResponse.AipercentFoodBoost += 20;
+					break;
+				case "Wildfire":
+					AiEventResponse.AipercentMiningAndWoodBoost += 30;
+					break;
+				case "Earthquake Food":
+					AiEventResponse.AipercentFoodBoost += 20;
+					break;
+				case "Earthquake Mining/Wood":
+					AiEventResponse.AipercentMiningAndWoodBoost += 30;
+					break;
+				case "Neighbouring Village":
+					break;
+				case "Struck Gold Mine":
+					AiEventResponse.AiminingAndWood -= 20;
+					break;
+				case "Bountiful Harvest":
+					AiEventResponse.AipercentFoodBoost -= 20;
+					break;
+				case "Scientific breakthrough":
+					AiEventResponse.AipercentResearchBoost = 0;
+				case "Inspiration":
+					break; // AI ignores this
 
 			}
 		}
