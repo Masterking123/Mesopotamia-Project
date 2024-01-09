@@ -69,7 +69,6 @@ public class MainGameGUI extends JFrame {
 		
 		unalloPeopleCounter = new JLabel("" + PlayerObject.unallocatedPeople);
 		unalloPeopleCounter.setForeground(new Color(0, 0, 0));
-		int scaledunPeopleCounterFont = Main.scaledFontSize(30, 1368, 912);
 		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
 		int [] scaledpeopleCounter= Main.scaledUIElements(760, 156, 64, 44, 1368, 912);
 		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
@@ -77,17 +76,15 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel researchCount = new JLabel("" + PlayerObject.peopleInResearch);
 		researchCount.setForeground(new Color(255, 255, 255));
-		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
-		int [] researchCountLabel= Main.scaledUIElements(1134, 496, 48, 31, 1368, 912);
+		int [] researchCountLabel= Main.scaledUIElements(1122, 493, 48, 31, 1368, 912);
 		researchCount.setBounds(researchCountLabel[0], researchCountLabel[1], researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
 		JLabel minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
 		minerCount.setForeground(new Color(255, 255, 255));
-		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
 		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
-		int [] minerCountLabel= Main.scaledUIElements(1134, 100, 48, 31, 1368, 912);
+		int [] minerCountLabel= Main.scaledUIElements(1122, 99, 48, 31, 1368, 912);
 		minerCount.setBounds(minerCountLabel[0], minerCountLabel[1], minerCountLabel[2], minerCountLabel[3]);
 		contentPane.add(minerCount);
 		
@@ -101,7 +98,6 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel dayCounterLabel = new JLabel("1");
 		dayCounterLabel.setForeground(new Color(255, 255, 255));
-		int scaledDayCounterFont = Main.scaledFontSize(25, 1368, 912);
 		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
 		int [] dayCounterLabel1= Main.scaledUIElements(694, 331, 48, 31, 1368, 912);
 		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
@@ -109,18 +105,16 @@ public class MainGameGUI extends JFrame {
 		
 		JLabel militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
 		militaryCount.setForeground(new Color(255, 255, 255));
-		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
 		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
-		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
+		int [] militaryCountLabel= Main.scaledUIElements(650, 449, 48, 31, 1368, 912);
 		militaryCount.setBounds(militaryCountLabel[0], militaryCountLabel[1], militaryCountLabel[2], militaryCountLabel[3]);
 		contentPane.add(militaryCount);
 		
 		JLabel farmerCount = new JLabel("" + PlayerObject.peopleInFood);
 		farmerCount.setForeground(new Color(255, 255, 255));
 		farmerCount.setBackground(new Color(255, 255, 255));
-		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
 		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
-		int [] farmerCountLabel= Main.scaledUIElements(114, 256, 48, 31, 1368, 912);
+		int [] farmerCountLabel= Main.scaledUIElements(94, 254, 48, 31, 1368, 912);
 		farmerCount.setBounds(farmerCountLabel[0], farmerCountLabel[1], farmerCountLabel[2], farmerCountLabel[3]);
 		contentPane.add(farmerCount);
 		
