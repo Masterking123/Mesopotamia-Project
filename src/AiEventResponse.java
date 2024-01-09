@@ -5,12 +5,12 @@ public class AiEventResponse {
 	public static ArrayList<ActiveEvent> AIactiveEvents = new ArrayList<ActiveEvent>(); 
 	
 	public static int AipeopleInFood;
-	public static double Aifood;
+	public static double Aifood = 0;
 	public static int AipercentFoodBoost;
 	public static int AinumberFoodBoost;
 	
 	public static int AipeopleInMiningAndWood;
-	public static double AiminingAndWood;
+	public static double AiminingAndWood = 0;
 	public static int AipercentMiningAndWoodBoost; 
 	public static int AinumberMiningAndWoodBoost;
 	public static int AioneTimeMiningAndWoodBoost;
@@ -21,14 +21,14 @@ public class AiEventResponse {
 	public static int AinumberMilitaryBoost;
 	
 	public static int AipeopleInResearch;
-	public static double Airesearch;
+	public static double Airesearch = 0;
 	public static int AipercentResearchBoost;
 	public static int AinumberResearchBoost;
 	
 	public static int AipercentDiscountOnSales;
 	
-	public static int AitotalPeople;
-	public static int Aireputation;
+	public static int AitotalPeople = 10;
+	public static int Aireputation = 50;
 	
 	public static int AImilitaryNum = 0; 
 	public static int AIfarmerNum = 0; 
@@ -139,5 +139,10 @@ public class AiEventResponse {
 		}
 	
 	
+	}
+	
+	public static double calculateVillagePowerAi() {
+		double villagePower = Aimilitary * 2.0 + (Aifood - (AitotalPeople * 3.0)) + Aireputation / 2.0 + (AiminingAndWood * 1.25);
+		return villagePower;
 	}
 }

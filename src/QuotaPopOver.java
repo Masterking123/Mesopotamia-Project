@@ -1,6 +1,7 @@
 	import java.awt.Font;
 	
 	import javax.swing.*;
+import java.awt.BorderLayout;
 	
 	public class QuotaPopOver extends JFrame {
 	
@@ -15,19 +16,24 @@
 	    private void initialize() {
 	        JFrame frame = new JFrame("Quota Status");
 	        JTextArea textArea = new JTextArea();
-	        textArea.setFont(new Font("Times New Roman", Font.BOLD, 30));
-	        textArea.setText(PlayerObject.playerName + " ! Your village, " + PlayerObject.playerVillageName + " Needs:\n" +
-	                "- Food needed: " + Quota.foodRequiredPerPerson + "\n" +
-	                "- Food: " + PlayerObject.food + "\n" +
-	                "- People left for food: " + Quota.peopleLeftForFood + "\n" +
-	                "- Reputation: " + PlayerObject.reputation + "\n" +
-	                "- Wood needed: " + Quota.woodRequiredPerPerson + "\n" +
-	                "- Wood: " + PlayerObject.miningAndWood + "\n" +
-	                "- People left for wood: " + Quota.peopleLeftForWood + "\n" +
-	                "- Total amount of people: " + PlayerObject.totalPeople + "\n");
+	        textArea.setEditable(false);
+	        textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
+	        textArea.setText(PlayerObject.playerName + "! Your village, " + PlayerObject.playerVillageName + " had not meet the quota!\n" +
+	        		"Your consequences are the following: \n" +
+	        		"Food needed: " + PlayerObject.foodRequiredPerPerson + "\n" +
+	                "People left for food: " + Quota.peopleLeftForFood + "\n" +
+	                "Current Reputation: " + PlayerObject.reputation + "\n" +
+	                "Wood needed: " + PlayerObject.woodRequiredPerPerson + "\n" +
+	                "People left for wood: " + Quota.peopleLeftForWood + "\n" +
+	                "Total amount of people: " + PlayerObject.totalPeople + "\n");
 	
 	        frame.getContentPane().add(textArea);
-	        frame.setSize(600, 400);
+	        
+	        JLabel quotaLabel = new JLabel("QUOTA");
+	        quotaLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	        quotaLabel.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+	        frame.getContentPane().add(quotaLabel, BorderLayout.NORTH);
+	        frame.setSize(500, 280);
 	        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // Use appropriate close operation
 	        frame.setVisible(true);
 	    }

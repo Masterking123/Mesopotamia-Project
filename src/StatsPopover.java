@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
 
 import javax.swing.SwingConstants;
 
@@ -22,6 +23,7 @@ public class StatsPopover extends JFrame {
 	private JPanel contentPane;
 	private JLayeredPane layeredPane;
 	private static StatsPopover frame;
+
 
 	/**
 	 * Launch the application.
@@ -52,6 +54,7 @@ public class StatsPopover extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -82,7 +85,7 @@ public class StatsPopover extends JFrame {
 		JLabel statsLabel = new JLabel("Stats");
 		statsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		statsLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-		statsLabel.setBounds(151, 6, 132, 22);
+		statsLabel.setBounds(0, 6, 132, 22);
 		statPanel.add(statsLabel);
 		
 		JPanel ratePanel = new JPanel();
@@ -95,7 +98,7 @@ public class StatsPopover extends JFrame {
 		ratesLabel.setBounds(150, 6, 132, 22);
 		ratePanel.add(ratesLabel);
 		
-		JButton statButton = new JButton("Stats");
+		JButton statButton = new JButton("Stats/Quota");
 		statButton.setBounds(101, 6, 117, 29);
 		contentPane.add(statButton);
 		
@@ -129,9 +132,9 @@ public class StatsPopover extends JFrame {
 		comStatLabel.setBounds(6, 176, 157, 16);
 		statPanel.add(comStatLabel);
 		
-		JLabel warningLabel = new JLabel("Warning");
-		warningLabel.setBounds(175, 70, 257, 49);
-		statPanel.add(warningLabel);
+		JLabel foodPpersonLabel = new JLabel("Warning");
+		foodPpersonLabel.setBounds(175, 40, 257, 33);
+		statPanel.add(foodPpersonLabel);
 		switchButton(ratesButton, ratePanel);
 		
 		JLabel boostSubLabel = new JLabel("Boosts");
@@ -164,33 +167,43 @@ public class StatsPopover extends JFrame {
 		ratesSubLabel.setBounds(301, 25, 61, 16);
 		ratePanel.add(ratesSubLabel);
 		
-		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost);
+		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost + "/day");
 		foodRateLabel.setBounds(275, 55, 157, 16);
 		ratePanel.add(foodRateLabel);
 		
-		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost);
+		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost + "/day");
 		resRateLabel.setBounds(275, 83, 157, 16);
 		ratePanel.add(resRateLabel);
 		
-		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost);
+		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost + "/day");
 		res2RateLabel.setBounds(275, 111, 157, 16);
 		ratePanel.add(res2RateLabel);
 		
-		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost);
+		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost + "/day");
 		comRateLabel.setBounds(275, 139, 157, 16);
 		ratePanel.add(comRateLabel);
-		warningLabel.setVisible(false);
+		foodPpersonLabel.setVisible(false);
 		
-		if(PlayerObject.food <= Quota.foodRequiredPerPerson) {
-			warningLabel.setVisible(true);
-			warningLabel.setText("You are low on food");
-		}
-		else if(PlayerObject.miningAndWood <= Quota.woodRequiredPerPerson) {
-			warningLabel.setVisible(true);
-			warningLabel.setText("You are low on resources");
-		}
-		else {
-			warningLabel.setVisible(false);
-		}
+			foodPpersonLabel.setVisible(true);
+			foodPpersonLabel.setText("Food needed a day: " + PlayerObject.foodRequiredPerPerson);
+			
+			JLabel resPpersonLabel = new JLabel("Resources needed a day: " + PlayerObject.woodRequiredPerPerson);
+			resPpersonLabel.setBounds(175, 74, 257, 16);
+			statPanel.add(resPpersonLabel);
+			
+			JLabel foodLessLabel = new JLabel("Food Missing: " + Quota.totalPeopleWithoutFood);
+			foodLessLabel.setBounds(175, 102, 257, 16);
+			statPanel.add(foodLessLabel);
+			
+			JLabel resLessLabel = new JLabel("Resources Missing: " + Quota.totalPeopleWithoutWood);
+			resLessLabel.setBounds(175, 130, 257, 16);
+			statPanel.add(resLessLabel);
+			
+			JLabel quotaLabel = new JLabel("Quota");
+			quotaLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			quotaLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
+			quotaLabel.setBounds(175, 6, 132, 22);
+			statPanel.add(quotaLabel);
+
 	}
 }

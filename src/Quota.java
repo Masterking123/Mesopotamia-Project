@@ -9,14 +9,18 @@ public class Quota {
 	public static int woodRequiredPerPerson;
     public static Boolean showPopUp = false;
 	public static Boolean showPopUp2 = false;
+	public static int totalPeopleWithoutFood;
+	public static int totalPeopleWithoutWood;
 
 	public static void updatePeople() {
-	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);
+	    PlayerObject.totalPeople -= (peopleLeftForFood + peopleLeftForWood);    
 	    // Reset counters after updating totalPeople
-	    peopleLeftForFood = 0;
-	    peopleLeftForWood = 0;
 	}
 	
+	public static void peopleDeallocation()
+	{
+		
+	}
 	public static void showingPopUp()
 	{
 		 if (showPopUp == true || showPopUp2 == true)
@@ -48,6 +52,7 @@ public class Quota {
     public static void checkAndUpdateFoodResources() {
     	showPopUp = false; 
     	showPopUp2 = false; 
+    	System.out.println("The amount of ppl " + PlayerObject.totalPeople);
         PlayerObject.foodRequiredPerPerson = 3 * PlayerObject.totalPeople;
         System.out.println("foodRequiredPerPerson " + PlayerObject.foodRequiredPerPerson);
         System.out.println("food " + PlayerObject.food);
@@ -59,7 +64,7 @@ public class Quota {
         else {
             System.out.println("Not enough food for everyone!");
             showPopUp = true;           
-            int totalPeopleWithoutFood = (int) Math.ceil((PlayerObject.foodRequiredPerPerson - (PlayerObject.food) * 3.0));
+            totalPeopleWithoutFood = (int) Math.ceil((PlayerObject.foodRequiredPerPerson - (PlayerObject.food) * 3.0));
 
             for (int i = 0; i < totalPeopleWithoutFood; i++) {
                 double chanceOfDeathOrLeaving = 0.25;
@@ -71,8 +76,6 @@ public class Quota {
                 }
             }
         }
-       
-        
     }
 
     public static void checkAndUpdateMiningAndWoodResources() {
@@ -85,7 +88,7 @@ public class Quota {
         } 
         else {
             System.out.println("Not enough wood for everyone!");
-            int totalPeopleWithoutWood = (int) Math.ceil((PlayerObject.woodRequiredPerPerson - PlayerObject.miningAndWood) / 2.0);
+            totalPeopleWithoutWood = (int) Math.ceil((PlayerObject.woodRequiredPerPerson - PlayerObject.miningAndWood) / 2.0);
             showPopUp2 = true;
             for (int i = 0; i < totalPeopleWithoutWood; i++) {
                 double chanceOfDeathOrLeaving = 0.20;
