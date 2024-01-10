@@ -26,6 +26,10 @@ public class MainGameGUI extends JFrame {
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
 	public static JLabel unalloPeopleCounter;
+	public static JLabel researchCount;
+	public static JLabel minerCount;
+	public static JLabel militaryCount;
+	public static JLabel farmerCount;
 	
 	/**
 	 * Launch the application.
@@ -75,7 +79,7 @@ public class MainGameGUI extends JFrame {
 		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
 		contentPane.add(unalloPeopleCounter);
 		
-		JLabel researchCount = new JLabel("" + PlayerObject.peopleInResearch);
+		researchCount = new JLabel("" + PlayerObject.peopleInResearch);
 		researchCount.setForeground(new Color(255, 255, 255));
 		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
 		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
@@ -83,7 +87,7 @@ public class MainGameGUI extends JFrame {
 		researchCount.setBounds(researchCountLabel[0], researchCountLabel[1], researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
-		JLabel minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
+		minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
 		minerCount.setForeground(new Color(255, 255, 255));
 		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
 		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
@@ -107,7 +111,7 @@ public class MainGameGUI extends JFrame {
 		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
 		contentPane.add(dayCounterLabel);
 		
-		JLabel militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
+		militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
 		militaryCount.setForeground(new Color(255, 255, 255));
 		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
 		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
@@ -115,7 +119,7 @@ public class MainGameGUI extends JFrame {
 		militaryCount.setBounds(militaryCountLabel[0], militaryCountLabel[1], militaryCountLabel[2], militaryCountLabel[3]);
 		contentPane.add(militaryCount);
 		
-		JLabel farmerCount = new JLabel("" + PlayerObject.peopleInFood);
+		farmerCount = new JLabel("" + PlayerObject.peopleInFood);
 		farmerCount.setForeground(new Color(255, 255, 255));
 		farmerCount.setBackground(new Color(255, 255, 255));
 		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
