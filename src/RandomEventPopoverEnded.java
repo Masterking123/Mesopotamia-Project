@@ -9,6 +9,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class RandomEventPopoverEnded extends JFrame {
@@ -29,7 +31,13 @@ public class RandomEventPopoverEnded extends JFrame {
 	 * Create the frame.
 	 */
 	public RandomEventPopoverEnded(String[] eventsEnded) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.requestFocus();
+			}
+			
+		});
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -61,7 +61,7 @@ public class NextDayButton {
 		
 		
 		// Remove all ended events for the active events for the AI
-		for(int i = 0; i < objectRemove.size(); i++) {
+		for(int i = 0; i < AIObjectRemove.size(); i++) {
 			int indexToBeRemoved = AiEventResponse.AIactiveEvents.indexOf(AIObjectRemove.get(i));
 			AiEventResponse.AIactiveEvents.remove(indexToBeRemoved);
 		}

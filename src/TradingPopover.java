@@ -76,7 +76,6 @@ public class TradingPopover extends JFrame {
 		setBounds(100, 100, 791, 511);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		

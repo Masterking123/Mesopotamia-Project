@@ -26,6 +26,10 @@ public class MainGameGUI extends JFrame {
 	public JButton addFarmerButton;
 	public JButton minusFarmerButton;
 	public static JLabel unalloPeopleCounter;
+	public static JLabel researchCount;
+	public static JLabel minerCount;
+	public static JLabel militaryCount;
+	public static JLabel farmerCount;
 	
 	/**
 	 * Launch the application.
@@ -69,23 +73,22 @@ public class MainGameGUI extends JFrame {
 		
 		unalloPeopleCounter = new JLabel("" + PlayerObject.unallocatedPeople);
 		unalloPeopleCounter.setForeground(new Color(0, 0, 0));
-		int scaledunPeopleCounterFont = Main.scaledFontSize(30, 1368, 912);
-		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, scaledunPeopleCounterFont));
+		unalloPeopleCounter.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
 		int [] scaledpeopleCounter= Main.scaledUIElements(760, 156, 64, 44, 1368, 912);
 		unalloPeopleCounter.setBounds(scaledpeopleCounter[0], scaledpeopleCounter[1], scaledpeopleCounter[2], scaledpeopleCounter[3]);
 		contentPane.add(unalloPeopleCounter);
 		
-		JLabel researchCount = new JLabel("" + PlayerObject.peopleInResearch);
-		int scaledResearchCountFont = Main.scaledFontSize(25, 1368, 912);
-		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledResearchCountFont));
-		int [] researchCountLabel= Main.scaledUIElements(1245, 527, 48, 31, 1368, 912);
-		researchCount.setBounds(1134, 496, researchCountLabel[2], researchCountLabel[3]);
+		researchCount = new JLabel("" + PlayerObject.peopleInResearch);
+		researchCount.setForeground(new Color(255, 255, 255));
+		researchCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
+		int [] researchCountLabel= Main.scaledUIElements(1122, 493, 48, 31, 1368, 912);
+		researchCount.setBounds(researchCountLabel[0], researchCountLabel[1], researchCountLabel[2], researchCountLabel[3]);
 		contentPane.add(researchCount);
 		
-		JLabel minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
-		int scaledMinerCountFont = Main.scaledFontSize(25, 1368, 912);
-		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMinerCountFont));
-		int [] minerCountLabel= Main.scaledUIElements(1134, 100, 48, 31, 1368, 912);
+		minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
+		minerCount.setForeground(new Color(255, 255, 255));
+		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
+		int [] minerCountLabel= Main.scaledUIElements(1122, 99, 48, 31, 1368, 912);
 		minerCount.setBounds(minerCountLabel[0], minerCountLabel[1], minerCountLabel[2], minerCountLabel[3]);
 		contentPane.add(minerCount);
 		
@@ -93,29 +96,30 @@ public class MainGameGUI extends JFrame {
 		dayCountLabel.setForeground(new Color(255, 255, 255));
 		int scaledDayCountLabelFont = Main.scaledFontSize(30, 1368, 912);
 		dayCountLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledDayCountLabelFont));
-		int [] dayCountLabel1= Main.scaledUIElements(607, 337, 132, 29, 1368, 912);
-		dayCountLabel.setBounds(610, 335, dayCountLabel1[2], dayCountLabel1[3]);
+		int [] dayCountLabel1= Main.scaledUIElements(610, 335, 132, 29, 1368, 912);
+		dayCountLabel.setBounds(dayCountLabel1[0], dayCountLabel1[1], dayCountLabel1[2], dayCountLabel1[3]);
 		contentPane.add(dayCountLabel);
 		
 		JLabel dayCounterLabel = new JLabel("1");
-		int scaledDayCounterFont = Main.scaledFontSize(25, 1368, 912);
-		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, scaledDayCounterFont));
+		dayCounterLabel.setForeground(new Color(255, 255, 255));
+		dayCounterLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
 		int [] dayCounterLabel1= Main.scaledUIElements(694, 331, 48, 31, 1368, 912);
 		dayCounterLabel.setBounds(dayCounterLabel1[0], dayCounterLabel1[1], dayCounterLabel1[2], dayCounterLabel1[3]);
 		contentPane.add(dayCounterLabel);
 		
-		JLabel militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
-		int scaledMilitaryCountFont = Main.scaledFontSize(25, 1368, 912);
-		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledMilitaryCountFont));
-		int [] militaryCountLabel= Main.scaledUIElements(589, 476, 48, 31, 1368, 912);
+		militaryCount = new JLabel("" + PlayerObject.peopleInMilitary);
+		militaryCount.setForeground(new Color(255, 255, 255));
+		militaryCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
+		int [] militaryCountLabel= Main.scaledUIElements(650, 449, 48, 31, 1368, 912);
 		militaryCount.setBounds(militaryCountLabel[0], militaryCountLabel[1], militaryCountLabel[2], militaryCountLabel[3]);
 		contentPane.add(militaryCount);
 		
-		JLabel farmerCount = new JLabel("" + PlayerObject.peopleInFood);
-		int scaledfarmerCountFont = Main.scaledFontSize(25, 1368, 912);
-		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, scaledfarmerCountFont));
-		int [] farmerCountLabel= Main.scaledUIElements(81, 262, 48, 31, 1368, 912);
-		farmerCount.setBounds(114, 256, farmerCountLabel[2], farmerCountLabel[3]);
+		farmerCount = new JLabel("" + PlayerObject.peopleInFood);
+		farmerCount.setForeground(new Color(255, 255, 255));
+		farmerCount.setBackground(new Color(255, 255, 255));
+		farmerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
+		int [] farmerCountLabel= Main.scaledUIElements(94, 254, 48, 31, 1368, 912);
+		farmerCount.setBounds(farmerCountLabel[0], farmerCountLabel[1], farmerCountLabel[2], farmerCountLabel[3]);
 		contentPane.add(farmerCount);
 		
 		
@@ -157,8 +161,8 @@ public class MainGameGUI extends JFrame {
 		contentPane.add(minusFarmerButton);
 		
 		JLabel farmerLabel = new JLabel("Farmers");
-		int [] scaledlabelFarmer = Main.scaledUIElements(109, 267, 172, 31, 1368, 912);
-		farmerLabel.setBounds(144, 259, scaledlabelFarmer[2], scaledlabelFarmer[3]);
+		int [] scaledlabelFarmer = Main.scaledUIElements(144, 259, 172, 31, 1368, 912);
+		farmerLabel.setBounds(scaledlabelFarmer[0], scaledlabelFarmer[1], scaledlabelFarmer[2], scaledlabelFarmer[3]);
 		farmerLabel.setForeground(new Color(255, 255, 255));
 		int scaledFarmerLabelFont = Main.scaledFontSize(30, 1368, 912);
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledFarmerLabelFont));
@@ -389,7 +393,6 @@ public class MainGameGUI extends JFrame {
 		
 		
 	}
-	
 	}
 
 
