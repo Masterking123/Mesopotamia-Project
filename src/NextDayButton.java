@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class NextDayButton {
 	public static void nextDayButtonActivated() {
