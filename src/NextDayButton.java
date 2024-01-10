@@ -91,11 +91,13 @@ public class NextDayButton {
 					 double foodStolen = AiEventResponse.Aifood * 0.05;
 					 AiEventResponse.Aifood =- foodStolen;
 					 PlayerObject.food =+ foodStolen;
+					 System.out.println("faaa " +foodStolen);
 				  }
 				  else if (check == 2) {
 						 double resourceStolen = AiEventResponse.AiminingAndWood * 0.05;
 						 AiEventResponse.AiminingAndWood =- resourceStolen;
 						 PlayerObject.miningAndWood =+ resourceStolen;
+						 System.out.println("raaa " + resourceStolen);
 					  }
 				  
 				}
