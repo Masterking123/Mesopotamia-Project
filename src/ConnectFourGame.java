@@ -68,24 +68,21 @@ public class ConnectFourGame extends JFrame {
         	
         	currentButton.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
-        			if(currentPlayer == 1) {
-        				int checkWinThingy = dropInColumn(currentButton.index, 1);
-    					repaint();
-    					if(checkWin(checkWinThingy, currentButton.index, 1)) {
-    						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
-    						currentGameOutcome = "PLAYER";
-    						setVisible(false);
-    						MainGameGUI.frame.setAlwaysOnTop(true);
-            				MainGameGUI.frame.setAlwaysOnTop(false);
-            				MainGameGUI.frame.setEnabled(true);
-    					}
-    					if(gameBoard[0][currentButton.index] != 0) {
-    						currentButton.setEnabled(false);
-    					}
-        				
-        			}
-        			int[] indexs = AIResponse();
-        			if(checkWin(indexs[1], indexs[0], 2)) {
+    				int checkWinThingy = dropInColumn(currentButton.index, 1);
+					repaint();
+					if(gameBoard[0][currentButton.index] != 0) {
+						currentButton.setEnabled(false);
+					}
+					int[] indexs = AIResponse();
+					if(checkWin(checkWinThingy, currentButton.index, 1)) {
+						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
+						currentGameOutcome = "PLAYER";
+						setVisible(false);
+						MainGameGUI.frame.setAlwaysOnTop(true);
+        				MainGameGUI.frame.setAlwaysOnTop(false);
+        				MainGameGUI.frame.setEnabled(true);
+					}
+        			else if(checkWin(indexs[1], indexs[0], 2)) {
         				JOptionPane.showMessageDialog(null, "WINNER: AI");
         				currentGameOutcome = "AI";
         				setVisible(false);
@@ -101,7 +98,7 @@ public class ConnectFourGame extends JFrame {
         				MainGameGUI.frame.setEnabled(true);
         			}
         			
-        			if(isDraw(gameBoard) == true) {
+        			else if(isDraw(gameBoard) == true) {
         				JOptionPane.showMessageDialog(null, "ITS A DRAW");
         				currentGameOutcome = "Draw";
         				setVisible(false);
@@ -109,6 +106,7 @@ public class ConnectFourGame extends JFrame {
         				MainGameGUI.frame.setAlwaysOnTop(false);
         				MainGameGUI.frame.setEnabled(true);
         			}
+
         		}
         	});
         	currentButton.setText("DROP");
