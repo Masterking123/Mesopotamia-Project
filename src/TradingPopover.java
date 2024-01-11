@@ -29,9 +29,11 @@ public class TradingPopover extends JFrame {
 	public static JTextArea resourceTextArea;
 	public static JTextArea researchPointsTextArea;
 	public static JButton villagerAdd;
+	public static JButton villagerAdd2;
 	public static JButton foodAdd;
 	public static JButton resourcesAdd;
 	public static JButton researchAdd;
+	public static JButton researchAdd2;
 	public static JTextArea Testareamaintrade;
 	public static JLabel Tradingtextbox;
 
@@ -139,22 +141,29 @@ public class TradingPopover extends JFrame {
 		researchPointsTextArea.setBounds(575, 99, 129, 64);
 		contentPane.add(researchPointsTextArea);
 		
-		villagerAdd = new JButton("TRADE");
+		villagerAdd = new JButton("FOOD");
 		villagerAdd.setBounds(44, 176, 100, 21);
 		contentPane.add(villagerAdd);
+		
+		villagerAdd2 = new JButton("RESOURCE");
+		villagerAdd2.setBounds(44, 200, 100, 21);
+		contentPane.add(villagerAdd2);
 		
 		foodAdd = new JButton("TRADE");
 		foodAdd.setBounds(201, 176, 100, 21);
 		contentPane.add(foodAdd);
 		
-		
 		resourcesAdd = new JButton("TRADE");
 		resourcesAdd.setBounds(391, 176, 100, 21);
 		contentPane.add(resourcesAdd);
 
-		researchAdd = new JButton("TRADE");
+		researchAdd = new JButton("FOOD");
 		researchAdd.setBounds(595, 173, 100, 21);
 		contentPane.add(researchAdd);
+		
+		researchAdd2 = new JButton("RESOURCE");
+		researchAdd2.setBounds(595, 200, 100, 21);
+		contentPane.add(researchAdd2);
 		
 		
 		Testareamaintrade = new JTextArea();
@@ -174,8 +183,10 @@ public class TradingPopover extends JFrame {
 		
 		
 		// Village marketing textbox
-		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager");
+		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + 
+		"Resource: " + PlayerObject.miningAndWood + "\n"
+		+ "Unallocated People: " + PlayerObject.totalPeople + "\n");
+		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager" + "\n" + "5 Resource = 1 villager");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -185,8 +196,10 @@ public class TradingPopover extends JFrame {
 		resourceTextArea.append("5 resources = 5 food" + "\n");
 		
 		// researchpoints textbox
-		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
-		researchPointsTextArea.append("1 research point = 5 food");
+		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n"
+		+ "Food: " + PlayerObject.food + "\n"
+		+ "Resourced: "+ PlayerObject.miningAndWood);
+		researchPointsTextArea.append("1 research point = 5 food" + " \n " + "or  5 resource");
 		
 
 		
