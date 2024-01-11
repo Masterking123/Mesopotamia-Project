@@ -29,9 +29,11 @@ public class TradingPopover extends JFrame {
 	public static JTextArea resourceTextArea;
 	public static JTextArea researchPointsTextArea;
 	public static JButton villagerAdd;
+	public static JButton villagerAdd2;
 	public static JButton foodAdd;
 	public static JButton resourcesAdd;
 	public static JButton researchAdd;
+	public static JButton researchAdd2;
 	public static JTextArea Testareamaintrade;
 	public static JLabel Tradingtextbox;
 
@@ -138,22 +140,29 @@ public class TradingPopover extends JFrame {
 		researchPointsTextArea.setBounds(575, 99, 129, 64);
 		contentPane.add(researchPointsTextArea);
 		
-		villagerAdd = new JButton("TRADE");
+		villagerAdd = new JButton("Food");
 		villagerAdd.setBounds(44, 176, 100, 21);
 		contentPane.add(villagerAdd);
 		
-		foodAdd = new JButton("TRADE");
+		villagerAdd2 = new JButton("Resources");
+		villagerAdd2.setBounds(44, 200, 100, 21);
+		contentPane.add(villagerAdd2);
+		
+		foodAdd = new JButton("Trade");
 		foodAdd.setBounds(201, 176, 100, 21);
 		contentPane.add(foodAdd);
 		
-		
-		resourcesAdd = new JButton("TRADE");
+		resourcesAdd = new JButton("Trade");
 		resourcesAdd.setBounds(391, 176, 100, 21);
 		contentPane.add(resourcesAdd);
 
-		researchAdd = new JButton("TRADE");
+		researchAdd = new JButton("Food");
 		researchAdd.setBounds(595, 173, 100, 21);
 		contentPane.add(researchAdd);
+		
+		researchAdd2 = new JButton("Resources");
+		researchAdd2.setBounds(595, 200, 100, 21);
+		contentPane.add(researchAdd2);
 		
 		
 		Testareamaintrade = new JTextArea();
@@ -173,8 +182,10 @@ public class TradingPopover extends JFrame {
 		
 		
 		// Village marketing textbox
-		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
-		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager");
+		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + 
+		"Resource: " + PlayerObject.miningAndWood + "\n"
+		+ "Unallocated People: " + PlayerObject.totalPeople + "\n");
+		villagerMarketing_textbox.append((2-percentDiscount2) + " food = 1 villager" + "\n" + "5 Resource = 1 villager");
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -184,8 +195,10 @@ public class TradingPopover extends JFrame {
 		resourceTextArea.append("5 resources = 5 food" + "\n");
 		
 		// researchpoints textbox
-		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
-		researchPointsTextArea.append("1 research point = 5 food");
+		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n"
+		+ "Food: " + PlayerObject.food + "\n"
+		+ "Resourced: "+ PlayerObject.miningAndWood);
+		researchPointsTextArea.append("1 research" + "\n" + "point = 5 food or" + "\n" + " 5 resource");
 		
 
 		
@@ -207,6 +220,30 @@ public class TradingPopover extends JFrame {
 			else
 			{
 				Testareamaintrade.append("You have no more food to trade" + "\n");
+				villagerAdd.setEnabled(false);
+			}
+			
+			}
+		});
+		
+		villagerAdd2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			if (PlayerObject.miningAndWood >= (5 - percentDiscount2))
+			{
+				PlayerObject.miningAndWood = PlayerObject.miningAndWood - (5 - percentDiscount2);
+				PlayerObject.totalPeople++;
+				PlayerObject.unallocatedPeople++;
+				MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
+				Testareamaintrade.append("You traded 5 resources. The Unallocated people in the village is " + PlayerObject.unallocatedPeople +"\n");
+				updateTradeInformation();
+
+				System.out.println((2*percentDiscount2));
+				System.out.println(percentDiscount2);
+			}
+			
+			else
+			{
+				Testareamaintrade.append("You have no more resources to trade" + "\n");
 				villagerAdd.setEnabled(false);
 			}
 			
@@ -269,6 +306,25 @@ public class TradingPopover extends JFrame {
 				}
 			}
 		});
+		
+		researchAdd2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (PlayerObject.miningAndWood >= 5 )
+				{
+					PlayerObject.research = PlayerObject.research + 1;
+					PlayerObject.miningAndWood = PlayerObject.miningAndWood - 5;
+					Testareamaintrade.append("You traded 5 resources" + "\n" + " Research points: " + PlayerObject.research+ "\n");
+					//researchSubtract.setEnabled(true);
+					updateTradeInformation();
+				}
+				
+				else
+				{
+					Testareamaintrade.append("You have no more resources to trade" + "\n");
+					researchAdd.setEnabled(false);
+				}
+			}
+		});
 		villagerMarketing_textbox.setHighlighter(null);
 		disableAllFunctionalityForTextArea(villagerMarketing_textbox);
 		disableAllFunctionalityForTextArea(Foodtextarea);
@@ -286,7 +342,10 @@ public class TradingPopover extends JFrame {
 	    
 	    // Update villager marketing text area
 	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
+	    villagerMarketing_textbox.append("Resources: " + PlayerObject.miningAndWood + "\n");
 	    villagerMarketing_textbox.append("1 villager = 2 food" + "\n");
+	    villagerMarketing_textbox.append("5 Resource = 1 villager");
+	    
 	    
 	    // Update food trading text area
 	    Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
@@ -298,7 +357,9 @@ public class TradingPopover extends JFrame {
 	    
 	    // Update research points text area
 	    researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
+	    researchPointsTextArea.append("Resources: " + PlayerObject.miningAndWood + "\n");
 	    researchPointsTextArea.append("1 research point = 5 food" + "\n");
+	    researchPointsTextArea.append("1 research point = 5 " + "\n" + "resources");
 	}
 	
 	public void disableAllFunctionalityForTextArea(JTextArea currTextArea) {
