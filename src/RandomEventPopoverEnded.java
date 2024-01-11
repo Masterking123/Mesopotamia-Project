@@ -57,10 +57,11 @@ public class RandomEventPopoverEnded extends JFrame {
 		listOfEndedEvents.append("The events that have ended are:");
 		
 		for(int i = 0; i <  eventsEnded.length; i++) {
-			if(eventsEnded[i] == "Earthquake Food") {
+			System.out.println(eventsEnded[i]);
+			if(eventsEnded[i].equals("Earthquake Food")) {
 				eventsEnded[i] = "The Food debuff from the earthquake";
 			}
-			if(eventsEnded[i] == "Earthquake Mining/Wood") {
+			if(eventsEnded[i].equals("Earthquake Mining/Wood")) {
 				eventsEnded[i] = "The Mining/Wood debuff from the earthquake";
 			}
 			listOfEndedEvents.append("\n" + eventsEnded[i]);

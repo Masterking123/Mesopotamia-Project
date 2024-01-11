@@ -74,6 +74,9 @@ public class RandomEventObject {
 		Random newRandomObject = new Random();
 		int randomInt = newRandomObject.nextInt(100) + 1;
 		
+		// For Debug Purposes to force a random event
+		// randomInt = 49;
+		
 		// For each entry with the type of Tuple and String in the in the hash map
 		 for (Entry<Range, String> nameAndPercentPair : percentageToEventName.entrySet()) {
 			 
@@ -150,7 +153,8 @@ public class RandomEventObject {
 					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
 					break;
 				case "Inspiration":
-					// TO DO
+					PlayerObject.reputationEarnedPerPerson = 2;
+					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
 					break;
 			}
 		}
@@ -192,6 +196,7 @@ public class RandomEventObject {
 				break;
 			case "Neighbouring Village":
 				AiEventResponse.Aireputation -= 2;
+				AiEventResponse.AitotalPeople += 5;
 				break;
 			case "Struck Gold Mine":
 				System.out.println("Struck a GOLD MINE");
@@ -217,7 +222,6 @@ public class RandomEventObject {
 	}
 	
 	public static void unapplyRandomEventEffect(String eventName, Boolean applicationToPlayer) {
-		System.out.println("THIS IS BEING CALLED FOR " + eventName);
 		if(applicationToPlayer == true) {
 			switch (eventName) {
 				case "Heat Wave":
@@ -250,7 +254,7 @@ public class RandomEventObject {
 				case "Scientific breakthrough":
 					PlayerObject.percentResearchBoost = 0;
 				case "Inspiration":
-					// TO DO
+					PlayerObject.reputationEarnedPerPerson = 1;
 					break;
 
 			}

@@ -40,6 +40,12 @@ public class RandomEventPopover extends JFrame {
 		JButton yesButton = new JButton("Yes");
 		yesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(eventName == "Neighbouring Village") {
+					PlayerObject.reputation += 2;
+					PlayerObject.totalPeople += 5;
+					PlayerObject.unallocatedPeople += 5;
+					MainGameGUI.frame.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
+				}
 				frame.setVisible(false);
 				MainGameGUI.frame.setAlwaysOnTop(true);
 				MainGameGUI.frame.setAlwaysOnTop(false);
@@ -47,12 +53,15 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		yesButton.setBounds(95, 230, 89, 23);
-		yesButton.setVisible(true);
+		yesButton.setVisible(false);
 		frame.contentPane.add(yesButton);
 		
 		JButton noButton = new JButton("No");
 		noButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(eventName == "Neighbouring Village") {
+					PlayerObject.reputation += 2;
+				}
 				frame.setVisible(false);
 				MainGameGUI.frame.setAlwaysOnTop(true);
 				MainGameGUI.frame.setAlwaysOnTop(false);
@@ -60,7 +69,7 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		noButton.setBounds(222, 230, 89, 23);
-		noButton.setVisible(true);
+		noButton.setVisible(false);
 		frame.contentPane.add(noButton);
 		
 		JButton okButton = new JButton("Ok");
@@ -91,7 +100,8 @@ public class RandomEventPopover extends JFrame {
 		descriptionTextPane.setFocusable(false);
 		
 		if(eventName == "Neighbouring Village") {
-			okButton.setVisible(true);
+			okButton.setVisible(false);
+			yesButton.setVisible(true);
 			noButton.setVisible(true);
 		}
 		
