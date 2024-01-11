@@ -36,6 +36,7 @@ public class TradingPopover extends JFrame {
 	public static JButton researchAdd2;
 	public static JTextArea Testareamaintrade;
 	public static JLabel Tradingtextbox;
+	public static JLabel dialog;
 
 	
 	double countertosave1 = PlayerObject.food;
