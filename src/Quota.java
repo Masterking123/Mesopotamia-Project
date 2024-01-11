@@ -11,6 +11,7 @@ public class Quota {
 	public static Boolean notEnoughResources = false;
 	public static int totalPeopleWithoutFood;
 	public static int totalPeopleWithoutWood;
+	public static int repLost;
 
 	public static void overallQuota() {
 		checkAndUpdate();
@@ -48,6 +49,7 @@ public class Quota {
 	public static void checkAndUpdate() {
 		//    	showPopUp = false; 
 		//    	showPopUp2 = false; 
+		repLost = 0;
 		System.out.println("The amount of ppl " + PlayerObject.totalPeople);
 		PlayerObject.foodRequiredPerPerson = 3 * PlayerObject.totalPeople;
 		System.out.println("foodRequiredPerPerson " + PlayerObject.foodRequiredPerPerson);
@@ -69,6 +71,7 @@ public class Quota {
 					System.out.println("A person died/left due to lack of food.");
 					peopleLeftForFood++; // Increment the count of people who left
 					PlayerObject.reputation--;
+					repLost --;
 				}
 			}
 			notEnoughFood = true;
@@ -92,6 +95,7 @@ public class Quota {
 					System.out.println("A person died/left due to lack of wood.");
 					peopleLeftForWood++; 
 					PlayerObject.reputation--;
+					repLost--;
 				}
 			}
 			notEnoughResources = true;

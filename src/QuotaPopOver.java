@@ -23,6 +23,7 @@ import java.awt.BorderLayout;
 	        		"Food needed: " + PlayerObject.foodRequiredPerPerson + "\n" +
 	                "People left for food: " + Quota.peopleLeftForFood + "\n" +
 	                "Current Reputation: " + PlayerObject.reputation + "\n" +
+	                "Reputation Lost: " + Quota.repLost + "\n" +
 	                "Wood needed: " + PlayerObject.woodRequiredPerPerson + "\n" +
 	                "People left for wood: " + Quota.peopleLeftForWood + "\n" +
 	                "Total amount of people: " + PlayerObject.totalPeople + "\n");
@@ -33,7 +34,7 @@ import java.awt.BorderLayout;
 	        quotaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 	        quotaLabel.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 	        frame.getContentPane().add(quotaLabel, BorderLayout.NORTH);
-	        frame.setSize(500, 280);
+	        frame.setSize(500, 350);
 	        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // Use appropriate close operation
 	        frame.setVisible(true);
 	    }
