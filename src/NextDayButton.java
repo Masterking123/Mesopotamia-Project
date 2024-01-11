@@ -76,7 +76,10 @@ public class NextDayButton {
 		}
 		
 		// Check if Quotas have been met
-		Quota.overallQuota();
+//		Quota.checkAndUpdateFoodResources();
+//		Quota.checkAndUpdateMiningAndWoodResources();
+//		Quota.showingPopUp();
+//		Quota.updatePeople();
 		
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);

@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class RaidWinPopup extends JFrame {
@@ -20,7 +22,7 @@ public class RaidWinPopup extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void createRaidWinPopup(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -37,7 +39,13 @@ public class RaidWinPopup extends JFrame {
 	 * Create the frame.
 	 */
 	public RaidWinPopup() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				MainGameGUI.frame.setEnabled(true);
+				MainGameGUI.frame.requestFocus();
+			}
+			
+		});
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(192, 192, 192));
@@ -57,13 +65,16 @@ public class RaidWinPopup extends JFrame {
 		winTextArea.setBackground(new Color(192, 192, 192));
 		winTextArea.setText("You have succesfully stopped the rival village from raiding your village. ");
 		winTextArea.setEditable(false);
-		winTextArea.setBounds(93, 83, 275, 78);
+		winTextArea.setBounds(55, 83, 325, 78);
 		contentPane.add(winTextArea);
 		
 		JButton contButton = new JButton("Continue");
 		contButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				MainGameGUI.frame.setEnabled(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 			}
 		});
 		contButton.setBounds(156, 198, 123, 30);

@@ -120,24 +120,22 @@ public class ReputationSystemGUI extends JFrame {
 	
 	public static void Reputationsytemboost()
 	{
-		if( PlayerObject.reputation >= 60)
+		if( PlayerObject.reputation > 60)
 		{
 			PlayerObject.percentFoodBoost = PlayerObject.percentFoodBoost + 5;
 			PlayerObject.percentMiningAndWoodBoost =  PlayerObject.percentMiningAndWoodBoost + 5; 
-			PlayerObject.percentMilitaryBoost = PlayerObject.percentMilitaryBoost + 5; 
-			PlayerObject.percentResearchBoost = PlayerObject.percentResearchBoost + 5;
+			
 			counter = counter + 5;
 		}
 	}
 	
 	public static void Reputationsytemnegative()
 	{
-		if( PlayerObject.reputation <= 20)
+		if( PlayerObject.reputation < 20)
 		{
 			PlayerObject.percentFoodBoost = PlayerObject.percentFoodBoost - 5;
 			PlayerObject. percentMiningAndWoodBoost =  PlayerObject.percentMiningAndWoodBoost - 5; 
-			PlayerObject.percentMilitaryBoost = PlayerObject.percentMilitaryBoost - 5; 
-			PlayerObject. percentResearchBoost = PlayerObject.percentResearchBoost - 5;
+
 			 counter = counter - 5;
 		}
 	}

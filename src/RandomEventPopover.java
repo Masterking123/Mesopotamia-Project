@@ -47,7 +47,7 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		yesButton.setBounds(95, 230, 89, 23);
-		yesButton.setVisible(false);
+		yesButton.setVisible(true);
 		frame.contentPane.add(yesButton);
 		
 		JButton noButton = new JButton("No");
@@ -60,7 +60,7 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		noButton.setBounds(222, 230, 89, 23);
-		noButton.setVisible(false);
+		noButton.setVisible(true);
 		frame.contentPane.add(noButton);
 		
 		JButton okButton = new JButton("Ok");
@@ -73,6 +73,7 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		okButton.setBounds(153, 167, 109, 34);
+		okButton.setVisible(true);
 		frame.contentPane.add(okButton);	 
 		
 		JLabel nameOfRandomEvent = new JLabel(eventName);
