@@ -132,7 +132,7 @@ public class RandomEventObject {
 					PlayerObject.activeEvents.add(new ActiveEvent(eventName + " Mining/Wood", 3));
 					break;
 				case "Neighbouring Village":
-					// TO DO
+					// THIS WILL BE DONE IN THE RandomEventPopover.java
 					break;
 				case "Struck Gold Mine":
 					System.out.println("Struck a GOLD MINE");

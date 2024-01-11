@@ -73,7 +73,6 @@ public class RandomEventPopover extends JFrame {
 			}
 		});
 		okButton.setBounds(153, 167, 109, 34);
-		okButton.setVisible(true);
 		frame.contentPane.add(okButton);	 
 		
 		JLabel nameOfRandomEvent = new JLabel(eventName);

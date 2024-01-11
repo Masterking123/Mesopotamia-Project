@@ -66,7 +66,8 @@ public class Raid {
             System.out.println("Percentage to Steal: " + percentageToSteal + "%");
             System.out.println("Amount Stolen: " + amountToSteal);
             System.out.println("Remaining Resources: " + remainingResources);
-    	}else if (PlayerObject.miningAndWood > PlayerObject.food){
+    	}
+    	else if (PlayerObject.miningAndWood > PlayerObject.food){
     		System.out.println("Total Resources: " + PlayerObject.miningAndWood);
     		int amountToSteal = (int) (PlayerObject.miningAndWood * (percentageToSteal / 100));
             int remainingResources = (int) (PlayerObject.miningAndWood - amountToSteal);
@@ -81,17 +82,7 @@ public class Raid {
             System.out.println("Remaining Resources: " + remainingResources);
     		
     	}
-    	/*BigDecimal salary = new BigDecimal(PlayerObject.food);
-        BigDecimal salary2 = salary.setScale(2, RoundingMode.HALF_UP);
-        BigDecimal salary3 = new BigDecimal(PlayerObject.food).setScale(2, RoundingMode.HALF_UP);
-        double salary4 = salary3.doubleValue();
-        PlayerObject.food = salary4; 
-        
-        BigDecimal salary5 = new BigDecimal(PlayerObject.miningAndWood);
-        BigDecimal salary6 = salary5.setScale(2, RoundingMode.HALF_UP);
-        BigDecimal salary7 = new BigDecimal(PlayerObject.miningAndWood).setScale(2, RoundingMode.HALF_UP);
-        double salary8 = salary7.doubleValue();
-        PlayerObject.miningAndWood = salary8; */
+
     	
     }
     

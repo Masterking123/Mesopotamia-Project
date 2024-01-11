@@ -110,6 +110,9 @@ public class PlayerObject {
 			}
 		}
 		
+		// Decrease the total amount of people based on the people deallocated
+		totalPeople -= numberOfPeopleToRemove;
+		
 		// Update all the counter labels
 		MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 		MainGameGUI.researchCount.setText("" + PlayerObject.peopleInResearch);
