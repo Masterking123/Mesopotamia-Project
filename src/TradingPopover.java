@@ -342,6 +342,7 @@ public class TradingPopover extends JFrame {
 	    
 	    // Update villager marketing text area
 	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
+	    villagerMarketing_textbox.append("Resources: " + PlayerObject.miningAndWood + "\n");
 	    villagerMarketing_textbox.append("1 villager = 2 food" + "\n");
 	    villagerMarketing_textbox.append("5 Resource = 1 villager");
 	    
@@ -356,6 +357,7 @@ public class TradingPopover extends JFrame {
 	    
 	    // Update research points text area
 	    researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n" + "Food: " + PlayerObject.food + "\n");
+	    researchPointsTextArea.append("Resources: " + PlayerObject.miningAndWood + "\n");
 	    researchPointsTextArea.append("1 research point = 5 food" + "\n");
 	    researchPointsTextArea.append("1 research point = 5 " + "\n" + "resources");
 	}
