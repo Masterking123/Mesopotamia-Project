@@ -57,7 +57,7 @@ public class RaidWinPopup extends JFrame {
 		winTextArea.setBackground(new Color(192, 192, 192));
 		winTextArea.setText("You have succesfully stopped the rival village from raiding your village. ");
 		winTextArea.setEditable(false);
-		winTextArea.setBounds(105, 82, 251, 78);
+		winTextArea.setBounds(93, 83, 275, 78);
 		contentPane.add(winTextArea);
 		
 		JButton contButton = new JButton("Continue");

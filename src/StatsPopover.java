@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
 
 import javax.swing.SwingConstants;
 
@@ -22,6 +23,7 @@ public class StatsPopover extends JFrame {
 	private JPanel contentPane;
 	private JLayeredPane layeredPane;
 	private static StatsPopover frame;
+
 
 	/**
 	 * Launch the application.
@@ -52,6 +54,7 @@ public class StatsPopover extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.

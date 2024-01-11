@@ -67,6 +67,8 @@ public class RandomEventPopover extends JFrame {
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
+				MainGameGUI.frame.setAlwaysOnTop(true);
+				MainGameGUI.frame.setAlwaysOnTop(false);
 				MainGameGUI.frame.setEnabled(true);
 			}
 		});

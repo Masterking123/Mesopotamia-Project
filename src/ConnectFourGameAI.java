@@ -86,6 +86,7 @@ public class ConnectFourGameAI {
 	}
 	
 	public static int evalulateGameBoard(int[][] currentGameBoard, int rowOfMove, int colOfMove) {
+		// These are the possible directions of movement for the AI to search within the game board
 		int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 		
 		int scoreOfCurrentGameBoard = 0;
@@ -182,26 +183,39 @@ public class ConnectFourGameAI {
 		
 		// Iterate through all the directions 
 		for(int currDir = 0; currDir < dirs.length; currDir++) {
+			
+			// Create variables to represent the row and column of the original move
+			// This is because we don't want to update the original variable since this calculation happens a lot of times
     		int rowNumber = rowOfMove;
     		int colNumber = colOfMove;
     		
+    		// Add the direction to the current row number and column number
     		rowNumber += dirs[currDir][0];
     		colNumber += dirs[currDir][1];
     		
-    		// Check if the disc is within the bounds of the game
+    		// Check if the new location is within the bounds of the game
 			if(0 <= rowNumber && rowNumber < 6 && 0 <= colNumber && colNumber < 7) {
 				
-				// If the disc is valid
+				// If the new location contains a AI disc
 				if(currentGameBoard[rowNumber][colNumber] == 2) {
 					
-					// Directional check going with the movement of the adjacent disc
+					// To see if this connect 2 opens up a possibility for a connect 4
+					
+					// Add the direction to the new row number and column number
 					int movementInRow = rowNumber + dirs[currDir][0];
 					int movementInCol = colNumber + dirs[currDir][1];
+					
+					// Check if the new location is in bounds and is empty to make a connect 3
 					if(0 <= movementInRow && movementInRow < 6 && 0 <= movementInCol && movementInCol < 7 && currentGameBoard[movementInRow][movementInCol] == 0) {
+						
+						// Add the direction to the new row number and column number
 						movementInRow += dirs[currDir][0];
 						movementInCol += dirs[currDir][1];
 						
+						// Check if the new location is in bounds and is empty to make a connect 4
 						if(0 <= movementInRow && movementInRow < 6 && 0 <= movementInCol && movementInCol < 7 && currentGameBoard[movementInRow][movementInCol] == 0) {
+							// Add the score to the current possible move that the AI could make
+							// Later the scores are compared to choose the highest scoring move
 							scoreOfCurrentGameBoard += AIPlanToScore.get("Connect 2");
 						}
 					}

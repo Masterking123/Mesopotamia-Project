@@ -68,24 +68,21 @@ public class ConnectFourGame extends JFrame {
         	
         	currentButton.addActionListener(new ActionListener() {
         		public void actionPerformed(ActionEvent e) {
-        			if(currentPlayer == 1) {
-        				int checkWinThingy = dropInColumn(currentButton.index, 1);
-    					repaint();
-    					if(checkWin(checkWinThingy, currentButton.index, 1)) {
-    						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
-    						currentGameOutcome = "PLAYER";
-    						setVisible(false);
-    						MainGameGUI.frame.setAlwaysOnTop(true);
-            				MainGameGUI.frame.setAlwaysOnTop(false);
-            				MainGameGUI.frame.setEnabled(true);
-    					}
-    					if(gameBoard[0][currentButton.index] != 0) {
-    						currentButton.setEnabled(false);
-    					}
-        				
-        			}
-        			int[] indexs = AIResponse();
-        			if(checkWin(indexs[1], indexs[0], 2)) {
+    				int checkWinThingy = dropInColumn(currentButton.index, 1);
+					repaint();
+					if(gameBoard[0][currentButton.index] != 0) {
+						currentButton.setEnabled(false);
+					}
+					int[] indexs = AIResponse();
+					if(checkWin(checkWinThingy, currentButton.index, 1)) {
+						JOptionPane.showMessageDialog(null, "WINNER: PLAYER");
+						currentGameOutcome = "PLAYER";
+						setVisible(false);
+						MainGameGUI.frame.setAlwaysOnTop(true);
+        				MainGameGUI.frame.setAlwaysOnTop(false);
+        				MainGameGUI.frame.setEnabled(true);
+					}
+        			else if(checkWin(indexs[1], indexs[0], 2)) {
         				JOptionPane.showMessageDialog(null, "WINNER: AI");
         				currentGameOutcome = "AI";
         				setVisible(false);
@@ -101,7 +98,7 @@ public class ConnectFourGame extends JFrame {
         				MainGameGUI.frame.setEnabled(true);
         			}
         			
-        			if(isDraw(gameBoard) == true) {
+        			else if(isDraw(gameBoard) == true) {
         				JOptionPane.showMessageDialog(null, "ITS A DRAW");
         				currentGameOutcome = "Draw";
         				setVisible(false);
@@ -109,6 +106,7 @@ public class ConnectFourGame extends JFrame {
         				MainGameGUI.frame.setAlwaysOnTop(false);
         				MainGameGUI.frame.setEnabled(true);
         			}
+
         		}
         	});
         	currentButton.setText("DROP");
@@ -121,28 +119,42 @@ public class ConnectFourGame extends JFrame {
         
     }
 
-    // draw grid
-    @Override
+    // Function to draw the grid
+    @Override // Overrides the paint command that creates the JFrame
     public void paint(Graphics g) {
-    	int colsIndex = 0;
-    	int rowsIndex = 0;
-    	super.paint(g);
-    	int AdjustedHeight = ASPECT_HEIGHT - 100;
+    	int colsIndex = 0; // The index of the columns in the grid
+    	int rowsIndex = 0; // the index of the rows in the grid
+    	super.paint(g); // call the parent classes pain function creating the JFrame itself
+    	int AdjustedHeight = ASPECT_HEIGHT - 100; // Create an adjusted height so there is space at the top for text
+    	
+    	// Iterate through the aspect width of the frame, and increment by multiples of 7 for 7 columns
         for (int x = 0; x <= ASPECT_WIDTH; x += (ASPECT_WIDTH/7)) {
+        	
+        	// For each row in the grid
         	for (int y = 0; y <= AdjustedHeight; y += (AdjustedHeight/6)) {
+        		
+        		// Creates a black square for the space in the grid 
         		g.setColor(Color.black);
         		g.drawRect(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
+        		
+        		// If the grid space is number 1 on the 2d game array, 
         		if(rowsIndex < 6 && colsIndex < 7 && gameBoard[rowsIndex][colsIndex] == 1) {
+        			// Create a red oval in that space
         			g.setColor(Color.red);
             		g.fillOval(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
         		}
+        		// If the grid space is number 2 on the 2d game array
         		else if(rowsIndex < 6 && colsIndex < 7 && gameBoard[rowsIndex][colsIndex] == 2) {
+        			// Create a blue oval in that space
         			g.setColor(Color.blue);
             		g.fillOval(x, y+100, (ASPECT_WIDTH/7), (AdjustedHeight/6));
         		}
+        		// Increment the row
         		rowsIndex++;
         	}
+        	// Increment the column
         	colsIndex++;
+        	// Set the row to 0 for the new column
         	rowsIndex = 0;
         }
     }
