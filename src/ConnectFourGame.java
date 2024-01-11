@@ -80,7 +80,7 @@ public class ConnectFourGame extends JFrame {
 						setVisible(false);
 						MainGameGUI.frame.setAlwaysOnTop(true);
         				MainGameGUI.frame.setAlwaysOnTop(false);
-        				MainGameGUI.frame.setEnabled(true);
+        				RaidWinPopup.createRaidWinPopup(null);
 					}
         			else if(checkWin(indexs[1], indexs[0], 2)) {
         				JOptionPane.showMessageDialog(null, "WINNER: AI");
