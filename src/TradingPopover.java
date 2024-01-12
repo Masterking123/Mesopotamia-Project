@@ -37,6 +37,7 @@ public class TradingPopover extends JFrame {
 	public static JTextArea Testareamaintrade;
 	public static JLabel Tradingtextbox;
 	public static JLabel dialog;
+	public static JScrollPane scrollPane;
 
 	
 	double countertosave1 = PlayerObject.food;
@@ -82,8 +83,6 @@ public class TradingPopover extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-
-		setContentPane(contentPane);
 		backtradebutton = new JButton("Go Back");
 		backtradebutton.setBounds(23, 414, 85, 21);
 		backtradebutton.addActionListener(new ActionListener() {
@@ -95,6 +94,8 @@ public class TradingPopover extends JFrame {
 			}
 		});
 		contentPane.add(backtradebutton);
+		
+		
 
 		lblNewLabel = new JLabel("Food trade");
 		lblNewLabel.setBounds(224, 80, 64, 13);
@@ -170,7 +171,12 @@ public class TradingPopover extends JFrame {
 		Testareamaintrade.setEditable(false);
 		Testareamaintrade.setBounds(172, 230, 423, 190);
 		
-		JScrollPane scrollPane = new JScrollPane(Testareamaintrade);
+		dialog = new JLabel("A group of wanderers, attracted by the prosperity of your village, arrives seeking refuge and a better life");
+		dialog.setFont(new Font("Arial", Font.PLAIN, 12));
+		dialog.setBounds(140, 360, 600, 190);
+		contentPane.add(dialog);
+		
+		scrollPane = new JScrollPane(Testareamaintrade);
 		scrollPane.setBounds(10,60,780,500);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
@@ -245,7 +251,7 @@ public class TradingPopover extends JFrame {
 			else
 			{
 				Testareamaintrade.append("You have no more resources to trade" + "\n");
-				villagerAdd.setEnabled(false);
+				villagerAdd2.setEnabled(false);
 			}
 			
 			}
@@ -302,7 +308,7 @@ public class TradingPopover extends JFrame {
 				
 				else
 				{
-					Testareamaintrade.append("You have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more food to trade" + "\n");
 					researchAdd.setEnabled(false);
 				}
 			}
@@ -322,7 +328,7 @@ public class TradingPopover extends JFrame {
 				else
 				{
 					Testareamaintrade.append("You have no more resources to trade" + "\n");
-					researchAdd.setEnabled(false);
+					researchAdd2.setEnabled(false);
 				}
 			}
 		});
