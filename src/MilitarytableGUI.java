@@ -23,6 +23,11 @@ public class MilitarytableGUI extends JFrame {
 	int counter2 = 0;
 	int counter3 = 0;
 	int counter4 = 0;
+	int counter5;
+	int counter6;
+	int counter7;
+	public static int dayCounter = 1; 
+	public static double AiminingAndWood;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	 Random random = new Random();
@@ -81,7 +86,7 @@ public class MilitarytableGUI extends JFrame {
 		
 		JTextArea aicamptstealtextarea = new JTextArea();
 		aicamptstealtextarea.setEditable(false);
-		aicamptstealtextarea.setBounds(617, 105, 167, 128);
+		aicamptstealtextarea.setBounds(617, 105, 210, 128);
 		contentPane.add(aicamptstealtextarea);
 		
 		JButton Buttonforpeople = new JButton("Start");
@@ -115,7 +120,8 @@ public class MilitarytableGUI extends JFrame {
 		JTextArea textAreaforfinsihedtable = new JTextArea();
 		textAreaforfinsihedtable.setBounds(85, 297, 649, 178);
 		contentPane.add(textAreaforfinsihedtable);
-		
+
+		// fix when i have time
 		testareaforpeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary+  " in your village");
 		if( PlayerObject.peopleInMilitary >= 20)
 		{
@@ -135,7 +141,6 @@ public class MilitarytableGUI extends JFrame {
 		{
 			buttonforfood.setEnabled(false);
 		}
-		
 		recoursetextarea.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
@@ -146,8 +151,8 @@ public class MilitarytableGUI extends JFrame {
 			buttonforresources.setEnabled(false);
 		}
 		
-		aicamptstealtextarea.append("This is to search for resources " + "\n" + "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
-		if( PlayerObject.peopleInMilitary >= 10)
+		aicamptstealtextarea.append("This is to steal recourses from Ai Viillage " + "\n" + "for your village, to start" + "\n" + "you need " + "30 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
+		if( PlayerObject.peopleInMilitary >= 30)
 		{
 			stealaicampbutton.setEnabled(true);
 		}
@@ -155,10 +160,12 @@ public class MilitarytableGUI extends JFrame {
 		{
 			stealaicampbutton.setEnabled(false);
 		}
+	
 		
 		Buttonforpeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
+				counter6 = 1;
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -169,12 +176,13 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				Buttonforpeople.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter1 + " people for your village.");
 				PlayerObject.totalPeople = counter1 + PlayerObject.totalPeople;
 				counter1 = 0;
 				System.out.println(PlayerObject.totalPeople);
 				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIfarmerNum  ); //allocate AI people
-				
+			
 		    }
 				
 			}
@@ -183,6 +191,8 @@ public class MilitarytableGUI extends JFrame {
 		buttonforfood.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
+				counter6 = 1;
+				PlayerObject.Militarybuttondisable[0] = "Foodbutton";
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem2(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -194,17 +204,20 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				buttonforfood.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter2 + " food for your village.");
 				PlayerObject.food = counter2 + PlayerObject.food;
 				counter2 = 0;
 				System.out.println(PlayerObject.food);
 				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIresearchNum ); //allocate AI people
+			
 			}
 		});
 		
 		buttonforresources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
+				counter6 = 1;
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -216,17 +229,20 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				buttonforresources.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter3 + " resources for your village.");
 				PlayerObject.miningAndWood = counter3 + PlayerObject.miningAndWood;
 				counter3 = 0;
 				System.out.println(PlayerObject.miningAndWood);
 				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AImilitaryNum, AiEventResponse.AIminerNum ); //allocate AI people
+
 			}
 		});
 		
 		stealaicampbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
+				counter6 = 1;
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem3(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -238,19 +254,41 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter4 + " resources for your village.");
-				PlayerObject.miningAndWood = counter4 + PlayerObject.miningAndWood;
+				AiEventResponse.AiminingAndWood = AiEventResponse.AiminingAndWood - counter4;
+				AiEventResponse.AiminingAndWood = counter4 + AiEventResponse.AiminingAndWood;
 				counter4 = 0;
 				System.out.println(PlayerObject.miningAndWood);
 				AiEventResponse.AIAllocatePeople( 0.3, AiEventResponse.AIfarmerNum, AiEventResponse.AImilitaryNum); //allocate AI people
+				
 			}
 		});
 		
+		if(PlayerObject.Militarybuttondisable[0] == "Foodbutton")
+		{
+			buttonforfood.setEnabled(false);	
+		}
+		
+		/*
+		if(counter6 == 1)
+		{
+			stealaicampbutton.setEnabled(false);
+			buttonforresources.setEnabled(false);
+			buttonforfood.setEnabled(false);
+			Buttonforpeople.setEnabled(false);
+
+		}
+		*/
+		
+
 		goback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				counter7 = dayCounter;
 			}
 		});
+		
+	
 	}
 private static boolean obtainItem(Random random) {
     return random.nextDouble() < 0.1;

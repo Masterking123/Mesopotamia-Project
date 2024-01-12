@@ -20,6 +20,12 @@ public class Quota {
 		}
 		System.out.println("TESTING DEALLOCATION: " + (peopleLeftForFood + peopleLeftForWood));
 		PlayerObject.deallocationOfPeople(peopleLeftForFood + peopleLeftForWood); 
+		
+		if (PlayerObject.unallocatedPeople <= 0)
+		{
+			// put lose screen here 
+		}
+		
 	}
 
 //	public static void peopleDeallocation()
@@ -57,7 +63,7 @@ public class Quota {
 		PlayerObject.woodRequiredPerPerson = 2 * PlayerObject.totalPeople;
 		if (PlayerObject.food >= PlayerObject.foodRequiredPerPerson) {
 			System.out.println("Everyone has enough food.");
-			PlayerObject.reputation = PlayerObject.reputation + 1 *PlayerObject.totalPeople;
+			PlayerObject.reputation = PlayerObject.reputation + PlayerObject.reputationEarnedPerPerson * PlayerObject.totalPeople;
 		} 
 		else {
 			System.out.println("Not enough food for everyone!");
@@ -82,7 +88,7 @@ public class Quota {
 		
 		if (PlayerObject.miningAndWood >= PlayerObject.woodRequiredPerPerson) {
 			System.out.println("Everyone has enough wood.");
-			PlayerObject.reputation = PlayerObject.reputation + 1 * PlayerObject.totalPeople;
+			PlayerObject.reputation = PlayerObject.reputation + PlayerObject.reputationEarnedPerPerson * PlayerObject.totalPeople;
 		} 
 		else {
 			System.out.println("Not enough wood for everyone!");
