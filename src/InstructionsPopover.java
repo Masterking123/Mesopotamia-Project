@@ -101,11 +101,11 @@ public class InstructionsPopover extends JFrame {
 		layeredPane.add(panelSkills, "name_917770200247221");
 		
 		JButton mainIdeaButton = new JButton("Main Idea");
-		mainIdeaButton.setBounds(157, 0, 95, 29);
+		mainIdeaButton.setBounds(95, 0, 103, 29);
 		contentPane.add(mainIdeaButton);
 		
 		JButton backToMainButton = new JButton("Back");
-		backToMainButton.setBounds(84, 0, 66, 29);
+		backToMainButton.setBounds(17, 0, 66, 29);
 		contentPane.add(backToMainButton);
 		backToMainButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,23 +115,23 @@ public class InstructionsPopover extends JFrame {
 		});
 		
 		JButton reputationButton = new JButton("Reputation");
-		reputationButton.setBounds(137, 26, 95, 29);
+		reputationButton.setBounds(94, 26, 129, 29);
 		contentPane.add(reputationButton);
 		
 		JButton consEventButton = new JButton("Events");
-		consEventButton.setBounds(252, 0, 95, 29);
+		consEventButton.setBounds(198, 0, 95, 29);
 		contentPane.add(consEventButton);
 		
 		JButton treeTradeButton = new JButton("Research/Trading");
-		treeTradeButton.setBounds(345, 0, 137, 29);
+		treeTradeButton.setBounds(291, 0, 155, 29);
 		contentPane.add(treeTradeButton);
 		
 		JButton winLossButton = new JButton("Win/Loss");
-		winLossButton.setBounds(228, 26, 95, 29);
+		winLossButton.setBounds(224, 26, 114, 29);
 		contentPane.add(winLossButton);
 		
 		JButton connect4Button = new JButton("Connect 4");
-		connect4Button.setBounds(317, 26, 95, 29);
+		connect4Button.setBounds(338, 26, 108, 29);
 		contentPane.add(connect4Button);
 		panelRep.setLayout(null);
 		
