@@ -172,8 +172,8 @@ public class TradingPopover extends JFrame {
 		Testareamaintrade.setBounds(172, 230, 423, 190);
 		
 		dialog = new JLabel("A group of wanderers, attracted by the prosperity of your village, arrives seeking refuge and a better life");
-		dialog.setFont(new Font("Arial", Font.PLAIN, 12));
-		dialog.setBounds(140, 360, 600, 190);
+		dialog.setFont(new Font("Arial", Font.BOLD, 15));
+		dialog.setBounds(10, 360, 800, 190);
 		contentPane.add(dialog);
 		
 		scrollPane = new JScrollPane(Testareamaintrade);
