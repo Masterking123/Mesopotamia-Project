@@ -131,16 +131,6 @@ public class MilitarytableGUI extends JFrame {
 		{
 			Buttonforpeople.setEnabled(false);
 		}
-		/*
-		if(counter7 == dayCounter)
-		{
-			Buttonforpeople.setEnabled(false);
-		}
-		*/
-		else
-		{
-			Buttonforpeople.setEnabled(true);	
-		}
 		
 		textareaforfood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " +  "your village");
 		if(PlayerObject.peopleInMilitary >= 14 )
@@ -151,16 +141,6 @@ public class MilitarytableGUI extends JFrame {
 		{
 			buttonforfood.setEnabled(false);
 		}
-		/*
-		if(counter7 == dayCounter)
-		{
-			buttonforfood.setEnabled(false);
-		}
-		else
-		{
-			buttonforfood.setEnabled(true);	
-		}
-		*/
 		recoursetextarea.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
 		if( PlayerObject.peopleInMilitary >= 10)
 		{
@@ -170,16 +150,7 @@ public class MilitarytableGUI extends JFrame {
 		{
 			buttonforresources.setEnabled(false);
 		}
-		/*
-		if(counter7 == dayCounter)
-		{
-			buttonforresources.setEnabled(false);
-		}
-		else
-		{
-			buttonforresources.setEnabled(true);
-		}
-		*/
+		
 		aicamptstealtextarea.append("This is to steal recourses from Ai Viillage " + "\n" + "for your village, to start" + "\n" + "you need " + "30 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
 		if( PlayerObject.peopleInMilitary >= 30)
 		{
@@ -189,16 +160,7 @@ public class MilitarytableGUI extends JFrame {
 		{
 			stealaicampbutton.setEnabled(false);
 		}
-		/*
-		if(counter7 == dayCounter)
-		{
-			stealaicampbutton.setEnabled(false);
-		}
-		else
-		{
-			stealaicampbutton.setEnabled(true);
-		}
-		*/
+	
 		
 		Buttonforpeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -230,6 +192,7 @@ public class MilitarytableGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				counter6 = 1;
+				PlayerObject.Militarybuttondisable[0] = "Foodbutton";
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem2(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -301,6 +264,12 @@ public class MilitarytableGUI extends JFrame {
 				
 			}
 		});
+		
+		if(PlayerObject.Militarybuttondisable[0] == "Foodbutton")
+		{
+			buttonforfood.setEnabled(false);	
+		}
+		
 		/*
 		if(counter6 == 1)
 		{

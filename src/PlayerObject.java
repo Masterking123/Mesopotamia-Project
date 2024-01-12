@@ -43,6 +43,8 @@ public class PlayerObject {
 	
 	static String[] researchApplied = new String[16];
 	
+	static String[] Militarybuttondisable = new String[16];
+	
 	public static void generateFood() {
 		if((1 + (double) (percentFoodBoost / 100.0)) < 0) {
 			return;
