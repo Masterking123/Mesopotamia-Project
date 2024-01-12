@@ -20,6 +20,12 @@ public class Quota {
 		}
 		System.out.println("TESTING DEALLOCATION: " + (peopleLeftForFood + peopleLeftForWood));
 		PlayerObject.deallocationOfPeople(peopleLeftForFood + peopleLeftForWood); 
+		
+		if (PlayerObject.unallocatedPeople <= 0)
+		{
+			// put lose screen here 
+		}
+		
 	}
 
 //	public static void peopleDeallocation()
