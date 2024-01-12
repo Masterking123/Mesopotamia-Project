@@ -185,17 +185,25 @@ public class StatsPopover extends JFrame {
 		foodPpersonLabel.setVisible(false);
 		
 			foodPpersonLabel.setVisible(true);
-			foodPpersonLabel.setText("Food needed a day: " + PlayerObject.foodRequiredPerPerson);
+			foodPpersonLabel.setText("Food Goal: " + (PlayerObject.totalPeople * 3));
 			
-			JLabel resPpersonLabel = new JLabel("Resources needed a day: " + PlayerObject.woodRequiredPerPerson);
+			JLabel resPpersonLabel = new JLabel("Resources Goal: " + (PlayerObject.totalPeople * 2));
 			resPpersonLabel.setBounds(175, 74, 257, 16);
 			statPanel.add(resPpersonLabel);
 			
-			JLabel foodLessLabel = new JLabel("Food Missing: " + Quota.totalPeopleWithoutFood);
+			double moreFoodNeeded = PlayerObject.totalPeople * 3 - PlayerObject.food - ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost;
+			if(moreFoodNeeded <= 0) {
+				moreFoodNeeded = 0;
+			}
+			JLabel foodLessLabel = new JLabel("More Food Needed: " + moreFoodNeeded);
 			foodLessLabel.setBounds(175, 102, 257, 16);
 			statPanel.add(foodLessLabel);
 			
-			JLabel resLessLabel = new JLabel("Resources Missing: " + Quota.totalPeopleWithoutWood);
+			double moreResourcesNeeded = (PlayerObject.totalPeople * 2) - PlayerObject.miningAndWood - ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost;
+			if (moreResourcesNeeded <= 0) {
+				moreResourcesNeeded = 0;
+			}
+			JLabel resLessLabel = new JLabel("More Resources Needed: " + moreResourcesNeeded);
 			resLessLabel.setBounds(175, 130, 257, 16);
 			statPanel.add(resLessLabel);
 			

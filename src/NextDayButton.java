@@ -23,6 +23,7 @@ public class NextDayButton {
 		
 		
 		
+		
 		// Active Random Events passage of Time For the player
 		ArrayList<ActiveEvent> objectRemove = new ArrayList<ActiveEvent>();
 		for(int i = 0; i < PlayerObject.activeEvents.size(); i++) {
@@ -76,7 +77,10 @@ public class NextDayButton {
 		}
 		
 		// Check if Quotas have been met
-//		Quota.overallQuota();
+		Quota.overallQuota();
+		
+		// Reputation Buffs or Debuffs
+		PlayerObject.reputationCheck();
 		
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);

@@ -41,6 +41,8 @@ public class PlayerObject {
 	public static int foodRequiredPerPerson;
 	public static int woodRequiredPerPerson;
 	
+	public static String stateOfReputation;
+	
 	static String[] researchApplied = new String[16];
 	
 	public static void generateFood() {
@@ -91,8 +93,31 @@ public class PlayerObject {
 		return villagePower;
 	}
 	
+	public static void reputationCheck() {
+		if( PlayerObject.reputation > 60) {
+			PlayerObject.percentFoodBoost = PlayerObject.percentFoodBoost + 5;
+			PlayerObject.percentMiningAndWoodBoost =  PlayerObject.percentMiningAndWoodBoost + 5; 
+			stateOfReputation = "higher";
+		}
+		else if(PlayerObject.reputation < 20) {
+			PlayerObject.percentFoodBoost = PlayerObject.percentFoodBoost - 5;
+			PlayerObject.percentMiningAndWoodBoost =  PlayerObject.percentMiningAndWoodBoost - 5;
+			stateOfReputation = "lower";
+		}
+		else if (PlayerObject.reputation >= 20 && PlayerObject.reputation <= 60 && stateOfReputation.equals("higher")){
+			PlayerObject.percentFoodBoost -= 5;
+			PlayerObject.percentMiningAndWoodBoost -= 5;
+			stateOfReputation = "neutral";
+		}
+		else if (PlayerObject.reputation >= 20 && PlayerObject.reputation <= 60 && stateOfReputation.equals("lower")) {
+			PlayerObject.percentFoodBoost += 5;
+			PlayerObject.percentMiningAndWoodBoost += 5;
+			stateOfReputation = "neutral";
+		}
+	}
+	
+	
 	// When a event such as quota loses people, use this method 
-	// WORK ON TMRW
 	public static void deallocationOfPeople(int numberOfPeopleToRemove) {
 		
 		// Stores all the numbers in an array
