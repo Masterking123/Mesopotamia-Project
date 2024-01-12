@@ -166,6 +166,8 @@ public class MilitarytableGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				counter6 = 1;
+				PlayerObject.Militarybuttondisable[0] = "Buttonfp";
+
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -176,7 +178,10 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
-				Buttonforpeople.setEnabled(false);
+				buttonforfood.setEnabled(false);	
+				Buttonforpeople.setEnabled(false);	
+				buttonforresources.setEnabled(false);
+				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter1 + " people for your village.");
 				PlayerObject.totalPeople = counter1 + PlayerObject.totalPeople;
 				counter1 = 0;
@@ -192,7 +197,7 @@ public class MilitarytableGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				counter6 = 1;
-				PlayerObject.Militarybuttondisable[0] = "Foodbutton";
+				PlayerObject.Militarybuttondisable[1] = "Foodbutton";
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem2(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -204,7 +209,10 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
-				buttonforfood.setEnabled(false);
+				buttonforfood.setEnabled(false);	
+				Buttonforpeople.setEnabled(false);	
+				buttonforresources.setEnabled(false);
+				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter2 + " food for your village.");
 				PlayerObject.food = counter2 + PlayerObject.food;
 				counter2 = 0;
@@ -218,6 +226,7 @@ public class MilitarytableGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				counter6 = 1;
+				PlayerObject.Militarybuttondisable[2] = "resbutton";
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -229,7 +238,10 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				buttonforfood.setEnabled(false);	
+				Buttonforpeople.setEnabled(false);	
 				buttonforresources.setEnabled(false);
+				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter3 + " resources for your village.");
 				PlayerObject.miningAndWood = counter3 + PlayerObject.miningAndWood;
 				counter3 = 0;
@@ -243,6 +255,7 @@ public class MilitarytableGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textAreaforfinsihedtable.setText("");
 				counter6 = 1;
+				PlayerObject.Militarybuttondisable[3] = "aicampbutton";
 				for (int i = 0; i < 10; i++) {
 		            if (obtainItem3(random)) {
 		            	textAreaforfinsihedtable.append("Item obtained!" + "\n");
@@ -254,6 +267,9 @@ public class MilitarytableGUI extends JFrame {
 		            	textAreaforfinsihedtable.append("No item this time." + "\n");
 		            }
 		        }
+				buttonforfood.setEnabled(false);	
+				Buttonforpeople.setEnabled(false);	
+				buttonforresources.setEnabled(false);
 				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter4 + " resources for your village.");
 				AiEventResponse.AiminingAndWood = AiEventResponse.AiminingAndWood - counter4;
@@ -265,21 +281,34 @@ public class MilitarytableGUI extends JFrame {
 			}
 		});
 		
-		if(PlayerObject.Militarybuttondisable[0] == "Foodbutton")
+		if(PlayerObject.Militarybuttondisable[1] == "Foodbutton")
 		{
 			buttonforfood.setEnabled(false);	
+			Buttonforpeople.setEnabled(false);	
+			buttonforresources.setEnabled(false);
+			stealaicampbutton.setEnabled(false);
 		}
 		
-		/*
-		if(counter6 == 1)
+		if(PlayerObject.Militarybuttondisable[0] == "Buttonfp")
 		{
-			stealaicampbutton.setEnabled(false);
+			buttonforfood.setEnabled(false);	
+			Buttonforpeople.setEnabled(false);	
 			buttonforresources.setEnabled(false);
-			buttonforfood.setEnabled(false);
-			Buttonforpeople.setEnabled(false);
-
-		}
-		*/
+			stealaicampbutton.setEnabled(false);		
+			}
+		
+		if(PlayerObject.Militarybuttondisable[2] == "resbutton")
+		{
+			buttonforfood.setEnabled(false);	
+			Buttonforpeople.setEnabled(false);	
+			buttonforresources.setEnabled(false);
+			stealaicampbutton.setEnabled(false);		}
+		if(PlayerObject.Militarybuttondisable[3] == "aicampbutton")
+		{
+			buttonforfood.setEnabled(false);	
+			Buttonforpeople.setEnabled(false);	
+			buttonforresources.setEnabled(false);
+			stealaicampbutton.setEnabled(false);		}
 		
 
 		goback.addActionListener(new ActionListener() {
