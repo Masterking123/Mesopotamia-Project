@@ -153,7 +153,7 @@ public class RandomEventObject {
 					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
 					break;
 				case "Inspiration":
-					PlayerObject.reputationEarnedPerPerson = 2;
+					PlayerObject.reputationEarnedPerDay = 2;
 					PlayerObject.activeEvents.add(new ActiveEvent(eventName, 2));
 					break;
 			}
@@ -254,7 +254,7 @@ public class RandomEventObject {
 				case "Scientific breakthrough":
 					PlayerObject.percentResearchBoost = 0;
 				case "Inspiration":
-					PlayerObject.reputationEarnedPerPerson = 1;
+					PlayerObject.reputationEarnedPerDay = 1;
 					break;
 
 			}

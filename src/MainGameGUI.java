@@ -263,16 +263,18 @@ public class MainGameGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dayCounter = dayCounter + 1; 
 				dayCounterLabel.setText("" + dayCounter);
+				if (dayCounter == 30) {
+					AiEventResponse.lastDayAllocation();
+					MainGameGUI.frame.setVisible(false);
+					FinalRaidWinLoss.createWinLossPopup(null);
+				}
 				NextDayButton.nextDayButtonActivated();
-				Raid.raidChance();
+//				Raid.raidChance();
 				if (Raid.raidDayCount > 0) {
 					Raid.raidDayCount = Raid.raidDayCount - 1;					
 				} if (Raid.raid == true) {
 					RaidPopover.main(null);
 					frame.setEnabled(false);
-				}
-				if (dayCounter == 30) {
-					AiEventResponse.lastDayAllocation();
 				}
 
 				}

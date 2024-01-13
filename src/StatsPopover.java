@@ -179,7 +179,7 @@ public class StatsPopover extends JFrame {
 		res2RateLabel.setBounds(275, 111, 157, 16);
 		ratePanel.add(res2RateLabel);
 		
-		JLabel comRateLabel = new JLabel("Combat Power: " + PlayerObject.peopleInMilitary * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost + "/day");
+		JLabel comRateLabel = new JLabel("Combat Power: " + (PlayerObject.peopleInMilitary * 2) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost + "/day");
 		comRateLabel.setBounds(275, 139, 157, 16);
 		ratePanel.add(comRateLabel);
 		foodPpersonLabel.setVisible(false);

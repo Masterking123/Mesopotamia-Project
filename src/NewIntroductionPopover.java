@@ -53,7 +53,7 @@ public class NewIntroductionPopover extends JFrame {
 		contentPane = new JPanel() {  
 			public void paintComponent(Graphics g) {  
           Image img = Toolkit.getDefaultToolkit().getImage(  
-          IntroductionPopover.class.getResource("/images/Introduction.png"));  
+          NewIntroductionPopover.class.getResource("/images/Introduction.png"));  
           g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
               }  
           };  

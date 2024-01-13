@@ -36,12 +36,12 @@ public class PlayerObject {
 	public static int unallocatedPeople = 10;
 	
 	public static int reputation = 50;
-	public static int reputationEarnedPerPerson = 1;
+	public static int reputationEarnedPerDay = 1;
 	
-	public static int foodRequiredPerPerson;
-	public static int woodRequiredPerPerson;
+	public static int foodRequiredForVillage;
+	public static int woodRequiredForVillage;
 	
-	public static String stateOfReputation;
+	public static String stateOfReputation = "neutral";
 	
 	static String[] researchApplied = new String[16];
 	
@@ -66,7 +66,7 @@ public class PlayerObject {
 	
 	public static void generateMilitary() {
 		if(peopleInMilitary != 0) {
-			military = peopleInMilitary * (1 + (double) (percentFoodBoost / 100.0)) + numberMilitaryBoost; 
+			military = (peopleInMilitary * 2) * (1 + (double) (percentFoodBoost / 100.0)) + numberMilitaryBoost; 
 		}
 	}
 	
@@ -125,6 +125,9 @@ public class PlayerObject {
 		// Stores all the numbers in an array
 		int[] numOfPeopleInLocations = {unallocatedPeople, peopleInFood, peopleInMiningAndWood, peopleInMilitary, peopleInResearch};
 		
+		// Decrease the total amount of people based on the people deallocated
+		PlayerObject.totalPeople -= numberOfPeopleToRemove;
+		
 		// Loops through the number of people to remove one by one 
 		while(numberOfPeopleToRemove != 0) {
 			// If the entire array is all zeros break out of the loop
@@ -139,10 +142,7 @@ public class PlayerObject {
 				lowerPeopleVariables(randomIndex);
 			}
 		}
-		
-		// Decrease the total amount of people based on the people deallocated
-		totalPeople -= numberOfPeopleToRemove;
-		
+				
 		// Update all the counter labels
 		MainGameGUI.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
 		MainGameGUI.researchCount.setText("" + PlayerObject.peopleInResearch);

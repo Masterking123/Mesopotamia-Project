@@ -20,12 +20,12 @@ import java.awt.BorderLayout;
 	        textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	        textArea.setText(PlayerObject.playerName + "! Your village, " + PlayerObject.playerVillageName + " had not meet the quota!\n" +
 	        		"Your consequences are the following: \n" +
-	        		"Food needed: " + PlayerObject.foodRequiredPerPerson + "\n" +
-	                "People left for food: " + Quota.peopleLeftForFood + "\n" +
+	        		"People Without food: " + Quota.totalPeopleWithoutFood + "\n" +
+	                "People left for lack of food: " + Quota.peopleLeftForFood + "\n" +
 	                "Current Reputation: " + PlayerObject.reputation + "\n" +
 	                "Reputation Lost: " + Quota.repLost + "\n" +
-	                "Wood needed: " + PlayerObject.woodRequiredPerPerson + "\n" +
-	                "People left for wood: " + Quota.peopleLeftForWood + "\n" +
+	                "People without mining/wood: " + Quota.totalPeopleWithoutWood + "\n" +
+	                "People left for lack of mining/wood: " + Quota.peopleLeftForWood + "\n" +
 	                "Total amount of people: " + PlayerObject.unallocatedPeople + "\n");
 	
 	        frame.getContentPane().add(textArea);

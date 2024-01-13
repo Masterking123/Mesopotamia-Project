@@ -42,7 +42,7 @@ public class ConnectFourGameAI {
 		
 		
 		// CHANGE THIS VALUE TO MAKE IT MORE OR LESS RANDOM
-		if(Main.randomPercentOccurance(100)) {
+		if(Main.randomPercentOccurance(70)){
 			int maximumScoreInArray = -1;
 			int numberOfMaxScore = 0;
 			for(int i = 0; i < scoreOfMovesInPositions.length; i++) {
@@ -69,15 +69,14 @@ public class ConnectFourGameAI {
 			return indexsOfMax.get(Main.randomNumberInRange(0, indexsOfMax.size()));
 		}
 		else {
-			return randomValidMove(scoreOfMovesInPositions);
+			return randomValidMoveExcludingWinningMove(scoreOfMovesInPositions);
 		}
 	}
 	
 	public static void CreateAIPriorityList() {
 		AIPlanToScore.put("Winning Move", 10000);
 		AIPlanToScore.put("Block Winning Move", 9000);
-		AIPlanToScore.put("Connect 3", 500); // Ignore dead connect 3, (500 + 200)
-		// Block connect 3
+		AIPlanToScore.put("Connect 3", 500); // Ignore dead connect 3
 		AIPlanToScore.put("Connect 2", 100); // Ignore dead connect 2
 		AIPlanToScore.put("Invalid Move", -1);
 		AIPlanToScore.put("Position Edge", 20);
@@ -326,8 +325,21 @@ public class ConnectFourGameAI {
 		return allGeneratedMoves;
 	}
 	
-	public static int randomValidMove(int[] arrayOfScores) {
+	public static int randomValidMoveExcludingWinningMove(int[] arrayOfScores) {
 		ArrayList<Integer> indexsOfValidMoves = new ArrayList<Integer>();
+		int maxScore = -1;
+		int maxScoreIndex = 0;
+		
+		for(int i = 0; i < arrayOfScores.length; i++) {
+			if(arrayOfScores[i] > maxScore) {
+				maxScore = arrayOfScores[i];
+				maxScoreIndex = i;
+			}
+		}
+		if(maxScore > 9000) {
+			return maxScoreIndex;
+		}
+		
 		for(int i = 0; i < arrayOfScores.length; i++) {
 			if(arrayOfScores[i] != -1) {
 				indexsOfValidMoves.add(i);
