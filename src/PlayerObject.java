@@ -11,23 +11,23 @@ public class PlayerObject {
 	
 	public static int peopleInFood;
 	public static double food = 0;
-	public static int percentFoodBoost;
+	public static int percentFoodBoost = 0;
 	public static int numberFoodBoost;
 	
 	public static int peopleInMiningAndWood;
 	public static double miningAndWood = 0;
-	public static int percentMiningAndWoodBoost; 
+	public static int percentMiningAndWoodBoost = 0; 
 	public static int numberMiningAndWoodBoost;
 	public static int oneTimeMiningAndWoodBoost;
 	
 	public static int peopleInMilitary;
 	public static double military;
-	public static int percentMilitaryBoost; 
+	public static int percentMilitaryBoost = 0; 
 	public static int numberMilitaryBoost;
 	
 	public static int peopleInResearch;
 	public static double research = 0;
-	public static int percentResearchBoost;
+	public static int percentResearchBoost = 0;
 	public static int numberResearchBoost;
 	
 	public static int percentDiscountOnSales;
