@@ -30,7 +30,7 @@ public class PlayerObject {
 	public static int percentResearchBoost = 0;
 	public static int numberResearchBoost;
 	
-	public static int percentDiscountOnSales;
+	public static double percentDiscountOnSales;
 	
 	public static int totalPeople = 10;
 	public static int unallocatedPeople = 10;
