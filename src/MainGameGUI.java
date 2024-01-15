@@ -269,7 +269,7 @@ public class MainGameGUI extends JFrame {
 					FinalRaidWinLoss.createWinLossPopup(null);
 				}
 				NextDayButton.nextDayButtonActivated();
-//				Raid.raidChance();
+				Raid.raidChance();
 				if (Raid.raidDayCount > 0) {
 					Raid.raidDayCount = Raid.raidDayCount - 1;					
 				} if (Raid.raid == true) {

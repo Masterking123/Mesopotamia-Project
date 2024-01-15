@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,6 +42,9 @@ public class FinalRaidWinLoss extends JFrame {
 	 */
 	public FinalRaidWinLoss() {
 		
+		winMessage = "You successfully led your settlement to victory on the frontier.";
+		loseMessage = "The rival village led their settlement to victory on the frontier! You must assess your strategy and try again to improve.";
+		
 		int playerVillagePower = (int) Math.round(PlayerObject.calculateVillagePower());
 		int AIVillagePower = (int) Math.round(AiEventResponse.calculateVillagePowerAi());
 		String descriptionMessage;
@@ -59,7 +65,15 @@ public class FinalRaidWinLoss extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(Main.ASPECT_WIDTH/4, Main.ASPECT_HEIGHT/4, 700, 500);
-		contentPane = new JPanel();
+		contentPane = new JPanel() {  
+			public void paintComponent(Graphics g) {  
+          Image img = Toolkit.getDefaultToolkit().getImage(  
+          winPopover.class.getResource("/images/confetti.gif"));  
+          g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
+              }  
+          };  
+		
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
