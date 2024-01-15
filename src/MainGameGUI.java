@@ -88,7 +88,7 @@ public class MainGameGUI extends JFrame {
 		minerCount = new JLabel("" + PlayerObject.peopleInMiningAndWood);
 		minerCount.setForeground(new Color(255, 255, 255));
 		minerCount.setFont(new Font("Trebuchet MS", Font.BOLD, 21));
-		int [] minerCountLabel= Main.scaledUIElements(1122, 99, 48, 31, 1368, 912);
+		int [] minerCountLabel= Main.scaledUIElements(1122, 84, 48, 31, 1368, 912);
 		minerCount.setBounds(minerCountLabel[0], minerCountLabel[1], minerCountLabel[2], minerCountLabel[3]);
 		contentPane.add(minerCount);
 		
@@ -168,8 +168,8 @@ public class MainGameGUI extends JFrame {
 		farmerLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledFarmerLabelFont));
 		contentPane.add(farmerLabel);
 		
-		JLabel minerLabel = new JLabel("Miners");
-		int [] scaledlabelMiner = Main.scaledUIElements(1097, 129, 132, 44, 1368, 912);
+		JLabel minerLabel = new JLabel("Miners/");
+		int [] scaledlabelMiner = Main.scaledUIElements(1097, 111, 132, 44, 1368, 912);
 		minerLabel.setBounds(scaledlabelMiner[0], scaledlabelMiner[1], scaledlabelMiner[2], scaledlabelMiner[3]);		
 		minerLabel.setForeground(new Color(255, 255, 255));
 		int scaledMinerFont = Main.scaledFontSize(30, 1368, 912);
@@ -392,6 +392,15 @@ public class MainGameGUI extends JFrame {
 		);
 		
 		contentPane.add(militaryFindButton);
+
+		
+		JLabel lumberjacksLabel = new JLabel("LumberJacks");
+		int [] scaledlabelLumber = Main.scaledUIElements(1064, 140, 165, 44, 1368, 912);
+		lumberjacksLabel.setBounds(scaledlabelLumber[0], scaledlabelLumber[1], scaledlabelLumber[2], scaledlabelLumber[3]);
+		lumberjacksLabel.setForeground(new Color(255, 255, 255));
+		int scaledlumberFont = Main.scaledFontSize(30, 1368, 912);
+		lumberjacksLabel.setFont(new Font("Sitka Text", Font.BOLD, scaledlumberFont));
+		contentPane.add(lumberjacksLabel);
 		
 		
 	}
