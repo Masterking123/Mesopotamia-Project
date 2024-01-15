@@ -280,7 +280,7 @@ public class TradingPopover extends JFrame {
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					PlayerObject.food = PlayerObject.food - percentDiscount5;
 					Testareamaintrade.setText("");
-					Testareamaintrade.append("You traded " + percentDiscount5 + " food" + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
+					Testareamaintrade.append("You traded " + percentDiscount5 + " wood" + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
 					updateTradeInformation();
 				}
 				else
@@ -351,7 +351,7 @@ public class TradingPopover extends JFrame {
 	    // Update villager marketing text area
 	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
 	    villagerMarketing_textbox.append("Resources: " + PlayerObject.miningAndWood + "\n");
-	    villagerMarketing_textbox.append("1 villager = " + percentDiscount5 + " food" + "\n");
+	    villagerMarketing_textbox.append("1 villager = " + percentDiscount2 + " food" + "\n");
 	    villagerMarketing_textbox.append(percentDiscount5 + " Resource = 1 villager");
 	    
 	    
