@@ -78,6 +78,8 @@ public class NextDayButton {
 		
 		// Check if Quotas have been met
 		Quota.overallQuota();
+		AiQuota.meetAiQuotaFood();
+		AiQuota.meetAiQuotaMiningAndWood();
 
 		// Reputation Buffs or Debuffs
 		PlayerObject.reputationCheck();

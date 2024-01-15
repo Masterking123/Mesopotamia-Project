@@ -22,8 +22,21 @@ public class AiQuota {
 	public static void meetAiQuotaFood() {
 	    if (AiEventResponse.Aifood >= AifoodRequiredPerPerson * AiEventResponse.AitotalPeople) {
 	        System.out.println("Everyone has enough food (AI).");
+	        if(Main.randomPercentOccurance(100) == true){
+	        	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
+			}
+
+	        System.out.println("Food Allocation: " + AiEventResponse.AipeopleInFood);
+	        System.out.println("Mining/Wood Allocation: " + AiEventResponse.AipeopleInMiningAndWood);
+	        System.out.println("Military Allocation: " + AiEventResponse.AipeopleInMilitary);
+	        System.out.println("Research Allocation: " + AiEventResponse.AipeopleInResearch);
+	        System.out.println("Total People AI: " + AiEventResponse.AitotalPeople);
+	        
 	    } else {
 	        System.out.println("Not enough food for everyone (AI)!");
+	        if(Main.randomPercentOccurance(100) == true){
+	        	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
+			}
 	        // Unallocate all people from their current roles
 	        AiEventResponse.AipeopleInFood = 0;
 	        AiEventResponse.AipeopleInMiningAndWood = 0;
@@ -72,13 +85,20 @@ public class AiQuota {
 	        System.out.println("Mining/Wood Allocation: " + AiEventResponse.AipeopleInMiningAndWood);
 	        System.out.println("Military Allocation: " + AiEventResponse.AipeopleInMilitary);
 	        System.out.println("Research Allocation: " + AiEventResponse.AipeopleInResearch);
+	        System.out.println("Total People AI: " + AiEventResponse.AitotalPeople);
 	    }
 	}
 
 public static void meetAiQuotaMiningAndWood() {
     if (AiEventResponse.AiminingAndWood >= AiMiningAndWoodNeededRequiredPerPerson * AiEventResponse.AitotalPeople) {
         System.out.println("Everyone has enough wood (AI).");
+        if(Main.randomPercentOccurance(50) == true){
+        	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
+		}
     } else {
+    	if(Main.randomPercentOccurance(50) == true){
+        	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
+		}
         System.out.println("Not enough wood for everyone (AI)!");
         AiEventResponse.AipeopleInFood = 0;
         AiEventResponse.AipeopleInMiningAndWood = 0;
@@ -128,6 +148,7 @@ public static void meetAiQuotaMiningAndWood() {
         System.out.println("Mining/Wood Allocation: " + AiEventResponse.AipeopleInMiningAndWood);
         System.out.println("Military Allocation: " + AiEventResponse.AipeopleInMilitary);
         System.out.println("Research Allocation: " + AiEventResponse.AipeopleInResearch);
+        System.out.println("Total People AI: " + AiEventResponse.AitotalPeople);
     }
 }
 }
