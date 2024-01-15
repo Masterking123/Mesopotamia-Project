@@ -78,6 +78,9 @@ public class NextDayButton {
 		
 		// Check if Quotas have been met
 		Quota.overallQuota();
+		if (MainGameGUI.dayCounter == 1) {
+			AiQuota.aiFirstDayAllocation();
+		}
 		AiQuota.meetAiQuotaFood();
 		AiQuota.meetAiQuotaMiningAndWood();
 
