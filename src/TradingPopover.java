@@ -192,7 +192,7 @@ public class TradingPopover extends JFrame {
 		// Village marketing textbox
 		villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + 
 		"Resource: " + PlayerObject.miningAndWood + "\n"
-		+ "Unallocated People: " + PlayerObject.totalPeople + "\n");
+		+ "Unallocated People: " + PlayerObject.unallocatedPeople + "\n");
 		villagerMarketing_textbox.append(percentDiscount2 + " food = 1 villager" + "\n" + percentDiscount5 + " Resource = 1 villager");
 		
 		// food tradingtextbox
