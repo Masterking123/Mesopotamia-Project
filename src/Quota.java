@@ -42,7 +42,7 @@ public class Quota {
 		PlayerObject.foodRequiredForVillage = 3 * PlayerObject.totalPeople;
 		PlayerObject.woodRequiredForVillage = 2 * PlayerObject.totalPeople;
 		
-		if (PlayerObject.food >= PlayerObject.foodRequiredForVillage) {
+		if (PlayerObject.food >= PlayerObject.foodRequiredForVillage && PlayerObject.miningAndWood >= PlayerObject.woodRequiredForVillage) {
 			PlayerObject.reputation += PlayerObject.reputationEarnedPerDay;
 		} 
 		else {
@@ -61,13 +61,10 @@ public class Quota {
 			notEnoughFood = true;
 			
 		}
-		
+
 
 		
-		if (PlayerObject.miningAndWood >= PlayerObject.woodRequiredForVillage) {
-			PlayerObject.reputation += PlayerObject.reputationEarnedPerDay;
-		} 
-		else {
+		if (!(PlayerObject.miningAndWood >= PlayerObject.woodRequiredForVillage)) {
 			totalPeopleWithoutWood = PlayerObject.totalPeople - (int) Math.floor((PlayerObject.miningAndWood / 2.0));
 			// Subtract the reputation from all the people without fuel
 			PlayerObject.reputation -= totalPeopleWithoutWood;
