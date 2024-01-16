@@ -27,11 +27,12 @@ public class MilitarytableGUI extends JFrame {
 	int counter6;
 	int counter7;
 	int counter8;
-	int currentDay;
+	
 	boolean updateOccurred = false;
 	public static int dayCounter; 
 	public static double AiminingAndWood;
 	static int[] Daycounter = new int[16];
+	int currentDay;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	 Random random = new Random();
@@ -124,36 +125,33 @@ public class MilitarytableGUI extends JFrame {
 		JTextArea textAreaforfinsihedtable = new JTextArea();
 		textAreaforfinsihedtable.setBounds(85, 297, 649, 178);
 		contentPane.add(textAreaforfinsihedtable);
-		
-		   if (Daycounter[1] != 1) {
-	            currentDay = MainGameGUI.dayCounter;
-	            Daycounter[1] = 1;
-	            updateOccurred = true; // Set the flag to true after the update
-	            System.out.println("Updated currentDay and Daycounter[1]");
-	        }
-		
- if (MainGameGUI.dayCounter != currentDay) {
-	 currentDay = MainGameGUI.dayCounter;
-	 PlayerObject.Militarybuttondisable[0] = null; // "Buttonfp"
-	 PlayerObject.Militarybuttondisable[1] = null; // "Foodbutton"
-	 PlayerObject.Militarybuttondisable[2] = null; // "resbutton"
-	 PlayerObject.Militarybuttondisable[3] = null; // "aicampbutton"
-	    			stealaicampbutton.setEnabled(true);
-	    			buttonforresources.setEnabled(true);
-	    			buttonforfood.setEnabled(true);
-	    			Buttonforpeople.setEnabled(true);
-	    			Daycounter[1] = 0;
-	    			 System.out.println("Buttons enabled.");
-	    			 System.out.println(currentDay);
-	    			 System.out.println(MainGameGUI.dayCounter);
-	    			 
- } 
- else
- {
-     System.out.println("Day has not changed.");
-     System.out.println(currentDay);
-	 System.out.println(MainGameGUI.dayCounter);
-	            }
+
+		System.out.println(Daycounter[1]);
+		 System.out.println(Daycounter[0]);
+		 
+		if(Daycounter[0] == Daycounter[1])
+		{
+		    System.out.println("Day has not changed.");
+			 
+		}
+		else if (Daycounter[0] != Daycounter[1])
+		{
+			Daycounter[1] = Daycounter[0];
+			 PlayerObject.Militarybuttondisable[0] = ""; 
+			 PlayerObject.Militarybuttondisable[1] = "";
+			 PlayerObject.Militarybuttondisable[2] = ""; 
+			 PlayerObject.Militarybuttondisable[3] = ""; 
+			    			stealaicampbutton.setEnabled(true);
+			    			buttonforresources.setEnabled(true);
+			    			buttonforfood.setEnabled(true);
+			    			Buttonforpeople.setEnabled(true);
+			    			 System.out.println("Buttons enabled.");
+			    			 
+			    			 Daycounter[0] = MainGameGUI.dayCounter;
+			 				Daycounter[1] = currentDay;
+		}
+	
+		   
  
 
  
@@ -357,6 +355,8 @@ public class MilitarytableGUI extends JFrame {
 		 
 		goback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+
 			}
 		});
 		 }
