@@ -268,7 +268,7 @@ public class ResearchPopover extends JFrame {
 			}});
 		sSeedsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(PlayerObject.research >= 6) {
+				if(PlayerObject.research >= 9) {
 					PlayerObject.research = PlayerObject.research - 9;
 					sSeedsButton.setEnabled(false);
 					exFarmButton.setEnabled(true);
@@ -324,7 +324,7 @@ public class ResearchPopover extends JFrame {
 			}});
 		ironToolsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(PlayerObject.research >= 6) {
+				if(PlayerObject.research >= 9) {
 					PlayerObject.research = PlayerObject.research - 9;
 					ironToolsButton.setEnabled(false);
 					goldButton.setEnabled(true);
@@ -381,7 +381,7 @@ public class ResearchPopover extends JFrame {
 					}});
 		blackButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(PlayerObject.research >= 6) {
+						if(PlayerObject.research >= 9) {
 							PlayerObject.research = PlayerObject.research - 9;
 							blackButton.setEnabled(false);
 							spyButton.setEnabled(true);
@@ -438,7 +438,7 @@ public class ResearchPopover extends JFrame {
 					}});
 		sale3Button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(PlayerObject.research >= 6) {
+						if(PlayerObject.research >= 9) {
 							PlayerObject.research = PlayerObject.research - 9;
 							sale3Button.setEnabled(false);
 							sale4Button.setEnabled(true);
