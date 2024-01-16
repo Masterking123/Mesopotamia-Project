@@ -14,11 +14,11 @@ import javax.swing.border.EmptyBorder;
 import java.util.Random;
 
 public class MilitarytableGUI extends JFrame {
-	/*
+	
 	public static int peopleInMilitary;
 	public static double food;
 	public static double miningAndWood;
-	public static int totalPeople;*/
+	public static int unallocatedPeople;
 	int counter1 = 0;
 	int counter2 = 0;
 	int counter3 = 0;
@@ -26,8 +26,12 @@ public class MilitarytableGUI extends JFrame {
 	int counter5;
 	int counter6;
 	int counter7;
-	public static int dayCounter = 1; 
+	int counter8;
+	int currentDay;
+	boolean updateOccurred = false;
+	public static int dayCounter; 
 	public static double AiminingAndWood;
+	static int[] Daycounter = new int[16];
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	 Random random = new Random();
@@ -120,7 +124,39 @@ public class MilitarytableGUI extends JFrame {
 		JTextArea textAreaforfinsihedtable = new JTextArea();
 		textAreaforfinsihedtable.setBounds(85, 297, 649, 178);
 		contentPane.add(textAreaforfinsihedtable);
+		
+		   if (Daycounter[1] != 1) {
+	            currentDay = MainGameGUI.dayCounter;
+	            Daycounter[1] = 1;
+	            updateOccurred = true; // Set the flag to true after the update
+	            System.out.println("Updated currentDay and Daycounter[1]");
+	        }
+		
+ if (MainGameGUI.dayCounter != currentDay) {
+	 currentDay = MainGameGUI.dayCounter;
+	 PlayerObject.Militarybuttondisable[0] = null; // "Buttonfp"
+	 PlayerObject.Militarybuttondisable[1] = null; // "Foodbutton"
+	 PlayerObject.Militarybuttondisable[2] = null; // "resbutton"
+	 PlayerObject.Militarybuttondisable[3] = null; // "aicampbutton"
+	    			stealaicampbutton.setEnabled(true);
+	    			buttonforresources.setEnabled(true);
+	    			buttonforfood.setEnabled(true);
+	    			Buttonforpeople.setEnabled(true);
+	    			Daycounter[1] = 0;
+	    			 System.out.println("Buttons enabled.");
+	    			 System.out.println(currentDay);
+	    			 System.out.println(MainGameGUI.dayCounter);
+	    			 
+ } 
+ else
+ {
+     System.out.println("Day has not changed.");
+     System.out.println(currentDay);
+	 System.out.println(MainGameGUI.dayCounter);
+	            }
+ 
 
+ 
 		// fix when i have time
 		testareaforpeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary+  " in your village");
 		if( PlayerObject.peopleInMilitary >= 20)
@@ -133,7 +169,7 @@ public class MilitarytableGUI extends JFrame {
 		}
 		
 		textareaforfood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " +  "your village");
-		if(PlayerObject.peopleInMilitary >= 14 )
+		if(PlayerObject.peopleInMilitary >= 15 )
 		{
 			buttonforfood.setEnabled(true);
 		}
@@ -160,7 +196,8 @@ public class MilitarytableGUI extends JFrame {
 		{
 			stealaicampbutton.setEnabled(false);
 		}
-	
+		
+		
 		
 		Buttonforpeople.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -183,9 +220,9 @@ public class MilitarytableGUI extends JFrame {
 				buttonforresources.setEnabled(false);
 				stealaicampbutton.setEnabled(false);
 				textAreaforfinsihedtable.append("You got " + counter1 + " people for your village.");
-				PlayerObject.totalPeople = counter1 + PlayerObject.totalPeople;
+				PlayerObject.unallocatedPeople = counter1 + PlayerObject.unallocatedPeople;
 				counter1 = 0;
-				System.out.println(PlayerObject.totalPeople);
+				System.out.println(PlayerObject.unallocatedPeople);
 				AiEventResponse.AIAllocatePeople( 0.2, AiEventResponse.AipeopleInMilitary, AiEventResponse.AipeopleInFood); //allocate AI people
 			
 		    }
@@ -281,6 +318,9 @@ public class MilitarytableGUI extends JFrame {
 			}
 		});
 		
+		
+		
+		
 		if(PlayerObject.Militarybuttondisable[1] == "Foodbutton")
 		{
 			buttonforfood.setEnabled(false);	
@@ -310,15 +350,19 @@ public class MilitarytableGUI extends JFrame {
 			buttonforresources.setEnabled(false);
 			stealaicampbutton.setEnabled(false);		}
 		
+		
+		
 
+	
+		 
 		goback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				counter7 = dayCounter;
 			}
 		});
+		 }
 		
+	 
 	
-	}
 private static boolean obtainItem(Random random) {
     return random.nextDouble() < 0.1;
 }
@@ -330,4 +374,8 @@ private static boolean obtainItem2(Random random) {
 private static boolean obtainItem3(Random random) {
     return random.nextDouble() < 0.25;
 }
+
+
+ 
+
 }
