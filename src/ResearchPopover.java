@@ -492,8 +492,8 @@ public class ResearchPopover extends JFrame {
 			PlayerObject.numberFoodBoost = 25;
 		}
 		if(PlayerObject.researchApplied[2] == "sSeeds") {
-			sToolsButton.setEnabled(false);
-			sSeedsButton.setEnabled(true);
+			sSeedsButton.setEnabled(false);
+			exFarmButton.setEnabled(true);
 			PlayerObject.numberFoodBoost = 25;
 		}
 		if(PlayerObject.researchApplied[3] == "exFarm") {
