@@ -349,7 +349,7 @@ public class TradingPopover extends JFrame {
 	    researchPointsTextArea.setText("");
 	    
 	    // Update villager marketing text area
-	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.totalPeople + "\n");
+	    villagerMarketing_textbox.append("Food: " + PlayerObject.food + "\n" + "Unallocated People: " + PlayerObject.unallocatedPeople + "\n");
 	    villagerMarketing_textbox.append("Resources: " + PlayerObject.miningAndWood + "\n");
 	    villagerMarketing_textbox.append("1 villager = " + percentDiscount2 + " food" + "\n");
 	    villagerMarketing_textbox.append(percentDiscount5 + " Resource = 1 villager");
