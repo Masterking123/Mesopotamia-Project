@@ -72,7 +72,7 @@ public class Quota {
 			
 			
 			for (int i = 0; i < totalPeopleWithoutWood; i++) {
-				if(Main.randomPercentOccurance(25)) {					
+				if(Main.randomPercentOccurance(20)) {					
 					peopleLeftForWood++; 
 				}
 			}
