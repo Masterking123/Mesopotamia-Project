@@ -125,7 +125,11 @@ public class MilitarytableGUI extends JFrame {
 		JTextArea textAreaforfinsihedtable = new JTextArea();
 		textAreaforfinsihedtable.setBounds(85, 297, 649, 178);
 		contentPane.add(textAreaforfinsihedtable);
-
+/*
+ *  figure out where to place this item at in the code
+		Daycounter[0] = MainGameGUI.dayCounter;
+			Daycounter[1] = currentDay;
+	*/	
 		System.out.println(Daycounter[1]);
 		 System.out.println(Daycounter[0]);
 		 
@@ -147,13 +151,8 @@ public class MilitarytableGUI extends JFrame {
 			    			Buttonforpeople.setEnabled(true);
 			    			 System.out.println("Buttons enabled.");
 			    			 
-			    			 Daycounter[0] = MainGameGUI.dayCounter;
-			 				Daycounter[1] = currentDay;
+			    			 
 		}
-	
-		   
- 
-
  
 		// fix when i have time
 		testareaforpeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary+  " in your village");
