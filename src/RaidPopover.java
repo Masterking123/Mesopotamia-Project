@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextArea;
+import javax.swing.WindowConstants;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -40,12 +42,7 @@ public class RaidPopover extends JFrame {
 	 */
 	public RaidPopover() {
 		
-		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				MainGameGUI.frame.setEnabled(true);
-			}
-			
-		});			
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		if (raidDayCount != 0) {
 			setVisible(false);
 		}

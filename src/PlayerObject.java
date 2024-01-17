@@ -45,8 +45,7 @@ public class PlayerObject {
 	public static String stateOfReputation = "neutral";
 	
 	static String[] researchApplied = new String[16];
-	
-	static String[] Militarybuttondisable = new String[16];
+	static Boolean militaryMissionStarted = false;
 	
 	public static void generateFood() {
 		if((1 + (double) (percentFoodBoost / 100.0)) < 0) {

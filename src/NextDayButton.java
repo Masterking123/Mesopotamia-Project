@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public class NextDayButton {
 	public static void nextDayButtonActivated() {
-		System.out.println(PlayerObject.percentFoodBoost);
 		
+		// Reset the mission started so the player can start a new mission the following day
+		PlayerObject.militaryMissionStarted = false;
 		
 		// Generate values for the player
 		PlayerObject.generateFood();

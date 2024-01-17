@@ -26,7 +26,7 @@ import java.awt.BorderLayout;
 	                "Reputation Lost: " + Quota.repLost + "\n" +
 	                "People without mining/wood: " + Quota.totalPeopleWithoutWood + "\n" +
 	                "People left for lack of mining/wood: " + Quota.peopleLeftForWood + "\n" +
-	                "Total amount of people: " + PlayerObject.unallocatedPeople + "\n");
+	                "Total amount of people: " + PlayerObject.totalPeople + "\n");
 	
 	        frame.getContentPane().add(textArea);
 	        
