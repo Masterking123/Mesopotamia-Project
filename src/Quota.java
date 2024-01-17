@@ -38,6 +38,7 @@ public class Quota {
 	}
 
 	public static void checkAndUpdate() {
+
 		repLost = 0;
 		PlayerObject.foodRequiredForVillage = 3 * PlayerObject.totalPeople;
 		PlayerObject.woodRequiredForVillage = 2 * PlayerObject.totalPeople;

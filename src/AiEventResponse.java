@@ -86,7 +86,9 @@ public class AiEventResponse {
 		// This event impacts the boosts and drawbacks
 		//add a event for new people
 		if(generatedRandomEvent.nameOfEvent.equals("Heat Wave")) { //if a heat wave occurs
-			AIAllocatePeople( 0.2, AipeopleInMiningAndWood, AipeopleInResearch ); //it will take people out of research and put them into mining
+			// Move people from Research to MiningAndWood at a 20% rate
+			// Why: Because during a heat wave, we need more mining and wood to help people survive
+			AIAllocatePeople( 0.2, AipeopleInMiningAndWood, AipeopleInResearch ); 
 		}
 		else if (generatedRandomEvent.nameOfEvent.equals("Tornado")) {
 			AIAllocatePeople( 0.3, AipeopleInFood, AipeopleInMiningAndWood );

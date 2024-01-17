@@ -24,6 +24,7 @@ public class PlayerObject {
 	public static double military;
 	public static int percentMilitaryBoost = 0; 
 	public static int numberMilitaryBoost;
+	public static int combatPower;
 	
 	public static int peopleInResearch;
 	public static double research = 0;
@@ -66,7 +67,7 @@ public class PlayerObject {
 	
 	public static void generateMilitary() {
 		if(peopleInMilitary != 0) {
-			military = (peopleInMilitary * 2) * (1 + (double) (percentFoodBoost / 100.0)) + numberMilitaryBoost; 
+			military = (peopleInMilitary * 2) * (1 + (double) (percentMilitaryBoost / 100.0)) + numberMilitaryBoost; 
 		}
 		else {
 			military = 0;

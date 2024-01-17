@@ -171,18 +171,20 @@ public class TradingPopover extends JFrame {
 		Testareamaintrade = new JTextArea();
 		Testareamaintrade.setEditable(false);
 		Testareamaintrade.setBounds(172, 230, 423, 190);
+		Testareamaintrade.setEnabled(true);
+		
+		JScrollPane textAreaScrollPane = new JScrollPane(Testareamaintrade);
+		textAreaScrollPane.setBounds(172, 230, 423, 190);
+		textAreaScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		contentPane.add(textAreaScrollPane);
+		
 		
 		dialog = new JLabel("A group of wanderers, attracted by the prosperity of your village, arrives seeking refuge and a better life");
 		dialog.setFont(new Font("Arial", Font.BOLD, 15));
 		dialog.setBounds(10, 360, 800, 190);
 		contentPane.add(dialog);
 		
-		scrollPane = new JScrollPane(Testareamaintrade);
-		scrollPane.setBounds(10,60,780,500);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		
-		contentPane.add(Testareamaintrade);
 		
 		Tradingtextbox = new JLabel("Trading Messages");
 		Tradingtextbox.setBounds(326, 207, 152, 13);
