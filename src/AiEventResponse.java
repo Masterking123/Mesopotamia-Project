@@ -83,7 +83,11 @@ public class AiEventResponse {
 	
 
 	public static void generateAiEventResponse() { //depending on what event occurs in the AI village, it will wave a different response
-		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent(false); //generates a different random event for the AI
+		
+		// Generates a random event and applies the random event, when its false its applies to AI
+		// Check application in RandomEventObject.getRandomEvent();
+		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent(false); 
+		
 		// This event impacts the boosts and drawbacks
 		//add a event for new people
 		if(generatedRandomEvent.nameOfEvent.equals("Heat Wave")) { //if a heat wave occurs

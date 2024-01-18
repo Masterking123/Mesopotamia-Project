@@ -19,7 +19,7 @@ public class AiQuota {
 		AiEventResponse.AitotalPeople = AiEventResponse.AipeopleInFood + AiEventResponse.AipeopleInMiningAndWood + AiEventResponse.AipeopleInMilitary + AiEventResponse.AipeopleInResearch + AiEventResponse.AitotalPeople;
 	}
 	
-	public static void meetAiQuotaFood() {// method which determines if the user meets the quota
+	public static void AiQuotaFood() {// method which determines if the user meets the quota
 	    if (AiEventResponse.Aifood >= AifoodRequiredPerPerson * AiEventResponse.AitotalPeople) {// if the user meets the quota
 	        System.out.println("Everyone has enough food (AI).");// nothing happens and I display a print statement for testing that everyone for the AI village meets the quota
 	      
@@ -85,11 +85,8 @@ public class AiQuota {
 	    }
 	}
 
-public static void meetAiQuotaMiningAndWood() {
+public static void AiQuotaMiningAndWood() {
 	
-	if(Main.randomPercentOccurance(50) == true){// if the random chance equals 50
-    	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
-	}
     if (AiEventResponse.AiminingAndWood >= AiMiningAndWoodNeededRequiredPerPerson * AiEventResponse.AitotalPeople) {
         System.out.println("Everyone has enough wood (AI).");
     } else {

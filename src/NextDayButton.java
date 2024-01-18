@@ -82,8 +82,8 @@ public class NextDayButton {
 		if (MainGameGUI.dayCounter == 1) {
 			AiQuota.aiFirstDayAllocation();
 		}
-		AiQuota.meetAiQuotaFood();
-		AiQuota.meetAiQuotaMiningAndWood();
+		AiQuota.AiQuotaFood();
+		AiQuota.AiQuotaMiningAndWood();
 
 		// Reputation Buffs or Debuffs
 		PlayerObject.reputationCheck();
