@@ -73,7 +73,7 @@ public class AiEventResponse {
 		AitotalPeople -= (int) Math.floor(AitotalPeople * ((double) (percentLoss / 100.0)));
 	}
 	
-	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) { //method Ai uses to allocate its people
+	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) { //method AI uses to allocate its people
 		movePeopleNum = (int) Math.round(takeAway * peopleAmount); //takes a percentage of the people you want to move from a certain area and stores it in a variable
 		takeAway =- movePeopleNum; //subtracts the percentage of people from that area you want to take people away from
 		addMore =+ movePeopleNum;  //adds the amount you subtracted to the area you want to allocate people to
@@ -81,8 +81,8 @@ public class AiEventResponse {
 	}
 	
 
-	public static void generateAiEventResponse() { //depending on what event occurs in the ai village, it will wave a different response
-		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent(false); //generates a different random event for the ai
+	public static void generateAiEventResponse() { //depending on what event occurs in the AI village, it will wave a different response
+		EventObject generatedRandomEvent = RandomEventObject.getRandomEvent(false); //generates a different random event for the AI
 		// This event impacts the boosts and drawbacks
 		//add a event for new people
 		if(generatedRandomEvent.nameOfEvent.equals("Heat Wave")) { //if a heat wave occurs
