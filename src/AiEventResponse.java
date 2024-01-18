@@ -73,10 +73,10 @@ public class AiEventResponse {
 		AitotalPeople -= (int) Math.floor(AitotalPeople * ((double) (percentLoss / 100.0)));
 	}
 	
-	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) { //method ai uses to allocate its people
+	public static void AIAllocatePeople(double peopleAmount, int addMore, int takeAway ) { //method Ai uses to allocate its people
 		movePeopleNum = (int) Math.round(takeAway * peopleAmount); //takes a percentage of the people you want to move from a certain area and stores it in a variable
-		takeAway =- movePeopleNum;
-		addMore =+ movePeopleNum;
+		takeAway =- movePeopleNum; //subtracts the percentage of people from that area you want to take people away from
+		addMore =+ movePeopleNum;  //adds the amount you subtracted to the area you want to allocate people to
 		
 	}
 	
@@ -90,37 +90,52 @@ public class AiEventResponse {
 			// Why: Because during a heat wave, we need more mining and wood to help people survive
 			AIAllocatePeople( 0.2, AipeopleInMiningAndWood, AipeopleInResearch ); 
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Tornado")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Tornado")) { //if tornado occurs
+			// Move people from MiningAndWood to food at a 30% rate
+			// Why: Because during a tornado, we need more food to help people survive
 			AIAllocatePeople( 0.3, AipeopleInFood, AipeopleInMiningAndWood );
-			AIAllocatePeople( 0.1, AipeopleInFood, AipeopleInResearch );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Drought")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Drought")) { //if drought occurs
+			// Move people from Military to Food at a 20% rate
+			// Why: Because during a drought, we need more food to help people survive
 			AIAllocatePeople( 0.2, AipeopleInFood, AipeopleInMilitary );
-			AIAllocatePeople( 0.1, AipeopleInFood, AipeopleInResearch );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Wildfire")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Wildfire")) { //if wildfire occurs
+			// Move people from Military to MiningAndWood at a 30% rate
+			// Move people from Research to Food at a 10% rate
+			// Why: Because during a wildfire, we need more of food and resources to help people survive
 			AIAllocatePeople( 0.3, AipeopleInMiningAndWood, AipeopleInMilitary );
 			AIAllocatePeople( 0.1, AipeopleInFood, AipeopleInResearch );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Earthquake")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Earthquake")) { //if earthquake occurs
+			// Move people from Food and Research to Military at a 20% rate each
+			// Why: Because during a drought, we need more food to help people survive
 			AIAllocatePeople( 0.2, AipeopleInMilitary, AipeopleInFood  );
 			AIAllocatePeople( 0.2, AipeopleInMilitary, AipeopleInResearch );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Neighbouring Village")) {
-			//fill out when other values done
-			AitotalPeople =+ 5;
-			AipeopleInFood = +5;
-			Aireputation =-2;
+		else if (generatedRandomEvent.nameOfEvent.equals("Neighbouring Village")) { //if the event Neighbouring Village occurs
+			AitotalPeople =+ 5; //increase population by 5
+			AipeopleInFood = +5; //allocatae new people to food
+			Aireputation =-2; //reduce the reputation by 2 points
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Struck Gold Mine")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Struck Gold Mine")) { //if gold mine struck
+			//Move people from Military to MiningAndWood at a 20% rate
+			//Move people from Food to MiningAndWood at a 30% rate
+			//Why: The event increases rates for MiningAndWood which will help the AI get more resources
 			AIAllocatePeople( 0.2, AipeopleInMiningAndWood, AipeopleInMilitary );
 			AIAllocatePeople( 0.3, AipeopleInMiningAndWood, AipeopleInFood );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Bountiful Harvest")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Bountiful Harvest")) { //if Bountiful Harvest occurs
+			//Move people from Research to Food at a 20% rate
+			//Move people from MiningAndWood to Food at a 30% rate
+			//Why: The event increases rates for Farming which will help the AI get more food
 			AIAllocatePeople( 0.2, AipeopleInFood, AipeopleInResearch );
 			AIAllocatePeople( 0.3, AipeopleInFood, AipeopleInMiningAndWood );
 		}
-		else if (generatedRandomEvent.nameOfEvent.equals("Scientific breakthrough")) {
+		else if (generatedRandomEvent.nameOfEvent.equals("Scientific breakthrough")) { //if occurs
+			//Move people from Food to Research at a 30% rate
+			//Move people from MiningAndWood to Research at a 20% rate
+			//Why: The event increases rates for research which will help the AI get more research points
 			AIAllocatePeople( 0.3, AipeopleInResearch, AipeopleInFood );
 			AIAllocatePeople( 0.2, AipeopleInResearch, AipeopleInMiningAndWood );
 		}
