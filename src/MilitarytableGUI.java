@@ -114,19 +114,19 @@ public class MilitarytableGUI extends JFrame {
 		contentPane.add(textAreaForUserOutput);
 		
 		disableAllButtons();
-		textAreaForPeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary +  " in your village");
+		textAreaForPeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary +  " people in your military");
 		if(PlayerObject.peopleInMilitary >= 20) {
 			btnForPeopleMission.setEnabled(true);
 		}
-		textAreaForFood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " +  "your village");
+		textAreaForFood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your military");
 		if(PlayerObject.peopleInMilitary >= 15) {
 			btnForFoodMission.setEnabled(true);
 		}
-		textAreaForResource.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
+		textAreaForResource.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your military");
 		if(PlayerObject.peopleInMilitary >= 10) {
 			btnForResourceMission.setEnabled(true);
 		}
-		textAreaForStealResources.append("This is to steal resources from AI Village" + "\n" + "for your village, to start" + "\n" + "you need " + "30 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " in " + "your village");
+		textAreaForStealResources.append("This is to steal resources from AI Village" + "\n" + "for your village, to start" + "\n" + "you need " + "30 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your military");
 		if(PlayerObject.peopleInMilitary >= 30) {
 			btnForStealResourcesMission.setEnabled(true);
 		}

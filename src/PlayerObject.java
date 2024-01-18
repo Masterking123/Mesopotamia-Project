@@ -94,6 +94,7 @@ public class PlayerObject {
 	}
 	
 	public static double calculateVillagePower() {
+		// Military value in player object is combat power
 		double villagePower = military * 2.0 + (food - (totalPeople * 3.0)) + reputation / 2.0 + (miningAndWood * 1.25);
 		return villagePower;
 	}
