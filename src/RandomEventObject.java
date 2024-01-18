@@ -214,7 +214,7 @@ public class RandomEventObject {
 				AiEventResponse.AIactiveEvents.add(new ActiveEvent(eventName, 2));
 				break;
 			case "Inspiration":
-				// TO DO
+				// Inspiration is not related to the AI since the AI always has high inspiration
 				break;
 		}
 		}
