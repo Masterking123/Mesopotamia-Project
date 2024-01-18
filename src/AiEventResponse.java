@@ -32,7 +32,8 @@ public class AiEventResponse {
 	
 	private static int movePeopleNum = 0;
 	
-	public static void lastDayAllocation() {
+	public static void lastDayAllocation() { //on Day 30, the AI will equally assign everyone to each area of the game
+											 //WHY: To give the AI a balanced score that is still beatable
 		int lastDayPeoplePerPlace = AitotalPeople/4;
 		AipeopleInMilitary = lastDayPeoplePerPlace;
 		AipeopleInFood = lastDayPeoplePerPlace;
@@ -40,36 +41,36 @@ public class AiEventResponse {
 		AipeopleInResearch = lastDayPeoplePerPlace;
 	}
 	
-	public static void generateFoodAI() {
+	public static void generateFoodAI() { //generates food for the AI everyday
 		Aifood += ((AipeopleInFood * 10) * (1 + (double) (AipercentFoodBoost / 100.0))) + AinumberFoodBoost;
 	}
 	
-	public static void generateMiningAndWoodAI() {
+	public static void generateMiningAndWoodAI() { //generates resources for the AI everyday
 		AiminingAndWood += ((AipeopleInMiningAndWood * 10) * (1 + (double) (AipercentMiningAndWoodBoost / 100.0))) + AinumberMiningAndWoodBoost + AioneTimeMiningAndWoodBoost;
 		AioneTimeMiningAndWoodBoost = 0;
 		
 	}
 	
-	public static void generateMilitaryAI() {
+	public static void generateMilitaryAI() { //calculates the power of the village
 		Aimilitary = AipeopleInMilitary * (1 + (double) (AipercentFoodBoost / 100.0)) + AinumberMilitaryBoost; 
 	}
 	
 	
-	public static void generateResearchAI() {
+	public static void generateResearchAI() { //generates research points for the AI
 		Airesearch += AipeopleInResearch * (1 + (double) (AipercentResearchBoost / 100.0)) + AinumberResearchBoost;
 		
 	}
 	
-	public static void percentLossOnFood(int percentLoss) {
+	public static void percentLossOnFood(int percentLoss) { //calculates any loss on food
 		Aifood -= Aifood * ((double) (percentLoss / 100.0));
 	}
 	
 	
-	public static void percentLossOnMiningAndWood(int percentLoss) {
+	public static void percentLossOnMiningAndWood(int percentLoss) { //calculates any loss on MiningAndWood
 		AiminingAndWood -= AiminingAndWood * ((double) (percentLoss / 100.0));
 	}
 
-	public static void percentLossOnPeople(int percentLoss) {
+	public static void percentLossOnPeople(int percentLoss) { //calculates any loss of people
 		AitotalPeople -= (int) Math.floor(AitotalPeople * ((double) (percentLoss / 100.0)));
 	}
 	
