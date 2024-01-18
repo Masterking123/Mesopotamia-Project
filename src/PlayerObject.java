@@ -98,6 +98,7 @@ public class PlayerObject {
 		return villagePower;
 	}
 	
+	// Reputation Check 
 	public static void reputationCheck() {
 		if( PlayerObject.reputation > 60) {
 			PlayerObject.percentFoodBoost = PlayerObject.percentFoodBoost + 5;

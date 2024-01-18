@@ -68,7 +68,7 @@ public class FinalRaidWinLoss extends JFrame {
 		contentPane = new JPanel() {  
 			public void paintComponent(Graphics g) {  
           Image img = Toolkit.getDefaultToolkit().getImage(  
-          winPopover.class.getResource("/images/confetti.gif"));  
+          FinalRaidWinLoss.class.getResource("/images/confetti.gif"));  
           g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);  
               }  
           };  
