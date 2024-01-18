@@ -268,14 +268,17 @@ public class MainGameGUI extends JFrame {
 					MainGameGUI.frame.setVisible(false);
 					FinalRaidWinLoss.createWinLossPopup(null);
 				}
-				NextDayButton.nextDayButtonActivated();
-				Raid.raidChance();
-				if (Raid.raidDayCount > 0) {
-					Raid.raidDayCount = Raid.raidDayCount - 1;					
-				} if (Raid.raid == true) {
-					RaidPopover.main(null);
-					frame.setEnabled(false);
+				else {
+					NextDayButton.nextDayButtonActivated();
+					Raid.raidChance();
+					if (Raid.raidDayCount > 0) {
+						Raid.raidDayCount = Raid.raidDayCount - 1;					
+					} if (Raid.raid == true) {
+						RaidPopover.main(null);
+						frame.setEnabled(false);
+					}
 				}
+
 
 				}
 			}
