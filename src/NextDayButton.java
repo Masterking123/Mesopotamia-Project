@@ -77,6 +77,11 @@ public class NextDayButton {
 			AiEventResponse.generateAiEventResponse();
 		}
 		
+		// Add 50% chance to get 2 people each day
+		if(Main.randomPercentOccurance(50) == true){// if the random chance equals 50
+	    	AiEventResponse.AitotalPeople = AiEventResponse.AitotalPeople + 2; // Increment the count of people who left
+		}
+		
 		// Check if Quotas have been met
 		Quota.overallQuota();
 		if (MainGameGUI.dayCounter == 1) {
@@ -87,6 +92,8 @@ public class NextDayButton {
 
 		// Reputation Buffs or Debuffs
 		PlayerObject.reputationCheck();
+		
+		
 		
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);

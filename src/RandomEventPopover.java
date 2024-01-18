@@ -41,7 +41,7 @@ public class RandomEventPopover extends JFrame {
 		yesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(eventName == "Neighbouring Village") {
-					PlayerObject.reputation += 2;
+					PlayerObject.reputation -= 2;
 					PlayerObject.totalPeople += 5;
 					PlayerObject.unallocatedPeople += 5;
 					MainGameGUI.frame.unalloPeopleCounter.setText("" + PlayerObject.unallocatedPeople);
