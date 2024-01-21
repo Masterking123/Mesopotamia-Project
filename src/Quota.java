@@ -31,14 +31,12 @@ public class Quota {
 		else if(notEnoughFood == true || notEnoughResources == true) {
 			QuotaPopOver.showPopUp(null);		
 		}
-		
-		System.out.println("TESTING DEALLOCATION: " + (peopleLeftForFood + peopleLeftForWood));
-		
+				
 		
 	}
 
 	public static void checkAndUpdate() {
-
+		
 		repLost = 0;
 		PlayerObject.foodRequiredForVillage = 3 * PlayerObject.totalPeople;
 		PlayerObject.woodRequiredForVillage = 2 * PlayerObject.totalPeople;
@@ -89,6 +87,7 @@ public class Quota {
 		if(PlayerObject.miningAndWood <= 0) {
 			PlayerObject.miningAndWood = 0;
 		}
+		
 	}
 
 }

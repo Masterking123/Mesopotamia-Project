@@ -98,21 +98,21 @@ public class NextDayButton {
 		System.out.println("PLAYER STATS " + PlayerObject.food + " " + PlayerObject.military + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		System.out.println("AI STATS " + AiEventResponse.Aifood + " " + AiEventResponse.Aimilitary + " " + PlayerObject.miningAndWood + " " + PlayerObject.research);
 		
+		
+		// FOR THE SPIES RESEARCH UPGRADE
 		if(PlayerObject.researchApplied[11] == "spy") { //if level 4 military upgrade, spies steal from rival village
-			if (Math.random() * 100 <= 10) {
-				  int check = (int)Math.floor(Math.random() * (2 - 1 + 1) + 1);
-				  if (check == 1) {
+			if (Main.randomPercentOccurance(10)) {
+				// Randomly choose between stealing food and stealing resources
+				if(Main.randomPercentOccurance(50)) {
 					 double foodStolen = AiEventResponse.Aifood * 0.05;
-					 AiEventResponse.Aifood =- foodStolen;
-					 PlayerObject.food =+ foodStolen;
-					 System.out.println("faaa " +foodStolen);
+					 AiEventResponse.Aifood -= foodStolen;
+					 PlayerObject.food += foodStolen;
 				  }
-				  else if (check == 2) {
-						 double resourceStolen = AiEventResponse.AiminingAndWood * 0.05;
-						 AiEventResponse.AiminingAndWood =- resourceStolen;
-						 PlayerObject.miningAndWood =+ resourceStolen;
-						 System.out.println("raaa " + resourceStolen);
-					  }
+				  else {
+					 double resourceStolen = AiEventResponse.AiminingAndWood * 0.05;
+					 AiEventResponse.AiminingAndWood -= resourceStolen;
+					 PlayerObject.miningAndWood += resourceStolen;
+					}
 				  
 				}
 		}

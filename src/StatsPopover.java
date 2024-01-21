@@ -167,19 +167,35 @@ public class StatsPopover extends JFrame {
 		ratesSubLabel.setBounds(301, 25, 61, 16);
 		ratePanel.add(ratesSubLabel);
 		
-		JLabel foodRateLabel = new JLabel("Food: " + ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost + "/day");
+		double foodStat = (((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost);
+		if(PlayerObject.peopleInFood == 0) {
+			foodStat = 0;
+		}
+		JLabel foodRateLabel = new JLabel("Food: " + foodStat + "/day");
 		foodRateLabel.setBounds(275, 55, 157, 16);
 		ratePanel.add(foodRateLabel);
 		
-		JLabel resRateLabel = new JLabel("Resources: " + ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost + "/day");
+		double resourceStat = ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost;
+		if(PlayerObject.peopleInMiningAndWood == 0) {
+			resourceStat = 0;
+		}
+		JLabel resRateLabel = new JLabel("Resources: " + resourceStat + "/day");
 		resRateLabel.setBounds(275, 83, 157, 16);
 		ratePanel.add(resRateLabel);
 		
-		JLabel res2RateLabel = new JLabel("Research: " + PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost + "/day");
+		double researchStat = PlayerObject.peopleInResearch * (1 + (double) (PlayerObject.percentResearchBoost / 100.0)) + PlayerObject.numberResearchBoost;
+		if(PlayerObject.peopleInResearch == 0) {
+			researchStat = 0;
+		}
+		JLabel res2RateLabel = new JLabel("Research: " + researchStat + "/day");
 		res2RateLabel.setBounds(275, 111, 157, 16);
 		ratePanel.add(res2RateLabel);
 		
-		JLabel comRateLabel = new JLabel("Combat Power: " + (PlayerObject.peopleInMilitary * 2) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost + "/day");
+		double combatStat = (PlayerObject.peopleInMilitary * 2) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0)) + PlayerObject.numberMilitaryBoost;
+		if(PlayerObject.peopleInMilitary == 0) {
+			combatStat = 0;
+		}
+		JLabel comRateLabel = new JLabel("Combat Power: " + combatStat + "/day");
 		comRateLabel.setBounds(275, 139, 157, 16);
 		ratePanel.add(comRateLabel);
 		foodPpersonLabel.setVisible(false);
@@ -191,7 +207,11 @@ public class StatsPopover extends JFrame {
 			resPpersonLabel.setBounds(175, 74, 257, 16);
 			statPanel.add(resPpersonLabel);
 			
-			double moreFoodNeeded = PlayerObject.totalPeople * 3 - PlayerObject.food - ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost;
+			double foodGeneratedInADay = ((PlayerObject.peopleInFood * 10) * (1 + (double) (PlayerObject.percentFoodBoost / 100.0))) + PlayerObject.numberFoodBoost;
+			if(PlayerObject.peopleInFood == 0) {
+				foodGeneratedInADay = 0;
+			}
+			double moreFoodNeeded = PlayerObject.totalPeople * 3 - PlayerObject.food - foodGeneratedInADay;
 			if(moreFoodNeeded <= 0) {
 				moreFoodNeeded = 0;
 			}
@@ -199,7 +219,12 @@ public class StatsPopover extends JFrame {
 			foodLessLabel.setBounds(175, 102, 257, 16);
 			statPanel.add(foodLessLabel);
 			
-			double moreResourcesNeeded = (PlayerObject.totalPeople * 2) - PlayerObject.miningAndWood - ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost;
+			
+			double resourcesGeneratedInADay = ((PlayerObject.peopleInMiningAndWood * 10) * (1 + (double) (PlayerObject.percentMiningAndWoodBoost / 100.0))) + PlayerObject.numberMiningAndWoodBoost + PlayerObject.oneTimeMiningAndWoodBoost;
+			if(PlayerObject.peopleInMiningAndWood == 0) {
+				resourcesGeneratedInADay = 0;
+			}
+			double moreResourcesNeeded = (PlayerObject.totalPeople * 2) - PlayerObject.miningAndWood - resourcesGeneratedInADay;
 			if (moreResourcesNeeded <= 0) {
 				moreResourcesNeeded = 0;
 			}

@@ -245,7 +245,7 @@ public class ResearchPopover extends JFrame {
 					waterFilterButton.setEnabled(false);
 					sToolsButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.percentFoodBoost = 10;
+					PlayerObject.percentFoodBoost += 10;
 					PlayerObject.researchApplied[0] = "waterFilter";
 				}
 				else {
@@ -259,7 +259,7 @@ public class ResearchPopover extends JFrame {
 					sToolsButton.setEnabled(false);
 					sSeedsButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.numberFoodBoost = 25;
+					PlayerObject.numberFoodBoost += 25;
 					PlayerObject.researchApplied[1] = "sTools";
 				}
 				else {
@@ -273,7 +273,7 @@ public class ResearchPopover extends JFrame {
 					sSeedsButton.setEnabled(false);
 					exFarmButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.percentFoodBoost = 40;
+					PlayerObject.percentFoodBoost += 40;
 					PlayerObject.researchApplied[2] = "sSeeds";
 				}
 				else {
@@ -286,7 +286,7 @@ public class ResearchPopover extends JFrame {
 					PlayerObject.research = PlayerObject.research - 12;
 					exFarmButton.setEnabled(false);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.percentFoodBoost = 100;
+					PlayerObject.percentFoodBoost += 100;
 					PlayerObject.researchApplied[3] = "exFarm";
 				}
 				else {
@@ -301,7 +301,7 @@ public class ResearchPopover extends JFrame {
 					stoneToolsButton.setEnabled(false);
 					eSafetyButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.numberMiningAndWoodBoost = 10;
+					PlayerObject.numberMiningAndWoodBoost += 10;
 					PlayerObject.researchApplied[4] = "stoneTools";
 				}
 				else {
@@ -315,7 +315,7 @@ public class ResearchPopover extends JFrame {
 					eSafetyButton.setEnabled(false);
 					ironToolsButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.percentMiningAndWoodBoost = 25;
+					PlayerObject.percentMiningAndWoodBoost += 25;
 					PlayerObject.researchApplied[5] = "eSafety";
 				}
 				else {
@@ -329,7 +329,7 @@ public class ResearchPopover extends JFrame {
 					ironToolsButton.setEnabled(false);
 					goldButton.setEnabled(true);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.percentMiningAndWoodBoost = 75;
+					PlayerObject.percentMiningAndWoodBoost += 75;
 					PlayerObject.researchApplied[6] = "ironTools";
 				}
 				else {
@@ -342,7 +342,7 @@ public class ResearchPopover extends JFrame {
 					PlayerObject.research = PlayerObject.research - 12;
 					goldButton.setEnabled(false);
 					ptsLabel.setText("Points: " + PlayerObject.research);
-					PlayerObject.oneTimeMiningAndWoodBoost = 400;
+					PlayerObject.oneTimeMiningAndWoodBoost += 400;
 					PlayerObject.researchApplied[7] = "gold";
 				}
 				else {
@@ -358,7 +358,7 @@ public class ResearchPopover extends JFrame {
 							lArmButton.setEnabled(false);
 							hArmourButton.setEnabled(true);
 							ptsLabel.setText("Points: " + PlayerObject.research);
-							PlayerObject.numberMilitaryBoost = 20;
+							PlayerObject.numberMilitaryBoost += 20;
 							PlayerObject.researchApplied[8] = "lArm";
 						}
 						else {
@@ -372,7 +372,7 @@ public class ResearchPopover extends JFrame {
 							hArmourButton.setEnabled(false);
 							blackButton.setEnabled(true);
 							ptsLabel.setText("Points: " + PlayerObject.research);
-							PlayerObject.numberMilitaryBoost = 45;
+							PlayerObject.numberMilitaryBoost += 45;
 							PlayerObject.researchApplied[9] = "hArm";
 						}
 						else {
@@ -386,7 +386,7 @@ public class ResearchPopover extends JFrame {
 							blackButton.setEnabled(false);
 							spyButton.setEnabled(true);
 							ptsLabel.setText("Points: " + PlayerObject.research);
-							PlayerObject.percentMilitaryBoost = 60;
+							PlayerObject.percentMilitaryBoost += 60;
 							PlayerObject.researchApplied[10] = "black";
 						}
 						else {
@@ -399,7 +399,7 @@ public class ResearchPopover extends JFrame {
 							PlayerObject.research = PlayerObject.research - 12;
 							spyButton.setEnabled(false);
 							ptsLabel.setText("Points: " + PlayerObject.research);
-							PlayerObject.numberMilitaryBoost = 200;
+							PlayerObject.numberMilitaryBoost += 200;
 							PlayerObject.researchApplied[11] = "spy";
 						}
 						else {
@@ -484,84 +484,68 @@ public class ResearchPopover extends JFrame {
 		if(PlayerObject.researchApplied[0] == "waterFilter") {
 			waterFilterButton.setEnabled(false);
 			sToolsButton.setEnabled(true);
-			PlayerObject.percentFoodBoost = 10;
 		}
 		if(PlayerObject.researchApplied[1] == "sTools") {
 			sToolsButton.setEnabled(false);
 			sSeedsButton.setEnabled(true);
-			PlayerObject.numberFoodBoost = 25;
 		}
 		if(PlayerObject.researchApplied[2] == "sSeeds") {
 			sSeedsButton.setEnabled(false);
 			exFarmButton.setEnabled(true);
-			PlayerObject.numberFoodBoost = 25;
 		}
 		if(PlayerObject.researchApplied[3] == "exFarm") {
 			exFarmButton.setEnabled(false);
-			PlayerObject.percentFoodBoost = 100;
 		}
 		
 		//mining section
 		if(PlayerObject.researchApplied[4] == "stoneTools") {
 			stoneToolsButton.setEnabled(false);
 			eSafetyButton.setEnabled(true);
-			PlayerObject.numberMiningAndWoodBoost = 10;
 		}
 		if(PlayerObject.researchApplied[5] == "eSafety") {
 			eSafetyButton.setEnabled(false);
 			ironToolsButton.setEnabled(true);
-			PlayerObject.percentMiningAndWoodBoost = 25;
 		}
 		if(PlayerObject.researchApplied[6] == "ironTools") {
 			ironToolsButton.setEnabled(false);
 			goldButton.setEnabled(true);
-			PlayerObject.percentMiningAndWoodBoost = 75;
 		}
 		if(PlayerObject.researchApplied[7] == "gold") {
 			goldButton.setEnabled(false);
-			PlayerObject.oneTimeMiningAndWoodBoost = 400;
 		}
 		
 		//miltary section
 		if(PlayerObject.researchApplied[8] == "lArm") {
 			lArmButton.setEnabled(false);
 			hArmourButton.setEnabled(true);
-			PlayerObject.numberMilitaryBoost = 20;
 		}
 		if(PlayerObject.researchApplied[9] == "hArm") {
 			hArmourButton.setEnabled(false);
 			blackButton.setEnabled(true);
-			PlayerObject.numberMilitaryBoost = 45;
 		}
 		if(PlayerObject.researchApplied[10] == "black") {
 			blackButton.setEnabled(false);
 			spyButton.setEnabled(true);
-			PlayerObject.percentMilitaryBoost = 60;
 		}
 		if(PlayerObject.researchApplied[11] == "spy") {
 			spyButton.setEnabled(false);
-			PlayerObject.numberMilitaryBoost = 200;
 		}
 		
 		//sales section
 		if(PlayerObject.researchApplied[12] == "sale1") {
 			sale1Button.setEnabled(false);
 			sale2Button.setEnabled(true);
-			PlayerObject.percentDiscountOnSales = 10;
 		}
 		if(PlayerObject.researchApplied[13] == "sale2") {
 			sale2Button.setEnabled(false);
 			sale3Button.setEnabled(true);
-			PlayerObject.percentDiscountOnSales = 20;
 		}
 		if(PlayerObject.researchApplied[14] == "sale3") {
 			sale3Button.setEnabled(false);
 			sale4Button.setEnabled(true);
-			PlayerObject.percentDiscountOnSales = 30;
 		}
 		if(PlayerObject.researchApplied[15] == "sale4") {
 			sale4Button.setEnabled(false);
-			PlayerObject.percentDiscountOnSales = 40;
 		}
 		
 

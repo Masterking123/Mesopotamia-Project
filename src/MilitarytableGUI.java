@@ -114,15 +114,15 @@ public class MilitarytableGUI extends JFrame {
 		contentPane.add(textAreaForUserOutput);
 		
 		disableAllButtons();
-		textAreaForPeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary +  " people in your military");
+		textAreaForPeople.append("This is to search for people " + "\n" + "for your village, to start" + "\n" + "you need " + "20 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary +  " people in your " + "\n" + "military");
 		if(PlayerObject.peopleInMilitary >= 20) {
 			btnForPeopleMission.setEnabled(true);
 		}
-		textAreaForFood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your military");
+		textAreaForFood.append("This is to search for food " + "\n" + "for your village, to start" + "\n" + "you need " + "15 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your " + "\n" + "military");
 		if(PlayerObject.peopleInMilitary >= 15) {
 			btnForFoodMission.setEnabled(true);
 		}
-		textAreaForResource.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your military");
+		textAreaForResource.append("This is to search for resources " + "\n"+  "for your village, to start" + "\n" + "you need " + "10 people and " + "\n" + "you have " + PlayerObject.peopleInMilitary + " people in your " + "\n" + "military");
 		if(PlayerObject.peopleInMilitary >= 10) {
 			btnForResourceMission.setEnabled(true);
 		}
