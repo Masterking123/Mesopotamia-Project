@@ -26,7 +26,6 @@ public class RandomEventPopover extends JFrame {
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				MainGameGUI.frame.setEnabled(true);
-				MainGameGUI.frame.requestFocus();
 			}
 			
 		});
