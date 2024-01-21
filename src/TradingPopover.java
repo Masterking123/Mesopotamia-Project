@@ -282,13 +282,13 @@ public class TradingPopover extends JFrame {
 					PlayerObject.miningAndWood = PlayerObject.miningAndWood + 5;
 					PlayerObject.food = PlayerObject.food - percentDiscount5;
 					Testareamaintrade.setText("");
-					Testareamaintrade.append("You traded " + percentDiscount5 + " wood" + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
+					Testareamaintrade.append("You traded " + percentDiscount5 + " food " + "\n" + "Wood: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
 					updateTradeInformation();
 				}
 				else
 				{
 					Testareamaintrade.setText("");
-					Testareamaintrade.append("You have no more resources to trade" + "\n");
+					Testareamaintrade.append("You have no more food to trade" + "\n");
 					resourcesAdd.setEnabled(false);
 				}
 			}
