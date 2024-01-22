@@ -16,7 +16,6 @@ public class ConnectFourGameAI {
 		
 	
 		int[] scoreOfMovesInPositions = new int[7];
-		int placementOfMaxScoreMove = -1;
 		
 		// Evaluate each possible move that the AI can make (Iterate through all possible moves)
 		for(int i = 0; i < allGeneratedMoves.length; i++) {
@@ -36,8 +35,7 @@ public class ConnectFourGameAI {
 			// Store the evaluation in an array
 			scoreOfMovesInPositions[i] = currentMoveScore;
 			
-			// Debug
-//			System.out.println("Board " + (i+1) + " " + scoreOfMovesInPositions[i]);
+
 		}
 		
 		
@@ -76,8 +74,8 @@ public class ConnectFourGameAI {
 	public static void CreateAIPriorityList() {
 		AIPlanToScore.put("Winning Move", 10000);
 		AIPlanToScore.put("Block Winning Move", 9000);
-		AIPlanToScore.put("Connect 3", 500); // Ignore dead connect 3
-		AIPlanToScore.put("Connect 2", 100); // Ignore dead connect 2
+		AIPlanToScore.put("Connect 3", 500); // Ignores dead connect 3
+		AIPlanToScore.put("Connect 2", 100); // Ignores dead connect 2
 		AIPlanToScore.put("Invalid Move", -1);
 		AIPlanToScore.put("Position Edge", 20);
 		AIPlanToScore.put("Position Center", 25);
@@ -88,13 +86,18 @@ public class ConnectFourGameAI {
 		// These are the possible directions of movement for the AI to search within the game board
 		int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 		
+		// Score of the current generated game board
 		int scoreOfCurrentGameBoard = 0;
 		
+		// if the game board has a -1 on the top right, it is considered an invalid move
 		if(currentGameBoard[0][0] == -1) {
 			return AIPlanToScore.get("Invalid Move");
 		}
 		
 		// Selection of Winning Move
+		// Using the current direction of the disc, check if there the move that was placed here will result in a connect 4
+		// Also check if the placement is in the middle that results in the connect 4
+		
 		for(int currDir = 0; currDir < dirs.length; currDir++) {
     		int rowNumber = rowOfMove;
     		int colNumber = colOfMove;
@@ -130,7 +133,9 @@ public class ConnectFourGameAI {
     			}
     		}
     		
+    		// Adds the number of directional valid discs and the number of oppositely sided valid discs for a given direction and if its >= 3, its a winning move
     		if((numOfDirectionalValidDiscs + numOfFlippedValidDiscs) >= 3) {
+    			// This gives it the score of a winning move
     			scoreOfCurrentGameBoard += AIPlanToScore.get("Winning Move");
         	}
     	}
@@ -275,6 +280,7 @@ public class ConnectFourGameAI {
 			}
 		}
 		
+		// Giving positions near the center a higher score than the edge moves
 		if(colOfMove == 0 || colOfMove == 6 || colOfMove == 1 || colOfMove == 5) {
 			scoreOfCurrentGameBoard += AIPlanToScore.get("Position Edge");
 		}
@@ -289,42 +295,59 @@ public class ConnectFourGameAI {
 		
 	}
 	
+	// Generate all the possible moves
 	public static int[][][] generatePossibleMoves(int[][] currentGameBoard){
 		int[][][] allGeneratedMoves = new int[7][6][7]; // generatedBoard [boardNumber][rows][cols]
 		
+		// Iterate through each of the possible columns to place a move
 		for(int i = 0; i < 7; i++) {
+			
 			int columnNumber = i;
 			int[][] movedGameBoard = new int[6][7];
 			
+			// If the current column that wants to have a move be placed is full
 			if(currentGameBoard[0][i] == 1 || currentGameBoard[0][i] == 2) {
+				// Set the 0,0 position of the game board to -1
 				movedGameBoard[0][0] = -1;
 				allGeneratedMoves[i] = movedGameBoard;
+				
+				// continue to the next column
 				continue;
 			}
 			
+			// Take the current game board and make a copy of it
 			for(int j = 0; j < currentGameBoard.length; j++) {
 				for(int k = 0; k < currentGameBoard[0].length; k++) {
 					movedGameBoard[j][k] = currentGameBoard[j][k];
 				}
 			}
 			
+			// This simulates the gravity of dropping a piece
+			// Make a move in that column, by moving down the column until there is a piece to put the new piece on top of 
 			for(int rowNumber = 0; rowNumber < 6; rowNumber++) {
 	    		if((rowNumber-1) >= 0 && movedGameBoard[rowNumber][columnNumber] == 1 || movedGameBoard[rowNumber][columnNumber] == 2) {
 	    			movedGameBoard[rowNumber-1][columnNumber] = 2;
 	    			break;
 	    		}
+	    		
+	    		// If it the bottom of the game board, don't check for a piece below it and just place the piece there
 	    		else if(movedGameBoard[rowNumber][columnNumber] == 0 && rowNumber == 5) {
 	    			movedGameBoard[rowNumber][columnNumber] = 2;
 	    			break;
 	    		}
 	    	}
 			
+			// Set the new generated placed move in the array
 			allGeneratedMoves[i] = movedGameBoard;
 		}
 
+		
+		// return the array of all possible moves
 		return allGeneratedMoves;
 	}
 	
+	
+	// Plays a random move that when the random move, wont make it win/lose the game
 	public static int randomValidMoveExcludingWinningMove(int[] arrayOfScores) {
 		ArrayList<Integer> indexsOfValidMoves = new ArrayList<Integer>();
 		int maxScore = -1;
