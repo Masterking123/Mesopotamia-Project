@@ -81,8 +81,8 @@ public class InstructionsPopover extends JFrame {
 		
 		JTextPane mainGameDisc = new JTextPane();
 		mainGameDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		mainGameDisc.setText("The goal of the game is to simulate the growth of an ancient civilization. We start the game off as the leader of a small village, there is a rival village that is growing at an alarming rate and they have hostile relations with our village. The village has agreed to conduct a final raid on the village and they have tasked you with prepping for the next 30 days to be ready for the attack. You must survive for the next 30 days and create a thriving village to win against the rival AI village. ");
-		mainGameDisc.setBounds(81, 70, 354, 224);
+		mainGameDisc.setText("The goal of the game is to simulate the growth of an ancient civilization. The game starts off by creating your character name, naming the village, the naming your rival village. Our village has hostile relations with the opposing village so we need to conduct a final raid.After you finish creating your character, you will begin with 10 people where you can assign them roles. The different roles are: farming, mining and woods, military, and research. Farming provides food to your village, Mining/Woods gives resources like wood and stone, Military gives your village protection against neighbouring villages and the ability to conduct raids, Research advances your civilization through technology and knowledge. Once you are happy with your allocations, you can click the “Next Day” button to earn the amount based on the rates in the statistics. ");
+		mainGameDisc.setBounds(19, 52, 502, 253);
 		panelMain.add(mainGameDisc);
 		
 		JPanel panelRep = new JPanel();
@@ -195,7 +195,7 @@ public class InstructionsPopover extends JFrame {
 		
 		JTextPane connectDisc = new JTextPane();
 		connectDisc.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		connectDisc.setText("Whenever a raid occurs, you must play a game of connect 4 with the enemy village to decide the winner. You will take turns dropping discs into the grid, starting in the middle or at the edge to stack their colored discs upwards, horizontally, or diagonally. Using strategy to outsmart the enemies.");
+		connectDisc.setText("Whenever a raid occurs, you must play a game of connect 4 with the enemy village to decide the winner. You will take turns dropping discs into the grid, starting in the middle or at the edge to stack their colored discs upwards, horizontally, or diagonally. Using strategy to outsmart the enemies. If you win you will save your village. If you lose however the enemy will take your resources.");
 		connectDisc.setBounds(121, 70, 286, 235);
 		panelConnect.add(connectDisc);
 		
