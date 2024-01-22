@@ -140,7 +140,7 @@ public class TradingPopover extends JFrame {
 		researchPointsTextArea = new JTextArea();
 		researchPointsTextArea.setFont(new Font("Arial", Font.PLAIN, 11));
 		researchPointsTextArea.setEditable(false);
-		researchPointsTextArea.setBounds(575, 99, 129, 64);
+		researchPointsTextArea.setBounds(575, 99, 150, 64);
 		contentPane.add(researchPointsTextArea);
 		
 		villagerAdd = new JButton("Food");
@@ -179,11 +179,6 @@ public class TradingPopover extends JFrame {
 		contentPane.add(textAreaScrollPane);
 		
 		
-		dialog = new JLabel("A group of wanderers, attracted by the prosperity of your village, arrives seeking refuge and a better life");
-		dialog.setFont(new Font("Arial", Font.BOLD, 15));
-		dialog.setBounds(10, 360, 800, 190);
-		contentPane.add(dialog);
-		
 		
 		
 		Tradingtextbox = new JLabel("Trading Messages");
@@ -199,16 +194,17 @@ public class TradingPopover extends JFrame {
 		
 		// food tradingtextbox
 		Foodtextarea.append("Resources: " + PlayerObject.miningAndWood + "\n" + "Food: " + PlayerObject.food + "\n");
-		Foodtextarea.append("5 food = " + percentDiscount5 + " resources");
+		Foodtextarea.append("5 resources = " + percentDiscount5 + " food");
 		
 		resourceTextArea.append("Food:" + PlayerObject.food + "\n" + "Resources: " + PlayerObject.miningAndWood + "\n");
-		resourceTextArea.append("5 resources = " + percentDiscount5 + " food" + "\n");
+		resourceTextArea.append("5 food = " + percentDiscount5 + " resources" + "\n");
 		
 		// researchpoints textbox
 		researchPointsTextArea.append("Research Points: " + PlayerObject.research + "\n"
 		+ "Food: " + PlayerObject.food + "\n"
-		+ "Resourced: "+ PlayerObject.miningAndWood);
-		researchPointsTextArea.append("1 research" + "\n" + "point = " + percentDiscount5 + " food or " + "\n" + percentDiscount5 + " resource");
+		+ "Resourced: "+ PlayerObject.miningAndWood + "\n");
+		researchPointsTextArea.append(percentDiscount5 + " food OR " + percentDiscount5 + " resource = " + "\n" + "1 research point");
+//		researchPointsTextArea.append("1 research" + " point " + "\n" + "= " + percentDiscount5 + " food or " + percentDiscount5 + " resource");
 		
 
 		

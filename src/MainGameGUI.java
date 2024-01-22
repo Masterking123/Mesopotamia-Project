@@ -270,12 +270,15 @@ public class MainGameGUI extends JFrame {
 				}
 				else {
 					NextDayButton.nextDayButtonActivated();
-					Raid.raidChance();
-					if (Raid.raidDayCount > 0) {
-						Raid.raidDayCount = Raid.raidDayCount - 1;					
-					} if (Raid.raid == true) {
-						RaidPopover.main(null);
-						frame.setEnabled(false);
+					
+					if(PlayerObject.peopleInMilitary < 75) {
+						Raid.raidChance();
+						if (Raid.raidDayCount > 0) {
+							Raid.raidDayCount = Raid.raidDayCount - 1;					
+						} if (Raid.raid == true) {
+							RaidPopover.main(null);
+							frame.setEnabled(false);
+						}
 					}
 				}
 

@@ -27,7 +27,7 @@ public class PlayerObject {
 	public static int combatPower;
 	
 	public static int peopleInResearch;
-	public static double research = 50;
+	public static double research = 0;
 	public static int percentResearchBoost = 0;
 	public static int numberResearchBoost;
 	
